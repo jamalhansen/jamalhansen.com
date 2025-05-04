@@ -1,0 +1,7 @@
+baseURL: "https://jamalhansen.com/"
+languageCode: "en-us"
+title: "Jamal Hansen"
+theme: "qubt"
+enableRobotsTXT: true
+enableEmoji: true
+disableKinds: ["taxonomy", "term"]
