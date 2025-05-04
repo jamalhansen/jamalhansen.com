@@ -1,2 +1,0 @@
-# Jamalhansen.com Blog
-
