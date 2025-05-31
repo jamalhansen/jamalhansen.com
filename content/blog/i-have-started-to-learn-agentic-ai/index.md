@@ -18,7 +18,7 @@ canonical_url: https://jamalhansen.com/i-have-started-learning-agentic-ai
 slug: i-have-started-learning-agentic-ai
 layout: post
 ---
-I've been wanting to learn more about artificial intelligence and in particular agentic AI. This past week I started a training on udemy called [The complete Agentic AI Engineering Course](https://udemy.com/course/the-complete-agentic-ai-engineering-course/learn/lecture/49771155#overview) by [Ed Donner](https://www.linkedin.com/in/eddonner/) and Ligency Team.
+I've been wanting to learn more about artificial intelligence and in particular agentic AI. This past week I started a training on udemy called [The complete Agentic AI Engineering Course](https://udemy.com/course/the-complete-agentic-ai-engineering-course) by [Ed Donner](https://www.linkedin.com/in/eddonner/) and Ligency Team.
 
 The class is that it doesn't tout itself as a "Learn everything about agentic AI in 30 Days" or "4 hours to AI Engineer". Those types of titles typically indicate that the training is either very high level or filled with fluff (sometimes both). 
 
