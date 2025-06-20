@@ -4,9 +4,6 @@
 
 author:
   name: "Jamal Hansen"
-#  image: author.jpeg
-  greeting: "A personal blog theme for Jamal Hansen"
-  icon: ":wave:"
 
 ############################
 ## Links
@@ -17,49 +14,49 @@ links:
   # - facebook: https://github.com/chrede88/qubt
   # - x-twitter:
   # - mastodon:
-  # - linkedin: 
+  # - linkedin:
   # - instagram:
-  # - reddit: 
-  # - telegram: 
-  # - whatsapp: 
-  # - signal: 
-  # - codepen: 
-  # - dev: 
-  # - email: 
+  # - reddit:
+  # - telegram:
+  # - whatsapp:
+  # - signal:
+  # - codepen:
+  # - dev:
+  # - email:
   # - website:
-  # - link: 
+  # - link:
   # - discord:
   # - orcid:
   # - slack:
-  # - stack-overflow: 
-  # - twitch: 
-  # - patreon: 
+  # - stack-overflow:
+  # - twitch:
+  # - patreon:
   # - soundcloud:
-  # - dribbble: 
-  # - stack-exchange: 
-  # - tiktok: 
+  # - dribbble:
+  # - stack-exchange:
+  # - tiktok:
   # - youtube:
-  # - keybase: 
-  # - flickr: 
+  # - keybase:
+  # - flickr:
   # - tumblr:
-  # - kickstarter: 
+  # - kickstarter:
   # - snapchat:
-  # - bluesky: 
+  # - bluesky:
   # - bitbucket:
-  # - bandcamp: 
-  # - etsy: 
-  # - spotify: 
-  # - pinterest: 
-  # - strava: 
-  # - untappd: 
-  # - skype: 
-  # - medium: 
-  # - foursquare: 
-  # - apple: 
-  # - amazon: 
-  # - google: 
-  # - paypal: 
-  # - windows: 
+  # - bandcamp:
+  # - etsy:
+  # - spotify:
+  # - pinterest:
+  # - strava:
+  # - untappd:
+  # - skype:
+  # - medium:
+  # - foursquare:
+  # - apple:
+  # - amazon:
+  # - google:
+  # - paypal:
+  # - windows:
 
 ###############################
 ## OpenGraph & Twitter Cards

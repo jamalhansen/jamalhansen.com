@@ -1,10 +1,7 @@
 main:
-- name: Home
-  url: /
-  weight: 10
-- name: Blog
-  url: /blog/
-  weight: 20
-- name: Chat
-  url: /chat/
-  weight: 30
+  - name: Home
+    url: /
+    weight: 10
+  - name: Blog
+    url: /blog/
+    weight: 20
