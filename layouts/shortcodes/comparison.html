@@ -1,0 +1,10 @@
+<div class="comparison">
+  <figure>
+    <img src="{{ .Get "before" }}" alt="Before">
+    <figcaption>{{ .Get "before-caption" | default "Before" }}</figcaption>
+  </figure>
+  <figure>
+    <img src="{{ .Get "after" }}" alt="After">
+    <figcaption>{{ .Get "after-caption" | default "After" }}</figcaption>
+  </figure>
+</div>
