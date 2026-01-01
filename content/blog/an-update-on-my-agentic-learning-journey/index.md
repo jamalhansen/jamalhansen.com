@@ -6,8 +6,13 @@ author:
 date: 2025-06-24
 lastmod: ""
 tags:
-  - agentic
-categories: 
+  - agentic-ai
+  - artificial-intelligence
+  - learning
+  - python
+  - langchain
+categories:
+  - technology 
 featureimage: agentic-update-landscape.jpg
 cardimage: agentic-update-card.jpg
 draft: false

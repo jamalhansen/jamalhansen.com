@@ -5,7 +5,7 @@
 author:
   name: "Jamal Hansen"
   greeting: "Data engineer exploring AI, cloud technologies, and the future of work. Writing about AWS certifications, agentic AI, and building purposeful systems."
-  icon: "💻"
+  image: "author.png"  # Add your profile image to /assets/author.png
 
 ############################
 ## Links
@@ -13,10 +13,10 @@ author:
 
 links:
   - github: https://github.com/jamalhansen
+  - linkedin: https://www.linkedin.com/in/jamalhansen/
   # - facebook: https://github.com/chrede88/qubt
   # - x-twitter:
   # - mastodon:
-  # - linkedin:
   # - instagram:
   # - reddit:
   # - telegram:
@@ -66,5 +66,5 @@ links:
 
 title: "Jamal Hansen"
 description: "Data engineer exploring AI, cloud technologies, and the future of work"
-# images:
-#  - thumbnail.jpeg
+images:
+  - aws-certified-data-engineer-associate-card.png

@@ -1,0 +1,12 @@
+# Hugo template files
+layouts/**/*.html
+themes/**/*.html
+
+# Hugo generated files  
+public/
+resources/
+
+# Other files to ignore
+*.md
+*.yaml
+*.yml

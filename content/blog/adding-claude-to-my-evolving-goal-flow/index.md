@@ -7,10 +7,12 @@ date: 2025-07-13
 lastmod: ""
 tags:
   - claude
-  - ai
+  - artificial-intelligence
   - goals
-  - notes
+  - productivity
+  - workflow
 categories:
+  - productivity
 featureimage: isaac-smith-Ij7h-m4nJ18-unsplash.jpg
 cardimage: adding-claude-to-my-evolving-goal-flow-card.jpg
 draft: false

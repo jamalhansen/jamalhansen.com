@@ -7,8 +7,11 @@ date: 2025-06-20
 lastmod: ""
 tags:
   - aws
-  - CertificationJourney
+  - certification
+  - success
+  - data-engineering
 categories:
+  - certification
 featureimage: aws-data-engineer-ready.jpeg
 cardimage: aws-certified-data-engineer-associate-card.png
 draft: false

@@ -6,7 +6,12 @@ author:
 date: 2025-05-10
 lastmod: ""
 tags:
+  - aws
+  - certification
+  - failure
+  - learning
 categories:
+  - certification
 featureimage: 2025-05-10-exam-results.png
 cardimage: 2025-05-10-failed-exam-card-image.png
 draft: false

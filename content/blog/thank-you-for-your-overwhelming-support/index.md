@@ -7,7 +7,12 @@ date: 2025-06-01
 lastmod: ""
 tags:
   - gratitude
+  - aws
+  - certification
+  - community
+  - linkedin
 categories:
+  - personal
 featureimage: kevin-butz-6hsfmat-t7k-unsplash.jpg
 cardimage: 2025-06-01-i-am-grateful-card.jpg
 draft: false

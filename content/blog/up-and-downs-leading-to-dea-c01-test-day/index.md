@@ -6,7 +6,13 @@ author:
 date: 2025-05-05
 lastmod: ""
 tags:
+  - aws
+  - certification
+  - dea-c01
+  - studying
+  - preparation
 categories:
+  - certification
 featureimage: 2025-05-06-dea-c01-practice-exam-results.png
 cardimage: 2025-05-05-dea-c01-practice-exam-results-cardimage.png
 caption: Another failing practice test score isn't helping my confidence

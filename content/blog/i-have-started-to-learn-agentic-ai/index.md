@@ -6,9 +6,12 @@ author:
 date: 2025-05-31
 lastmod: ""
 tags:
-  - agentic
-  - ai
-categories: 
+  - agentic-ai
+  - artificial-intelligence
+  - learning
+  - udemy
+categories:
+  - technology 
 featureimage: studying-agentic-ai.jpg
 cardimage: studying-agentic-ai-thumb.png
 draft: false

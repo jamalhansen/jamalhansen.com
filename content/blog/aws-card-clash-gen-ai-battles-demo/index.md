@@ -6,8 +6,13 @@ author:
 date: 2025-05-07
 lastmod: ""
 tags:
-  - aws skill builder
+  - aws
+  - skillbuilder
+  - gaming
+  - learning
+  - architecture
 categories:
+  - learning
 featureimage: 2025-05-07-aws-card-clash-demo.png
 cardimage: 2025-05-07-aws-card-clash-cardimage.png
 caption: The AWS Card Clash Demo

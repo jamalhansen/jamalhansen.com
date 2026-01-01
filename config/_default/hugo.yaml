@@ -9,3 +9,20 @@ taxonomies:
   tag: tags
   category: categories
   series: series
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    lineNos: true
+    style: github
+    noClasses: false
+
+minify:
+  disableCSS: false
+  disableHTML: false
+  disableJS: false
+  disableJSON: false
+  disableSVG: false
+  disableXML: false

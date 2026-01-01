@@ -3,9 +3,17 @@ title: "I test for the AWS Data Engineer Associate Certification in five days"
 subtitle: "...and I'm not sure that I'm ready"
 date: 2025-05-04
 draft: false
+author:
+  - Jamal Hansen
 series: AWS Data Engineer - Associate Certification
-
-# card specific config
+tags:
+  - aws
+  - certification
+  - dea-c01
+  - anxiety
+  - preparation
+categories:
+  - certification
 summary: As I approach the exam date for the AWS Data Engineer Associate Certification (DEA-C01) exam, I'm having second thoughts about my chances of passing after a poor practice test score.
 ---
 

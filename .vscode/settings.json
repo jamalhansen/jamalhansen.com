@@ -1,0 +1,12 @@
+{
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
+  "[html]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  },
+  "files.associations": {
+    "layouts/**/*.html": "html",
+    "themes/**/*.html": "html"
+  }
+}
