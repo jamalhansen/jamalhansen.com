@@ -13,7 +13,7 @@ featureimage: aws-data-engineer-ready.jpeg
 cardimage: aws-certified-data-engineer-associate-card.png
 draft: false
 toc: false
-series:
+series: AWS Data Engineer - Associate Certification
 canonical_url: https://jamalhansen.com/blog/aws-data-engineer-certification-test-take-2
 slug: aws-data-engineer-certification-test-second-attempt
 layout: post

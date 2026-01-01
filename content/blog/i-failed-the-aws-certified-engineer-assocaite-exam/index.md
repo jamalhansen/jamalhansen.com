@@ -11,7 +11,7 @@ featureimage: 2025-05-10-exam-results.png
 cardimage: 2025-05-10-failed-exam-card-image.png
 draft: false
 toc: false
-series:
+series: AWS Data Engineer - Associate Certification
 canonical_url: https://jamalhansen.com/blog/i-failed-the-aws-certified-data-engineer-associate-exam
 slug: i-failed-the-aws-certified-data-engineer-associate-exam
 layout: post

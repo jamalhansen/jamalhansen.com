@@ -12,7 +12,7 @@ featureimage: kevin-butz-6hsfmat-t7k-unsplash.jpg
 cardimage: 2025-06-01-i-am-grateful-card.jpg
 draft: false
 toc: false
-series:
+series: AWS Data Engineer - Associate Certification
 canonical_url: https://jamalhansen.com/blog/thank-you-for-your-overwhelming-support
 slug: thank-you-for-your-overwhelming-support
 layout: post
