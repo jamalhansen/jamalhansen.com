@@ -1,0 +1,180 @@
+{{ define "main" }}
+  {{/* Hero Section with Author Info */}}
+  <div class="flex items-center justify-center min-h-[85vh]">
+    <div class="flex flex-col items-center text-center px-6 max-w-4xl">
+      {{ $image := resources.GetMatch (print "**" .Site.Params.Author.image) }}
+      {{ $name := .Site.Params.Author.name }}
+      {{ $icon := .Site.Params.Author.icon }}
+      
+      {{ with $image }}
+        {{ $image = $image.Filter (images.Process "resize 200x200 Lanczos q100 webp" ) }}
+        <div class="relative mb-8">
+          <img class="h-32 w-32 rounded-full shadow-lg" width="128" height="128" alt="{{ $name | default "Author" }}" src="{{ $image.RelPermalink }}" />
+          {{ with $icon }}
+            <div class="absolute -bottom-1 -right-1 flex h-8 w-8 items-center justify-center rounded-full border-2 border-solid border-slate-50 bg-neutral-300 dark:bg-neutral-500">
+              {{ . | emojify }}
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+
+      {{ with .Site.Params.Author.greeting }}
+        <p class="text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-2xl leading-relaxed">
+          {{ . | markdownify | emojify }}
+        </p>
+      {{ end }}
+      
+      {{/* Social links with better spacing */}}
+      <div class="flex items-center justify-center gap-2 mb-12">
+        {{ range $links := .Site.Params.Links }}
+          {{ range $type, $data := $links }}
+            {{ $href := $data }}
+            {{ $icon := $type }}
+            {{ $iconPath := resources.Get (print "icons/" $icon ".svg") }}
+            {{ with $iconPath }}
+              <a class="link" href="{{ $href }}" target="_blank" rel="me noopener noreferrer" aria-label="{{ $icon }}">
+                <span class="link_svg">
+                  {{ $iconPath.Content | safeHTML }}
+                </span>
+              </a>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+      
+      {{/* Call-to-action navigation */}}
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="/blog/" class="rounded-xl bg-indigo-500 px-8 py-4 text-white font-medium hover:bg-indigo-600 transition-colors duration-200">
+          📚 Explore All Posts
+        </a>
+        <a href="#featured" class="rounded-xl bg-neutral-300 px-6 py-4 text-slate-700 font-medium hover:bg-neutral-400 dark:bg-neutral-700 dark:text-slate-200 dark:hover:bg-neutral-600 transition-colors duration-200">
+          ⭐ Featured Topics
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {{/* Featured Topics Section */}}
+  <section id="featured" class="py-32 bg-slate-50 dark:bg-slate-800/50">
+    <div class="mx-auto max-w-(--breakpoint-xl) px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-3xl font-bold text-slate-700 dark:text-slate-200 mb-6">
+          Featured Topics
+        </h2>
+        <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          Explore my journey through technology, learning, and personal development
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <!-- AWS & Data Engineering -->
+        <div class="group bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <h3 class="text-xl font-bold text-slate-700 dark:text-slate-200 mb-4">AWS & Data Engineering</h3>
+          <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">Journey through AWS certifications, data pipeline architecture, and cloud engineering best practices.</p>
+          <div class="space-y-2">
+            {{ $awsPosts := where (where .Site.RegularPages "Section" "blog") ".Params.tags" "intersect" (slice "aws" "CertificationJourney") }}
+            {{ range first 2 $awsPosts }}
+              <a href="{{ .Permalink }}" class="block text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-medium">
+                {{ .Title }}
+              </a>
+            {{ end }}
+          </div>
+        </div>
+
+        <!-- AI & Agentic Systems -->
+        <div class="group bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <h3 class="text-xl font-bold text-slate-700 dark:text-slate-200 mb-4">AI & Agentic Systems</h3>
+          <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">Exploring agentic AI, Claude integrations, and the future of artificial intelligence in software engineering.</p>
+          <div class="space-y-2">
+            {{ $aiPosts := where (where .Site.RegularPages "Section" "blog") ".Params.tags" "intersect" (slice "ai" "agentic" "claude") }}
+            {{ range first 2 $aiPosts }}
+              <a href="{{ .Permalink }}" class="block text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-medium">
+                {{ .Title }}
+              </a>
+            {{ end }}
+          </div>
+        </div>
+
+        <!-- Goals & Productivity -->
+        <div class="group bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300">
+          <h3 class="text-xl font-bold text-slate-700 dark:text-slate-200 mb-4">Goals & Productivity</h3>
+          <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">Systematic approaches to goal setting, personal development, and building meaningful habits.</p>
+          <div class="space-y-2">
+            {{ $goalPosts := where (where .Site.RegularPages "Section" "blog") ".Params.tags" "intersect" (slice "goals" "notes") }}
+            {{ range first 2 $goalPosts }}
+              <a href="{{ .Permalink }}" class="block text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-medium">
+                {{ .Title }}
+              </a>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* Recent Posts Section - Card Layout */}}
+  <section id="recent" class="py-32">
+    <div class="mx-auto max-w-(--breakpoint-xl) px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-3xl font-bold text-slate-700 dark:text-slate-200 mb-6">
+          Recent Posts
+        </h2>
+        <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          Latest thoughts and experiences from my learning journey
+        </p>
+      </div>
+      
+      <div class="grid grid-flow-row grid-cols-1 justify-items-center gap-8 lg:grid-cols-2">
+        {{ $recentPosts := first 4 (where .Site.RegularPages "Section" "blog") }}
+        {{ range $recentPosts }}
+          {{ $cardimage := resources.GetMatch (print "**" .Params.cardimage) }}
+          <a href="{{ .RelPermalink }}" class="group">
+            <div class="flex h-full max-h-80 w-full max-w-2xl flex-row rounded-xl bg-neutral-300 bg-clip-border text-slate-400 shadow-md dark:bg-neutral-700 hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1">
+              {{ with $cardimage }}
+                {{ $cardimage = $cardimage.Filter (images.Process "fit 400x600 Lanczos q80 webp" ) }}
+                <div class="m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-clip-border dark:bg-neutral-700">
+                  <img src="{{ $cardimage.RelPermalink }}" alt="{{ $.Title }}" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+              {{ end }}
+              <div class="flex flex-col justify-between p-6">
+                <div>
+                  <h4 class="mb-2 line-clamp-2 text-base font-semibold text-slate-700 antialiased dark:text-slate-200 md:text-xl">
+                    {{ .Title }}
+                  </h4>
+                  <p class="mb-4 line-clamp-6 text-sm text-slate-500 dark:text-slate-400">
+                    {{ .Summary | emojify }}
+                  </p>
+                </div>
+                <div class="flex flex-row justify-between">
+                  <div class="flex items-center -space-x-3">
+                    {{ range $authors := .Params.authors }}
+                      {{ range $name, $image := $authors }}
+                        {{ $imgPath := resources.GetMatch (print "*" $image) }}
+                        {{ with $imgPath }}
+                          {{ $imgPath = $imgPath.Filter (images.Process "resize 40x40 webp" ) }}
+                          <img class="h-9 w-9 rounded-full border-2 border-slate-50 object-cover object-center" alt="{{ $name }}" src="{{ $imgPath.RelPermalink }}" />
+                        {{ end }}
+                      {{ end }}
+                    {{ end }}
+                  </div>
+                  <div class="p-3 text-xs text-slate-500 dark:text-slate-400">
+                    {{ .Date | time.Format ":date_medium" }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        {{ end }}
+      </div>
+      
+      <div class="text-center mt-20">
+        <a href="/blog/" class="inline-flex items-center px-8 py-4 bg-indigo-500 text-white font-medium rounded-xl hover:bg-indigo-600 transition-colors duration-200 shadow-sm hover:shadow-md">
+          <span>View All Posts</span>
+          <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+{{ end }}

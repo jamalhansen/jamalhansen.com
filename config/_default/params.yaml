@@ -4,6 +4,8 @@
 
 author:
   name: "Jamal Hansen"
+  greeting: "Data engineer exploring AI, cloud technologies, and the future of work. Writing about AWS certifications, agentic AI, and building purposeful systems."
+  icon: "💻"
 
 ############################
 ## Links
@@ -63,6 +65,6 @@ links:
 ###############################
 
 title: "Jamal Hansen"
-description: "Demo site build with Qubt & Hugo"
+description: "Data engineer exploring AI, cloud technologies, and the future of work"
 # images:
 #  - thumbnail.jpeg
