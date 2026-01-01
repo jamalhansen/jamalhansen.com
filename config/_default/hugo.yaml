@@ -4,4 +4,8 @@ title: "Jamal Hansen"
 theme: "qubt"
 enableRobotsTXT: true
 enableEmoji: true
-disableKinds: ["taxonomy", "term"]
+
+taxonomies:
+  tag: tags
+  category: categories
+  series: series
