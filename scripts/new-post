@@ -1,0 +1,60 @@
+#!/bin/bash
+# Simplified wrapper for creating new Hugo posts from Obsidian
+# Usage: ./new-post path/to/obsidian-note.md post-slug-name
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+# Use environment variable or fallback
+if [ -n "$OBSIDIAN_VAULT_PATH" ]; then
+    DEFAULT_VAULT_PATH="$OBSIDIAN_VAULT_PATH"
+else
+    DEFAULT_VAULT_PATH="$HOME/Documents/ObsidianVault"
+fi
+
+# Check if we have enough arguments
+if [ $# -lt 2 ]; then
+    echo "Usage: ./new-post <obsidian-file> <post-slug> [vault-path]"
+    echo ""
+    echo "Examples:"
+    echo "  ./new-post my-note.md awesome-aws-tutorial"
+    echo "  ./new-post jamalhansen.com/_drafts/my-post.md awesome-tutorial"
+    echo "  ./new-post ~/full/path/note.md awesome-tutorial"
+    echo ""
+    echo "Environment:"
+    if [ -n "$OBSIDIAN_VAULT_PATH" ]; then
+        echo "  OBSIDIAN_VAULT_PATH: $OBSIDIAN_VAULT_PATH"
+    else
+        echo "  OBSIDIAN_VAULT_PATH: (not set)"
+        echo "  Default vault: $DEFAULT_VAULT_PATH"
+    fi
+    exit 1
+fi
+
+OBSIDIAN_FILE="$1"
+POST_SLUG="$2"
+VAULT_PATH="${3:-$DEFAULT_VAULT_PATH}"
+
+# If OBSIDIAN_FILE is not an absolute path, prepend the vault path
+if [[ ! "$OBSIDIAN_FILE" = /* ]]; then
+    OBSIDIAN_FILE="$VAULT_PATH/$OBSIDIAN_FILE"
+fi
+
+echo "🚀 Creating new Hugo post from Obsidian note..."
+echo "📄 Source: $OBSIDIAN_FILE"
+echo "🏷️  Slug: $POST_SLUG"
+echo "📁 Vault: $VAULT_PATH"
+echo ""
+
+# Check if the source file exists
+if [ ! -f "$OBSIDIAN_FILE" ]; then
+    echo "❌ Error: File not found: $OBSIDIAN_FILE"
+    echo ""
+    echo "💡 Tips:"
+    echo "  - Use relative path from vault root: jamalhansen.com/_drafts/my-post.md"
+    echo "  - Or use absolute path: ~/full/path/to/note.md"
+    echo "  - Check OBSIDIAN_VAULT_PATH environment variable"
+    exit 1
+fi
+
+# Run the Python script
+python3 "$SCRIPT_DIR/obsidian-to-hugo.py" "$OBSIDIAN_FILE" "$POST_SLUG" "$VAULT_PATH"

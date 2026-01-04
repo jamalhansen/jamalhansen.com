@@ -1,0 +1,69 @@
+#!/bin/bash
+# Check if Obsidian-to-Hugo setup is working correctly
+
+echo "🔍 Checking Obsidian-to-Hugo setup..."
+echo ""
+
+# Check environment variable
+if [ -n "$OBSIDIAN_VAULT_PATH" ]; then
+    echo "✅ OBSIDIAN_VAULT_PATH: $OBSIDIAN_VAULT_PATH"
+    
+    if [ -d "$OBSIDIAN_VAULT_PATH" ]; then
+        echo "✅ Vault directory exists"
+        
+        # Check for jamalhansen.com/_drafts subfolder
+        DRAFTS_DIR="$OBSIDIAN_VAULT_PATH/jamalhansen.com/_drafts"
+        if [ -d "$DRAFTS_DIR" ]; then
+            echo "✅ _drafts folder found: $DRAFTS_DIR"
+            
+            # List any .md files in _drafts
+            MD_FILES=$(find "$DRAFTS_DIR" -name "*.md" 2>/dev/null | head -3)
+            if [ -n "$MD_FILES" ]; then
+                echo "📝 Sample posts found:"
+                echo "$MD_FILES" | sed 's|^|  - |'
+            else
+                echo "ℹ️  No .md files found in _drafts (that's okay!)"
+            fi
+        else
+            echo "⚠️  _drafts folder not found at: $DRAFTS_DIR"
+            echo "💡 You can create it or use any path in your vault"
+        fi
+    else
+        echo "❌ Vault directory doesn't exist: $OBSIDIAN_VAULT_PATH"
+    fi
+else
+    echo "⚠️  OBSIDIAN_VAULT_PATH not set"
+    echo "💡 Add this to your shell profile:"
+    echo "   export OBSIDIAN_VAULT_PATH=\"/path/to/your/vault\""
+fi
+
+echo ""
+
+# Check Python
+if command -v python3 &> /dev/null; then
+    echo "✅ Python 3 available: $(python3 --version)"
+else
+    echo "❌ Python 3 not found"
+fi
+
+echo ""
+
+# Check script permissions
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+if [ -x "$SCRIPT_DIR/new-post" ]; then
+    echo "✅ new-post script is executable"
+else
+    echo "❌ new-post script not executable"
+    echo "💡 Run: chmod +x $SCRIPT_DIR/new-post"
+fi
+
+if [ -x "$SCRIPT_DIR/obsidian-to-hugo.py" ]; then
+    echo "✅ obsidian-to-hugo.py is executable"
+else
+    echo "❌ obsidian-to-hugo.py not executable"
+    echo "💡 Run: chmod +x $SCRIPT_DIR/obsidian-to-hugo.py"
+fi
+
+echo ""
+echo "🎯 Ready to use! Try:"
+echo "   ./scripts/new-post jamalhansen.com/_drafts/my-post.md my-post-slug"

@@ -1,0 +1,15 @@
+{{- $image := .Get 0 -}}
+{{- $alt := .Get 1 | default $image -}}
+{{- $caption := .Get 2 | default "" -}}
+
+{{- with resources.GetMatch (printf "**/%s" $image) -}}
+  {{- $processed := . | images.Process "resize 800x q85" -}}
+  <figure class="obsidian-image">
+    <img src="{{ $processed.RelPermalink }}" alt="{{ $alt }}" loading="lazy" style="max-width: 100%; height: auto;" />
+    {{- if $caption -}}
+      <figcaption>{{ $caption }}</figcaption>
+    {{- end -}}
+  </figure>
+{{- else -}}
+  <p><em>Image not found: {{ $image }}</em></p>
+{{- end -}}
