@@ -244,8 +244,12 @@ def main():
     
     # Categorize images if any exist
     feature_images, content_images = [], []
-    if images and vault_path:
-        feature_images, content_images = categorize_images(images)
+    if images:
+        if vault_path:
+            feature_images, content_images = categorize_images(images)
+        else:
+            print(f"\n📸 Found {len(images)} images, but no vault path provided.")
+            print("Categorization will be skipped - you'll need to copy images manually.")
     
     # Write the converted markdown
     index_file = post_dir / "index.md"
