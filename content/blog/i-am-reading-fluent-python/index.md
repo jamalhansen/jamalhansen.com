@@ -14,7 +14,7 @@ featureimage: annelies-geneyn-bhBONc07WsI-unsplash.jpg
 cardimage: fluent-python-book-thumb.png
 draft: false
 toc: true
-series: "[[Fluent Python]]"
+series: "Fluent Python"
 canonical_url: https://jamalhansen.com/blog/i-am-reading-fluent-python
 slug: i-am-reading-fluent-python
 layout: post
