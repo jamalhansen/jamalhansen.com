@@ -12,7 +12,7 @@ tags:
 categories:
 featureimage: anna-yablonskaya-cpy88m2PnBM-unsplash.jpg
 cardimage: why-learn-sql-thumb.png
-draft: true
+draft: false
 toc: false
 series: "SQL for Python Developers"
 canonical_url: https://jamalhansen.com/blog/i-know-python-why-learn-sql
