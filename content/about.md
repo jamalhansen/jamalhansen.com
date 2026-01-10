@@ -5,41 +5,36 @@ type: "page"
 
 ## Hi, I'm Jamal Hansen
 
-I'm a data engineer with a passion for exploring the intersection of AI, cloud technologies, and the future of work. I believe in building purposeful systems that solve real problems and create meaningful impact.
+I'm a data engineer who spends way too much time thinking about AI, cloud infrastructure, and how work is changing. I like building things that actually solve problems instead of just being technically interesting.
 
 ### What I Do
 
-As a data engineer, I work with cloud platforms, data pipelines, and modern architecture patterns. I'm particularly interested in:
+I work with cloud platforms, data pipelines, and whatever architecture pattern makes sense for the problem. Right now I'm really into:
 
-- **Cloud Engineering**: Working extensively with AWS services and cloud-native solutions
-- **Data Architecture**: Building scalable data pipelines and systems
-- **AI Integration**: Exploring how artificial intelligence can enhance data workflows
-- **Agentic AI**: Investigating autonomous AI systems and their practical applications
+- **Cloud Engineering**: Mostly AWS. I've gotten pretty deep into their services.
+- **Data Architecture**: Building pipelines that don't fall over when things get messy
+- **AI Integration**: Figuring out where AI actually helps vs. where it's just hype
+- **Agentic AI**: Playing with autonomous AI systems to see what they can actually do
 
-### My Learning Journey
+### What I Write About
 
-I'm committed to continuous learning and sharing what I discover along the way. You'll find me writing about:
+I learn by doing, and I write about what I'm learning. Expect posts on:
 
-- **AWS Certifications**: My journey through cloud certification exams and practical cloud engineering
-- **Agentic AI**: Experiments with autonomous AI systems and their real-world applications  
-- **Goal Setting**: Systematic approaches to personal and professional development
-- **Technology Insights**: Practical lessons from working with modern data and cloud technologies
+- **AWS Certifications**: What I've learned studying for and taking AWS exams
+- **Agentic AI**: Real experiments with AI agents, not just theory
+- **Goal Setting**: How I set and track goals (I'm probably too systematic about this)
+- **Python and SQL**: Practical tips for working with data
 
-### Beyond Technology
+### The Rest
 
-When I'm not building data systems or exploring AI, I'm focused on intentional living and goal-oriented growth. I believe in:
+When I'm not coding or reading AWS documentation, I'm probably setting quarterly goals or experimenting with some new AI tool. I tend to be pretty methodical about personal development—it's just how I'm wired.
 
-- Setting purposeful yearly goals and tracking progress systematically
-- Using technology to augment human capability, not replace it
-- Building systems that are both technically sound and ethically responsible
-- Sharing knowledge to help others on similar journeys
+I think technology should make humans more capable, not replace them. And I think if you're building systems that affect people's lives, you have a responsibility to build them thoughtfully.
 
-### Connect With Me
+### Let's Connect
 
-I'm always interested in connecting with others who are passionate about data, AI, and building meaningful systems. You can find me on [GitHub](https://github.com/jamalhansen) or explore my thoughts through the posts on this site.
-
-Whether you're here to learn about AWS certifications, dive into agentic AI concepts, or explore systematic approaches to goal setting, I hope you find something valuable to take away.
+If you're into data, AI, or building things that matter, I'd love to hear from you. Find me on [GitHub](https://github.com/jamalhansen) or just read through the posts here.
 
 ---
 
-*This site is built with Hugo and the Qubt theme, hosted on modern cloud infrastructure—because I practice what I write about.*
+*This site runs on Hugo with the Qubt theme, hosted on AWS. I should probably write a post about the setup.*
