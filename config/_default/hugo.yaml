@@ -4,6 +4,7 @@ title: "Jamal Hansen"
 theme: "qubt"
 enableRobotsTXT: true
 enableEmoji: true
+buildfuture: false
 
 taxonomies:
   tag: tags
