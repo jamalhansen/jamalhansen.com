@@ -28,6 +28,19 @@ def clean_obsidian_links_from_frontmatter(frontmatter):
     frontmatter = re.sub(r'\[\[([^\]]+)\]\]', r'\1', frontmatter)
     return frontmatter
 
+def normalize_frontmatter_fields(frontmatter):
+    """Normalize frontmatter field names to Hugo/theme conventions"""
+    # Change description: to summary:
+    frontmatter = re.sub(r'^description:', 'summary:', frontmatter, flags=re.MULTILINE)
+
+    # Change featured_image: to featureimage:
+    frontmatter = re.sub(r'^featured_image:', 'featureimage:', frontmatter, flags=re.MULTILINE)
+
+    # Change thumbnail: to cardimage:
+    frontmatter = re.sub(r'^thumbnail:', 'cardimage:', frontmatter, flags=re.MULTILINE)
+
+    return frontmatter
+
 def convert_obsidian_to_hugo(content):
     """Convert Obsidian syntax to Hugo-compatible markdown"""
     # Convert ![[image.jpg]] to ![Image](image.jpg)
@@ -52,15 +65,15 @@ def extract_frontmatter_images(frontmatter):
     """Extract featureimage and cardimage from frontmatter"""
     images = []
 
-    # Extract featureimage
-    feature_match = re.search(r'^featureimage:\s*["\']?(.+?)["\']?\s*$', frontmatter, re.MULTILINE)
+    # Extract featureimage - only match if there's actual content (not just whitespace)
+    feature_match = re.search(r'^featureimage:\s*["\']?(\S+)["\']?\s*$', frontmatter, re.MULTILINE)
     if feature_match:
         feature_img = feature_match.group(1).strip()
         if feature_img:  # Only add if not empty
             images.append(feature_img)
 
-    # Extract cardimage
-    card_match = re.search(r'^cardimage:\s*["\']?(.+?)["\']?\s*$', frontmatter, re.MULTILINE)
+    # Extract cardimage - only match if there's actual content (not just whitespace)
+    card_match = re.search(r'^cardimage:\s*["\']?(\S+)["\']?\s*$', frontmatter, re.MULTILINE)
     if card_match:
         card_img = card_match.group(1).strip()
         if card_img:  # Only add if not empty
@@ -161,26 +174,26 @@ def copy_images_from_obsidian(vault_path, post_dir, slug, feature_images, conten
     if not vault_path or not os.path.exists(vault_path):
         print(f"Warning: Vault path '{vault_path}' not found. You'll need to copy images manually.")
         return [], []
-    
+
     vault = Path(vault_path)
-    assets_dir = script_dir / "assets" / slug
-    
-    # Create directories
-    assets_dir.mkdir(parents=True, exist_ok=True)
-    
+
     copied_feature = []
     copied_content = []
-    
+
     # Copy feature/card images to assets
     if feature_images:
+        # Only create assets directory if we have feature images to copy
+        assets_dir = script_dir / "assets" / slug
+        assets_dir.mkdir(parents=True, exist_ok=True)
+
         print(f"\n📸 Copying feature/card images to /assets/{slug}/:")
         for image in feature_images:
             image_files = list(vault.rglob(image))
-            
+
             if image_files:
                 src_image = image_files[0]
                 dst_image = assets_dir / image
-                
+
                 try:
                     shutil.copy2(src_image, dst_image)
                     copied_feature.append(image)
@@ -237,6 +250,8 @@ def main():
         print("✅ Detected existing Hugo frontmatter - preserving it")
         # Clean Obsidian wiki-links from frontmatter
         existing_frontmatter = clean_obsidian_links_from_frontmatter(existing_frontmatter)
+        # Normalize field names (description -> summary, featured_image -> featureimage, thumbnail -> cardimage)
+        existing_frontmatter = normalize_frontmatter_fields(existing_frontmatter)
         # Use existing frontmatter, just convert the body content
         converted_body = convert_obsidian_to_hugo(body_content)
         final_content = f"---\n{existing_frontmatter}\n---\n{converted_body}"
