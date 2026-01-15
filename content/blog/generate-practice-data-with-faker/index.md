@@ -13,7 +13,7 @@ tags:
 categories:
 featureimage: jon-tyson-566CgCRSNCk-unsplash.jpg
 cardimage: jon-tyson-566CgCRSNCk-unsplash-thumb.jpg
-draft: true
+draft: false
 toc: false
 series: "SQL for Python Developers"
 canonical_url: https://jamalhansen.com/blog/generate-practice-data-with-faker
