@@ -36,5 +36,3 @@ I think technology should make humans more capable, not replace them. And I thin
 If you're into data, AI, or building things that matter, I'd love to hear from you. Find me on [GitHub](https://github.com/jamalhansen) or just read through the posts here.
 
 ---
-
-*This site runs on Hugo with the Qubt theme, hosted on AWS. I should probably write a post about the setup.*

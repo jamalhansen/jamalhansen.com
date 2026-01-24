@@ -8,8 +8,10 @@ lastmod: ""
 tags:
   - sql
 categories:
-featureimage: dimitry-b-S9T2A1dPRiY-unsplash.jpg
-cardimage: dimitry-b-S9T2A1dPRiY-unsplash-thumb.jpg
+cover:
+    image: dimitry-b-S9T2A1dPRiY-unsplash.jpg
+    alt: "SQL Thinks in Sets, Not Loops"
+    relative: true
 draft: false
 toc: false
 series: "SQL for Python Developers"

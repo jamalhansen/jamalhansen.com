@@ -10,8 +10,10 @@ tags:
   - reading
 categories:
   - Python
-featureimage: annelies-geneyn-bhBONc07WsI-unsplash.jpg
-cardimage: fluent-python-book-thumb.png
+cover:
+    image: annelies-geneyn-bhBONc07WsI-unsplash.jpg
+    alt: "I Am Reading Fluent Python"
+    relative: true
 draft: false
 toc: true
 series: 

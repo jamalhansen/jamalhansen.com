@@ -6,13 +6,15 @@ author:
 date: 2026-01-19
 lastmod: 2026-01-13
 tags:
-  - "#python"
-  - "#duckdb"
-  - "#sql"
-  - "#faker"
+  - python
+  - duckdb
+  - sql
+  - faker
 categories:
-featureimage: jon-tyson-566CgCRSNCk-unsplash.jpg
-cardimage: jon-tyson-566CgCRSNCk-unsplash-thumb.jpg
+cover:
+    image: jon-tyson-566CgCRSNCk-unsplash.jpg
+    alt: "Generate Practice Data with faker"
+    relative: true
 draft: false
 toc: false
 series: "SQL for Python Developers"

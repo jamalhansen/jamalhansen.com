@@ -12,8 +12,10 @@ tags:
   - data-engineering
 categories:
   - certification
-featureimage: aws-data-engineer-ready.jpeg
-cardimage: aws-certified-data-engineer-associate-card.png
+cover:
+    image: aws-data-engineer-ready.jpeg
+    alt: "AWS Data Engineer Associate Certification Test - Take 2"
+    relative: true
 draft: false
 toc: false
 series: AWS Data Engineer - Associate Certification

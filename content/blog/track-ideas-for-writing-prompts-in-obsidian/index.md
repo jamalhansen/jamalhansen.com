@@ -9,8 +9,10 @@ tags:
   - obsidian
   - writing
 categories:
-featureimage:
-cardimage:
+cover:
+    image: obsidian-tasks-editing.png
+    alt: "Tracking ideas for writing prompts in Obsidian"
+    relative: true
 draft: false
 toc: false
 series:

@@ -28,16 +28,86 @@ def clean_obsidian_links_from_frontmatter(frontmatter):
     frontmatter = re.sub(r'\[\[([^\]]+)\]\]', r'\1', frontmatter)
     return frontmatter
 
+def convert_legacy_images_to_cover(frontmatter):
+    """Convert legacy featureimage/cardimage to PaperMod cover format"""
+    # Check if already has cover format
+    if re.search(r'^cover:\s*\n\s+image:', frontmatter, re.MULTILINE):
+        return frontmatter
+
+    # Extract title for alt text and strip any surrounding quotes
+    title_match = re.search(r'^title:\s*(.+?)\s*$', frontmatter, re.MULTILINE)
+    if title_match:
+        title = title_match.group(1).strip().strip('"\'')
+    else:
+        title = "Featured Image"
+
+    # Extract featureimage
+    feature_match = re.search(r'^featureimage:\s*["\']?(\S+)["\']?\s*$', frontmatter, re.MULTILINE)
+    card_match = re.search(r'^cardimage:\s*["\']?(\S+)["\']?\s*$', frontmatter, re.MULTILINE)
+
+    # Determine which image to use
+    image_to_use = None
+    if feature_match:
+        feature_img = feature_match.group(1).strip()
+        if feature_img:
+            image_to_use = feature_img
+
+    if not image_to_use and card_match:
+        card_img = card_match.group(1).strip()
+        if card_img:
+            image_to_use = card_img
+
+    # If we have an image, convert to cover format
+    if image_to_use:
+        # Create cover block
+        cover_block = f"""cover:
+    image: {image_to_use}
+    alt: "{title}"
+    relative: true"""
+
+        # Remove old featureimage and cardimage lines
+        frontmatter = re.sub(r'^featureimage:.*$\n?', '', frontmatter, flags=re.MULTILINE)
+        frontmatter = re.sub(r'^cardimage:.*$\n?', '', frontmatter, flags=re.MULTILINE)
+
+        # Find position to insert cover block (after categories or tags)
+        insert_match = re.search(r'^(categories:.*?\n(?:(?:  - .+\n)*)?)', frontmatter, re.MULTILINE)
+        if not insert_match:
+            insert_match = re.search(r'^(tags:.*?\n(?:(?:  - .+\n)*)?)', frontmatter, re.MULTILINE)
+
+        if insert_match:
+            insert_pos = insert_match.end()
+            frontmatter = frontmatter[:insert_pos] + cover_block + '\n' + frontmatter[insert_pos:]
+        else:
+            # Insert before draft
+            draft_match = re.search(r'^draft:', frontmatter, re.MULTILINE)
+            if draft_match:
+                insert_pos = draft_match.start()
+                frontmatter = frontmatter[:insert_pos] + cover_block + '\n' + frontmatter[insert_pos:]
+
+    return frontmatter
+
 def normalize_frontmatter_fields(frontmatter):
     """Normalize frontmatter field names to Hugo/theme conventions"""
     # Change description: to summary:
     frontmatter = re.sub(r'^description:', 'summary:', frontmatter, flags=re.MULTILINE)
 
-    # Change featured_image: to featureimage:
-    frontmatter = re.sub(r'^featured_image:', 'featureimage:', frontmatter, flags=re.MULTILINE)
+    # Remove # prefix from tags (e.g., #python -> python, #sql -> sql)
+    # Match tags section and remove # from each tag
+    def remove_tag_hashes(match):
+        tags_section = match.group(0)
+        # Remove # from tag values
+        tags_section = re.sub(r'- ["\']*#([^"\'\n]+)["\']*', r'- \1', tags_section)
+        return tags_section
 
-    # Change thumbnail: to cardimage:
-    frontmatter = re.sub(r'^thumbnail:', 'cardimage:', frontmatter, flags=re.MULTILINE)
+    frontmatter = re.sub(
+        r'^tags:\s*\n(?:  - [^\n]+\n)*',
+        remove_tag_hashes,
+        frontmatter,
+        flags=re.MULTILINE
+    )
+
+    # Convert legacy image fields to cover format
+    frontmatter = convert_legacy_images_to_cover(frontmatter)
 
     return frontmatter
 
@@ -62,29 +132,38 @@ def extract_images_from_content(content):
     return images
 
 def extract_frontmatter_images(frontmatter):
-    """Extract featureimage and cardimage from frontmatter"""
+    """Extract cover image, featureimage, and cardimage from frontmatter"""
     images = []
 
-    # Extract featureimage - only match if there's actual content (not just whitespace)
-    feature_match = re.search(r'^featureimage:\s*["\']?(\S+)["\']?\s*$', frontmatter, re.MULTILINE)
-    if feature_match:
-        feature_img = feature_match.group(1).strip()
-        if feature_img:  # Only add if not empty
-            images.append(feature_img)
+    # Extract cover.image (PaperMod format)
+    cover_match = re.search(r'^cover:\s*\n\s+image:\s*["\']?(\S+)["\']?\s*$', frontmatter, re.MULTILINE)
+    if cover_match:
+        cover_img = cover_match.group(1).strip()
+        if cover_img:  # Only add if not empty
+            images.append(cover_img)
 
-    # Extract cardimage - only match if there's actual content (not just whitespace)
-    card_match = re.search(r'^cardimage:\s*["\']?(\S+)["\']?\s*$', frontmatter, re.MULTILINE)
-    if card_match:
-        card_img = card_match.group(1).strip()
-        if card_img:  # Only add if not empty
-            images.append(card_img)
+    # Extract featureimage (legacy qubt format) - only if no cover image found
+    if not images:
+        feature_match = re.search(r'^featureimage:\s*["\']?(\S+)["\']?\s*$', frontmatter, re.MULTILINE)
+        if feature_match:
+            feature_img = feature_match.group(1).strip()
+            if feature_img:  # Only add if not empty
+                images.append(feature_img)
+
+    # Extract cardimage (legacy qubt format) - only if no cover/feature image found
+    if not images:
+        card_match = re.search(r'^cardimage:\s*["\']?(\S+)["\']?\s*$', frontmatter, re.MULTILINE)
+        if card_match:
+            card_img = card_match.group(1).strip()
+            if card_img:  # Only add if not empty
+                images.append(card_img)
 
     return images
 
 def create_hugo_frontmatter(title, slug):
     """Generate Hugo frontmatter for the post"""
     today = datetime.now().strftime("%Y-%m-%d")
-    
+
     frontmatter = f"""---
 title: "{title}"
 summary: ""
@@ -93,11 +172,13 @@ author:
 date: {today}
 lastmod: ""
 tags:
-  - 
+  -
 categories:
-  - 
-featureimage: ""
-cardimage: ""
+  -
+cover:
+    image: ""
+    alt: ""
+    relative: true
 draft: true
 toc: false
 series: ""
@@ -255,7 +336,7 @@ def main():
         # Use existing frontmatter, just convert the body content
         converted_body = convert_obsidian_to_hugo(body_content)
         final_content = f"---\n{existing_frontmatter}\n---\n{converted_body}"
-        
+
         # Extract title from existing frontmatter
         title_match = re.search(r'^title:\s*["\']?(.+?)["\']?\s*$', existing_frontmatter, re.MULTILINE)
         if title_match:
@@ -270,14 +351,14 @@ def main():
             title = title_match.group(1)
         else:
             title = Path(input_file).stem.replace('-', ' ').title()
-        
+
         # Convert content and create new frontmatter
-        converted_content = convert_obsidian_to_hugo(content)
+        converted_body = convert_obsidian_to_hugo(content)
         frontmatter = create_hugo_frontmatter(title, slug)
-        final_content = frontmatter + converted_content
-    
+        final_content = frontmatter + converted_body
+
     # Extract images from the body content (not frontmatter)
-    body_images = extract_images_from_content(converted_body if has_frontmatter else convert_obsidian_to_hugo(content))
+    body_images = extract_images_from_content(converted_body)
 
     # Extract frontmatter images (featureimage and cardimage)
     frontmatter_images = []
@@ -301,7 +382,7 @@ def main():
 
     # Frontmatter images are always treated as feature images
     if frontmatter_images:
-        print(f"\n📸 Found {len(frontmatter_images)} image(s) in frontmatter (featureimage/cardimage):")
+        print(f"\n📸 Found {len(frontmatter_images)} image(s) in frontmatter (cover image):")
         for img in frontmatter_images:
             print(f"   - {img}")
         print("   These will be automatically copied to assets directory.")
@@ -338,7 +419,7 @@ def main():
     print(f"\n💡 Next steps:")
     print(f"   1. Edit the frontmatter in {index_file}")
     if feature_images and not frontmatter_images:
-        print(f"   2. Update featureimage and/or cardimage in frontmatter:")
+        print(f"   2. Update cover.image in frontmatter:")
         for img in feature_images:
             print(f"      - {img}")
     print(f"   3. Set draft: false when ready to publish")

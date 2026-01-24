@@ -10,8 +10,10 @@ tags:
   - sqlite
 categories:
   - database
-featureimage: 
-cardimage: 
+cover:
+    image: dbeaver-sample-database-01.png
+    alt: "Explore the dBeaver sample database"
+    relative: true
 draft: false
 toc: false
 series:

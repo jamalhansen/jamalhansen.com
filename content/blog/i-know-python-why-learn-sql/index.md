@@ -6,12 +6,14 @@ author:
 date: 2026-01-05
 lastmod: ""
 tags:
-  - "#sql"
-  - "#duckdb"
-  - "#python"
+  - sql
+  - duckdb
+  - python
 categories:
-featureimage: anna-yablonskaya-cpy88m2PnBM-unsplash.jpg
-cardimage: why-learn-sql-thumb.png
+cover:
+    image: anna-yablonskaya-cpy88m2PnBM-unsplash.jpg
+    alt: "I know Python; Why learn SQL"
+    relative: true
 draft: false
 toc: false
 series: "SQL for Python Developers"

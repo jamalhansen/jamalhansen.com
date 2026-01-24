@@ -8,9 +8,8 @@ lastmod: 2026-01-11
 tags:
   - java
   - byte
-categories: Java
-featureimage:
-cardimage:
+categories:
+  - Java
 draft: false
 toc: false
 series:

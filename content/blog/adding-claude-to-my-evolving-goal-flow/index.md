@@ -13,8 +13,10 @@ tags:
   - workflow
 categories:
   - productivity
-featureimage: isaac-smith-Ij7h-m4nJ18-unsplash.jpg
-cardimage: adding-claude-to-my-evolving-goal-flow-card.jpg
+cover:
+    image: isaac-smith-Ij7h-m4nJ18-unsplash.jpg
+    alt: "Adding Claude to my evolving goal flow"
+    relative: true
 draft: false
 toc: false
 series:

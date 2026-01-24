@@ -13,10 +13,10 @@ tags:
   - architecture
 categories:
   - learning
-featureimage: 2025-05-07-aws-card-clash-demo.png
-cardimage: 2025-05-07-aws-card-clash-cardimage.png
-caption: The AWS Card Clash Demo
-thumbnail:
+cover:
+    image: 2025-05-07-aws-card-clash-demo.png
+    alt: "AWS Card Clash - Gen AI Battles"
+    relative: true
 draft: false
 toc: false
 series:

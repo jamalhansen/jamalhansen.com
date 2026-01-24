@@ -12,8 +12,10 @@ tags:
   - udemy
 categories:
   - technology 
-featureimage: studying-agentic-ai.jpg
-cardimage: studying-agentic-ai-thumb.png
+cover:
+    image: studying-agentic-ai.jpg
+    alt: "I've started my agentic AI learning journey"
+    relative: true
 draft: false
 toc: false
 series: 

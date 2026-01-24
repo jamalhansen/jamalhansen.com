@@ -8,9 +8,12 @@ lastmod: 2026-01-11
 tags:
   - dbeaver
   - databases
-categories: dBeaver
-featureimage: 
-cardimage: 
+categories:
+  - dBeaver
+cover:
+    image: dbeaver-create-sample-database.png
+    alt: "I installed dBeaver today"
+    relative: true
 draft: false
 toc: false
 series:

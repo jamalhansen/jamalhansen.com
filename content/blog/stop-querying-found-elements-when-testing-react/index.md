@@ -13,8 +13,6 @@ tags:
 categories:
   - Automated testing
   - Today I learned
-featureimage:
-cardimage:
 draft: false
 toc: false
 series:

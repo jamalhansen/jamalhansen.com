@@ -6,11 +6,13 @@ author:
 date: 2026-01-10
 lastmod: ""
 tags:
-  - "#python"
-  - "#duckdb"
+  - python
+  - duckdb
 categories:
-featureimage: five-minutes-wide.jpg
-cardimage: five-minutes-thumb.jpg
+cover:
+    image: five-minutes-wide.jpg
+    alt: "Zero-Setup SQL: Run your first SQL query in under 5 minutes with DuckDB"
+    relative: true
 draft: false
 toc: false
 series: "SQL for Python Developers"

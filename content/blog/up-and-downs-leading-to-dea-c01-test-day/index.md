@@ -13,9 +13,10 @@ tags:
   - preparation
 categories:
   - certification
-featureimage: 2025-05-06-dea-c01-practice-exam-results.png
-cardimage: 2025-05-05-dea-c01-practice-exam-results-cardimage.png
-caption: Another failing practice test score isn't helping my confidence
+cover:
+    image: 2025-05-06-dea-c01-practice-exam-results.png
+    alt: "Ups and downs leading up to DEA-C01 test day"
+    relative: true
 draft: false
 toc: false
 series: AWS Data Engineer - Associate Certification

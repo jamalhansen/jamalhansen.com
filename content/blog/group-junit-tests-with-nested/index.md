@@ -8,9 +8,8 @@ lastmod: 2026-01-11
 tags:
   - java
   - junit
-categories: Automated testing
-featureimage:
-cardimage:
+categories:
+  - Automated testing
 draft: false
 toc: false
 series:

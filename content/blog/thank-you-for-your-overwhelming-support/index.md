@@ -13,8 +13,10 @@ tags:
   - linkedin
 categories:
   - personal
-featureimage: kevin-butz-6hsfmat-t7k-unsplash.jpg
-cardimage: 2025-06-01-i-am-grateful-card.jpg
+cover:
+    image: kevin-butz-6hsfmat-t7k-unsplash.jpg
+    alt: "Thank you for the overwhelming support"
+    relative: true
 draft: false
 toc: false
 series: AWS Data Engineer - Associate Certification

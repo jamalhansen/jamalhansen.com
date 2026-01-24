@@ -5,10 +5,13 @@ author:
   - Jamal Hansen
 date: 2025-02-10
 lastmod: 2026-01-07
-tags: command-line
+tags:
+  - command-line
 categories:
-featureimage: link-post.jpg
-cardimage: link-thumb.jpg
+cover:
+    image: link-post.jpg
+    alt: "Symbolic links for fun and profit"
+    relative: true
 draft: false
 toc: false
 series:

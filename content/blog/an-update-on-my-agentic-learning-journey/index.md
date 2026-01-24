@@ -13,8 +13,10 @@ tags:
   - langchain
 categories:
   - technology 
-featureimage: agentic-update-landscape.jpg
-cardimage: agentic-update-card.jpg
+cover:
+    image: agentic-update-landscape.jpg
+    alt: "An update on my agentic learning journey"
+    relative: true
 draft: false
 toc: false
 series: 

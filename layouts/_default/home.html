@@ -1,174 +1,72 @@
-{{ define "main" }}
-  {{/* Hero Section with Author Info */}}
-  <div class="flex items-center justify-center min-h-[85vh]">
-    <div class="flex flex-col items-center text-center px-6 max-w-4xl">
-      {{ $image := resources.GetMatch (print "**" .Site.Params.Author.image) }}
-      {{ $name := .Site.Params.Author.name }}
-      {{ $icon := .Site.Params.Author.icon }}
-      
-      {{ with $image }}
-        {{ $image = $image.Filter (images.Process "resize 200x200 Lanczos q100 webp" ) }}
-        <div class="relative mb-8">
-          <img class="h-32 w-32 rounded-full shadow-lg" width="128" height="128" alt="{{ $name | default "Author" }}" src="{{ $image.RelPermalink }}" />
-          {{ with $icon }}
-            <div class="absolute -bottom-1 -right-1 flex h-8 w-8 items-center justify-center rounded-full border-2 border-solid border-slate-50 bg-neutral-300 dark:bg-neutral-500">
-              {{ . | emojify }}
-            </div>
-          {{ end }}
-        </div>
-      {{ end }}
+{{- define "main" }}
 
-      {{ with .Site.Params.Author.greeting }}
-        <p class="text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-2xl leading-relaxed">
-          {{ . | markdownify | emojify }}
-        </p>
-      {{ end }}
-      
-      {{/* Social links with better spacing */}}
-      <div class="flex items-center justify-center gap-2 mb-12">
-        {{ range $links := .Site.Params.Links }}
-          {{ range $type, $data := $links }}
-            {{ $href := $data }}
-            {{ $icon := $type }}
-            {{ $iconPath := resources.Get (print "icons/" $icon ".svg") }}
-            {{ with $iconPath }}
-              <a class="link" href="{{ $href }}" target="_blank" rel="me noopener noreferrer" aria-label="{{ $icon }}">
-                <span class="link_svg">
-                  {{ $iconPath.Content | safeHTML }}
-                </span>
-              </a>
-            {{ end }}
-          {{ end }}
-        {{ end }}
-      </div>
-      
-      {{/* Simple scroll hint */}}
-      <div class="mt-8">
-        <a href="#featured" class="inline-block text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors duration-200">
-          <svg class="w-6 h-6 mx-auto animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-          </svg>
-        </a>
-      </div>
+{{- if site.Params.profileMode.enabled }}
+{{- partial "index_profile.html" . }}
+{{- else }}
+
+{{- if site.Params.homeInfoParams }}
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>{{ site.Params.homeInfoParams.Title | markdownify }}</h1>
+    </header>
+    <div class="entry-content">
+        {{ site.Params.homeInfoParams.Content | markdownify }}
     </div>
-  </div>
+    <footer class="entry-footer">
+        {{ partial "social_icons.html" site.Params.socialIcons }}
+    </footer>
+</article>
+{{- end }}
 
-  {{/* Featured Topics Section */}}
-  <section id="featured" class="py-24">
-    <div class="mx-auto max-w-(--breakpoint-xl) px-6">
-      <div class="text-center mb-16 mt-8">
-        <h2 class="text-3xl font-bold text-slate-700 dark:text-slate-200 mb-4">
-          Content Series
+{{- $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+{{- range $index, $page := $paginator.Pages }}
+{{- $class := "post-entry" }}
+
+{{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
+{{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
+{{- $class = "first-entry" }}
+{{- else if $page.Params.hideSummary }}
+{{- $class = "post-entry tag-entry" }}
+{{- end }}
+
+<article class="{{ $class }}">
+    {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
+    {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
+    <header class="entry-header">
+        <h2>
+            {{- .Title }}
+            {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
         </h2>
-      </div>
-      
-      <div class="grid grid-flow-row grid-cols-1 justify-items-center gap-8 lg:grid-cols-2">
-        {{ range .Site.Taxonomies.series }}
-          <a href="{{ .Page.Permalink }}" class="group w-full max-w-2xl">
-            <div class="flex h-80 w-full flex-row rounded-xl bg-neutral-300 bg-clip-border text-slate-400 shadow-md dark:bg-neutral-700 hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1">
-              {{/* Series icon placeholder */}}
-              <div class="m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                <div class="text-white text-4xl font-bold">
-                  {{ substr .Page.Title 0 1 | upper }}
-                </div>
-              </div>
-              <div class="flex flex-col justify-between p-6 flex-1 min-w-0">
-                <div>
-                  <h4 class="mb-2 line-clamp-2 text-base font-semibold text-slate-700 antialiased dark:text-slate-200 md:text-xl">
-                    {{ .Page.Title }}
-                  </h4>
-                  <p class="mb-4 text-sm text-slate-500 dark:text-slate-400">
-                    {{ .Count }} {{ if eq .Count 1 }}post{{ else }}posts{{ end }} in this series
-                  </p>
-                  <div class="space-y-1">
-                    {{ range first 3 .Page.Pages.ByDate.Reverse }}
-                      <div class="text-xs text-slate-600 dark:text-slate-300 line-clamp-1">
-                        → {{ .Title }}
-                      </div>
-                    {{ end }}
-                    {{ if gt (len .Page.Pages) 3 }}
-                      <div class="text-xs text-slate-500 dark:text-slate-400">
-                        ... and {{ sub (len .Page.Pages) 3 }} more
-                      </div>
-                    {{ end }}
-                  </div>
-                </div>
-                <div class="flex flex-row justify-between items-end">
-                  <div class="text-xs text-slate-500 dark:text-slate-400">
-                    Series
-                  </div>
-                  <div class="text-xs text-indigo-600 dark:text-indigo-400 font-medium">
-                    View All →
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        {{ end }}
-      </div>
+    </header>
+    {{- if (ne (.Param "hideSummary") true) }}
+    <div class="entry-content">
+        <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
     </div>
-  </section>
+    {{- end }}
+    {{- if not (.Param "hideMeta") }}
+    <footer class="entry-footer">{{ partial "post_meta.html" . }}</footer>
+    {{- end }}
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+</article>
+{{- end }}
 
-  {{/* Recent Posts Section - Card Layout */}}
-  <section id="recent" class="py-24">
-    <div class="mx-auto max-w-(--breakpoint-xl) px-6">
-      <div class="text-center mb-16 mt-8">
-        <h2 class="text-3xl font-bold text-slate-700 dark:text-slate-200 mb-4">
-          Latest Posts
-        </h2>
-      </div>
-      
-      <div class="grid grid-flow-row grid-cols-1 justify-items-center gap-8 lg:grid-cols-2">
-        {{ $recentPosts := first 4 (where .Site.RegularPages "Section" "blog") }}
-        {{ range $recentPosts }}
-          {{ $cardimage := resources.GetMatch (print "**" .Params.cardimage) }}
-          <a href="{{ .RelPermalink }}" class="group w-full max-w-2xl">
-            <div class="flex h-80 w-full flex-row rounded-xl bg-neutral-300 bg-clip-border text-slate-400 shadow-md dark:bg-neutral-700 hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1">
-              {{ with $cardimage }}
-                {{ $cardimage = $cardimage.Filter (images.Process "fit 400x600 Lanczos q80 webp" ) }}
-                <div class="m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-clip-border dark:bg-neutral-700">
-                  <img src="{{ $cardimage.RelPermalink }}" alt="{{ $.Title }}" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                </div>
-              {{ end }}
-              <div class="flex flex-col justify-between p-6 flex-1 min-w-0">
-                <div>
-                  <h4 class="mb-2 line-clamp-2 text-base font-semibold text-slate-700 antialiased dark:text-slate-200 md:text-xl">
-                    {{ .Title }}
-                  </h4>
-                  <p class="mb-4 line-clamp-6 text-sm text-slate-500 dark:text-slate-400">
-                    {{ .Summary | emojify }}
-                  </p>
-                </div>
-                <div class="flex flex-row justify-between">
-                  <div class="flex items-center -space-x-3">
-                    {{ range $authors := .Params.authors }}
-                      {{ range $name, $image := $authors }}
-                        {{ $imgPath := resources.GetMatch (print "*" $image) }}
-                        {{ with $imgPath }}
-                          {{ $imgPath = $imgPath.Filter (images.Process "resize 40x40 webp" ) }}
-                          <img class="h-9 w-9 rounded-full border-2 border-slate-50 object-cover object-center" alt="{{ $name }}" src="{{ $imgPath.RelPermalink }}" />
-                        {{ end }}
-                      {{ end }}
-                    {{ end }}
-                  </div>
-                  <div class="p-3 text-xs text-slate-500 dark:text-slate-400">
-                    {{ .Date | time.Format ":date_medium" }}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        {{ end }}
-      </div>
-      
-      <div class="text-center mt-16">
-        <a href="/blog/" class="inline-flex items-center px-8 py-4 text-slate-700 dark:text-slate-200 hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1">
-          <span>View All Posts</span>
-          <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
+{{- if gt $paginator.TotalPages 1 }}
+<footer class="page-footer">
+    <nav class="pagination">
+        {{- if $paginator.HasPrev }}
+        <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">
+            {{- with site.Params.label.prev }}{{ . }}{{ else }}« {{ i18n "prev_page" }}{{ end }}
         </a>
-      </div>
-    </div>
-  </section>
-{{ end }}
+        {{- end }}
+        {{- if $paginator.HasNext }}
+        <a class="next" href="{{ $paginator.Next.URL | absURL }}">
+            {{- with site.Params.label.next }}{{ . }}{{ else }}{{ i18n "next_page" }} »{{ end }}
+        </a>
+        {{- end }}
+    </nav>
+</footer>
+{{- end }}
+
+{{- end }}{{/* end profileMode */}}
+
+{{- end }}{{- /* end main */ -}}

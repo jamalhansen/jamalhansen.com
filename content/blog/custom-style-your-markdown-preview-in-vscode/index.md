@@ -8,9 +8,12 @@ lastmod: 2026-01-10
 tags:
   - markdown
   - vscode
-categories: VS Code
-featureimage: vs-code-styled-markdown-preview.png
-cardimage:
+categories:
+  - VS Code
+cover:
+    image: vs-code-styled-markdown-preview.png
+    alt: "How to custom style your VS Code markdown preview"
+    relative: true
 draft: false
 toc: false
 series:

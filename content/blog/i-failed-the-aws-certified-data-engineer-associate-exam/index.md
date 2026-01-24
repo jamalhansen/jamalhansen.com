@@ -12,8 +12,10 @@ tags:
   - learning
 categories:
   - certification
-featureimage: 2025-05-10-exam-results.png
-cardimage: 2025-05-10-failed-exam-card-image.png
+cover:
+    image: 2025-05-10-exam-results.png
+    alt: "I failed the AWS Certified Data Engineer Associate Exam"
+    relative: true
 draft: false
 toc: false
 series: AWS Data Engineer - Associate Certification

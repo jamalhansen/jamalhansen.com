@@ -8,9 +8,8 @@ lastmod: 2026-01-10
 tags:
   - python
   - uv
-categories: Python
-featureimage:
-cardimage:
+categories:
+  - Python
 draft: false
 toc: false
 series:

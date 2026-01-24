@@ -9,8 +9,10 @@ tags:
   - duckdb
   - sql
 categories:
-featureimage: s-j-yJVpnfqu8GY-unsplash.jpg
-cardimage: s-j-yJVpnfqu8GY-unsplash-thumb.jpg
+cover:
+    image: s-j-yJVpnfqu8GY-unsplash.jpg
+    alt: "Don't forget to save! Persisting your DuckDB database"
+    relative: true
 draft: false
 toc: false
 series: "SQL for Python Developers"
