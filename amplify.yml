@@ -7,49 +7,57 @@ env:
     HUGO_VERSION: 0.146.7
     # Time zone
     TZ: America/Chicago
-    # Cache
+    # Cache Configuration
+    # We use $HOME for Go to ensure we have write permissions
+    GOPATH: ${HOME}/go
     HUGO_CACHEDIR: ${PWD}/.hugo
     NPM_CONFIG_CACHE: ${PWD}/.npm
+
 frontend:
   phases:
     preBuild:
       commands:
-        # Install Dart Sass
+        # 1. Install Dart Sass
         - curl -LJO https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz
         - sudo tar -C /usr/local/bin -xf dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz
         - rm dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz
-        - export PATH=/usr/local/bin/dart-sass:$PATH
-
-        # Install Go
+        
+        # 2. Install Go
         - curl -LJO https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz
         - sudo tar -C /usr/local -xf go${GO_VERSION}.linux-amd64.tar.gz
         - rm go${GO_VERSION}.linux-amd64.tar.gz
-        - export PATH=/usr/local/go/bin:$PATH
-
-        # Install Hugo
+        
+        # 3. Install Hugo
         - curl -LJO https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz
         - sudo tar -C /usr/local/bin -xf hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz
         - rm hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz
-        - export PATH=/usr/local/bin:$PATH
 
-        # Check installed versions
+        # 4. Set PATH and Environment for this session
+        - export PATH=$GOPATH/bin:/usr/local/go/bin:/usr/local/bin:$PATH
+        - mkdir -p $GOPATH
+
+        # 5. Check versions (Debug)
         - go version
         - hugo version
-        - node -v
-        - npm -v
         - sass --embedded --version
 
-        # Install Node.JS dependencies
+        # 6. Install Node deps
         - "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci --prefer-offline || true"
 
-        # https://github.com/gohugoio/hugo/issues/9810
+        # 7. Git config workaround
         - git config --add core.quotepath false
 
-        # Fetch Hugo modules (important after switching from submodules to modules)
-        - hugo mod get -u
+        # 8. Hugo Modules
+        # RECOMMENDATION: removed "-u". Only use "-u" if you want to force upgrade 
+        # dependencies on every single build (can cause instability). 
+        # Just "hugo mod get" is safer.
+        - hugo mod get
         - hugo mod tidy
+
     build:
       commands:
+        # Re-export PATH to be safe (ensures Go is found in this phase)
+        - export PATH=$GOPATH/bin:/usr/local/go/bin:/usr/local/bin:$PATH
         - hugo --gc --minify
   artifacts:
     baseDirectory: public
@@ -67,3 +75,5 @@ frontend:
     paths:
       - ${HUGO_CACHEDIR}/**/*
       - ${NPM_CONFIG_CACHE}/**/*
+      # Cache Go modules to speed up future builds
+      - ${HOME}/go/pkg/mod/**/*
