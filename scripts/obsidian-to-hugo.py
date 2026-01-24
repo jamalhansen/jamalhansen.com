@@ -11,79 +11,20 @@ from pathlib import Path
 from datetime import datetime
 
 def detect_existing_frontmatter(content):
-    """Detect if content already has Hugo frontmatter"""
-    if content.startswith('---\n'):
-        # Find the end of frontmatter
-        end_match = re.search(r'\n---\n', content[4:])
-        if end_match:
-            frontmatter_end = end_match.end() + 4
-            frontmatter = content[4:frontmatter_end-4]  # Extract frontmatter without --- delimiters
-            body = content[frontmatter_end:]
-            return True, frontmatter, body
+    """Detect if content already has Hugo frontmatter.
+    Returns (has_frontmatter: bool, frontmatter: str, body: str).
+    """
+    m = re.match(r'^---\n(.*?)\n---\n(.*)$', content, flags=re.DOTALL)
+    if m:
+        frontmatter = m.group(1)
+        body = m.group(2)
+        return True, frontmatter, body
     return False, "", content
 
 def clean_obsidian_links_from_frontmatter(frontmatter):
     """Remove Obsidian wiki-link syntax [[]] from frontmatter values"""
     # Remove [[ and ]] from frontmatter values (e.g., series: "[[SQL for Python]]" -> series: "SQL for Python")
     frontmatter = re.sub(r'\[\[([^\]]+)\]\]', r'\1', frontmatter)
-    return frontmatter
-
-def convert_legacy_images_to_cover(frontmatter):
-    """Convert legacy featureimage/cardimage to PaperMod cover format"""
-    # Check if already has cover format
-    if re.search(r'^cover:\s*\n\s+image:', frontmatter, re.MULTILINE):
-        return frontmatter
-
-    # Extract title for alt text and strip any surrounding quotes
-    title_match = re.search(r'^title:\s*(.+?)\s*$', frontmatter, re.MULTILINE)
-    if title_match:
-        title = title_match.group(1).strip().strip('"\'')
-    else:
-        title = "Featured Image"
-
-    # Extract featureimage
-    feature_match = re.search(r'^featureimage:\s*["\']?(\S+)["\']?\s*$', frontmatter, re.MULTILINE)
-    card_match = re.search(r'^cardimage:\s*["\']?(\S+)["\']?\s*$', frontmatter, re.MULTILINE)
-
-    # Determine which image to use
-    image_to_use = None
-    if feature_match:
-        feature_img = feature_match.group(1).strip()
-        if feature_img:
-            image_to_use = feature_img
-
-    if not image_to_use and card_match:
-        card_img = card_match.group(1).strip()
-        if card_img:
-            image_to_use = card_img
-
-    # If we have an image, convert to cover format
-    if image_to_use:
-        # Create cover block
-        cover_block = f"""cover:
-    image: {image_to_use}
-    alt: "{title}"
-    relative: true"""
-
-        # Remove old featureimage and cardimage lines
-        frontmatter = re.sub(r'^featureimage:.*$\n?', '', frontmatter, flags=re.MULTILINE)
-        frontmatter = re.sub(r'^cardimage:.*$\n?', '', frontmatter, flags=re.MULTILINE)
-
-        # Find position to insert cover block (after categories or tags)
-        insert_match = re.search(r'^(categories:.*?\n(?:(?:  - .+\n)*)?)', frontmatter, re.MULTILINE)
-        if not insert_match:
-            insert_match = re.search(r'^(tags:.*?\n(?:(?:  - .+\n)*)?)', frontmatter, re.MULTILINE)
-
-        if insert_match:
-            insert_pos = insert_match.end()
-            frontmatter = frontmatter[:insert_pos] + cover_block + '\n' + frontmatter[insert_pos:]
-        else:
-            # Insert before draft
-            draft_match = re.search(r'^draft:', frontmatter, re.MULTILINE)
-            if draft_match:
-                insert_pos = draft_match.start()
-                frontmatter = frontmatter[:insert_pos] + cover_block + '\n' + frontmatter[insert_pos:]
-
     return frontmatter
 
 def normalize_frontmatter_fields(frontmatter):
@@ -106,9 +47,8 @@ def normalize_frontmatter_fields(frontmatter):
         flags=re.MULTILINE
     )
 
-    # Convert legacy image fields to cover format
-    frontmatter = convert_legacy_images_to_cover(frontmatter)
-
+    # NOTE: legacy image conversion removed. extract_frontmatter_images already reads image/featureimage/cardimage,
+    # and copy_images_from_obsidian will copy whichever image names are present.
     return frontmatter
 
 def convert_obsidian_to_hugo(content):
@@ -131,37 +71,10 @@ def extract_images_from_content(content):
     images = re.findall(image_pattern, content)
     return images
 
-def extract_frontmatter_images(frontmatter):
-    """Extract cover image, featureimage, and cardimage from frontmatter"""
-    images = []
-
-    # Extract cover.image (PaperMod format)
-    cover_match = re.search(r'^cover:\s*\n\s+image:\s*["\']?(\S+)["\']?\s*$', frontmatter, re.MULTILINE)
-    if cover_match:
-        cover_img = cover_match.group(1).strip()
-        if cover_img:  # Only add if not empty
-            images.append(cover_img)
-
-    # Extract featureimage (legacy qubt format) - only if no cover image found
-    if not images:
-        feature_match = re.search(r'^featureimage:\s*["\']?(\S+)["\']?\s*$', frontmatter, re.MULTILINE)
-        if feature_match:
-            feature_img = feature_match.group(1).strip()
-            if feature_img:  # Only add if not empty
-                images.append(feature_img)
-
-    # Extract cardimage (legacy qubt format) - only if no cover/feature image found
-    if not images:
-        card_match = re.search(r'^cardimage:\s*["\']?(\S+)["\']?\s*$', frontmatter, re.MULTILINE)
-        if card_match:
-            card_img = card_match.group(1).strip()
-            if card_img:  # Only add if not empty
-                images.append(card_img)
-
-    return images
+# extract_frontmatter_images removed — frontmatter image promotion is no longer performed.
 
 def create_hugo_frontmatter(title, slug):
-    """Generate Hugo frontmatter for the post"""
+    """Generate Hugo frontmatter for the post (uses simple image: field that will be converted to cover: format)"""
     today = datetime.now().strftime("%Y-%m-%d")
 
     frontmatter = f"""---
@@ -175,10 +88,7 @@ tags:
   -
 categories:
   -
-cover:
-    image: ""
-    alt: ""
-    relative: true
+image: ""
 draft: true
 toc: false
 series: ""
@@ -201,108 +111,45 @@ def setup_post_directory(content_dir, slug, title):
     
     return post_dir, frontmatter
 
-def categorize_images(images):
-    """Categorize images into feature/card images vs inline content images"""
-    if not images:
-        return [], []
-    
-    print(f"\n📸 Found {len(images)} images. Let's categorize them:")
-    
-    feature_images = []
-    content_images = []
-    
-    # Show all images first
-    for i, img in enumerate(images, 1):
-        print(f"  {i}. {img}")
-    
-    print(f"\n💡 Image types:")
-    print(f"   Feature/Card: Used for homepage cards, social sharing, post headers")
-    print(f"   Content: Inline images within the post content")
-    
-    # Get feature/card image selections
-    while True:
-        try:
-            feature_input = input(f"\n🎯 Enter numbers of FEATURE/CARD images (comma-separated, or 'none'): ").strip()
-            
-            if feature_input.lower() in ['none', '']:
-                break
-                
-            feature_nums = [int(x.strip()) for x in feature_input.split(',')]
-            
-            # Validate numbers
-            if all(1 <= num <= len(images) for num in feature_nums):
-                feature_images = [images[num-1] for num in feature_nums]
-                break
-            else:
-                print(f"❌ Please enter numbers between 1 and {len(images)}")
-                
-        except ValueError:
-            print("❌ Please enter valid numbers separated by commas")
-    
-    # Rest are content images
-    content_images = [img for img in images if img not in feature_images]
-    
-    print(f"\n📁 Categorization result:")
-    if feature_images:
-        print(f"   Feature/Card ({len(feature_images)}): {', '.join(feature_images)}")
-    if content_images:
-        print(f"   Content ({len(content_images)}): {', '.join(content_images)}")
-    
-    return feature_images, content_images
+# categorize_images removed — all images are taken from content and treated as content images.
 
-def copy_images_from_obsidian(vault_path, post_dir, slug, feature_images, content_images, script_dir):
-    """Copy images from Obsidian vault to appropriate Hugo directories"""
+def copy_images_from_obsidian(vault_path, post_dir, feature_images, content_images):
+    """Copy images from Obsidian vault to post directory (Hugo page bundle structure).
+    Matching is done by filename (basename) to avoid glob/path issues.
+    """
     if not vault_path or not os.path.exists(vault_path):
         print(f"Warning: Vault path '{vault_path}' not found. You'll need to copy images manually.")
         return [], []
 
     vault = Path(vault_path)
-
     copied_feature = []
     copied_content = []
 
-    # Copy feature/card images to assets
-    if feature_images:
-        # Only create assets directory if we have feature images to copy
-        assets_dir = script_dir / "assets" / slug
-        assets_dir.mkdir(parents=True, exist_ok=True)
+    all_images = feature_images + content_images
+    if not all_images:
+        return copied_feature, copied_content
 
-        print(f"\n📸 Copying feature/card images to /assets/{slug}/:")
-        for image in feature_images:
-            image_files = list(vault.rglob(image))
+    print(f"\n📸 Copying images to post directory:")
+    for image in all_images:
+        src_candidates = list(vault.rglob(Path(image).name))
+        if not src_candidates:
+            print(f"   ✗ Image not found in vault: {image}")
+            continue
 
-            if image_files:
-                src_image = image_files[0]
-                dst_image = assets_dir / image
-
-                try:
-                    shutil.copy2(src_image, dst_image)
-                    copied_feature.append(image)
-                    print(f"   ✓ {image}")
-                except Exception as e:
-                    print(f"   ✗ Failed to copy {image}: {e}")
+        src_image = src_candidates[0]
+        dst_image = post_dir / Path(image).name
+        dst_image.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            shutil.copy2(src_image, dst_image)
+            if image in feature_images:
+                copied_feature.append(image)
+                print(f"   ✓ {image} (cover image)")
             else:
-                print(f"   ✗ Image not found in vault: {image}")
-    
-    # Copy content images to post directory  
-    if content_images:
-        print(f"\n📝 Copying content images to post directory:")
-        for image in content_images:
-            image_files = list(vault.rglob(image))
-            
-            if image_files:
-                src_image = image_files[0]
-                dst_image = post_dir / image
-                
-                try:
-                    shutil.copy2(src_image, dst_image)
-                    copied_content.append(image)
-                    print(f"   ✓ {image}")
-                except Exception as e:
-                    print(f"   ✗ Failed to copy {image}: {e}")
-            else:
-                print(f"   ✗ Image not found in vault: {image}")
-    
+                copied_content.append(image)
+                print(f"   ✓ {image}")
+        except Exception as e:
+            print(f"   ✗ Failed to copy {image}: {e}")
+
     return copied_feature, copied_content
 
 def main():
@@ -357,13 +204,8 @@ def main():
         frontmatter = create_hugo_frontmatter(title, slug)
         final_content = frontmatter + converted_body
 
-    # Extract images from the body content (not frontmatter)
+    # Extract images from the body content (all images are handled from content)
     body_images = extract_images_from_content(converted_body)
-
-    # Extract frontmatter images (featureimage and cardimage)
-    frontmatter_images = []
-    if has_frontmatter:
-        frontmatter_images = extract_frontmatter_images(existing_frontmatter)
 
     # Setup Hugo post directory
     script_dir = Path(__file__).parent.parent
@@ -371,42 +213,33 @@ def main():
     post_dir = Path(content_dir) / "blog" / slug
     post_dir.mkdir(parents=True, exist_ok=True)
 
-    # Categorize images if any exist in the body
-    feature_images, content_images = [], []
-    if body_images:
-        if vault_path:
-            feature_images, content_images = categorize_images(body_images)
-        else:
-            print(f"\n📸 Found {len(body_images)} images, but no vault path provided.")
-            print("Categorization will be skipped - you'll need to copy images manually.")
+    # All images come from content. No interactive categorization — treat all as content images.
+    feature_images, content_images = [], body_images[:]
+    if body_images and not vault_path:
+        print(f"\n📸 Found {len(body_images)} images, but no vault path provided.")
+        print("Images will not be copied automatically; copy them manually into the post directory.")
 
-    # Frontmatter images are always treated as feature images
-    if frontmatter_images:
-        print(f"\n📸 Found {len(frontmatter_images)} image(s) in frontmatter (cover image):")
-        for img in frontmatter_images:
-            print(f"   - {img}")
-        print("   These will be automatically copied to assets directory.")
-        feature_images.extend(frontmatter_images)
-    
+    # No separate frontmatter image extraction — keep feature_images as chosen from body images.
+
     # Write the converted markdown
     index_file = post_dir / "index.md"
     with open(index_file, 'w', encoding='utf-8') as f:
         f.write(final_content)
     
     # Copy images from Obsidian vault
-    all_images = body_images + frontmatter_images
+    all_images = body_images
     if all_images:
         if vault_path:
             copied_feature, copied_content = copy_images_from_obsidian(
-                vault_path, post_dir, slug, feature_images, content_images, script_dir
+                vault_path, post_dir, feature_images, content_images
             )
 
             total_copied = len(copied_feature) + len(copied_content)
-            print(f"\n✅ Successfully copied {total_copied} images:")
+            print(f"\n✅ Successfully copied {total_copied} images to post directory:")
             if copied_feature:
-                print(f"   📸 Feature/Card: {len(copied_feature)} → /assets/{slug}/")
+                print(f"   📸 Cover image: {len(copied_feature)}")
             if copied_content:
-                print(f"   📝 Content: {len(copied_content)} → /content/blog/{slug}/")
+                print(f"   📝 Content images: {len(copied_content)}")
         else:
             print(f"\nFound {len(all_images)} images:")
             for img in all_images:
@@ -418,15 +251,15 @@ def main():
     print(f"📝 File: {index_file}")
     print(f"\n💡 Next steps:")
     print(f"   1. Edit the frontmatter in {index_file}")
-    if feature_images and not frontmatter_images:
-        print(f"   2. Update cover.image in frontmatter:")
+    if feature_images:
+        print(f"   2. Set cover.image in frontmatter to one of:")
         for img in feature_images:
             print(f"      - {img}")
-    print(f"   3. Set draft: false when ready to publish")
-    print(f"   4. Add tags, categories, and summary")
+    print(f"   3. Add tags, categories, and summary")
+    print(f"   4. Set draft: false when ready to publish")
 
     if not vault_path and all_images:
-        print(f"   5. Copy images manually from your Obsidian vault")
+        print(f"   5. Copy images manually from your Obsidian vault to {post_dir}")
 
 if __name__ == "__main__":
     main()

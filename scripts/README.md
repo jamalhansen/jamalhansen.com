@@ -34,18 +34,15 @@ source ~/.zshrc  # or ~/.bashrc
    - `![[image.jpg|alt text]]` → `![alt text](image.jpg)`
 
 2. **Smart Image Organization**:
-   - **Feature/Card Images** → `/assets/post-slug/` (for homepage cards, social sharing)
-   - **Content Images** → `/content/blog/post-slug/` (for inline post content)
-   - **Interactive categorization** during conversion process
+   - All images stored in post directory (Hugo page bundle structure)
+   - Cover images configured with `cover.image` in frontmatter
+   - Interactive categorization during conversion process
 
 3. **Creates complete Hugo post structure**:
    ```
-   assets/my-post/
-   ├── hero-image.jpg        # Feature/card images
-   └── social-card.png
-   
    content/blog/my-post/
    ├── index.md              # Converted markdown with frontmatter
+   ├── hero-image.jpg        # Cover image (referenced in frontmatter)
    ├── screenshot1.jpg       # Content images
    └── diagram.png
    ```
@@ -54,6 +51,7 @@ source ~/.zshrc  # or ~/.bashrc
    - Title (extracted from first `#` heading)
    - Current date
    - Author info
+   - Cover image block with `relative: true`
    - Proper URL slug
    - Draft status (set to `true` initially)
 
@@ -125,9 +123,9 @@ With `OBSIDIAN_VAULT_PATH` set, you can use simple relative paths:
 
 # 3. Script will:
 #    - Show found images for categorization
-#    - Copy feature/card images → /assets/cool-post-slug/
-#    - Copy content images → /content/blog/cool-post-slug/
+#    - Copy all images → /content/blog/cool-post-slug/
 #    - Create Hugo post with proper frontmatter
+#    - Set cover image path in frontmatter
 
 # 4. Edit frontmatter, set draft: false, publish!
 ```
@@ -158,11 +156,9 @@ When you run the script, you'll see:
    Feature/Card (2): hero-screenshot.png, final-result.png
    Content (1): step-by-step.jpg
 
-📸 Copying feature/card images to /assets/my-post/:
-   ✓ hero-screenshot.png
-   ✓ final-result.png
-
-📝 Copying content images to post directory:
+📸 Copying images to post directory:
+   ✓ hero-screenshot.png (cover image)
+   ✓ final-result.png (cover image)
    ✓ step-by-step.jpg
 ```
 
@@ -175,7 +171,7 @@ When you run the script, you'll see:
 
 **Next steps:**
 1. Edit the frontmatter in `index.md`
-2. Set `featureimage` and/or `cardimage` to your feature/card images
+2. Set `cover.image` to your cover image filename
 3. Add tags, categories, and summary
 4. Set `draft: false` when ready to publish
 5. Commit and deploy!
