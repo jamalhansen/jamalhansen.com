@@ -44,6 +44,10 @@ frontend:
 
         # https://github.com/gohugoio/hugo/issues/9810
         - git config --add core.quotepath false
+
+        # Fetch Hugo modules (important after switching from submodules to modules)
+        - hugo mod get -u
+        - hugo mod tidy
     build:
       commands:
         - hugo --gc --minify

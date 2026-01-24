@@ -100,19 +100,6 @@ layout: post
 """
     return frontmatter
 
-def setup_post_directory(content_dir, slug, title):
-    """Create the Hugo post directory structure"""
-    post_dir = Path(content_dir) / "blog" / slug
-    post_dir.mkdir(parents=True, exist_ok=True)
-    
-    # Create index.md with frontmatter
-    index_file = post_dir / "index.md"
-    frontmatter = create_hugo_frontmatter(title, slug)
-    
-    return post_dir, frontmatter
-
-# categorize_images removed — all images are taken from content and treated as content images.
-
 def copy_images_from_obsidian(vault_path, post_dir, feature_images, content_images):
     """Copy images from Obsidian vault to post directory (Hugo page bundle structure).
     Matching is done by filename (basename) to avoid glob/path issues.
