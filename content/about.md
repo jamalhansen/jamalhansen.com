@@ -2,37 +2,36 @@
 title: "About"
 type: "page"
 ---
-
 ## Hi, I'm Jamal Hansen
 
-I'm a data engineer who spends way too much time thinking about AI, cloud infrastructure, and how work is changing. I like building things that actually solve problems instead of just being technically interesting.
+I'm a data scientist building solutions and teaching the next generation of developers how to work with AI. I write about what I'm learning, from SQL fundamentals to agentic AI, because teaching helps me understand concepts more deeply.
 
 ### What I Do
 
-I work with cloud platforms, data pipelines, and whatever architecture pattern makes sense for the problem. Right now I'm really into:
+I'm currently wrapping up an MBA while preparing for my second round of paternity leave, which has taught me a lot about balancing ambitious technical work with the things that actually matter.
 
-- **Cloud Engineering**: Mostly AWS. I've gotten pretty deep into their services.
-- **Data Architecture**: Building pipelines that don't fall over when things get messy
-- **AI Integration**: Figuring out where AI actually helps vs. where it's just hype
-- **Agentic AI**: Playing with autonomous AI systems to see what they can actually do
+My technical focus includes:
+
+- AI & Machine Learning: Building production LLM applications and teaching teams how to work effectively with AI
+- Data Science: Python, SQL, and the full analytics stack
+- Technical Leadership: Mentoring junior developers and translating complex AI concepts for non-technical stakeholders
 
 ### What I Write About
 
-I learn by doing, and I write about what I'm learning. Expect posts on:
+I maintain an active blog and newsletter covering:
 
-- **AWS Certifications**: What I've learned studying for and taking AWS exams
-- **Agentic AI**: Real experiments with AI agents, not just theory
-- **Goal Setting**: How I set and track goals (I'm probably too systematic about this)
-- **Python and SQL**: Practical tips for working with data
+- SQL for Python Developers: A series breaking down database concepts for programmers coming from Python
+- LLM Applications: Practical experiences building with large language models in production
+- Learning in Public: My journey through AI engineering courses, certifications, and technical reading
 
-### The Rest
+I believe in learning by teaching. My blog posts often start as internal documentation or explanations I've given to my team, then evolve into more polished articles.
 
-When I'm not coding or reading AWS documentation, I'm probably setting quarterly goals or experimenting with some new AI tool. I tend to be pretty methodical about personal development—it's just how I'm wired.
+### Beyond Code
 
-I think technology should make humans more capable, not replace them. And I think if you're building systems that affect people's lives, you have a responsibility to build them thoughtfully.
+I'm a husband and father navigating the chaos of life with a newborn while trying to maintain my learning momentum. I read mystery, sci-fi, and fantasy novels when I can stay awake long enough. I'm also slowly learning Japanese and enjoy board games when there's time.
+
+I track my goals systematically (maybe too systematically) and believe in continuous improvement through deliberate practice.
 
 ### Let's Connect
 
-If you're into data, AI, or building things that matter, I'd love to hear from you. Find me on [GitHub](https://github.com/jamalhansen) or just read through the posts here.
-
----
+I write to start conversations. If something I've written resonates with you, or if you're working on similar problems, reach out. You can find me on [GitHub](https://github.com/jamalhansen) or subscribe to my [newsletter](https://jamalhansen.beehiiv.com) for updates when I publish new posts.
