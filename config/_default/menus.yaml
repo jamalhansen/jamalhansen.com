@@ -1,13 +1,21 @@
 main:
-  - name: Home
+  - identifier: home
+    name: Home
     url: /
-    weight: 10
-  - name: Blog
+    weight: 1
+  - identifier: blog
+    name: Blog
     url: /blog/
-    weight: 20
-  - name: Series
+    weight: 2
+  - identifier: series
+    name: Series
     url: /series/
-    weight: 30
-  - name: About
+    weight: 3
+  - identifier: about
+    name: About
     url: /about/
-    weight: 40
+    weight: 4
+  - identifier: search
+    name: Search
+    url: /search/
+    weight: 5

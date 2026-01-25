@@ -29,3 +29,9 @@ minify:
   disableJSON: false
   disableSVG: false
   disableXML: false
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
