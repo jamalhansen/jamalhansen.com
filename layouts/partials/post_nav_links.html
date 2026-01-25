@@ -1,5 +1,7 @@
 {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
 {{- if and (gt (len $pages) 1) (in $pages . ) }}
+
+
 <nav class="paginav">
   {{- with $pages.Prev . }}
   <a class="prev" href="{{ .Permalink }}">
@@ -16,4 +18,19 @@
   </a>
   {{- end }}
 </nav>
+
+{{/* Newsletter Signup */}}
+<div class="newsletter-post-signup" style="margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--border); border-radius: 8px; text-align: center;">
+  <h3 style="margin-top: 0;">Enjoyed this post?</h3>
+  <p style="margin-bottom: 1rem;">Subscribe to get notified about new posts.</p>
+  <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+  <iframe
+    src="https://subscribe-forms.beehiiv.com/67b6b378-798a-479b-b9fa-dfb258feebaa"
+    class="beehiiv-embed"
+    data-test-id="beehiiv-embed"
+    frameborder="0"
+    scrolling="no"
+    style="width: 100%; max-width: 560px; height: 315px; margin: 0 auto; display: block; border-radius: 0px; background-color: transparent; box-shadow: none;">
+  </iframe>
+</div>
 {{- end }}
