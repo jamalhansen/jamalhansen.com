@@ -3,7 +3,7 @@ languageCode: "en-us"
 title: "Jamal Hansen"
 enableRobotsTXT: true
 enableEmoji: true
-buildfuture: false
+buildFuture: false
 module:
   imports:
     - path: github.com/adityatelange/hugo-PaperMod

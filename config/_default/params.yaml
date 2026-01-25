@@ -1,70 +1,47 @@
 ############################
-## Author
+## Site Settings
 ############################
 
-author:
-  name: "Jamal Hansen"
-  greeting: "Data engineer exploring AI, cloud technologies, and the future of work. Writing about AWS certifications, agentic AI, and building purposeful systems."
-  image: "author.png"  # Add your profile image to /assets/author.png
+env: production
+description: "Technical blog exploring SQL, Python, and AI development"
+keywords: [Python, SQL, DuckDB, LLM, Ollama, Data Science]
+author: Jamal Hansen
+
+# Which content sections to show on homepage
+mainSections:
+  - blog
+
+defaultTheme: auto
+disableThemeToggle: false
+ShowReadingTime: true
+ShowShareButtons: true
+ShowPostNavLinks: true
+ShowBreadCrumbs: true
+ShowCodeCopyButtons: true
+ShowWordCount: false
+ShowRssButtonInSectionTermList: true
+UseHugoToc: true
+disableSpecialTitleCharacters: true
+
+# Post cover images
+cover:
+  hiddenInList: false
+  hiddenInSingle: false
 
 ############################
-## Links
+## Homepage
 ############################
 
-links:
-  - github: https://github.com/jamalhansen
-  - linkedin: https://www.linkedin.com/in/jamalhansen/
-  # - facebook: 
-  # - x-twitter:
-  # - mastodon:
-  # - instagram:
-  # - reddit:
-  # - telegram:
-  # - whatsapp:
-  # - signal:
-  # - codepen:
-  # - dev:
-  # - email:
-  # - website:
-  # - link:
-  # - discord:
-  # - orcid:
-  # - slack:
-  # - stack-overflow:
-  # - twitch:
-  # - patreon:
-  # - soundcloud:
-  # - dribbble:
-  # - stack-exchange:
-  # - tiktok:
-  # - youtube:
-  # - keybase:
-  # - flickr:
-  # - tumblr:
-  # - kickstarter:
-  # - snapchat:
-  # - bluesky:
-  # - bitbucket:
-  # - bandcamp:
-  # - etsy:
-  # - spotify:
-  # - pinterest:
-  # - strava:
-  # - untappd:
-  # - skype:
-  # - medium:
-  # - foursquare:
-  # - apple:
-  # - amazon:
-  # - google:
-  # - paypal:
-  # - windows:
+homeInfoParams:
+  Title: "Hi, I'm Jamal Hansen"
+  Content: >
+    Technical deep dives into SQL, Python, and AI development.
+    I document what I learn building with data and language models.
 
-###############################
-## OpenGraph & Twitter Cards
-###############################
-
-title: "Jamal Hansen"
-description: "Data engineer exploring AI, cloud technologies, and the future of work"
-images:
-  - aws-certified-data-engineer-associate-card.png
+socialIcons:
+  - name: github
+    url: "https://github.com/jamalhansen"
+  - name: linkedin
+    url: "https://linkedin.com/in/jamalhansen"
+  - name: rss
+    url: "index.xml"
