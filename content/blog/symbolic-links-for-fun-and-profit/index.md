@@ -1,24 +1,19 @@
 ---
 title: Symbolic links for fun and profit
-summary: You can use symbolic links to ease nagivation of your Mac command line
-author:
-  - Jamal Hansen
+description: You can use symbolic links to ease nagivation of your Mac command line
 date: 2025-02-10
 lastmod: 2026-01-07
-tags:
-  - command-line
-categories:
+tags: ["command-line"]
+categories: []
 cover:
     image: link-post.jpg
     alt: "Symbolic links for fun and profit"
     relative: true
+    caption: ""
 draft: false
-toc: false
+ShowToc: false
+TocOpen: false
 series:
-canonical_url: https://jamalhansen.com/blog/symbolic-links-for-fun-and-profit
-slug: symbolic-links-for-fun-and-profit
-layout: post
-
 ---
 
 As a former Ubuntu user turned Mac user, I enjoy the bash terminal and POSIX command line that my Mac comes with. I also like the polished user interface that my Mac GUI provides for the times that I don't want to think about what my computer is doing, I just want it to work

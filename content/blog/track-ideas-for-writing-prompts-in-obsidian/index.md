@@ -1,25 +1,19 @@
 ---
 title: Tracking ideas for writing prompts in Obsidian
-summary: I've set a goal to write a post three times a week and set up a system to capture ideas to write about.
-author:
-  - Jamal Hansen
+description: I've set a goal to write a post three times a week and set up a system to capture ideas to write about.
 date: 2025-02-21
 lastmod: 2026-01-11
-tags:
-  - obsidian
-  - writing
-categories:
+tags: ["obsidian", "writing"]
+categories: []
 cover:
     image: obsidian-tasks-editing.png
     alt: "Tracking ideas for writing prompts in Obsidian"
     relative: true
+    caption: ""
 draft: false
-toc: false
+ShowToc: false
+TocOpen: false
 series:
-canonical_url: https://jamalhansen.com/blog/track-ideas-for-writing-prompts-in-obsidian
-slug: track-ideas-for-writing-prompts-in-obsidian
-layout: post
-
 ---
 
 I've committed to writing three blog posts a week and, to support this, I've been logging my ideas for posts in Obsidian. I've got the [Tasks plugin](https://publish.obsidian.md/tasks/Introduction) installed, so I've set up a little system that is loosely based on the [Jeff Goins three bucket writing system](https://goinswriter.com/three-buckets/).

@@ -1,27 +1,18 @@
 ---
 title: Thank you for the overwhelming support
-summary: I recently posted on Linked In that I did not pass my AWS Data Engineer exam and I am overwhelmed by the positive response
-author:
-  - Jamal Hansen
+description: I recently posted on Linked In that I did not pass my AWS Data Engineer exam and I am overwhelmed by the positive response
 date: 2025-06-01
-lastmod: ""
-tags:
-  - gratitude
-  - aws
-  - certification
-  - community
-  - linkedin
-categories:
-  - personal
+tags: ["gratitude", "aws", "certification", "community", "linkedin"]
+categories: ["personal"]
 cover:
     image: kevin-butz-6hsfmat-t7k-unsplash.jpg
     alt: "Thank you for the overwhelming support"
     relative: true
+    caption: ""
 draft: false
-toc: false
-series: AWS Data Engineer - Associate Certification
-canonical_url: https://jamalhansen.com/blog/thank-you-for-your-overwhelming-support
-slug: thank-you-for-your-overwhelming-support
+ShowToc: false
+TocOpen: false
+series: AWS Data Engineer Associate Certification
 layout: post
 ---
 

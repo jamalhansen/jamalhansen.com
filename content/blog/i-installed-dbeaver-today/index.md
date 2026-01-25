@@ -1,26 +1,19 @@
 ---
 title: I installed dBeaver today
-summary: I downloaded the community edition of dBeaver today and enjoyed the installation experience and sample database option.
-author:
-  - Jamal Hansen
+description: I downloaded the community edition of dBeaver today and enjoyed the installation experience and sample database option.
 date: 2025-02-17
 lastmod: 2026-01-11
-tags:
-  - dbeaver
-  - databases
-categories:
-  - dBeaver
+tags: ["dbeaver", "databases"]
+categories: ["dBeaver"]
 cover:
     image: dbeaver-create-sample-database.png
     alt: "I installed dBeaver today"
     relative: true
+    caption: ""
 draft: false
-toc: false
+ShowToc: false
+TocOpen: false
 series:
-canonical_url: https://jamalhansen.com/blog/i-installed-dbeaver-today
-slug: i-installed-dbeaver-today
-layout: post
-
 ---
 
 Today, I downloaded a community copy of dBeaver and installed it. Well technically I did this a while back, but today I opened it for the first time. I've been meaning to write about sql and relational databases for a while now. Some sort of beginner posts to help get people started. I've even started doing it once or twice, but it has fizzled out for all the typical reasons: 

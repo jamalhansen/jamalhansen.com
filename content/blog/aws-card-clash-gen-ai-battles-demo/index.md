@@ -1,27 +1,18 @@
 ---
 title: AWS Card Clash - Gen AI Battles
-summary: Today I joined a demo of the AWS Card Clash architecture design game available on AWS SkillBuilder
-author:
-  - Jamal Hansen
+description: Today I joined a demo of the AWS Card Clash architecture design game available on AWS SkillBuilder
 date: 2025-05-07
-lastmod: ""
-tags:
-  - aws
-  - skillbuilder
-  - gaming
-  - learning
-  - architecture
-categories:
-  - learning
+tags: ["aws", "skillbuilder", "gaming", "learning", "architecture"]
+categories: ["learning"]
 cover:
     image: 2025-05-07-aws-card-clash-demo.png
     alt: "AWS Card Clash - Gen AI Battles"
     relative: true
+    caption: ""
 draft: false
-toc: false
+ShowToc: false
+TocOpen: false
 series:
-canonical_url: https://jamalhansen.com/aws-card-clash-gen-ai-battles-demo
-slug: aws-card-clash-gen-ai-battles-demo
 layout: post
 ---
 

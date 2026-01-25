@@ -1,24 +1,19 @@
 ---
 title: SQL Thinks in Sets, Not Loops
-summary: "The mental model shift that makes SQL click: SQL is declarative (describe what you want) rather than procedural (step-by-step loops). Once you think in sets instead of rows, the keywords become intuitive."
-author:
-  - Jamal Hansen
+description: "The mental model shift that makes SQL click: SQL is declarative (describe what you want) rather than procedural (step-by-step loops). Once you think in sets instead of rows, the keywords become intuitive."
 date: 2026-02-02
-lastmod: ""
-tags:
-  - sql
-categories:
+tags: ["sql"]
+categories: []
 cover:
     image: dimitry-b-S9T2A1dPRiY-unsplash.jpg
     alt: "SQL Thinks in Sets, Not Loops"
     relative: true
+    caption: ""
 draft: false
-toc: false
-series: "SQL for Python Developers"
-canonical_url: https://jamalhansen.com/blog/sql-thinks-in-sets-not-loops
-slug: sql-thinks-in-sets-not-loops
-layout: post
-
+ShowToc: false
+TocOpen: false
+series: ["SQL for Python Developers"]
+weight: 5
 ---
 {{< unsplash-credit name="Dimitry B" username="dimitry_b" photo-id="a-person-is-sprinkling-seeds-on-a-wooden-table-S9T2A1dPRiY" >}}
 

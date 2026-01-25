@@ -28,15 +28,13 @@ def clean_obsidian_links_from_frontmatter(frontmatter):
     return frontmatter
 
 def normalize_frontmatter_fields(frontmatter):
-    """Normalize frontmatter field names to Hugo/theme conventions"""
-    # Change description: to summary:
-    frontmatter = re.sub(r'^description:', 'summary:', frontmatter, flags=re.MULTILINE)
+    """Normalize frontmatter field names to PaperMod theme conventions"""
+    # Change summary: to description: (PaperMod uses description)
+    frontmatter = re.sub(r'^summary:', 'description:', frontmatter, flags=re.MULTILINE)
 
     # Remove # prefix from tags (e.g., #python -> python, #sql -> sql)
-    # Match tags section and remove # from each tag
     def remove_tag_hashes(match):
         tags_section = match.group(0)
-        # Remove # from tag values
         tags_section = re.sub(r'- ["\']*#([^"\'\n]+)["\']*', r'- \1', tags_section)
         return tags_section
 
@@ -47,8 +45,31 @@ def normalize_frontmatter_fields(frontmatter):
         flags=re.MULTILINE
     )
 
-    # NOTE: legacy image conversion removed. extract_frontmatter_images already reads image/featureimage/cardimage,
-    # and copy_images_from_obsidian will copy whichever image names are present.
+    # Convert simple image: field to cover: block for PaperMod
+    image_match = re.search(r'^image:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE)
+    if image_match:
+        image_value = image_match.group(1).strip()
+        if image_value:
+            cover_block = f'''cover:
+  image: "{image_value}"
+  alt: ""
+  caption: ""
+  relative: true'''
+            frontmatter = re.sub(r'^image:\s*["\']?[^"\'\n]*["\']?\s*$', cover_block, frontmatter, flags=re.MULTILINE)
+        else:
+            # Remove empty image: field
+            frontmatter = re.sub(r'^image:\s*["\']?["\']?\s*\n', '', frontmatter, flags=re.MULTILINE)
+
+    # Convert toc: to ShowToc: (PaperMod convention)
+    frontmatter = re.sub(r'^toc:\s*true', 'ShowToc: true\nTocOpen: false', frontmatter, flags=re.MULTILINE)
+    frontmatter = re.sub(r'^toc:\s*false', 'ShowToc: false', frontmatter, flags=re.MULTILINE)
+
+    # Remove fields not used by PaperMod
+    frontmatter = re.sub(r'^canonical_url:.*\n', '', frontmatter, flags=re.MULTILINE)
+    frontmatter = re.sub(r'^layout:.*\n', '', frontmatter, flags=re.MULTILINE)
+    frontmatter = re.sub(r'^slug:.*\n', '', frontmatter, flags=re.MULTILINE)
+    frontmatter = re.sub(r'^lastmod:\s*["\']?["\']?\s*\n', '', frontmatter, flags=re.MULTILINE)
+
     return frontmatter
 
 def convert_obsidian_to_hugo(content):
@@ -73,28 +94,25 @@ def extract_images_from_content(content):
 
 # extract_frontmatter_images removed — frontmatter image promotion is no longer performed.
 
-def create_hugo_frontmatter(title, slug):
-    """Generate Hugo frontmatter for the post (uses simple image: field that will be converted to cover: format)"""
+def create_hugo_frontmatter(title):
+    """Generate Hugo frontmatter for PaperMod theme"""
     today = datetime.now().strftime("%Y-%m-%d")
 
     frontmatter = f"""---
 title: "{title}"
-summary: ""
-author:
-  - Jamal Hansen
 date: {today}
-lastmod: ""
-tags:
-  -
-categories:
-  -
-image: ""
 draft: true
-toc: false
-series: ""
-canonical_url: https://jamalhansen.com/blog/{slug}
-slug: {slug}
-layout: post
+description: ""
+tags: []
+categories: []
+series: []
+cover:
+  image: ""
+  alt: ""
+  caption: ""
+  relative: true
+ShowToc: true
+TocOpen: false
 ---
 
 """
@@ -188,7 +206,7 @@ def main():
 
         # Convert content and create new frontmatter
         converted_body = convert_obsidian_to_hugo(content)
-        frontmatter = create_hugo_frontmatter(title, slug)
+        frontmatter = create_hugo_frontmatter(title)
         final_content = frontmatter + converted_body
 
     # Extract images from the body content (all images are handled from content)

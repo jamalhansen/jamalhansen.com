@@ -1,25 +1,20 @@
 ---
 title: Don't forget to save! Persisting your DuckDB database
-summary: Your in-memory database disappears when Python exits. Let's fix that with a one-line change that saves everything to disk.
-author:
-  - Jamal Hansen
+description: Your in-memory database disappears when Python exits. Let's fix that with a one-line change that saves everything to disk.
 date: 2026-01-26
 lastmod: 2026-01-14
-tags:
-  - duckdb
-  - sql
-categories:
+tags: ["duckdb", "sql"]
+categories: []
 cover:
     image: s-j-yJVpnfqu8GY-unsplash.jpg
     alt: "Don't forget to save! Persisting your DuckDB database"
     relative: true
+    caption: ""
 draft: false
-toc: false
-series: "SQL for Python Developers"
-canonical_url: https://jamalhansen.com/blog/dont-forget-to-save-persisting-your-duckdb-database
-slug: dont-forget-to-save-persisting-your-duckdb-database
-layout: post
-
+ShowToc: false
+TocOpen: false
+series: ["SQL for Python Developers"]
+weight: 4
 ---
 {{< unsplash-credit name="s j" username="sjjillan" photo-id="a-group-of-electronic-devices-yJVpnfqu8GY" >}}
 

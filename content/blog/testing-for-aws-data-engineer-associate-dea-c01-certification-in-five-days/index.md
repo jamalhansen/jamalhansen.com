@@ -3,18 +3,10 @@ title: "I test for the AWS Data Engineer Associate Certification in five days"
 subtitle: "...and I'm not sure that I'm ready"
 date: 2025-05-04
 draft: false
-author:
-  - Jamal Hansen
-series: AWS Data Engineer - Associate Certification
-tags:
-  - aws
-  - certification
-  - dea-c01
-  - anxiety
-  - preparation
-categories:
-  - certification
-summary: As I approach the exam date for the AWS Data Engineer Associate Certification (DEA-C01) exam, I'm having second thoughts about my chances of passing after a poor practice test score.
+series: AWS Data Engineer Associate Certification
+tags: ["aws", "certification", "dea-c01", "anxiety", "preparation"]
+categories: ["certification"]
+description: As I approach the exam date for the AWS Data Engineer Associate Certification (DEA-C01) exam, I'm having second thoughts about my chances of passing after a poor practice test score.
 ---
 
 A couple of months ago I decided that I wanted to know more about AWS Glue and other related AWS data services. I have the AWS Solutions Architect - Associate certification, and it made sense that in order to learn AWS Data Engineering, I would attempt the related AWS Associate (DEA-C01) Certification.

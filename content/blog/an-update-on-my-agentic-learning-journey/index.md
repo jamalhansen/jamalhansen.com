@@ -1,27 +1,18 @@
 ---
 title: An update on my agentic learning journey
-summary: An update after a few weeks about learning agentic AI, it's been a fun journey and I've found some great resources
-author:
-  - Jamal Hansen
+description: An update after a few weeks about learning agentic AI, it's been a fun journey and I've found some great resources
 date: 2025-06-24
-lastmod: ""
-tags:
-  - agentic-ai
-  - artificial-intelligence
-  - learning
-  - python
-  - langchain
-categories:
-  - technology 
+tags: ["agentic-ai", "artificial-intelligence", "learning", "python", "langchain"]
+categories: ["technology"]
 cover:
     image: agentic-update-landscape.jpg
     alt: "An update on my agentic learning journey"
     relative: true
+    caption: ""
 draft: false
-toc: false
+ShowToc: false
+TocOpen: false
 series: 
-canonical_url: https://jamalhansen.com/blog/an-update-on-my-agentic-learning-journey
-slug: an-update-on-my-agentic-learning-journey
 layout: post
 ---
 

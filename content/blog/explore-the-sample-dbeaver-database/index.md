@@ -1,26 +1,19 @@
 ---
 title: Explore the dBeaver sample database
-summary: After installing dBeaver, let's take a look at the sample database that it provides.
-author:
-  - Jamal Hansen
+description: After installing dBeaver, let's take a look at the sample database that it provides.
 date: 2025-04-20
 lastmod: 2026-01-11
-tags:
-  - dbeaver
-  - sqlite
-categories:
-  - database
+tags: ["dbeaver", "sqlite"]
+categories: ["database"]
 cover:
     image: dbeaver-sample-database-01.png
     alt: "Explore the dBeaver sample database"
     relative: true
+    caption: ""
 draft: false
-toc: false
+ShowToc: false
+TocOpen: false
 series:
-canonical_url: https://jamalhansen.com/blog/explore-the-sample-dbeaver-database
-slug: explore-the-sample-dbeaver-database
-layout: post
-
 ---
 
 In the previous post, we installed dBeaver and created a sample database. Now let's explore what's inside.

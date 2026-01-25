@@ -1,6 +1,8 @@
 ---
 title: "About"
-type: "page"
+layout: "about"
+url: "/about/"
+summary: "About Jamal Hansen"
 ---
 ## Hi, I'm Jamal Hansen
 

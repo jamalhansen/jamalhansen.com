@@ -1,26 +1,18 @@
 ---
 title: I failed the AWS Certified Data Engineer Associate Exam
-summary: This past Friday I took the AWS Certified Engineer Associate Exam and my results came back as a failure
-author:
-  - Jamal Hansen
+description: This past Friday I took the AWS Certified Engineer Associate Exam and my results came back as a failure
 date: 2025-05-10
-lastmod: ""
-tags:
-  - aws
-  - certification
-  - failure
-  - learning
-categories:
-  - certification
+tags: ["aws", "certification", "failure", "learning"]
+categories: ["certification"]
 cover:
     image: 2025-05-10-exam-results.png
     alt: "I failed the AWS Certified Data Engineer Associate Exam"
     relative: true
+    caption: ""
 draft: false
-toc: false
-series: AWS Data Engineer - Associate Certification
-canonical_url: https://jamalhansen.com/blog/i-failed-the-aws-certified-data-engineer-associate-exam
-slug: i-failed-the-aws-certified-data-engineer-associate-exam
+ShowToc: false
+TocOpen: false
+series: AWS Data Engineer Associate Certification
 layout: post
 ---
 

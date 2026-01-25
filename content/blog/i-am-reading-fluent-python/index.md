@@ -1,24 +1,19 @@
 ---
 title: "I Am Reading Fluent Python"
-summary: "I'm reading the book Fluent Python because I want to level up my Python skills and really understand the language"
-author:
-  - Jamal Hansen
+description: "I'm reading the book Fluent Python because I want to level up my Python skills and really understand the language"
 date: 2025-04-21
 lastmod: 2025-01-04
-tags:
-  - fluent-python
-  - reading
-categories:
-  - Python
+tags: ["fluent-python", "reading"]
+categories: ["Python"]
 cover:
     image: annelies-geneyn-bhBONc07WsI-unsplash.jpg
     alt: "I Am Reading Fluent Python"
     relative: true
+    caption: ""
 draft: false
-toc: true
+ShowToc: true
+TocOpen: false
 series: 
-canonical_url: https://jamalhansen.com/blog/i-am-reading-fluent-python
-slug: i-am-reading-fluent-python
 layout: post
 ---
 {{< unsplash-credit name="Annelies Geneyn" username="anneliesgeneyn" photo-id="opened-book-on-grass-during-daytime-bhBONc07WsI" >}}

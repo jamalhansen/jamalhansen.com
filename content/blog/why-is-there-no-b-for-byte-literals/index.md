@@ -1,22 +1,14 @@
 ---
 title: You don't need a 'B' suffix for byte literals in Java
-summary: Unlike long, the Java byte literal doesn't require a suffix. Diving into a rabbit hole to find out why
-author:
-  - Jamal Hansen
+description: Unlike long, the Java byte literal doesn't require a suffix. Diving into a rabbit hole to find out why
 date: 2025-02-07
 lastmod: 2026-01-11
-tags:
-  - java
-  - byte
-categories:
-  - Java
+tags: ["java", "byte"]
+categories: ["Java"]
 draft: false
-toc: false
+ShowToc: false
+TocOpen: false
 series:
-canonical_url: https://jamalhansen.com/blog/why-is-there-no-b-for-byte-literals
-slug: why-is-there-no-b-for-byte-literals
-layout: post
-
 ---
 
 Today I was coding in Java and I came across a part of the code where I was using a byte literal. I've been using Java for a while, so I knew that you have to suffix `long` literals with an 'L' otherwise Java complains.
