@@ -14,13 +14,15 @@ taxonomies:
   series: series
 
 markup:
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    noClasses: false
+    style: monokai
   goldmark:
     renderer:
       unsafe: true
-  highlight:
-    lineNos: true
-    style: github
-    noClasses: false
 
 minify:
   disableCSS: false
