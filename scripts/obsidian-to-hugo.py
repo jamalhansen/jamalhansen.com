@@ -157,6 +157,27 @@ def copy_images_from_obsidian(vault_path, post_dir, feature_images, content_imag
 
     return copied_feature, copied_content
 
+def copy_all_images_from_source_folder(input_file, post_dir):
+    """Copy all image files from the source markdown's folder to the post directory.
+    This ensures cover images and any other images in the folder are included.
+    """
+    source_dir = Path(input_file).parent
+    image_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.avif'}
+
+    copied_images = []
+
+    for file in source_dir.iterdir():
+        if file.is_file() and file.suffix.lower() in image_extensions:
+            dst_image = post_dir / file.name
+            try:
+                shutil.copy2(file, dst_image)
+                copied_images.append(file.name)
+                print(f"   ✓ {file.name}")
+            except Exception as e:
+                print(f"   ✗ Failed to copy {file.name}: {e}")
+
+    return copied_images
+
 def main():
     if len(sys.argv) < 3:
         print("Usage: python obsidian-to-hugo.py input.md post-slug [obsidian-vault-path]")
@@ -231,40 +252,47 @@ def main():
     with open(index_file, 'w', encoding='utf-8') as f:
         f.write(final_content)
     
-    # Copy images from Obsidian vault
-    all_images = body_images
-    if all_images:
-        if vault_path:
-            copied_feature, copied_content = copy_images_from_obsidian(
-                vault_path, post_dir, feature_images, content_images
-            )
+    # Copy all images from the source folder (covers, content images, etc.)
+    print(f"\n📸 Copying all images from source folder:")
+    copied_from_folder = copy_all_images_from_source_folder(input_file, post_dir)
 
-            total_copied = len(copied_feature) + len(copied_content)
-            print(f"\n✅ Successfully copied {total_copied} images to post directory:")
-            if copied_feature:
-                print(f"   📸 Cover image: {len(copied_feature)}")
-            if copied_content:
-                print(f"   📝 Content images: {len(copied_content)}")
-        else:
-            print(f"\nFound {len(all_images)} images:")
-            for img in all_images:
-                print(f"  - {img}")
-            print("\nNo vault path provided. Copy these images manually.")
+    if copied_from_folder:
+        print(f"\n✅ Successfully copied {len(copied_from_folder)} images from source folder")
+    else:
+        # Fall back to vault-wide search for images referenced in content
+        all_images = body_images
+        if all_images:
+            if vault_path:
+                copied_feature, copied_content = copy_images_from_obsidian(
+                    vault_path, post_dir, feature_images, content_images
+                )
+
+                total_copied = len(copied_feature) + len(copied_content)
+                if total_copied > 0:
+                    print(f"\n✅ Successfully copied {total_copied} images from vault:")
+                    if copied_feature:
+                        print(f"   📸 Cover image: {len(copied_feature)}")
+                    if copied_content:
+                        print(f"   📝 Content images: {len(copied_content)}")
+                else:
+                    print(f"\n⚠️  No images found in source folder or vault")
+            else:
+                print(f"\nFound {len(all_images)} images referenced:")
+                for img in all_images:
+                    print(f"  - {img}")
+                print("\nNo vault path provided. Copy these images manually.")
     
     print(f"\n🎉 Post created successfully!")
     print(f"📁 Location: {post_dir}")
     print(f"📝 File: {index_file}")
     print(f"\n💡 Next steps:")
     print(f"   1. Edit the frontmatter in {index_file}")
-    if feature_images:
+    if copied_from_folder:
         print(f"   2. Set cover.image in frontmatter to one of:")
-        for img in feature_images:
+        for img in copied_from_folder:
             print(f"      - {img}")
     print(f"   3. Add tags, categories, and summary")
     print(f"   4. Set draft: false when ready to publish")
-
-    if not vault_path and all_images:
-        print(f"   5. Copy images manually from your Obsidian vault to {post_dir}")
 
 if __name__ == "__main__":
     main()
