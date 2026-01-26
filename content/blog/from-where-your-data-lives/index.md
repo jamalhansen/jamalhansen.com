@@ -16,6 +16,7 @@ draft: false
 ShowToc: false
 series: "SQL for Python Developers"
 layout: post
+weight: 7
 ---
 {{< unsplash-credit name="Lance Chang" username="carmendis" photo-id="a-large-warehouse-filled-with-lots-of-shelves-h3pVxOIpnzk" >}}
 

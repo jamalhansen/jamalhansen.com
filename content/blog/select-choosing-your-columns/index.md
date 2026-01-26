@@ -16,6 +16,7 @@ draft: false
 ShowToc: false
 series: "SQL for Python Developers"
 layout: post
+weight: 6
 ---
 {{< unsplash-credit name="Erik Mclean" username="introspectivedsgn" photo-id="white-refrigerator-with-assorted-items-F5G4YTN5uEQ" >}}
 
