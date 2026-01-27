@@ -9,14 +9,16 @@ cover:
     alt: "Thank you for the overwhelming support"
     relative: true
     caption: ""
+    credit:
+        name: "Kevin Butz"
+        username: "kevin_butz"
+        photo_id: "graphical-user-interface-6hsfmat-t7k"
 draft: false
 ShowToc: false
 TocOpen: false
 series: AWS Data Engineer Associate Certification
 layout: post
 ---
-
-{{< unsplash-credit name="Kevin Butz" username="kevin_butz" photo-id="graphical-user-interface-6hsfmat-t7k" >}}
 
 I recently posted that [I took and failed the AWS Data Engineer Associate Certification test ](https://jamalhansen.com/blog/i-failed-the-aws-certified-data-engineer-associate-exam/) on May 9th. I also [posted about my experience on Linked In](https://www.linkedin.com/feed/update/urn:li:activity:7327072375777173505/).
 

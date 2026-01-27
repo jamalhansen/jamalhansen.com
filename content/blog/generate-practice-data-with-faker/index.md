@@ -10,14 +10,16 @@ cover:
     alt: "Generate Practice Data with faker"
     relative: true
     caption: ""
+    credit:
+        name: "Jon Tyson"
+        username: "jontyson"
+        photo_id: "four-markers-on-table-566CgCRSNCk"
 draft: false
 ShowToc: false
 TocOpen: false
 series: ["SQL for Python Developers"]
 weight: 3
 ---
-
-{{< unsplash-credit name="Jon Tyson" username="jontyson" photo-id="four-markers-on-table-566CgCRSNCk" >}}
 
 Last week, we got DuckDB running with three hardcoded rows. That got us started—but three rows? You can eyeball that. Let's generate hundreds of realistic customers and build a dataset worth exploring.
 

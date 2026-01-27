@@ -10,13 +10,16 @@ cover:
     alt: "I Am Reading Fluent Python"
     relative: true
     caption: ""
+    credit:
+        name: "Annelies Geneyn"
+        username: "anneliesgeneyn"
+        photo_id: "opened-book-on-grass-during-daytime-bhBONc07WsI"
 draft: false
 ShowToc: true
 TocOpen: false
 series: 
 layout: post
 ---
-{{< unsplash-credit name="Annelies Geneyn" username="anneliesgeneyn" photo-id="opened-book-on-grass-during-daytime-bhBONc07WsI" >}}
 
 A couple weekends ago, I was lucky enough to attend PyTexas 2025. It's a great regional conference that is a great mix of world class speakers and cozy relaxed atmosphere. It's in spring, on the banks of Lady Bird Lake in Austin, Texas. It is a wonderful event. 
 

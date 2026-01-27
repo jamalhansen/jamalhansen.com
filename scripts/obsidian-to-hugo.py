@@ -45,6 +45,32 @@ def normalize_frontmatter_fields(frontmatter):
         flags=re.MULTILINE
     )
 
+    # Extract unsplash credit fields if present
+    unsplash_name_match = re.search(r'^unsplash_name:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE)
+    unsplash_user_match = re.search(r'^unsplash_user:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE)
+    unsplash_id_match = re.search(r'^unsplash_id:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE)
+
+    unsplash_name = unsplash_name_match.group(1).strip() if unsplash_name_match else None
+    unsplash_user = unsplash_user_match.group(1).strip() if unsplash_user_match else None
+    unsplash_id = unsplash_id_match.group(1).strip() if unsplash_id_match else None
+
+    # Remove the base-level unsplash fields
+    frontmatter = re.sub(r'^unsplash_name:.*\n', '', frontmatter, flags=re.MULTILINE)
+    frontmatter = re.sub(r'^unsplash_user:.*\n', '', frontmatter, flags=re.MULTILINE)
+    frontmatter = re.sub(r'^unsplash_id:.*\n', '', frontmatter, flags=re.MULTILINE)
+
+    # Build credit block if any unsplash fields were present
+    has_credit = unsplash_name or unsplash_user or unsplash_id
+    credit_block = ""
+    if has_credit:
+        credit_block = "\n  credit:"
+        if unsplash_name:
+            credit_block += f'\n    name: "{unsplash_name}"'
+        if unsplash_user:
+            credit_block += f'\n    username: "{unsplash_user}"'
+        if unsplash_id:
+            credit_block += f'\n    photo_id: "{unsplash_id}"'
+
     # Convert simple image: field to cover: block for PaperMod
     image_match = re.search(r'^image:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE)
     if image_match:
@@ -54,11 +80,25 @@ def normalize_frontmatter_fields(frontmatter):
   image: "{image_value}"
   alt: ""
   caption: ""
-  relative: true'''
+  relative: true{credit_block}'''
             frontmatter = re.sub(r'^image:\s*["\']?[^"\'\n]*["\']?\s*$', cover_block, frontmatter, flags=re.MULTILINE)
         else:
             # Remove empty image: field
             frontmatter = re.sub(r'^image:\s*["\']?["\']?\s*\n', '', frontmatter, flags=re.MULTILINE)
+    elif has_credit:
+        # If there's credit info but no image: field, check if there's already a cover: block
+        # and inject the credit into it
+        cover_match = re.search(r'^cover:\s*\n((?:  [^\n]+\n)*)', frontmatter, re.MULTILINE)
+        if cover_match:
+            # Insert credit block after the existing cover fields
+            cover_end = cover_match.end()
+            # Find where to insert (after relative: true or last cover field)
+            frontmatter = re.sub(
+                r'(^cover:\s*\n(?:  [^\n]+\n)*?  relative:\s*true)',
+                r'\1' + credit_block,
+                frontmatter,
+                flags=re.MULTILINE
+            )
 
     # Convert toc: to ShowToc: (PaperMod convention)
     frontmatter = re.sub(r'^toc:\s*true', 'ShowToc: true\nTocOpen: false', frontmatter, flags=re.MULTILINE)

@@ -9,14 +9,16 @@ cover:
     alt: "Adding Claude to my evolving goal flow"
     relative: true
     caption: ""
+    credit:
+        name: "Isaac Smith"
+        username: "isaacmsmith"
+        photo_id: "white-printer-paper-Ij7h-m4nJ18"
 draft: false
 ShowToc: false
 TocOpen: false
 series:
 layout: post
 ---
-
-{{< unsplash-credit name="Isaac Smith" username="isaacmsmith" photo-id="white-printer-paper-Ij7h-m4nJ18" >}}
 
 Tracking my yearly goals is a habit that has evolved in time. Around ten years ago I began formally writing down my yearly goals. I had recently become a manager at work for the first time and realized that I was unprepared for the task.
 

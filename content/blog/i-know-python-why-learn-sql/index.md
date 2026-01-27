@@ -9,13 +9,16 @@ cover:
     alt: "I know Python; Why learn SQL"
     relative: true
     caption: ""
+    credit:
+        name: "Anna Yablonskaya"
+        username: "invborder"
+        photo_id: "a-foggy-train-station-with-a-train-on-the-tracks-cpy88m2PnBM"
 draft: false
 ShowToc: false
 TocOpen: false
 series: ["SQL for Python Developers"]
 weight: 1
 ---
-{{< unsplash-credit name="Anna Yablonskaya" username="invborder" photo-id="a-foggy-train-station-with-a-train-on-the-tracks-cpy88m2PnBM" >}}
 
 I learned SQL very early in my career. At the time, I didn't understand why, and for the first month or so, it didn't make sense to me. The syntax didn't resemble any language I had seen before, and it employed concepts with which I was unfamiliar. This all made SQL seem scary, and oddly enough, SQL hasn't changed much in the past 40 years, which makes it even more of an oddity. 
 

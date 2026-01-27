@@ -9,13 +9,16 @@ cover:
     alt: "SQL Thinks in Sets, Not Loops"
     relative: true
     caption: ""
+    credit:
+        name: "Dimitry B"
+        username: "dimitry_b"
+        photo_id: "a-person-is-sprinkling-seeds-on-a-wooden-table-S9T2A1dPRiY"
 draft: false
 ShowToc: false
 TocOpen: false
 series: ["SQL for Python Developers"]
 weight: 5
 ---
-{{< unsplash-credit name="Dimitry B" username="dimitry_b" photo-id="a-person-is-sprinkling-seeds-on-a-wooden-table-S9T2A1dPRiY" >}}
 
 Remember [back when we started](https://jamalhansen.com/blog/i-know-python-why-learn-sql), I mentioned SQL was difficult because of how I was thinking? I was asking it to perform steps to return data. This didn't work because SQL uses a declarative syntax that describes the final result. Until I realized this, SQL felt hard. Let's explore this concept further.
 

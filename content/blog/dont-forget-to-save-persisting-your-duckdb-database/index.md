@@ -10,13 +10,16 @@ cover:
     alt: "Don't forget to save! Persisting your DuckDB database"
     relative: true
     caption: ""
+    credit:
+        name: "s j"
+        username: "sjjillan"
+        photo_id: "a-group-of-electronic-devices-yJVpnfqu8GY"
 draft: false
 ShowToc: false
 TocOpen: false
 series: ["SQL for Python Developers"]
 weight: 4
 ---
-{{< unsplash-credit name="s j" username="sjjillan" photo-id="a-group-of-electronic-devices-yJVpnfqu8GY" >}}
 
 I still remember losing schoolwork and video game progress because I forgot to save. That sinking feeling when hours of work vanish because you were too caught up in the flow to pause and save.
 

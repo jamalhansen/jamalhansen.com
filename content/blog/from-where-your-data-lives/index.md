@@ -12,13 +12,16 @@ cover:
   alt: ""
   caption: ""
   relative: true
+  credit:
+    name: "Lance Chang"
+    username: "carmendis"
+    photo_id: "a-large-warehouse-filled-with-lots-of-shelves-h3pVxOIpnzk"
 draft: false
 ShowToc: false
 series: "SQL for Python Developers"
 layout: post
 weight: 7
 ---
-{{< unsplash-credit name="Lance Chang" username="carmendis" photo-id="a-large-warehouse-filled-with-lots-of-shelves-h3pVxOIpnzk" >}}
 
 We have come a long way over the last five posts, but we are just getting started. So far, we have explored concepts that will help us along our journey, but haven't talked a whole lot about SQL itself. 
 
