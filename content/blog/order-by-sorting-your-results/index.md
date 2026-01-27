@@ -21,6 +21,7 @@ ShowToc: false
 series: "SQL for Python Developers"
 weight: 8
 ---
+
 We now have a firm grasp on how to use [SELECT: Choosing Your Columns](https://jamalhansen.com/blog/select-choosing-your-columns) and [FROM: Where Your Data Lives](https://jamalhansen.com/blog/from-where-your-data-lives) to tell the database where to find data and how to format the columns when it returns it. With this knowledge, we can pull back all of the data from a table in a database. 
 
 There is still a problem with the data that we receive from a query. It can come back in any order. It may return in the same order 9 times out of 10, but there is no guarantee that it will come back in the same order next time. This happens because database engines optimize execution plans based on factors like data volume, indexes, and available memory, and those optimizations can change between queries.
