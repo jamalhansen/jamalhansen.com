@@ -130,3 +130,33 @@
   background: transparent;
   border: none;
 }
+
+/* Newsletter CTA on homepage */
+.home-info a[href*="beehiiv"],
+.first-entry .entry-content a[href*="beehiiv"] {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.home-info a[href*="beehiiv"]:hover,
+.first-entry .entry-content a[href*="beehiiv"]:hover {
+  color: #0d9668;
+}
+
+/* Newsletter button in footer */
+.newsletter-btn {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: #10b981;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.newsletter-btn:hover {
+  background: #0d9668;
+  color: #fff;
+}
