@@ -38,11 +38,17 @@ homeInfoParams:
     Technical deep dives into SQL, Python, and AI development.
     I document what I learn building with data and language models.
 
+
+    [Subscribe to my newsletter](https://jamalhansen.beehiiv.com) for updates on new posts and technical insights.
+
 socialIcons:
   - name: github
     url: "https://github.com/jamalhansen"
   - name: linkedin
     url: "https://linkedin.com/in/jamalhansen"
+  - name: email
+    title: Newsletter
+    url: "https://jamalhansen.beehiiv.com"
   - name: rss
     url: "index.xml"
 

@@ -11,15 +11,11 @@ main:
     name: Series
     url: /series/
     weight: 3
-  - identifier: newsletter
-    name: Newsletter
-    url: /newsletter/
-    weight: 4
   - identifier: about
     name: About
     url: /about/
-    weight: 5
+    weight: 4
   - identifier: search
     name: Search
     url: /search/
-    weight: 6
+    weight: 5
