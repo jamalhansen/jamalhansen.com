@@ -3,7 +3,7 @@ title: "GROUP BY: Aggregating Your Data"
 description: GROUP BY creates buckets and counts them. It's like Python's `collections.Counter` or pandas `groupby()`. Learn COUNT, SUM, AVG, MIN, and MAX.
 author:
   - Jamal Hansen
-date: 2026-03-10
+date: 2026-03-09
 tags:
   - sql
 categories:

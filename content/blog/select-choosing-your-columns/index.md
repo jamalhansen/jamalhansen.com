@@ -3,7 +3,7 @@ title: "SELECT: Choosing Your Columns"
 description: SQL's SELECT is more than picking columns. Rename with AS, compute expressions, and use DISTINCT for unique values.
 author:
   - Jamal Hansen
-date: 2026-02-17
+date: 2026-02-16
 tags:
   - sql
 categories:

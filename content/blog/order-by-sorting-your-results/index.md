@@ -3,7 +3,7 @@ title: "ORDER BY: Sorting Your Results"
 description: SQL returns rows in no guaranteed order. Run the same query twice and you might get different results. ORDER BY gives you control, like Python's sorted() with key functions.
 author:
   - Jamal Hansen
-date: 2026-02-24
+date: 2026-02-23
 tags:
   - sql
 categories:

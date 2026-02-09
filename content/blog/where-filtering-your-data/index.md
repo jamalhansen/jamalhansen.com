@@ -3,7 +3,7 @@ title: "WHERE: Filtering Your Data"
 description: Filter rows with conditions, the SQL equivalent of list comprehension `if` clauses. Covers AND/OR, IN, BETWEEN, LIKE patterns, and NULL handling.
 author:
   - Jamal Hansen
-date: 2026-03-03
+date: 2026-03-02
 tags:
   - sql
 categories:
