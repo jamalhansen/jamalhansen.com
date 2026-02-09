@@ -3,7 +3,7 @@ title: "FROM: Where Your Data Lives"
 description: We write SELECT first, but FROM executes first. It's like the `for item in collection` part of a Python loop. You pick your data source before doing anything else.
 author:
   - Jamal Hansen
-date: 2026-02-10
+date: 2026-02-09
 tags:
   - sql
 categories:
