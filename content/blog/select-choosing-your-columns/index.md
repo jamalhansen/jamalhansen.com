@@ -20,7 +20,7 @@ draft: false
 ShowToc: false
 series: "SQL for Python Developers"
 layout: post
-weight: 6
+weight: 7
 ---
 
 You have written `SELECT *` many times by now. It works, but it's a bit like asking for everything in the fridge when you just want milk. This week, we will look at the `SELECT` clause and see that it does more than just pick columns. It transforms your output.
