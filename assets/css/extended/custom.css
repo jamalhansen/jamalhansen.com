@@ -1,79 +1,17 @@
-/* Numbered steps */
-.tutorial-step {
-  position: relative;
-  margin: 3rem 0;
-  padding: 1.5rem;
-  background: #f8f9fa;
-  border-radius: 12px;
-  border-left: 4px solid #007acc;
+/* About page author photo */
+.author-photo {
+  float: right;
+  max-width: 200px;
+  margin: 0 0 1.5rem 3rem;
+  border-radius: 50%;
 }
 
-.tutorial-step::before {
-  content: "Step " counter(step-counter);
-  counter-increment: step-counter;
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  background: #007acc;
-  color: white;
-  padding: 0.3rem 0.8rem;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  font-weight: bold;
-}
-
-/* Initialize counter */
-.tutorial-content {
-  counter-reset: step-counter;
-}
-
-/* Different image sizes for emphasis */
-.tutorial-step.large img {
-  width: 100%;
-  max-width: 800px;
-}
-
-.tutorial-step.medium img {
-  width: 70%;
-  max-width: 600px;
-}
-
-.tutorial-step.small img {
-  width: 50%;
-  max-width: 400px;
-}
-
-/* Responsive tutorial images */
 @media (max-width: 768px) {
-  .tutorial-step {
-    margin: 1.5rem 0;
-    padding: 1rem;
+  .author-photo {
+    float: none;
+    display: block;
+    margin: 0 auto 1.5rem;
   }
-
-  .tutorial-step img {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-/* Zoom functionality for mobile */
-.tutorial-step img {
-  cursor: zoom-in;
-}
-
-.tutorial-step img.zoomed {
-  cursor: zoom-out;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  max-width: 90vw;
-  max-height: 90vh;
-  background: white;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
 }
 
 /* Comparison section for side-by-side image comparison */
