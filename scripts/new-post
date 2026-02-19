@@ -1,6 +1,6 @@
 #!/bin/bash
 # Simplified wrapper for creating new Hugo posts from Obsidian
-# Usage: ./new-post path/to/obsidian-note.md post-slug-name
+# Usage: ./new-post path/to/obsidian-note.md [vault-path]
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
@@ -12,13 +12,13 @@ else
 fi
 
 # Check if we have enough arguments
-if [ $# -lt 2 ]; then
-    echo "Usage: ./new-post <obsidian-file> <post-slug> [vault-path]"
+if [ $# -lt 1 ]; then
+    echo "Usage: ./new-post <obsidian-file> [vault-path]"
     echo ""
     echo "Examples:"
-    echo "  ./new-post my-note.md awesome-aws-tutorial"
-    echo "  ./new-post jamalhansen.com/_drafts/my-post.md awesome-tutorial"
-    echo "  ./new-post ~/full/path/note.md awesome-tutorial"
+    echo "  ./new-post my-note.md"
+    echo "  ./new-post jamalhansen.com/_drafts/my-post.md"
+    echo "  ./new-post ~/full/path/note.md"
     echo ""
     echo "Environment:"
     if [ -n "$OBSIDIAN_VAULT_PATH" ]; then
@@ -31,8 +31,21 @@ if [ $# -lt 2 ]; then
 fi
 
 OBSIDIAN_FILE="$1"
-POST_SLUG="$2"
-VAULT_PATH="${3:-$DEFAULT_VAULT_PATH}"
+VAULT_PATH="${2:-$DEFAULT_VAULT_PATH}"
+
+# Extract post slug from filename (remove .md extension)
+POST_SLUG=$(basename "$OBSIDIAN_FILE" .md)
+
+# If OBSIDIAN_FILE is not an absolute path, prepend the vault path
+if [[ ! "$OBSIDIAN_FILE" = /* ]]; then
+    OBSIDIAN_FILE="$VAULT_PATH/$OBSIDIAN_FILE"
+fi
+
+echo "🚀 Creating new Hugo post from Obsidian note..."
+echo "📄 Source: $OBSIDIAN_FILE"
+echo "🏷️  Slug: $POST_SLUG"
+echo "📁 Vault: $VAULT_PATH"
+echo ""
 
 # If OBSIDIAN_FILE is not an absolute path, prepend the vault path
 if [[ ! "$OBSIDIAN_FILE" = /* ]]; then
@@ -52,6 +65,7 @@ if [ ! -f "$OBSIDIAN_FILE" ]; then
     echo "💡 Tips:"
     echo "  - Use relative path from vault root: jamalhansen.com/_drafts/my-post.md"
     echo "  - Or use absolute path: ~/full/path/to/note.md"
+    echo "  - The post slug will be derived from the filename (without .md)"
     echo "  - Check OBSIDIAN_VAULT_PATH environment variable"
     exit 1
 fi
