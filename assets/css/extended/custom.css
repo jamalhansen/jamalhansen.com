@@ -14,6 +14,31 @@
   }
 }
 
+/* Series listing page - post count */
+.series-post-count {
+  font-size: 0.85rem;
+  color: var(--secondary);
+}
+
+/* Series "Start here" callout */
+.series-start-here {
+  border: 2px solid #007acc;
+  border-radius: 6px;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0 2rem;
+  font-size: 1.05rem;
+}
+
+.series-start-here a {
+  color: #007acc;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.series-start-here a:hover {
+  text-decoration: underline;
+}
+
 /* Comparison section for side-by-side image comparison */
 .comparison {
   display: grid;

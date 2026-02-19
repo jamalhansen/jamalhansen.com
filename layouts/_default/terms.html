@@ -13,21 +13,27 @@
 
 <div class="terms-list">
     {{- $type := .Type }}
-    {{- range $key, $value := .Data.Terms.Alphabetical }}
-    {{- $name := .Name }}
-    {{- $count := .Count }}
-    {{- with site.GetPage (printf "/%s/%s" $type $name) }}
+    {{- $seriesData := slice }}
+    {{- range .Data.Terms.Alphabetical }}
+        {{- $count := .Count }}
+        {{- with site.GetPage (printf "/%s/%s" $type .Name) }}
+            {{- $seriesData = $seriesData | append (dict "title" .Title "permalink" .Permalink "description" .Description "weight" .Weight "count" $count) }}
+        {{- end }}
+    {{- end }}
+    {{- range sort $seriesData "weight" }}
     <article class="post-entry">
         <header class="entry-header">
-            <h2><a href="{{ .Permalink }}">{{ .Title | default .Name }}</a> <sup>{{ $count }} posts</sup></h2>
+            <h2><a href="{{ .permalink }}">{{ .title }}</a></h2>
         </header>
-        {{- if .Description }}
+        {{- if .description }}
         <div class="entry-content">
-            <p>{{ .Description }}</p>
+            <p>{{ .description }}</p>
         </div>
         {{- end }}
+        <footer class="entry-footer">
+            <span class="series-post-count">{{ .count }} {{ if eq .count 1 }}post{{ else }}posts{{ end }}</span>
+        </footer>
     </article>
-    {{- end }}
     {{- end }}
 </div>
 
