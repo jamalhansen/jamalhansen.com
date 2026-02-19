@@ -6,6 +6,7 @@ env: production
 description: "Technical blog exploring SQL, Python, and AI development"
 keywords: [Python, SQL, DuckDB, LLM, Ollama, Data Science]
 author: Jamal Hansen
+images: ["/author.png"]
 
 # Which content sections to show on homepage
 mainSections:
