@@ -13,9 +13,9 @@ cover:
   caption: ""
   relative: true
   credit:
-    name: "unsplash_user:"
-    username: "weight: 12"
-    photo_id: "unsplash_name:"
+    name: "Duy Pham"
+    username: "miinyuii"
+    photo_id: "people-holding-shoulders-sitting-on-wall-Cecb0_8Hx-o"
 draft: false
 ShowToc: false
 series: "SQL for Python Developers"

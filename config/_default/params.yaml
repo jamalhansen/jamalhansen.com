@@ -42,15 +42,27 @@ homeInfoParams:
     [Join Python developers learning SQL](https://jamalhansen.beehiiv.com) - new tutorial every Monday.
 
 socialIcons:
-  - name: github
-    url: "https://github.com/jamalhansen"
-  - name: linkedin
-    url: "https://linkedin.com/in/jamalhansen"
   - name: email
     title: Newsletter
     url: "https://jamalhansen.beehiiv.com"
   - name: rss
     url: "index.xml"
+  - name: linkedin
+    url: "https://linkedin.com/in/jamalhansen"
+  - name: github
+    url: "https://github.com/jamalhansen"
+  - name: X
+    url: "https://x.com/jamahans"
+  - name: bluesky
+    url: "https://bsky.app/profile/ham-jansen.bsky.social"
+  - name: mastodon
+    url: "https://mastodon.online/@ham_jansen"
+
+############################
+## Newsletter
+############################
+
+beehiivId: "67b6b378-798a-479b-b9fa-dfb258feebaa"
 
 fuseOpts:
       isCaseSensitive: false
