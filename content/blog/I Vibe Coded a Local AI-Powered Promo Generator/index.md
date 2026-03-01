@@ -130,4 +130,4 @@ More than the tool itself, I started thinking differently about local AI. Small 
 
 This prototype raised questions I'm still working through. Why did splitting the prompt into two passes make such a difference? When should you let the LLM be creative and when should Python enforce the rules? And why bother running any of this locally when cloud models are better at the task? I'm digging into those in upcoming posts.
 
-If you've tried running Ollama models for real tasks, I'd like to hear about it. What models worked for you? What didn't? Find me on [LinkedIn](https://linkedin.com/in/jamalhansen), [X](https://x.com/jamahans), [Bluesky](https://bsky.app/profile/jamalhansen.com), or [Mastodon](https://mastodon.online/@ham_jansen) and let me know.
+If you've tried running Ollama models for real tasks, I'd like to hear about it. What models worked for you? What didn't? Find me on [LinkedIn](https://linkedin.com/in/jamalhansen), [X](https://x.com/jamahans), [Bluesky](https://bsky.app/profile/ham-jansen.bsky.social), or [Mastodon](https://mastodon.online/@ham_jansen) and let me know.
