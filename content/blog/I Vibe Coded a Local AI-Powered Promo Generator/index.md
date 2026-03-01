@@ -5,7 +5,6 @@ tags:
   - local-ai
   - vibe-coding
   - ollama
-series: standalone
 split_from: "I Vibe Coded a Promo Generator with Local AI"
 part: 1 of 3
 title: I Vibe Coded a Local AI-Powered Promo Generator
