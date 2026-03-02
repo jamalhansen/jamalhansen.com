@@ -19,7 +19,6 @@ cover:
 draft: false
 ShowToc: false
 series: "SQL for Python Developers"
-weight: 8
 ---
 
 We now have a firm grasp on how to use [SELECT: Choosing Your Columns](https://jamalhansen.com/blog/select-choosing-your-columns) and [FROM: Where Your Data Lives](https://jamalhansen.com/blog/from-where-your-data-lives) to tell the database where to find data and how to format the columns when it returns it. With this knowledge, we can pull back all of the data from a table in a database. 

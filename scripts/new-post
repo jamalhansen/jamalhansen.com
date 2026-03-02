@@ -1,6 +1,6 @@
 #!/bin/bash
 # Simplified wrapper for creating new Hugo posts from Obsidian
-# Usage: ./new-post path/to/obsidian-note.md [vault-path]
+# Usage: ./new-post path/to/obsidian-note.md [slug] [vault-path]
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
@@ -13,39 +13,25 @@ fi
 
 # Check if we have enough arguments
 if [ $# -lt 1 ]; then
-    echo "Usage: ./new-post <obsidian-file> [vault-path]"
+    echo "Usage: ./new-post <obsidian-file> [slug] [vault-path]"
     echo ""
     echo "Examples:"
     echo "  ./new-post my-note.md"
-    echo "  ./new-post jamalhansen.com/_drafts/my-post.md"
-    echo "  ./new-post ~/full/path/note.md"
+    echo "  ./new-post jamalhansen.com/_drafts/my-post.md my-custom-slug"
     echo ""
-    echo "Environment:"
-    if [ -n "$OBSIDIAN_VAULT_PATH" ]; then
-        echo "  OBSIDIAN_VAULT_PATH: $OBSIDIAN_VAULT_PATH"
-    else
-        echo "  OBSIDIAN_VAULT_PATH: (not set)"
-        echo "  Default vault: $DEFAULT_VAULT_PATH"
-    fi
     exit 1
 fi
 
 OBSIDIAN_FILE="$1"
-VAULT_PATH="${2:-$DEFAULT_VAULT_PATH}"
-
-# Extract post slug from filename (remove .md extension)
-POST_SLUG=$(basename "$OBSIDIAN_FILE" .md)
-
-# If OBSIDIAN_FILE is not an absolute path, prepend the vault path
-if [[ ! "$OBSIDIAN_FILE" = /* ]]; then
-    OBSIDIAN_FILE="$VAULT_PATH/$OBSIDIAN_FILE"
+# If 2nd arg is provided and doesn't look like a path (no /), treat as slug
+if [ -n "$2" ] && [[ ! "$2" == *"/"* ]] && [[ ! "$2" == "."* ]]; then
+    POST_SLUG="$2"
+    VAULT_PATH="${3:-$DEFAULT_VAULT_PATH}"
+else
+    # Extract post slug from filename (remove .md extension and slugify)
+    POST_SLUG=$(basename "$OBSIDIAN_FILE" .md | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -cd '[:alnum:]-')
+    VAULT_PATH="${2:-$DEFAULT_VAULT_PATH}"
 fi
-
-echo "🚀 Creating new Hugo post from Obsidian note..."
-echo "📄 Source: $OBSIDIAN_FILE"
-echo "🏷️  Slug: $POST_SLUG"
-echo "📁 Vault: $VAULT_PATH"
-echo ""
 
 # If OBSIDIAN_FILE is not an absolute path, prepend the vault path
 if [[ ! "$OBSIDIAN_FILE" = /* ]]; then
@@ -61,12 +47,6 @@ echo ""
 # Check if the source file exists
 if [ ! -f "$OBSIDIAN_FILE" ]; then
     echo "❌ Error: File not found: $OBSIDIAN_FILE"
-    echo ""
-    echo "💡 Tips:"
-    echo "  - Use relative path from vault root: jamalhansen.com/_drafts/my-post.md"
-    echo "  - Or use absolute path: ~/full/path/to/note.md"
-    echo "  - The post slug will be derived from the filename (without .md)"
-    echo "  - Check OBSIDIAN_VAULT_PATH environment variable"
     exit 1
 fi
 

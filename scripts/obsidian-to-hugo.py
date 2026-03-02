@@ -1,338 +1,173 @@
 #!/usr/bin/env python3
 """
-Convert Obsidian markdown to Hugo-compatible markdown with page bundle setup
+Convert Obsidian markdown to Hugo-compatible markdown with page bundle setup.
 Usage: python obsidian-to-hugo.py input.md post-slug [obsidian-vault-path]
 """
 import sys
 import os
 import re
 import shutil
+import unicodedata
 from pathlib import Path
 from datetime import datetime
 
+def slugify(text):
+    """
+    Convert to ASCII. Convert spaces to hyphens.
+    Remove characters that aren't alphanumerics, underscores, or hyphens.
+    Convert to lowercase. Strip leading and trailing whitespace.
+    """
+    text = str(text)
+    text = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('ascii')
+    text = re.sub(r'[^\w\s-]', '', text).strip().lower()
+    return re.sub(r'[-\s]+', '-', text)
+
 def detect_existing_frontmatter(content):
-    """Detect if content already has Hugo frontmatter.
+    """Detect if content already has Hugo/Obsidian frontmatter.
     Returns (has_frontmatter: bool, frontmatter: str, body: str).
     """
     m = re.match(r'^---\n(.*?)\n---\n(.*)$', content, flags=re.DOTALL)
     if m:
-        frontmatter = m.group(1)
-        body = m.group(2)
-        return True, frontmatter, body
+        return True, m.group(1), m.group(2)
     return False, "", content
 
 def clean_obsidian_links_from_frontmatter(frontmatter):
     """Remove Obsidian wiki-link syntax [[]] from frontmatter values"""
-    # Remove [[ and ]] from frontmatter values (e.g., series: "[[SQL for Python]]" -> series: "SQL for Python")
-    frontmatter = re.sub(r'\[\[([^\]]+)\]\]', r'\1', frontmatter)
-    return frontmatter
+    return re.sub(r'\[\[([^\]]+)\]\]', r'\1', frontmatter)
 
 def normalize_frontmatter_fields(frontmatter):
     """Normalize frontmatter field names to PaperMod theme conventions"""
     # Change summary: to description: (PaperMod uses description)
     frontmatter = re.sub(r'^summary:', 'description:', frontmatter, flags=re.MULTILINE)
-
-    # Remove # prefix from tags (e.g., #python -> python, #sql -> sql)
-    def remove_tag_hashes(match):
-        tags_section = match.group(0)
-        tags_section = re.sub(r'- ["\']*#([^"\'\n]+)["\']*', r'- \1', tags_section)
-        return tags_section
-
-    frontmatter = re.sub(
-        r'^tags:\s*\n(?:  - [^\n]+\n)*',
-        remove_tag_hashes,
-        frontmatter,
-        flags=re.MULTILINE
-    )
-
-    # Extract unsplash credit fields if present
-    unsplash_name_match = re.search(r'^unsplash_name:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE)
-    unsplash_user_match = re.search(r'^unsplash_user:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE)
-    unsplash_id_match = re.search(r'^unsplash_id:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE)
-
-    unsplash_name = unsplash_name_match.group(1).strip() if unsplash_name_match else None
-    unsplash_user = unsplash_user_match.group(1).strip() if unsplash_user_match else None
-    unsplash_id = unsplash_id_match.group(1).strip() if unsplash_id_match else None
-
-    # Remove the base-level unsplash fields
-    frontmatter = re.sub(r'^unsplash_name:.*\n', '', frontmatter, flags=re.MULTILINE)
-    frontmatter = re.sub(r'^unsplash_user:.*\n', '', frontmatter, flags=re.MULTILINE)
-    frontmatter = re.sub(r'^unsplash_id:.*\n', '', frontmatter, flags=re.MULTILINE)
-
-    # Build credit block if any unsplash fields were present
-    has_credit = unsplash_name or unsplash_user or unsplash_id
-    credit_block = ""
-    if has_credit:
-        credit_block = "\n  credit:"
-        if unsplash_name:
-            credit_block += f'\n    name: "{unsplash_name}"'
-        if unsplash_user:
-            credit_block += f'\n    username: "{unsplash_user}"'
-        if unsplash_id:
-            credit_block += f'\n    photo_id: "{unsplash_id}"'
-
-    # Convert simple image: field to cover: block for PaperMod
-    image_match = re.search(r'^image:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE)
-    if image_match:
-        image_value = image_match.group(1).strip()
-        if image_value:
-            cover_block = f'''cover:
-  image: "{image_value}"
-  alt: ""
-  caption: ""
-  relative: true{credit_block}'''
-            frontmatter = re.sub(r'^image:\s*["\']?[^"\'\n]*["\']?\s*$', cover_block, frontmatter, flags=re.MULTILINE)
-        else:
-            # Remove empty image: field
-            frontmatter = re.sub(r'^image:\s*["\']?["\']?\s*\n', '', frontmatter, flags=re.MULTILINE)
-    elif has_credit:
-        # If there's credit info but no image: field, check if there's already a cover: block
-        # and inject the credit into it
-        cover_match = re.search(r'^cover:\s*\n((?:  [^\n]+\n)*)', frontmatter, re.MULTILINE)
-        if cover_match:
-            # Insert credit block after the existing cover fields
-            cover_end = cover_match.end()
-            # Find where to insert (after relative: true or last cover field)
-            frontmatter = re.sub(
-                r'(^cover:\s*\n(?:  [^\n]+\n)*?  relative:\s*true)',
-                r'\1' + credit_block,
-                frontmatter,
-                flags=re.MULTILINE
-            )
-
-    # Convert toc: to ShowToc: (PaperMod convention)
+    
+    # PaperMod uses ShowToc instead of toc
     frontmatter = re.sub(r'^toc:\s*true', 'ShowToc: true\nTocOpen: false', frontmatter, flags=re.MULTILINE)
     frontmatter = re.sub(r'^toc:\s*false', 'ShowToc: false', frontmatter, flags=re.MULTILINE)
 
-    # Remove fields not used by PaperMod
-    frontmatter = re.sub(r'^canonical_url:.*\n', '', frontmatter, flags=re.MULTILINE)
-    frontmatter = re.sub(r'^layout:.*\n', '', frontmatter, flags=re.MULTILINE)
-    frontmatter = re.sub(r'^slug:.*\n', '', frontmatter, flags=re.MULTILINE)
-    frontmatter = re.sub(r'^lastmod:\s*["\']?["\']?\s*\n', '', frontmatter, flags=re.MULTILINE)
+    # Clean up tags (remove # hashes)
+    def remove_tag_hashes(match):
+        return re.sub(r'- ["\']*#([^"\'\n]+)["\']*', r'- \1', match.group(0))
 
-    return frontmatter
+    frontmatter = re.sub(r'^tags:\s*\n(?:  - [^\n]+\n)*', remove_tag_hashes, frontmatter, flags=re.MULTILINE)
 
-def convert_obsidian_to_hugo(content):
-    """Convert Obsidian syntax to Hugo-compatible markdown"""
-    # Convert ![[image.jpg]] to ![Image](image.jpg)
-    content = re.sub(r'!\[\[([^\]]+)\]\]', r'![Image](\1)', content)
+    # Process Unsplash credit and Cover images
+    unsplash_data = {
+        'name': re.search(r'^unsplash_name:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE),
+        'user': re.search(r'^unsplash_user:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE),
+        'id': re.search(r'^unsplash_id:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE)
+    }
     
-    # Convert ![[image.jpg|alt text]] to ![alt text](image.jpg)
+    credit_info = {k: v.group(1).strip() for k, v in unsplash_data.items() if v}
+    
+    # Remove raw unsplash fields
+    for field in ['unsplash_name', 'unsplash_user', 'unsplash_id']:
+        frontmatter = re.sub(rf'^{field}:.*\n', '', frontmatter, flags=re.MULTILINE)
+
+    # Build credit block
+    credit_block = ""
+    if credit_info:
+        credit_block = "\n  credit:"
+        if 'name' in credit_info: credit_block += f'\n    name: "{credit_info["name"]}"'
+        if 'user' in credit_info: credit_block += f'\n    username: "{credit_info["user"]}"'
+        if 'id' in credit_info: credit_block += f'\n    photo_id: "{credit_info["id"]}"'
+
+    # Convert simple image: to PaperMod cover:
+    image_match = re.search(r'^image:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE)
+    if image_match:
+        img = image_match.group(1).strip()
+        if img:
+            cover_block = f'cover:\n  image: "{img}"\n  alt: ""\n  caption: ""\n  relative: true{credit_block}'
+            frontmatter = re.sub(r'^image:.*\n', cover_block + '\n', frontmatter, flags=re.MULTILINE)
+        else:
+            frontmatter = re.sub(r'^image:.*\n', '', frontmatter, flags=re.MULTILINE)
+    elif credit_block:
+        # Inject credit into existing cover if possible
+        if 'cover:' in frontmatter:
+            frontmatter = re.sub(r'(relative:\s*true)', r'\1' + credit_block, frontmatter)
+
+    # Clean up redundant or theme-clashing fields
+    for field in ['canonical_url', 'layout', 'slug', 'lastmod']:
+        frontmatter = re.sub(rf'^{field}:.*\n', '', frontmatter, flags=re.MULTILINE)
+
+    return frontmatter.strip()
+
+def convert_body_syntax(content):
+    """Convert Obsidian-specific syntax to Hugo-compatible markdown"""
+    # ![[image.jpg]] -> ![Image](image.jpg)
+    content = re.sub(r'!\[\[([^\]|]+)\]\]', r'![Image](\1)', content)
+    # ![[image.jpg|alt]] -> ![alt](image.jpg)
     content = re.sub(r'!\[\[([^\]|]+)\|([^\]]+)\]\]', r'![\2](\1)', content)
-    
-    # Convert [[Link]] to [Link](link) - remove if you don't want this
-    # content = re.sub(r'\[\[([^\]]+)\]\]', r'[\1](\1)', content)
-    
+    # Obsidian callouts [!info] -> Hugo/Goldmark blockquotes (basic support)
+    content = re.sub(r'^>\s+\[!(\w+)\]\+?\s*(.*)', r'> **\1**: \2', content, flags=re.MULTILINE | re.IGNORECASE)
     return content
-
-def extract_images_from_content(content):
-    """Extract all image references from markdown content"""
-    # Match ![any](image.ext) patterns
-    image_pattern = r'!\[.*?\]\(([^)]+)\)'
-    images = re.findall(image_pattern, content)
-    return images
-
-# extract_frontmatter_images removed — frontmatter image promotion is no longer performed.
-
-def create_hugo_frontmatter(title):
-    """Generate Hugo frontmatter for PaperMod theme"""
-    today = datetime.now().strftime("%Y-%m-%d")
-
-    frontmatter = f"""---
-title: "{title}"
-date: {today}
-draft: true
-description: ""
-tags: []
-categories: []
-series: []
-cover:
-  image: ""
-  alt: ""
-  caption: ""
-  relative: true
-ShowToc: true
-TocOpen: false
----
-
-"""
-    return frontmatter
-
-def copy_images_from_obsidian(vault_path, post_dir, feature_images, content_images):
-    """Copy images from Obsidian vault to post directory (Hugo page bundle structure).
-    Matching is done by filename (basename) to avoid glob/path issues.
-    """
-    if not vault_path or not os.path.exists(vault_path):
-        print(f"Warning: Vault path '{vault_path}' not found. You'll need to copy images manually.")
-        return [], []
-
-    vault = Path(vault_path)
-    copied_feature = []
-    copied_content = []
-
-    all_images = feature_images + content_images
-    if not all_images:
-        return copied_feature, copied_content
-
-    print(f"\n📸 Copying images to post directory:")
-    for image in all_images:
-        src_candidates = list(vault.rglob(Path(image).name))
-        if not src_candidates:
-            print(f"   ✗ Image not found in vault: {image}")
-            continue
-
-        src_image = src_candidates[0]
-        dst_image = post_dir / Path(image).name
-        dst_image.parent.mkdir(parents=True, exist_ok=True)
-        try:
-            shutil.copy2(src_image, dst_image)
-            if image in feature_images:
-                copied_feature.append(image)
-                print(f"   ✓ {image} (cover image)")
-            else:
-                copied_content.append(image)
-                print(f"   ✓ {image}")
-        except Exception as e:
-            print(f"   ✗ Failed to copy {image}: {e}")
-
-    return copied_feature, copied_content
-
-def copy_all_images_from_source_folder(input_file, post_dir):
-    """Copy all image files from the source markdown's folder to the post directory.
-    This ensures cover images and any other images in the folder are included.
-    """
-    source_dir = Path(input_file).parent
-    image_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.avif'}
-
-    copied_images = []
-
-    for file in source_dir.iterdir():
-        if file.is_file() and file.suffix.lower() in image_extensions:
-            dst_image = post_dir / file.name
-            try:
-                shutil.copy2(file, dst_image)
-                copied_images.append(file.name)
-                print(f"   ✓ {file.name}")
-            except Exception as e:
-                print(f"   ✗ Failed to copy {file.name}: {e}")
-
-    return copied_images
 
 def main():
     if len(sys.argv) < 3:
-        print("Usage: python obsidian-to-hugo.py input.md post-slug [obsidian-vault-path]")
-        print("\nExample:")
-        print("  python obsidian-to-hugo.py ~/my-post.md my-awesome-post ~/Documents/ObsidianVault")
+        print("Usage: python obsidian-to-hugo.py input.md post-slug [vault-path]")
         sys.exit(1)
     
-    input_file = sys.argv[1]
-    slug = sys.argv[2]
-    vault_path = sys.argv[3] if len(sys.argv) > 3 else None
+    input_path = Path(sys.argv[1])
+    # Optimization: Ensure the slug is always clean (dashes, lowercase)
+    slug = slugify(sys.argv[2])
+    vault_path = Path(sys.argv[3]) if len(sys.argv) > 3 else None
     
-    # Read the Obsidian markdown file
-    try:
-        with open(input_file, 'r', encoding='utf-8') as f:
-            content = f.read()
-    except FileNotFoundError:
-        print(f"Error: Input file '{input_file}' not found")
+    if not input_path.exists():
+        print(f"Error: Input file '{input_path}' not found")
         sys.exit(1)
     
-    # Check if content already has Hugo frontmatter
-    has_frontmatter, existing_frontmatter, body_content = detect_existing_frontmatter(content)
-
-    if has_frontmatter:
-        print("✅ Detected existing Hugo frontmatter - preserving it")
-        # Clean Obsidian wiki-links from frontmatter
-        existing_frontmatter = clean_obsidian_links_from_frontmatter(existing_frontmatter)
-        # Normalize field names (description -> summary, featured_image -> featureimage, thumbnail -> cardimage)
-        existing_frontmatter = normalize_frontmatter_fields(existing_frontmatter)
-        # Use existing frontmatter, just convert the body content
-        converted_body = convert_obsidian_to_hugo(body_content)
-        final_content = f"---\n{existing_frontmatter}\n---\n{converted_body}"
-
-        # Extract title from existing frontmatter
-        title_match = re.search(r'^title:\s*["\']?(.+?)["\']?\s*$', existing_frontmatter, re.MULTILINE)
-        if title_match:
-            title = title_match.group(1).strip('"\'')
-        else:
-            title = Path(input_file).stem.replace('-', ' ').title()
-    else:
-        print("ℹ️  No existing frontmatter found - creating new Hugo frontmatter")
-        # Extract title from first heading or use filename
-        title_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
-        if title_match:
-            title = title_match.group(1)
-        else:
-            title = Path(input_file).stem.replace('-', ' ').title()
-
-        # Convert content and create new frontmatter
-        converted_body = convert_obsidian_to_hugo(content)
-        frontmatter = create_hugo_frontmatter(title)
-        final_content = frontmatter + converted_body
-
-    # Extract images from the body content (all images are handled from content)
-    body_images = extract_images_from_content(converted_body)
-
-    # Setup Hugo post directory
-    script_dir = Path(__file__).parent.parent
-    content_dir = script_dir / "content"
-    post_dir = Path(content_dir) / "blog" / slug
-    post_dir.mkdir(parents=True, exist_ok=True)
-
-    # All images come from content. No interactive categorization — treat all as content images.
-    feature_images, content_images = [], body_images[:]
-    if body_images and not vault_path:
-        print(f"\n📸 Found {len(body_images)} images, but no vault path provided.")
-        print("Images will not be copied automatically; copy them manually into the post directory.")
-
-    # No separate frontmatter image extraction — keep feature_images as chosen from body images.
-
-    # Write the converted markdown
-    index_file = post_dir / "index.md"
-    with open(index_file, 'w', encoding='utf-8') as f:
-        f.write(final_content)
+    with open(input_path, 'r', encoding='utf-8') as f:
+        content = f.read()
     
-    # Copy all images from the source folder (covers, content images, etc.)
-    print(f"\n📸 Copying all images from source folder:")
-    copied_from_folder = copy_all_images_from_source_folder(input_file, post_dir)
-
-    if copied_from_folder:
-        print(f"\n✅ Successfully copied {len(copied_from_folder)} images from source folder")
-    else:
-        # Fall back to vault-wide search for images referenced in content
-        all_images = body_images
-        if all_images:
-            if vault_path:
-                copied_feature, copied_content = copy_images_from_obsidian(
-                    vault_path, post_dir, feature_images, content_images
-                )
-
-                total_copied = len(copied_feature) + len(copied_content)
-                if total_copied > 0:
-                    print(f"\n✅ Successfully copied {total_copied} images from vault:")
-                    if copied_feature:
-                        print(f"   📸 Cover image: {len(copied_feature)}")
-                    if copied_content:
-                        print(f"   📝 Content images: {len(copied_content)}")
-                else:
-                    print(f"\n⚠️  No images found in source folder or vault")
-            else:
-                print(f"\nFound {len(all_images)} images referenced:")
-                for img in all_images:
-                    print(f"  - {img}")
-                print("\nNo vault path provided. Copy these images manually.")
+    has_fm, fm, body = detect_existing_frontmatter(content)
     
-    print(f"\n🎉 Post created successfully!")
-    print(f"📁 Location: {post_dir}")
-    print(f"📝 File: {index_file}")
-    print(f"\n💡 Next steps:")
-    print(f"   1. Edit the frontmatter in {index_file}")
-    if copied_from_folder:
-        print(f"   2. Set cover.image in frontmatter to one of:")
-        for img in copied_from_folder:
-            print(f"      - {img}")
-    print(f"   3. Add tags, categories, and summary")
-    print(f"   4. Set draft: false when ready to publish")
+    if has_fm:
+        print("✅ Found existing frontmatter")
+        fm = clean_obsidian_links_from_frontmatter(fm)
+        fm = normalize_frontmatter_fields(fm)
+        # Extract title from FM if possible
+        title_match = re.search(r'^title:\s*["\']?(.+?)["\']?\s*$', fm, re.MULTILINE)
+        title = title_match.group(1).strip('"\'') if title_match else input_path.stem.replace('-', ' ').title()
+    else:
+        print("ℹ️  Creating new frontmatter")
+        # Extract title from first H1 or filename
+        h1_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
+        title = h1_match.group(1).strip() if h1_match else input_path.stem.replace('-', ' ').title()
+        fm = f'title: "{title}"\ndate: {datetime.now().strftime("%Y-%m-%d")}\ndraft: true\ndescription: ""\ntags: []\ncategories: []\nseries: []\ncover:\n  image: ""\n  alt: ""\n  caption: ""\n  relative: true\nShowToc: true\nTocOpen: false'
+
+    converted_body = convert_body_syntax(body if has_fm else content)
+    final_content = f"---\n{fm}\n---\n\n{converted_body}"
+
+    # Setup Directory
+    base_dir = Path(__file__).parent.parent
+    blog_dir = base_dir / "content" / "blog" / slug
+    blog_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Write Post
+    (blog_dir / "index.md").write_text(final_content, encoding='utf-8')
+    
+    # Image Handling
+    print(f"\n📸 Copying images to: {blog_dir.relative_to(base_dir)}")
+    
+    # 1. Copy from source directory (if it's a page bundle or attachment in same folder)
+    image_exts = {'.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'}
+    source_dir = input_path.parent
+    for img_file in source_dir.iterdir():
+        if img_file.is_file() and img_file.suffix.lower() in image_exts:
+            shutil.copy2(img_file, blog_dir / img_file.name)
+            print(f"   ✓ {img_file.name}")
+
+    # 2. Search vault for referenced images if not in source dir
+    if vault_path and vault_path.exists():
+        referenced_images = re.findall(r'!\[.*?\]\(([^)]+)\)', converted_body)
+        for img_name in referenced_images:
+            if not (blog_dir / img_name).exists():
+                # Search vault (rglob can be slow on huge vaults, but works for most)
+                matches = list(vault_path.rglob(img_name))
+                if matches:
+                    shutil.copy2(matches[0], blog_dir / img_name)
+                    print(f"   ✓ {img_name} (from vault)")
+
+    print(f"\n🎉 Done! Folder created: {slug}")
 
 if __name__ == "__main__":
     main()

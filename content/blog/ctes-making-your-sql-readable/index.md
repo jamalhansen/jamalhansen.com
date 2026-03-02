@@ -19,7 +19,6 @@ cover:
 draft: false
 ShowToc: false
 series: "SQL for Python Developers"
-weight: 14
 ---
 We learned last week about [subqueries](https://jamalhansen.com/blog/subqueries-when-sql-needs-helper-functions), which are like helper functions for your SQL code. They can bring back temporary values used in larger calculations or find additional data points from an id. 
 

@@ -19,7 +19,6 @@ cover:
 draft: false
 ShowToc: false
 series: "SQL for Python Developers"
-weight: 11
 ---
 
 When I first encountered HAVING, I thought, "Why do we need this? It's just like WHERE."

@@ -19,7 +19,6 @@ cover:
 draft: false
 ShowToc: false
 series: "SQL for Python Developers"
-weight: 16
 ---
 This week, we are going to focus on window functions, which are very powerful data manipulation tools. It's something that you can do in Python, but in SQL, it is super simple and very powerful. We'll continue using the same `orders` and `customers` tables from [previous posts](https://jamalhansen.com/blog/where-filtering-your-data) in our DuckDB sample database.
 

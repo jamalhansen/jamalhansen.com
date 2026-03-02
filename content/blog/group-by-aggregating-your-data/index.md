@@ -19,7 +19,6 @@ cover:
 draft: false
 ShowToc: false
 series: "SQL for Python Developers"
-weight: 10
 ---
 Last week, we learned to use [`WHERE`](https://jamalhansen.com/blog/where-filtering-your-data) to efficiently return only the rows that we want from a database. But what if you want to summarize the data more efficiently?
 

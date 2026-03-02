@@ -18,7 +18,6 @@ draft: false
 ShowToc: false
 TocOpen: false
 series: ["SQL for Python Developers"]
-weight: 4
 ---
 
 I still remember losing schoolwork and video game progress because I forgot to save. That sinking feeling when hours of work vanish because you were too caught up in the flow to pause and save.

@@ -1,0 +1,27 @@
+{{- if .Params.series }}
+{{- $series := .Params.series }}
+{{- $series_pages := slice }}
+{{- if reflect.IsSlice $series }}
+    {{- $series_pages = where site.RegularPages ".Params.series" "intersect" $series }}
+{{- else }}
+    {{- $series_pages = where site.RegularPages ".Params.series" "eq" $series }}
+{{- end }}
+
+{{- if gt (len $series_pages) 1 }}
+<div class="series-nav">
+    <hr>
+    <h3>Part of the {{ if reflect.IsSlice $series }}{{ index $series 0 }}{{ else }}{{ $series }}{{ end }} series</h3>
+    <ul>
+        {{- range $series_pages.ByDate }}
+        <li>
+            {{- if eq .Permalink $.Permalink }}
+            <strong>{{ .Title }}</strong> (Current)
+            {{- else }}
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            {{- end }}
+        </li>
+        {{- end }}
+    </ul>
+</div>
+{{- end }}
+{{- end }}

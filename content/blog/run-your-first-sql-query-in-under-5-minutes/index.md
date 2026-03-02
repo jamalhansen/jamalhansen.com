@@ -13,7 +13,6 @@ draft: false
 ShowToc: false
 TocOpen: false
 series: ["SQL for Python Developers"]
-weight: 2
 ---
 Have you ever tried setting up a database server just to learn SQL? Docker containers, admin credentials... Forget all that. Let me show you how to go from zero to running SQL in under 5 minutes.
 

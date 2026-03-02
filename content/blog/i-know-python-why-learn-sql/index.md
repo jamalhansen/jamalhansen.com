@@ -17,7 +17,6 @@ draft: false
 ShowToc: false
 TocOpen: false
 series: ["SQL for Python Developers"]
-weight: 1
 ---
 
 I learned SQL very early in my career. At the time, I didn't understand why, and for the first month or so, it didn't make sense to me. The syntax didn't resemble any language I had seen before, and it employed concepts with which I was unfamiliar. This all made SQL seem scary, and oddly enough, SQL hasn't changed much in the past 40 years, which makes it even more of an oddity. 
@@ -26,7 +25,7 @@ The problem wasn't the SQL; it was how I was thinking. I had some experience wit
 
 SQL is the language of data, and over the past 40 years, data has become more prevalent and more important. If you work with data, learning SQL will help you. This is true even if you already know and use another programming language like Python with good data management libraries. Python has great data support with SQL Alchemy, Pandas, and other great libraries. Learning SQL won't replace them, but it will help you use them more effectively. When you understand how SQL thinks, you'll write better pandas queries, ask smarter questions of your ORM, and know when to push work to the database instead of pulling everything into memory.
 
-In this series, I'll walk you through the steps to level up your SQL skills. We will use Python along the way to keep things practical. Our first step will be to set up a database. This is the biggest hurdle for beginners: you need a database to practice, but setting one up feels intimidating before you know what you're doing. For this series, we will use a modern, local, and user-friendly database called DuckDB, which is simple to get started with. 
+In this series, I'll walk you through the steps to level up your SQL skills. We will use Python along the way to keep things practical. Our first step will be to set up a database. This is the biggest hurdle for beginners: you need a database to practice, but setting one up feels intimidating before you know what you're doing. For this series, we will use a modern, local, and user-friendly database called [DuckDB](/blog/run-your-first-sql-query-in-under-5-minutes/), which is simple to get started with. 
 
 Next, we will dig into querying data. We will learn about keywords such as SELECT, FROM, WHERE, and GROUP BY, and how they can be used to shape your results.
 

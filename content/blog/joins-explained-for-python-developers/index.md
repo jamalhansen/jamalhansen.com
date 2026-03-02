@@ -19,7 +19,6 @@ cover:
 draft: false
 ShowToc: false
 series: "SQL for Python Developers"
-weight: 12
 ---
 So far in this series we have covered all the core SQL clauses: SELECT, FROM, WHERE, GROUP BY, HAVING, and ORDER BY. We can do quite a bit with those tools, but we have been working with a single table. SQL is the language of *relational* databases, and it is time to talk about the relational part.
 

@@ -2,7 +2,7 @@
 title: "About"
 layout: "about"
 url: "/about/"
-summary: "About Jamal Hansen"
+summary: "Jamal Hansen is a data scientist and developer exploring SQL, Python, and AI. Learn how to build production-ready LLM agents and level up your data skills."
 ---
 <img src="/author.png" alt="Jamal Hansen" class="author-photo">
 I'm a data scientist focused on building production AI applications and helping developers get more out of their data. I write to work through ideas, document what I build, and share what I learn along the way. Most posts start as something I explained to a colleague or junior developer — then get cleaned up into something worth publishing.
@@ -12,3 +12,8 @@ A lot of the content here follows two threads. The first is **SQL for Python dev
 I'm a husband and dad, which has a way of focusing you on what actually matters. I read mystery, sci-fi, and fantasy when I can stay awake long enough. I'm slowly learning Japanese and enjoy board games when life allows.
 
 If you want to follow along, [subscribe to the newsletter](https://jamalhansen.beehiiv.com) — I publish a new post every Monday.
+
+---
+
+*The views and opinions expressed on this site are my own and do not necessarily reflect the official policy or position of my employer or any other organization.*
+

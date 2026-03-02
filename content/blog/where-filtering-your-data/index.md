@@ -19,7 +19,6 @@ cover:
 draft: false
 ShowToc: false
 series: "SQL for Python Developers"
-weight: 9
 ---
 We have come a long way in the past couple of months, working through the core SQL keywords. So far, we can [`SELECT` columns](https://jamalhansen.com/blog/select-choosing-your-columns), specify [`FROM` where our data lives](https://jamalhansen.com/blog/from-where-your-data-lives), and [`ORDER BY` to sort results](https://jamalhansen.com/blog/order-by-sorting-your-results).
 

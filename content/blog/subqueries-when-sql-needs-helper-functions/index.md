@@ -19,7 +19,6 @@ cover:
 draft: false
 ShowToc: false
 series: "SQL for Python Developers"
-weight: 13
 ---
 Last week, we talked about the superpower of relational databases, the ability to join tables to make data storage more efficient. In fact, we have covered much of the syntax that you would use on a daily basis already. But SQL's simplicity hides surprising flexibility. You can model data in many ways, and you can often get the same results with different syntax.
 

@@ -24,7 +24,6 @@ cover:
     photo_id: "a-red-box-with-a-couple-of-guns-in-it-YG8vzN9IkmA"
 draft: false
 ShowToc: false
-weight:
 Related:
   - "I Vibe Coded a Promo Generator with Local AI"
   - "I Vibe Coded a Promo Generator with Local AI - Part 2 Architecture and Models"

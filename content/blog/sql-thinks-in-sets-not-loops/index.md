@@ -17,7 +17,6 @@ draft: false
 ShowToc: false
 TocOpen: false
 series: ["SQL for Python Developers"]
-weight: 5
 ---
 
 Remember [back when we started](https://jamalhansen.com/blog/i-know-python-why-learn-sql), I mentioned SQL was difficult because of how I was thinking? I was asking it to perform steps to return data. This didn't work because SQL uses a declarative syntax that describes the final result. Until I realized this, SQL felt hard. Let's explore this concept further.

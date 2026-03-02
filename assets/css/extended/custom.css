@@ -123,3 +123,134 @@
   background: #0d9668;
   color: #fff;
 }
+
+/* Series Navigation Partial */
+.series-nav {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--code-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.series-nav hr {
+  display: none; /* We use padding and background instead of HR */
+}
+
+.series-nav h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+.series-nav ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.series-nav li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.series-nav li:last-child {
+  margin-bottom: 0;
+}
+
+.series-nav li strong {
+  color: var(--primary);
+}
+
+.series-nav a {
+  text-decoration: none;
+  color: var(--secondary);
+}
+
+.series-nav a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* Homepage Customization */
+.section-title {
+  margin: 3rem 0 1.5rem;
+  font-size: 1.8rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.series-card {
+  background: var(--entry);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+.series-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.series-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.series-card h3 a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.series-card p {
+  font-size: 0.95rem;
+  color: var(--secondary);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.series-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.series-meta .read-more {
+  font-weight: 600;
+  color: #007acc;
+  text-decoration: none;
+}
+
+.view-all {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.view-all .btn {
+  display: inline-block;
+  padding: 0.6rem 2rem;
+  background: #007acc;
+  color: #fff !important;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.view-all .btn:hover {
+  background: #005fa3;
+}

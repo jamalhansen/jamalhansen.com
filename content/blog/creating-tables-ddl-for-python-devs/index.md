@@ -19,7 +19,6 @@ cover:
 draft: false
 ShowToc: false
 series: "SQL for Python Developers"
-weight: 17
 ---
 So far, we have spent our time learning how to query data. For most of us, this might be as much SQL as we will ever use. 
 
@@ -50,7 +49,7 @@ On the one hand, SQL Server is very forgiving and will do its best to implicitly
 
 Oracle, on the other hand, takes the opposite approach. It will notice that you are playing fast and loose with your data types, and it will yell at you, and you will need to explicitly convert the data types. 
 
-Like most things, there are pros and cons to each approach. I mention it because it's important to help decipher the messages or errors that you receive when you try to use the database. Today, all we need to worry about is DuckDB, which is generally very friendly. 
+Like most things, there are pros and cons to each approach. I mention it because it's important to help decipher the messages or errors that you receive when you try to use the database. Today, all we need to worry about is [DuckDB](/blog/run-your-first-sql-query-in-under-5-minutes/), which is generally very friendly. 
 
 ## Basic CREATE TABLE
 

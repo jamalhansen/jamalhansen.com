@@ -19,7 +19,6 @@ cover:
 draft: false
 ShowToc: false
 series: "SQL for Python Developers"
-weight: 15
 ---
 This post is about nothing, or rather, it's about the unknown. By now, you've bumped into `NULL` several times. Let's finally make sense of it.
 

@@ -18,10 +18,9 @@ draft: false
 ShowToc: false
 TocOpen: false
 series: ["SQL for Python Developers"]
-weight: 3
 ---
 
-Last week, we got DuckDB running with three hardcoded rows. That got us started—but three rows? You can eyeball that. Let's generate hundreds of realistic customers and build a dataset worth exploring.
+Last week, we got [DuckDB running](/blog/run-your-first-sql-query-in-under-5-minutes/) with three hardcoded rows. That got us started—but three rows? You can eyeball that. Let's generate hundreds of realistic customers and build a dataset worth exploring.
 
 Python has the perfect tool: `faker`. It's a library that generates realistic fake data—names, emails, addresses, dates—anything you'd find in a real database. Let's use it to build a dataset we can explore for the rest of this series.
 
