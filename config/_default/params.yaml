@@ -40,7 +40,7 @@ homeInfoParams:
     I document what I learn building with data and language models.
 
 
-    [Join Python developers learning SQL](https://jamalhansen.beehiiv.com) - new tutorial every Monday.
+    [Join Python developers learning SQL <span class="btn-subtext">— new tutorial every Monday</span>](https://jamalhansen.beehiiv.com)
 
 socialIcons:
   - name: rss

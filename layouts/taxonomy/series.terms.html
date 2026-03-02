@@ -1,0 +1,43 @@
+{{- define "main" }}
+
+{{- if .Title }}
+<header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- end }}
+</header>
+{{- end }}
+
+<div class="series-grid">
+    {{- $type := .Type }}
+    {{- $seriesData := slice }}
+    {{- range .Data.Terms.Alphabetical }}
+        {{- $count := .Count }}
+        {{- with site.GetPage (printf "/%s/%s" $type .Name) }}
+            {{- $seriesData = $seriesData | append (dict "title" .Title "permalink" .Permalink "description" .Description "content" .Content "weight" .Weight "count" $count) }}
+        {{- end }}
+    {{- end }}
+    
+    {{- range sort $seriesData "weight" }}
+    <div class="series-card">
+        <div class="series-card-content">
+            <h3>
+                <a href="{{ .permalink }}">{{ .title }}</a>
+                {{- if in .title "SQL" }}
+                <span style="font-size: 0.7rem; vertical-align: middle; background: #10b981; color: white; padding: 2px 8px; border-radius: 10px; margin-left: 8px; font-weight: 800; text-transform: uppercase;">Start Here</span>
+                {{- end }}
+            </h3>
+            <p>{{ .description | default (.content | truncate 160) }}</p>
+            <div class="series-meta">
+                <span>{{ .count }} {{ if eq .count 1 }}deep dive{{ else }}deep dives{{ end }}</span>
+                <a href="{{ .permalink }}" class="read-more">Explore Path →</a>
+            </div>
+        </div>
+    </div>
+    {{- end }}
+</div>
+
+{{- end }}{{/* end main */ -}}
