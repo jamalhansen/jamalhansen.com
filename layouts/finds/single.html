@@ -1,0 +1,48 @@
+{{- define "main" }}
+
+<article class="post-single">
+  <header class="post-header">
+    {{- partial "breadcrumbs.html" . }}
+    <h1 class="post-title entry-hint-parent">
+      {{- .Title -}}
+      {{- if .Draft }}<sup><span class="entry-hint" title="Draft">D</span></sup>{{- end }}
+    </h1>
+    <div class="post-meta">
+      {{- partial "post_meta.html" . -}}
+    </div>
+  </header>
+
+  {{- with .Params.source_url }}
+  <div class="find-source-card">
+    <div class="find-source-meta">
+      {{- with $.Params.source_type }}<span class="find-source-type">{{ . }}</span>{{- end }}
+      {{- with $.Params.source_author }}<span class="find-source-author">by {{ . }}</span>{{- end }}
+    </div>
+    <a href="{{ . }}" class="find-source-title" target="_blank" rel="noopener noreferrer">
+      {{- $.Params.source_title | default $.Title -}}
+    </a>
+    <a href="{{ . }}" class="find-read-original" target="_blank" rel="noopener noreferrer">
+      Read Original &rarr;
+    </a>
+  </div>
+  {{- end }}
+
+  <div class="post-content">
+    {{- .Content }}
+  </div>
+
+  <footer class="post-footer">
+    {{- with .Params.tags }}
+    <ul class="post-tags">
+      {{- range . }}
+      <li><a href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+    {{- if .Site.Params.ShowShareButtons }}
+    {{- partial "share_icons.html" . -}}
+    {{- end }}
+  </footer>
+</article>
+
+{{- end }}

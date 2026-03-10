@@ -4,7 +4,6 @@ Convert Obsidian markdown to Hugo-compatible markdown with page bundle setup.
 Usage: python obsidian-to-hugo.py input.md post-slug [obsidian-vault-path]
 """
 import sys
-import os
 import re
 import shutil
 import unicodedata
@@ -31,6 +30,10 @@ def detect_existing_frontmatter(content):
         return True, m.group(1), m.group(2)
     return False, "", content
 
+def yaml_str(value):
+    """Escape a value for embedding in a YAML double-quoted string."""
+    return value.replace('\\', '\\\\').replace('"', '\\"')
+
 def clean_obsidian_links_from_frontmatter(frontmatter):
     """Remove Obsidian wiki-link syntax [[]] from frontmatter values"""
     return re.sub(r'\[\[([^\]]+)\]\]', r'\1', frontmatter)
@@ -44,9 +47,11 @@ def normalize_frontmatter_fields(frontmatter):
     frontmatter = re.sub(r'^toc:\s*true', 'ShowToc: true\nTocOpen: false', frontmatter, flags=re.MULTILINE)
     frontmatter = re.sub(r'^toc:\s*false', 'ShowToc: false', frontmatter, flags=re.MULTILINE)
 
-    # Clean up tags (remove # hashes)
+    # Clean up tags (remove # hashes and empty entries)
     def remove_tag_hashes(match):
-        return re.sub(r'- ["\']*#([^"\'\n]+)["\']*', r'- \1', match.group(0))
+        cleaned = re.sub(r'- ["\']*#([^"\'\n]+)["\']*', r'- \1', match.group(0))
+        cleaned = re.sub(r'  -\s*\n', '', cleaned)
+        return cleaned
 
     frontmatter = re.sub(r'^tags:\s*\n(?:  - [^\n]+\n)*', remove_tag_hashes, frontmatter, flags=re.MULTILINE)
 
@@ -61,33 +66,47 @@ def normalize_frontmatter_fields(frontmatter):
     
     # Remove raw unsplash fields
     for field in ['unsplash_name', 'unsplash_user', 'unsplash_id']:
-        frontmatter = re.sub(rf'^{field}:.*\n', '', frontmatter, flags=re.MULTILINE)
+        frontmatter = re.sub(rf'^{field}:[^\n]*\n?', '', frontmatter, flags=re.MULTILINE)
 
     # Build credit block
     credit_block = ""
     if credit_info:
         credit_block = "\n  credit:"
-        if 'name' in credit_info: credit_block += f'\n    name: "{credit_info["name"]}"'
-        if 'user' in credit_info: credit_block += f'\n    username: "{credit_info["user"]}"'
-        if 'id' in credit_info: credit_block += f'\n    photo_id: "{credit_info["id"]}"'
+        if 'name' in credit_info: credit_block += f'\n    name: "{yaml_str(credit_info["name"])}"'
+        if 'user' in credit_info: credit_block += f'\n    username: "{yaml_str(credit_info["user"])}"'
+        if 'id' in credit_info: credit_block += f'\n    photo_id: "{yaml_str(credit_info["id"])}"'
 
     # Convert simple image: to PaperMod cover:
     image_match = re.search(r'^image:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE)
     if image_match:
         img = image_match.group(1).strip()
         if img:
-            cover_block = f'cover:\n  image: "{img}"\n  alt: ""\n  caption: ""\n  relative: true{credit_block}'
-            frontmatter = re.sub(r'^image:.*\n', cover_block + '\n', frontmatter, flags=re.MULTILINE)
+            cover_block = f'cover:\n  image: "{yaml_str(img)}"\n  alt: ""\n  caption: ""\n  relative: true{credit_block}'
+            frontmatter = re.sub(r'^image:[^\n]*\n?', cover_block + '\n', frontmatter, flags=re.MULTILINE)
         else:
-            frontmatter = re.sub(r'^image:.*\n', '', frontmatter, flags=re.MULTILINE)
+            frontmatter = re.sub(r'^image:[^\n]*\n?', '', frontmatter, flags=re.MULTILINE)
     elif credit_block:
         # Inject credit into existing cover if possible
         if 'cover:' in frontmatter:
             frontmatter = re.sub(r'(relative:\s*true)', r'\1' + credit_block, frontmatter)
 
     # Clean up redundant or theme-clashing fields
-    for field in ['canonical_url', 'layout', 'slug', 'lastmod']:
-        frontmatter = re.sub(rf'^{field}:.*\n', '', frontmatter, flags=re.MULTILINE)
+    for field in ['canonical_url', 'layout', 'slug', 'status', 'created',
+                  'published_date', 'Category', 'promo_file', 'series_position']:
+        frontmatter = re.sub(rf'^{field}:[^\n]*\n?', '', frontmatter, flags=re.MULTILINE)
+
+    # Strip empty weight field
+    frontmatter = re.sub(r'^weight:\s*\n?', '', frontmatter, flags=re.MULTILINE)
+
+    # Convert series scalar string to Hugo array format; strip if empty
+    series_scalar = re.search(r'^series:\s*["\']?([^"\'\n]*?)["\']?\s*$', frontmatter, re.MULTILINE)
+    already_array = re.search(r'^series:\s*\n\s+-', frontmatter, re.MULTILINE)
+    if series_scalar and not already_array:
+        value = series_scalar.group(1).strip().strip('"\'')
+        if value:
+            frontmatter = re.sub(r'^series:[^\n]*\n?', f'series:\n  - {value}\n', frontmatter, flags=re.MULTILINE)
+        else:
+            frontmatter = re.sub(r'^series:[^\n]*\n?', '', frontmatter, flags=re.MULTILINE)
 
     return frontmatter.strip()
 
@@ -159,12 +178,17 @@ def main():
     # 2. Search vault for referenced images if not in source dir
     if vault_path and vault_path.exists():
         referenced_images = re.findall(r'!\[.*?\]\(([^)]+)\)', converted_body)
+        blog_dir_resolved = blog_dir.resolve()
         for img_name in referenced_images:
-            if not (blog_dir / img_name).exists():
+            dest = (blog_dir / img_name).resolve()
+            if not dest.is_relative_to(blog_dir_resolved):
+                print(f"   ⚠️  Skipped suspicious image path: {img_name}")
+                continue
+            if not dest.exists():
                 # Search vault (rglob can be slow on huge vaults, but works for most)
                 matches = list(vault_path.rglob(img_name))
                 if matches:
-                    shutil.copy2(matches[0], blog_dir / img_name)
+                    shutil.copy2(matches[0], dest)
                     print(f"   ✓ {img_name} (from vault)")
 
     print(f"\n🎉 Done! Folder created: {slug}")

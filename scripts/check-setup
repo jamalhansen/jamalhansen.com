@@ -57,11 +57,25 @@ else
     echo "💡 Run: chmod +x $SCRIPT_DIR/new-post"
 fi
 
+if [ -x "$SCRIPT_DIR/new-find" ]; then
+    echo "✅ new-find script is executable"
+else
+    echo "❌ new-find script not executable"
+    echo "💡 Run: chmod +x $SCRIPT_DIR/new-find"
+fi
+
 if [ -x "$SCRIPT_DIR/obsidian-to-hugo.py" ]; then
     echo "✅ obsidian-to-hugo.py is executable"
 else
     echo "❌ obsidian-to-hugo.py not executable"
     echo "💡 Run: chmod +x $SCRIPT_DIR/obsidian-to-hugo.py"
+fi
+
+if [ -x "$SCRIPT_DIR/finds-to-hugo.py" ]; then
+    echo "✅ finds-to-hugo.py is executable"
+else
+    echo "❌ finds-to-hugo.py not executable"
+    echo "💡 Run: chmod +x $SCRIPT_DIR/finds-to-hugo.py"
 fi
 
 echo ""

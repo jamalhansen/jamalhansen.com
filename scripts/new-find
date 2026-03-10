@@ -1,0 +1,45 @@
+#!/bin/bash
+# Convert an Obsidian find note to a Hugo page bundle in content/finds/
+# Usage: ./scripts/new-find path/to/_finds/note
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+# Use environment variable or fallback
+if [ -n "$OBSIDIAN_VAULT_PATH" ]; then
+    DEFAULT_VAULT_PATH="$OBSIDIAN_VAULT_PATH"
+else
+    DEFAULT_VAULT_PATH="$HOME/Documents/ObsidianVault"
+fi
+
+if [ $# -lt 1 ]; then
+    echo "Usage: ./scripts/new-find <obsidian-find-file>"
+    echo ""
+    echo "Examples:"
+    echo "  ./scripts/new-find '_finds/0001-My Find'"
+    echo "  ./scripts/new-find /absolute/path/to/find"
+    echo ""
+    exit 1
+fi
+
+OBSIDIAN_FILE="$1"
+
+# If not an absolute path, resolve against vault
+if [[ ! "$OBSIDIAN_FILE" = /* ]]; then
+    OBSIDIAN_FILE="$DEFAULT_VAULT_PATH/$OBSIDIAN_FILE"
+fi
+
+# Append .md if the file doesn't exist without it
+if [ ! -f "$OBSIDIAN_FILE" ] && [ -f "${OBSIDIAN_FILE}.md" ]; then
+    OBSIDIAN_FILE="${OBSIDIAN_FILE}.md"
+fi
+
+if [ ! -f "$OBSIDIAN_FILE" ]; then
+    echo "❌ Error: File not found: $OBSIDIAN_FILE"
+    exit 1
+fi
+
+echo "🔍 Converting find from Obsidian note..."
+echo "📄 Source: $OBSIDIAN_FILE"
+echo ""
+
+python3 "$SCRIPT_DIR/finds-to-hugo.py" "$OBSIDIAN_FILE"

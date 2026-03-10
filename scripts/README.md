@@ -1,256 +1,170 @@
 # Obsidian to Hugo Conversion Scripts
 
-Automated tools for converting Obsidian markdown posts to Hugo blog posts with smart image handling and environment variable integration.
+Tools for converting Obsidian notes to Hugo page bundles.
 
-## 🚀 Quick Start
+## Scripts
 
-### Step 1: One-time Setup
+| Script | Purpose |
+|---|---|
+| `./scripts/new-post` | Shell wrapper — converts a blog draft to `content/blog/` |
+| `./scripts/new-find` | Shell wrapper — converts a find to `content/finds/` |
+| `./scripts/obsidian-to-hugo.py` | Blog post converter (called by `new-post`) |
+| `./scripts/finds-to-hugo.py` | Finds converter (called by `new-find`) |
+| `./scripts/check-setup` | Verify environment and script permissions |
+
+---
+
+## Blog Posts
+
+### One-time setup
+
 ```bash
-# Add to your shell profile (~/.zshrc, ~/.bashrc, etc.)
+# Add to ~/.zshrc or ~/.bashrc
 export OBSIDIAN_VAULT_PATH="/path/to/your/obsidian/vault"
-
-# Reload your shell
-source ~/.zshrc  # or ~/.bashrc
-```
-
-### Step 2: Use Simple Commands
-```bash
-# From your vault's jamalhansen.com/_drafts/ folder
-./scripts/new-post jamalhansen.com/_drafts/my-post.md awesome-post-slug
-
-# From anywhere in your vault
-./scripts/new-post my-note.md post-slug
-```
-
-### Step 3: Verify Setup
-```bash
-./scripts/check-setup
-```
-
-## What It Does
-
-1. **Converts Obsidian syntax** to Hugo-compatible markdown:
-   - `![[image.jpg]]` → `![Image](image.jpg)`
-   - `![[image.jpg|alt text]]` → `![alt text](image.jpg)`
-
-2. **Smart Image Organization**:
-   - All images stored in post directory (Hugo page bundle structure)
-   - Cover images configured with `cover.image` in frontmatter
-   - Interactive categorization during conversion process
-
-3. **Creates complete Hugo post structure**:
-   ```
-   content/blog/my-post/
-   ├── index.md              # Converted markdown with frontmatter
-   ├── hero-image.jpg        # Cover image (referenced in frontmatter)
-   ├── screenshot1.jpg       # Content images
-   └── diagram.png
-   ```
-
-4. **Generates Hugo frontmatter** with:
-   - Title (extracted from first `#` heading)
-   - Current date
-   - Author info
-   - Cover image block with `relative: true`
-   - Proper URL slug
-   - Draft status (set to `true` initially)
-
-5. **Interactive image categorization** prompts you to specify which images are for features/cards vs content
-
-## 🛠️ Setup & Configuration
-
-### Environment Variable Approach (Recommended)
-
-1. **Set your Obsidian vault path**:
-   ```bash
-   # Add this line to your shell profile:
-   # ~/.zshrc (for Zsh) or ~/.bashrc (for Bash)
-   export OBSIDIAN_VAULT_PATH="/path/to/your/obsidian/vault"
-   ```
-
-2. **Reload your shell**:
-   ```bash
-   source ~/.zshrc  # or ~/.bashrc
-   ```
-
-3. **Verify setup**:
-   ```bash
-   ./scripts/check-setup
-   ```
-
-### Your Obsidian Vault Structure
-```
-YourObsidianVault/
-├── jamalhansen.com/
-│   └── _drafts/              # Your blog drafts folder
-│       ├── aws-tutorial.md   # Post with content
-│       ├── screenshot.png    # Images
-│       └── diagram.jpg
-├── other-notes.md            # Other vault content
-└── projects/
-    └── side-project.md
-```
-
-### Alternative Setup
-If you don't set `OBSIDIAN_VAULT_PATH`, the script falls back to `~/Documents/ObsidianVault`
-
-## Usage Examples
-
-With `OBSIDIAN_VAULT_PATH` set, you can use simple relative paths:
-
-```bash
-# From your vault's jamalhansen.com/_drafts/ folder
-./scripts/new-post jamalhansen.com/_drafts/my-aws-post.md aws-data-pipeline-tutorial
-
-# Any note in your vault
-./scripts/new-post my-ai-experiments.md agentic-ai-exploration
-
-# Still works with absolute paths
-./scripts/new-post ~/full/path/to/note.md awesome-tutorial
-
-# Override vault path if needed
-./scripts/new-post my-note.md post-slug /different/vault/path
-```
-
-### 📝 Your Complete Workflow
-
-```bash
-# 1. Write post in Obsidian with ![[image.jpg]] syntax
-#    Location: YourVault/jamalhansen.com/_drafts/cool-post.md
-
-# 2. Convert to Hugo with one command:
-./scripts/new-post jamalhansen.com/_drafts/cool-post.md cool-post-slug
-
-# 3. Script will:
-#    - Show found images for categorization
-#    - Copy all images → /content/blog/cool-post-slug/
-#    - Create Hugo post with proper frontmatter
-#    - Set cover image path in frontmatter
-
-# 4. Edit frontmatter, set draft: false, publish!
-```
-
-### 🔧 Available Scripts
-
-1. **`./scripts/new-post`** - Main conversion script (use this one!)
-2. **`./scripts/check-setup`** - Verify environment and settings
-3. **`./scripts/obsidian-to-hugo.py`** - Direct Python script (advanced usage)
-
-## The Conversion Process
-
-When you run the script, you'll see:
-
-```bash
-📸 Found 3 images. Let's categorize them:
-  1. hero-screenshot.png
-  2. step-by-step.jpg  
-  3. final-result.png
-
-💡 Image types:
-   Feature/Card: Used for homepage cards, social sharing, post headers
-   Content: Inline images within the post content
-
-🎯 Enter numbers of FEATURE/CARD images (comma-separated, or 'none'): 1,3
-
-📁 Categorization result:
-   Feature/Card (2): hero-screenshot.png, final-result.png
-   Content (1): step-by-step.jpg
-
-📸 Copying images to post directory:
-   ✓ hero-screenshot.png (cover image)
-   ✓ final-result.png (cover image)
-   ✓ step-by-step.jpg
-```
-
-## After Running the Script
-
-1. ✅ Your post is created in `content/blog/your-slug/`
-2. ✅ Images are automatically copied to appropriate locations
-3. ✅ Markdown is converted to Hugo format
-4. ✅ Image categorization optimizes for Hugo's resource system
-
-**Next steps:**
-1. Edit the frontmatter in `index.md`
-2. Set `cover.image` to your cover image filename
-3. Add tags, categories, and summary
-4. Set `draft: false` when ready to publish
-5. Commit and deploy!
-
-## Supported Obsidian Features
-
-- ✅ `![[image.jpg]]` - Basic image embedding
-- ✅ `![[image.jpg|alt text]]` - Image with alt text
-- ✅ Automatic image file copying from vault
-- ✅ Title extraction from first heading
-- ❌ `[[Wiki Links]]` - Commented out (enable in script if needed)
-- ❌ Obsidian callouts - Not converted (yet)
-
-## 🔧 Setup Validation
-
-### Check Your Configuration
-```bash
-# Run this to verify everything is working
-./scripts/check-setup
-```
-
-**This will check:**
-- ✅ `OBSIDIAN_VAULT_PATH` environment variable
-- ✅ Vault directory exists
-- ✅ `jamalhansen.com/_drafts/` folder (if present)
-- ✅ Script permissions
-- ✅ Python availability
-- 📝 Sample posts in your _drafts folder
-
-### Sample Output
-```bash
-🔍 Checking Obsidian-to-Hugo setup...
-
-✅ OBSIDIAN_VAULT_PATH: /Users/you/Documents/MyVault
-✅ Vault directory exists
-✅ _drafts folder found: /Users/you/Documents/MyVault/jamalhansen.com/_drafts
-📝 Sample posts found:
-  - /Users/you/Documents/MyVault/jamalhansen.com/_drafts/aws-post.md
-✅ Python 3 available: Python 3.11.5
-✅ new-post script is executable
-✅ obsidian-to-hugo.py is executable
-
-🎯 Ready to use! Try:
-   ./scripts/new-post jamalhansen.com/_drafts/my-post.md my-post-slug
-```
-
-## 🚨 Troubleshooting
-
-### Environment Issues
-**`OBSIDIAN_VAULT_PATH not set`**
-```bash
-# Add to your shell profile and reload
-echo 'export OBSIDIAN_VAULT_PATH="/path/to/vault"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-**`File not found` errors**
-- Use relative paths from vault root: `jamalhansen.com/_drafts/post.md`
-- Or use absolute paths: `~/full/path/to/post.md`
-- Run `./scripts/check-setup` to verify paths
+### Converting a post
 
-### Image Issues
-**Images not copying?**
-- Verify images exist in your Obsidian vault
-- Check that `OBSIDIAN_VAULT_PATH` is correct
-- Ensure images are referenced with `![[image.jpg]]` syntax
-
-### Script Issues  
-**Permission denied**
 ```bash
-# Make scripts executable
-chmod +x scripts/new-post scripts/check-setup scripts/obsidian-to-hugo.py
+./scripts/new-post path/to/obsidian-note.md [slug] [vault-path]
 ```
 
-**Python errors**
-- Ensure Python 3.6+ is installed: `python3 --version`
-- All required modules are built-in (no pip install needed)
+The slug is derived from the filename if not provided. Examples:
 
-### Path Issues
-**Script not found**
-- Always run from Hugo project root: `./scripts/new-post`
-- Or use full path: `/path/to/project/scripts/new-post`
+```bash
+# With explicit slug
+./scripts/new-post jamalhansen.com/_drafts/my-post.md my-post-slug
+
+# Slug derived from filename
+./scripts/new-post jamalhansen.com/_drafts/my-post.md
+
+# Relative path resolved against $OBSIDIAN_VAULT_PATH
+./scripts/new-post my-note.md my-post-slug
+```
+
+### What `obsidian-to-hugo.py` does
+
+**Syntax conversion (body):**
+- `![[image.jpg]]` → `![Image](image.jpg)`
+- `![[image.jpg|alt text]]` → `![alt text](image.jpg)`
+- `> [!info] Title` → `> **info**: Title` (Obsidian callouts → blockquotes)
+
+**Frontmatter normalization:**
+- `summary:` → `description:`
+- `toc: true` → `ShowToc: true` + `TocOpen: false`
+- `image: file.jpg` → full PaperMod `cover:` block
+- `unsplash_name/user/id` → `cover.credit` block
+- `series: "slug"` → `series:\n  - slug` (scalar to array)
+- Strips Obsidian-only fields: `status`, `created`, `published_date`, `Category`, `promo_file`, `series_position`, `slug`, `canonical_url`, `layout`
+- Strips `weight:` if empty; keeps it if set
+- Keeps `lastmod` for Hugo SEO
+
+**Image handling:**
+1. Copies images from the source note's directory into the Hugo page bundle
+2. If a vault path is provided, searches the vault for any referenced images not found locally
+
+**Output:** `content/blog/{slug}/index.md`
+
+### Obsidian frontmatter → Hugo frontmatter
+
+| Obsidian field | Hugo output | Notes |
+|---|---|---|
+| `title` | `title` | Pass-through |
+| `description` | `description` | Pass-through |
+| `date` | `date` | Pass-through |
+| `lastmod` | `lastmod` | Pass-through (kept for SEO) |
+| `tags` | `tags` | Hash prefixes and empty entries stripped |
+| `draft` | `draft` | Pass-through |
+| `author` | `author` | Pass-through |
+| `image` | `cover:` block | Expanded to PaperMod cover format |
+| `unsplash_*` | `cover.credit` | Merged into cover block |
+| `series` (string) | `series` (array) | Converted to list format |
+| `newsletter_url` | `newsletter_url` | Pass-through |
+| `summary` | `description` | Renamed |
+| `toc` | `ShowToc`/`TocOpen` | Renamed to PaperMod fields |
+| `status`, `created`, `published_date`, `Category`, `promo_file`, `series_position`, `slug`, `canonical_url`, `layout`, `weight` (empty) | *(stripped)* | Obsidian-only or redundant fields |
+
+---
+
+## Finds
+
+Finds are short posts linking to something worth reading, with your commentary. They live in `content/finds/` and have a separate RSS feed at `/finds/index.xml` (excluded from the main blog feed).
+
+### Converting a find
+
+```bash
+python3 scripts/finds-to-hugo.py path/to/_finds/note.md
+```
+
+Example:
+
+```bash
+python3 scripts/finds-to-hugo.py "_finds/0001-Use any Python AI agent framework.md"
+```
+
+The slug is derived from `source_title` in the frontmatter.
+
+### What `finds-to-hugo.py` does
+
+- Extracts `source_title`, `source_url`, `source_author`, `source_type`, `captured`, `tags`
+- Uses `captured` as the Hugo `date` (validated as `YYYY-MM-DD`; falls back to today)
+- Auto-generates a `description` from the first paragraph of your commentary
+- Strips all Obsidian-only fields: `status`, `created`, `published_date`, `canonical_url`, `category`, `related`
+- Writes to `content/finds/{slug}/index.md`
+
+### Obsidian finds frontmatter
+
+```yaml
+status: idea
+created: "2026-03-05"
+published_date: ""
+canonical_url: ""
+tags:
+  - python
+source_url: "https://example.com/article"
+source_title: "The Article Title"
+source_author: "Author Name"
+source_type: "blog post"
+captured: "2026-03-05"
+category: "[[Find]]"
+related:
+  - "[[0000-finds-inbox]]"
+```
+
+### Hugo output fields
+
+| Obsidian field | Hugo output |
+|---|---|
+| `source_title` | `title` + `source_title` |
+| `captured` | `date` |
+| `tags` | `tags` |
+| `source_url` | `source_url` |
+| `source_author` | `source_author` |
+| `source_type` | `source_type` |
+| Commentary body | `description` (auto-extracted) |
+
+---
+
+## Verify setup
+
+```bash
+./scripts/check-setup
+```
+
+Checks `OBSIDIAN_VAULT_PATH`, vault directory, Python availability, and script permissions.
+
+## Troubleshooting
+
+**File not found**
+- Use absolute paths or paths relative to `$OBSIDIAN_VAULT_PATH`
+- Run `./scripts/check-setup` to confirm paths
+
+**Permission denied**
+```bash
+chmod +x scripts/new-post scripts/check-setup
+```
+
+**Frontmatter field not stripped/converted**
+- Fields are matched at line start — ensure no leading whitespace on the field name
+- `weight:` is only stripped if the value is empty; `weight: 5` is kept
