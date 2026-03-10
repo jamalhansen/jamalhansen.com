@@ -146,12 +146,15 @@ def main():
         # Extract title from FM if possible
         title_match = re.search(r'^title:\s*["\']?(.+?)["\']?\s*$', fm, re.MULTILINE)
         title = title_match.group(1).strip('"\'') if title_match else input_path.stem.replace('-', ' ').title()
+        # Inject author if missing
+        if not re.search(r'^author:', fm, re.MULTILINE):
+            fm = re.sub(r'^(date:[^\n]*)', r'\1\nauthor:\n  - Jamal Hansen', fm, count=1, flags=re.MULTILINE)
     else:
         print("ℹ️  Creating new frontmatter")
         # Extract title from first H1 or filename
         h1_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
         title = h1_match.group(1).strip() if h1_match else input_path.stem.replace('-', ' ').title()
-        fm = f'title: "{title}"\ndate: {datetime.now().strftime("%Y-%m-%d")}\ndraft: true\ndescription: ""\ntags: []\ncategories: []\nseries: []\ncover:\n  image: ""\n  alt: ""\n  caption: ""\n  relative: true\nShowToc: true\nTocOpen: false'
+        fm = f'title: "{title}"\ndate: {datetime.now().strftime("%Y-%m-%d")}\nauthor:\n  - Jamal Hansen\ndraft: true\ndescription: ""\ntags: []\ncategories: []\nseries: []\ncover:\n  image: ""\n  alt: ""\n  caption: ""\n  relative: true\nShowToc: true\nTocOpen: false'
 
     converted_body = convert_body_syntax(body if has_fm else content)
     final_content = f"---\n{fm}\n---\n\n{converted_body}"

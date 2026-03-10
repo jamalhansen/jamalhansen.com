@@ -2,6 +2,8 @@
 title: I installed dBeaver today
 description: I downloaded the community edition of dBeaver today and enjoyed the installation experience and sample database option.
 date: 2025-02-17
+author:
+  - Jamal Hansen
 lastmod: 2026-01-11
 tags: ["dbeaver", "databases"]
 categories: ["dBeaver"]

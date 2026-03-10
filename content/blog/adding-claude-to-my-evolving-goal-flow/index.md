@@ -2,6 +2,8 @@
 title: Adding Claude to my evolving goal flow
 description: For the past five years I've been intentional in my yearly goals, writing them down in markdown form and tracking them through the year. In the past few months I've added AI to my goal workflow.
 date: 2025-07-13
+author:
+  - Jamal Hansen
 tags: ["claude", "artificial-intelligence", "goals", "productivity", "workflow"]
 categories: ["productivity"]
 cover:

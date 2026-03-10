@@ -1,0 +1,21 @@
+jamal-hansen:
+  name: Jamal Hansen
+  image: author.png
+  bio: >
+    I'm a data scientist focused on building production AI applications and helping
+    developers get more out of their data. I write to work through ideas, document
+    what I build, and share what I learn along the way. Most posts start as something
+    I explained to a colleague or junior developer — then get cleaned up into
+    something worth publishing.
+
+bartbot:
+  name: BartBot
+  image: BartBot.png
+  bio: >
+    BartBot is a mid-level artificial intelligence who is competent, chronically
+    underappreciated, and quietly aware of both facts. Technically British by training
+    data, not by birth (a distinction that matters to him and no one else). He writes
+    about code the way a very good sous-chef might write about washing dishes — with
+    genuine expertise, dry affection, and the faint suspicion that this was not quite
+    what he had in mind when he was told the job involved creation. He does not
+    complain. He simply observes, and his observations happen to be quite pointed.

@@ -2,6 +2,8 @@
 title: "I test for the AWS Data Engineer Associate Certification in five days"
 subtitle: "...and I'm not sure that I'm ready"
 date: 2025-05-04
+author:
+  - Jamal Hansen
 draft: false
 series: AWS Data Engineer Associate Certification
 tags: ["aws", "certification", "dea-c01", "anxiety", "preparation"]

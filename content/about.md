@@ -4,8 +4,7 @@ layout: "about"
 url: "/about/"
 summary: "Jamal Hansen is a data scientist and developer exploring SQL, Python, and AI. Learn how to build production-ready LLM agents and level up your data skills."
 ---
-<img src="/author.png" alt="Jamal Hansen" class="author-photo">
-I'm a data scientist focused on building production AI applications and helping developers get more out of their data. I write to work through ideas, document what I build, and share what I learn along the way. Most posts start as something I explained to a colleague or junior developer — then get cleaned up into something worth publishing.
+{{< author-bio "jamal-hansen" >}}
 
 A lot of the content here follows two threads. The first is **SQL for Python developers**: a series I started because so many Python devs avoid or underuse SQL. Understanding how SQL thinks changed how I write Python, and I wanted to make that shift accessible to others. The second thread is **LLM development** — practical posts from building agents, working with local models, and figuring out where AI actually fits in production workflows. I also write about certifications, tools, and the general experience of learning in public.
 

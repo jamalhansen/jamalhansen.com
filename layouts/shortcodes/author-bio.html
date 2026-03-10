@@ -1,0 +1,18 @@
+{{ $key := .Get 0 | default "jamal-hansen" }}
+{{ $data := index site.Data.authors $key }}
+{{ if $data }}
+  <div class="author-bio-card" style="margin: 2rem 0;">
+    {{ if $data.image }}
+      {{ $img := resources.Get $data.image }}
+      {{ if $img }}
+        <img src="{{ $img.RelPermalink }}" alt="{{ $data.name }}" class="author-bio-avatar">
+      {{ end }}
+    {{ end }}
+    <div class="author-bio-content">
+      <div class="author-bio-name">{{ $data.name }}</div>
+      {{ if $data.bio }}
+        <p class="author-bio-text">{{ $data.bio }}</p>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

@@ -2,6 +2,8 @@
 title: How to custom style your VS Code markdown preview
 description: Want to make all your markdown previews look nice? Here is how
 date: 2025-02-06
+author:
+  - Jamal Hansen
 lastmod: 2026-01-10
 tags: ["markdown", "vscode"]
 categories: ["VS Code"]

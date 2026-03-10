@@ -2,6 +2,8 @@
 title: Thank you for the overwhelming support
 description: I recently posted on Linked In that I did not pass my AWS Data Engineer exam and I am overwhelmed by the positive response
 date: 2025-06-01
+author:
+  - Jamal Hansen
 tags: ["gratitude", "aws", "certification", "community", "linkedin"]
 categories: ["personal"]
 cover:

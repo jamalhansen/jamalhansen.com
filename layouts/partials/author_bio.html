@@ -1,0 +1,36 @@
+{{/* Author bio cards — rendered for each post author found in data/authors.yaml.
+     Only shows a card if the author entry has a bio field. */}}
+{{ $authorData := site.Data.authors }}
+{{ $authors := .Params.author }}
+{{ if $authors }}
+  {{ if not (reflect.IsSlice $authors) }}
+    {{ $authors = slice $authors }}
+  {{ end }}
+  {{ $hasBios := false }}
+  {{ range $authors }}
+    {{ $data := index $authorData (. | urlize) }}
+    {{ if and $data $data.bio }}{{ $hasBios = true }}{{ end }}
+  {{ end }}
+  {{ if $hasBios }}
+    <div class="author-bios">
+      {{ range $authors }}
+        {{ $name := . }}
+        {{ $data := index $authorData ($name | urlize) }}
+        {{ if and $data $data.bio }}
+          <div class="author-bio-card">
+            {{ if $data.image }}
+              {{ $img := resources.Get $data.image }}
+              {{ if $img }}
+                <img src="{{ $img.RelPermalink }}" alt="{{ $name }}" class="author-bio-avatar">
+              {{ end }}
+            {{ end }}
+            <div class="author-bio-content">
+              <div class="author-bio-name">{{ $name }}</div>
+              <p class="author-bio-text">{{ $data.bio }}</p>
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}

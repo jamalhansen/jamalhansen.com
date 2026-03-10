@@ -2,6 +2,8 @@
 title: Explore the dBeaver sample database
 description: After installing dBeaver, let's take a look at the sample database that it provides.
 date: 2025-04-20
+author:
+  - Jamal Hansen
 lastmod: 2026-01-11
 tags: ["dbeaver", "sqlite"]
 categories: ["database"]

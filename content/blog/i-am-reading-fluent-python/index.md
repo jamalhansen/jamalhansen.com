@@ -2,6 +2,8 @@
 title: "I Am Reading Fluent Python"
 description: "I'm reading the book Fluent Python because I want to level up my Python skills and really understand the language"
 date: 2025-04-21
+author:
+  - Jamal Hansen
 lastmod: 2025-01-04
 tags: ["fluent-python", "reading"]
 categories: ["Python"]

@@ -2,6 +2,8 @@
 title: Don't forget to save! Persisting your DuckDB database
 description: Your in-memory database disappears when Python exits. Let's fix that with a one-line change that saves everything to disk.
 date: 2026-01-26
+author:
+  - Jamal Hansen
 lastmod: 2026-01-14
 tags: ["duckdb", "sql"]
 categories: []

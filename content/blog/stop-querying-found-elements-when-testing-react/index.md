@@ -2,6 +2,8 @@
 title: Stop querying found elements when testing react
 description: Use Testing Library's within() to query nested elements in one readable line and avoid repeating yourself
 date: 2025-02-15
+author:
+  - Jamal Hansen
 lastmod: 2026-01-10
 tags: ["JavaScript", "jest", "vite", "testing-library"]
 categories: ["Automated testing", "Today I learned"]

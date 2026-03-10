@@ -2,6 +2,8 @@
 title: An update on my agentic learning journey
 description: An update after a few weeks about learning agentic AI, it's been a fun journey and I've found some great resources
 date: 2025-06-24
+author:
+  - Jamal Hansen
 tags: ["agentic-ai", "artificial-intelligence", "learning", "python", "langchain"]
 categories: ["technology"]
 cover:

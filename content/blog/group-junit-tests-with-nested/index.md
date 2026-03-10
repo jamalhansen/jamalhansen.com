@@ -2,6 +2,8 @@
 title: Group JUnit Tests with @Nested
 description: Use the @Nested annotation to group JUnit tests similar to a describe block in jest
 date: 2025-02-14
+author:
+  - Jamal Hansen
 lastmod: 2026-01-11
 tags: ["java", "junit"]
 categories: ["Automated testing"]

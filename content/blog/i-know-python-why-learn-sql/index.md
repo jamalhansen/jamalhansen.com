@@ -2,6 +2,8 @@
 title: I know Python; Why learn SQL
 description: Learning SQL will make you a better Python developer, even if you already use pandas and ORMs. The first in a series of posts that will walk you through the fundamentals using DuckDB and Python.
 date: 2026-01-05
+author:
+  - Jamal Hansen
 tags: ["sql", "duckdb", "python"]
 categories: []
 cover:

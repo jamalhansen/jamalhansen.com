@@ -2,6 +2,8 @@
 title: SQL Thinks in Sets, Not Loops
 description: "The mental model shift that makes SQL click: SQL is declarative (describe what you want) rather than procedural (step-by-step loops). Once you think in sets instead of rows, the keywords become intuitive."
 date: 2026-02-02
+author:
+  - Jamal Hansen
 tags: ["sql"]
 categories: []
 cover:

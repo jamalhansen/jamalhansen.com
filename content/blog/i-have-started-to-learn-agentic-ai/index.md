@@ -2,6 +2,8 @@
 title: I've started my agentic AI learning journey
 description: This week, I've started a udemy course on agentic AI and I'm really enjoying it.
 date: 2025-05-31
+author:
+  - Jamal Hansen
 tags: ["agentic-ai", "artificial-intelligence", "learning", "udemy"]
 categories: ["technology"]
 cover:
