@@ -1,6 +1,6 @@
 ---
 title: Add External Dependencies to Python Scripts with uv
-description: No virtual environment needed — declare dependencies directly in your script
+description: No virtual environment needed. Declare dependencies directly in your script.
 date: 2025-04-19
 author:
   - Jamal Hansen

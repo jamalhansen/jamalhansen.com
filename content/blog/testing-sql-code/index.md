@@ -286,4 +286,4 @@ def test_duplicate_primary_key(test_db):
 
 ## What's Next
 
-You've learned SQL from basics to testing. Next, we'll look at a sampler of advanced topics — CASE statements, JSON, dates, and set operations.
+You've learned SQL from basics to testing. Next, we'll look at a sampler of advanced topics: CASE statements, JSON, dates, and set operations.

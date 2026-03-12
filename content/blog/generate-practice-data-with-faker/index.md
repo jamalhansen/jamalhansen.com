@@ -22,13 +22,13 @@ TocOpen: false
 series: ["SQL for Python Developers"]
 ---
 
-Last week, we got [DuckDB running](/blog/run-your-first-sql-query-in-under-5-minutes/) with three hardcoded rows. That got us started—but three rows? You can eyeball that. Let's generate hundreds of realistic customers and build a dataset worth exploring.
+Last week, we got [DuckDB running](/blog/run-your-first-sql-query-in-under-5-minutes/) with three hardcoded rows. That got us started, but three rows? You can eyeball that. Let's generate hundreds of realistic customers and build a dataset worth exploring.
 
-Python has the perfect tool: `faker`. It's a library that generates realistic fake data—names, emails, addresses, dates—anything you'd find in a real database. Let's use it to build a dataset we can explore for the rest of this series.
+Python has the perfect tool: `faker`. It's a library that generates realistic fake data: names, emails, addresses, dates, and anything else you'd find in a real database. Let's use it to build a dataset we can explore for the rest of this series.
 
 ## The Dataset: Customers
 
-We'll create a customer table—the kind you'll find in almost any database:
+We'll create a customer table, the kind you'll find in almost any database:
 
 ```
 customers
@@ -96,7 +96,7 @@ The `is_premium` line is a small trick: by putting `False` in the list three tim
 
 We are setting the random number seed at the beginning of the script. This makes the "random" data reproducible, so you'll get the same values every time you run it. This is useful in a number of situations, including testing. 
 
-Now we have our generated data in the `customers` variable. Let's create a table for it to live in and then insert the data into the table. You'll notice `VARCHAR` in the CREATE TABLE statement—that's SQL's name for text data (like Python's `str`).
+Now we have our generated data in the `customers` variable. Let's create a table for it to live in and then insert the data into the table. You'll notice `VARCHAR` in the CREATE TABLE statement. That's SQL's name for text data (like Python's `str`).
 
 ```python
 import duckdb
@@ -144,7 +144,7 @@ print(result.head(10))
 
 The `*` in `SELECT *` is shorthand for "all columns." Or you can list the columns that you want.
 
-You should see ten unique customers—real-looking names, varied cities, a mix of premium and regular accounts. That's 500 rows of realistic data we can explore for the rest of this series.
+You should see ten unique customers: real-looking names, varied cities, a mix of premium and regular accounts. That's 500 rows of realistic data we can explore for the rest of this series.
 
 ## The Full Script
 

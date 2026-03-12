@@ -24,7 +24,7 @@ series: ["SQL for Python Developers"]
 
 I still remember losing schoolwork and video game progress because I forgot to save. That sinking feeling when hours of work vanish because you were too caught up in the flow to pause and save.
 
-[In our last post](/blog/your-first-sql-table-its-just-a-dataframe-with-rules), we created a customer database and generated 500 rows of fake data. Our in-memory database has the same problem—when Python exits, all that data vanishes:
+[In our last post](/blog/your-first-sql-table-its-just-a-dataframe-with-rules), we created a customer database and generated 500 rows of fake data. Our in-memory database has the same problem: when Python exits, all that data vanishes:
 
 ```python
 import duckdb

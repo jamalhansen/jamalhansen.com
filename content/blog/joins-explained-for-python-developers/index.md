@@ -137,9 +137,9 @@ FROM
 
 This is a basic join, also known as an inner join. 
 
-- `FROM orders` — start with orders table
-- `JOIN customers` — bring in customers table
-- `ON orders.customer_id = customers.id` — the matching condition
+- `FROM orders`: start with orders table
+- `JOIN customers`: bring in customers table
+- `ON orders.customer_id = customers.id`: the matching condition
 
 What is important to remember about `INNER JOIN`s is that only rows with matches in *both* tables appear in the results. So if there is a customer with no orders, we would not see them in this query. 
 
