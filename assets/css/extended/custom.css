@@ -346,18 +346,18 @@ code, kbd, pre, samp {
 /* ======================== */
 
 .social-embed {
-  margin: 1.5rem 0;
-  display: flex;
-  justify-content: center;
+  margin: 1.5rem auto;
+  max-width: 550px; /* match Twitter's max embed width */
 }
 
-/* X / Twitter — widget centres itself but needs a nudge on narrow viewports */
-.social-embed .twitter-tweet {
-  margin: 0 auto !important;
+/* X / Twitter — the rendered iframe needs to fill the container */
+.social-embed iframe.twitter-tweet-rendered {
+  width: 100% !important;
 }
 
 /* Bluesky and Mastodon iframes */
 .social-embed-iframe {
+  display: block;
   width: 100%;
   min-height: 320px;
   border: none;
