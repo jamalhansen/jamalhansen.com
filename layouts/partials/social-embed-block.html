@@ -1,0 +1,38 @@
+{{/* Social embed partial — used by finds/single.html.
+     Called with: partial "social-embed-block.html" (dict "url" $url "type" $type "embed_html" $embedHtml)
+     For use in markdown content, use the {{< social-embed >}} shortcode instead. */}}
+{{ $url := .url }}
+{{ $type := .type }}
+{{ $embedHtml := .embed_html }}
+
+<div class="social-embed">
+{{ if $embedHtml }}
+  {{ $embedHtml | safeHTML }}
+{{ else if eq $type "x" }}
+  {{/* Strip tracking params so the blockquote URL is clean */}}
+  {{ $cleanUrl := $url | replaceRE `\?.*$` "" }}
+  <blockquote class="twitter-tweet" data-dnt="true" data-theme="dark">
+    <a href="{{ $cleanUrl }}"></a>
+  </blockquote>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+{{ else if eq $type "bluesky" }}
+  {{ $path := $url | strings.TrimPrefix "https://bsky.app/profile/" }}
+  <iframe
+    src="https://embed.bsky.app/embed/{{ $path }}"
+    class="social-embed-iframe"
+    loading="lazy"
+    allowfullscreen
+    sandbox="allow-same-origin allow-scripts allow-popups"
+  ></iframe>
+
+{{ else if eq $type "mastodon" }}
+  <iframe
+    src="{{ $url }}/embed"
+    class="social-embed-iframe"
+    loading="lazy"
+    allowfullscreen
+    sandbox="allow-same-origin allow-scripts allow-popups"
+  ></iframe>
+{{ end }}
+</div>

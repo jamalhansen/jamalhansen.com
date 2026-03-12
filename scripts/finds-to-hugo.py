@@ -5,7 +5,10 @@ Usage: python finds-to-hugo.py input.md
 """
 import sys
 import re
+import json
 import unicodedata
+import urllib.request
+import urllib.parse
 from pathlib import Path
 from datetime import datetime
 
@@ -42,6 +45,39 @@ def extract_list(frontmatter, field):
     if m2 and m2.group(1).strip():
         return [i.strip().strip('"\'') for i in m2.group(1).split(',') if i.strip()]
     return []
+
+
+def fetch_oembed_html(platform, url):
+    """Fetch pre-rendered embed HTML from the platform's oEmbed API.
+    Returns the HTML string, or None on failure."""
+    clean_url = re.sub(r'\?.*$', '', url)
+    try:
+        if platform == 'x':
+            api = f"https://publish.twitter.com/oembed?url={urllib.parse.quote(clean_url)}&theme=dark&dnt=true&omit_script=false"
+        elif platform == 'bluesky':
+            api = f"https://embed.bsky.app/oembed?url={urllib.parse.quote(url)}"
+        else:
+            return None
+        req = urllib.request.Request(api, headers={'User-Agent': 'finds-to-hugo/1.0'})
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read())
+            return data.get('html', '').strip()
+    except Exception as e:
+        print(f"⚠️  oEmbed fetch failed for {platform}: {e}")
+        return None
+
+
+def detect_social_platform(url):
+    """Return 'x', 'bluesky', 'mastodon', or None based on URL pattern."""
+    if not url:
+        return None
+    if re.search(r'(twitter\.com|x\.com)/\w+/status/\d+', url):
+        return 'x'
+    if re.search(r'bsky\.app/profile/.+/post/', url):
+        return 'bluesky'
+    if re.search(r'/@[\w]+/\d+$', url):
+        return 'mastodon'
+    return None
 
 
 def yaml_str(value):
@@ -113,6 +149,19 @@ def main():
         fm_lines.append('tags:')
         for tag in tags:
             fm_lines.append(f'  - {tag}')
+    embed_type = detect_social_platform(source_url)
+    if embed_type and not source_type:
+        source_type = {'x': 'X Post', 'bluesky': 'Bluesky Post', 'mastodon': 'Mastodon Post'}[embed_type]
+
+    embed_html = None
+    if embed_type in ('x', 'bluesky'):
+        print(f"🔗 Fetching {embed_type} oEmbed...")
+        embed_html = fetch_oembed_html(embed_type, source_url)
+        if embed_html:
+            print(f"   ✓ Got embed HTML ({len(embed_html)} chars)")
+        else:
+            print(f"   ⚠️  Falling back to client-side embed")
+
     if source_url:
         fm_lines.append(f'source_url: "{yaml_str(source_url)}"')
     if source_title:
@@ -121,6 +170,13 @@ def main():
         fm_lines.append(f'source_author: "{yaml_str(source_author)}"')
     if source_type:
         fm_lines.append(f'source_type: "{yaml_str(source_type)}"')
+    if embed_type:
+        fm_lines.append(f'embed_type: "{embed_type}"')
+    if embed_html:
+        # Store as YAML literal block scalar so indentation is preserved
+        fm_lines.append('embed_html: |')
+        for line in embed_html.splitlines():
+            fm_lines.append(f'  {line}')
 
     fm_out = '\n'.join(fm_lines)
     final_content = f"---\n{fm_out}\n---\n\n{body.lstrip()}"

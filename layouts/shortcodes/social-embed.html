@@ -1,0 +1,55 @@
+{{/* Social media embed shortcode.
+     Usage:
+       {{< social-embed url="https://x.com/user/status/123" >}}
+       {{< social-embed url="https://bsky.app/profile/handle/post/rkey" >}}
+       {{< social-embed url="https://mastodon.social/@user/123" >}}
+
+     Can also be called with type explicitly:
+       {{< social-embed url="..." type="x" >}}
+*/}}
+{{ $url := .Get "url" }}
+{{ $type := .Get "type" }}
+
+{{/* Auto-detect platform if type not given */}}
+{{ if not $type }}
+  {{ if or (findRE `twitter\.com|x\.com` $url) }}
+    {{ $type = "x" }}
+  {{ else if findRE `bsky\.app/profile/.+/post/` $url }}
+    {{ $type = "bluesky" }}
+  {{ else if findRE `/@[\w]+/\d+$` $url }}
+    {{ $type = "mastodon" }}
+  {{ end }}
+{{ end }}
+
+<div class="social-embed">
+{{ if eq $type "x" }}
+  {{ $cleanUrl := $url | replaceRE `\?.*$` "" }}
+  <blockquote class="twitter-tweet" data-dnt="true" data-theme="dark">
+    <a href="{{ $cleanUrl }}"></a>
+  </blockquote>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+{{ else if eq $type "bluesky" }}
+  {{ $path := $url | strings.TrimPrefix "https://bsky.app/profile/" }}
+  <iframe
+    src="https://embed.bsky.app/embed/{{ $path }}"
+    class="social-embed-iframe"
+    loading="lazy"
+    allowfullscreen
+    sandbox="allow-same-origin allow-scripts allow-popups"
+  ></iframe>
+
+{{ else if eq $type "mastodon" }}
+  <iframe
+    src="{{ $url }}/embed"
+    class="social-embed-iframe"
+    loading="lazy"
+    allowfullscreen
+    sandbox="allow-same-origin allow-scripts allow-popups"
+  ></iframe>
+
+{{ else }}
+  {{/* Fallback: plain link */}}
+  <a href="{{ $url }}" target="_blank" rel="noopener noreferrer">{{ $url }}</a>
+{{ end }}
+</div>

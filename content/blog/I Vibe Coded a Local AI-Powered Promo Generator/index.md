@@ -8,7 +8,7 @@ tags:
 split_from: "I Vibe Coded a Promo Generator with Local AI"
 part: 1 of 3
 title: I Vibe Coded a Local AI-Powered Promo Generator
-description: I built a local AI tool to automate my weekly promo writing. It didn't go as planned, but I learned a lot about what small models can actually do.
+description: I got tired of rewriting the same post for five social platforms every week, so I built a local AI tool with Ollama to do it. Here's what broke, why a two-pass architecture fixed it, and whether small models can carry a real recurring task.
 author:
   - Jamal Hansen
 date: 2026-02-28
@@ -22,6 +22,7 @@ cover:
     name: "Stavan Macwan"
     username: "stavanmacwan9815"
     photo_id: "a-red-box-with-a-couple-of-guns-in-it-YG8vzN9IkmA"
+series: "I Vibe Coded and Lived to Tell"
 draft: false
 ShowToc: false
 Related:

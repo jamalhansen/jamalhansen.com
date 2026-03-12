@@ -8,7 +8,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 if [ -n "$OBSIDIAN_VAULT_PATH" ]; then
     DEFAULT_VAULT_PATH="$OBSIDIAN_VAULT_PATH"
 else
-    DEFAULT_VAULT_PATH="$HOME/Documents/ObsidianVault"
+    DEFAULT_VAULT_PATH="$HOME/vaults/BrainSync"
 fi
 
 if [ $# -lt 1 ]; then

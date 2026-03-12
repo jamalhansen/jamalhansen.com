@@ -342,6 +342,29 @@ code, kbd, pre, samp {
 }
 
 /* ======================== */
+/* Finds — Social Embeds    */
+/* ======================== */
+
+.social-embed {
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* X / Twitter — widget centres itself but needs a nudge on narrow viewports */
+.social-embed .twitter-tweet {
+  margin: 0 auto !important;
+}
+
+/* Bluesky and Mastodon iframes */
+.social-embed-iframe {
+  width: 100%;
+  min-height: 320px;
+  border: none;
+  border-radius: 8px;
+}
+
+/* ======================== */
 /* Finds — Source Card      */
 /* ======================== */
 
