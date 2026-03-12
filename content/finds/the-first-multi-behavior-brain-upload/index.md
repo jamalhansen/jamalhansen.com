@@ -1,7 +1,7 @@
 ---
 title: "The First Multi-Behavior Brain Upload"
 date: 2026-03-12
-draft: true
+draft: false
 description: "Scientists mapped the brain of a fruit fly and built an emulator from it. That emulated brain behaves like a fruit fly."
 tags:
   - scifi

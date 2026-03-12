@@ -141,7 +141,7 @@ def main():
     fm_lines = [
         f'title: "{yaml_str(source_title)}"',
         f'date: {date}',
-        'draft: true',
+        'draft: false',
     ]
     if description:
         fm_lines.append(f'description: "{yaml_str(description)}"')
