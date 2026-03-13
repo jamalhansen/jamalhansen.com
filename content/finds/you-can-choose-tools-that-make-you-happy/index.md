@@ -8,6 +8,7 @@ tags:
   - programming
 source_url: "https://borretti.me/article/you-can-choose-tools-that-make-you-happy"
 source_title: "You Can Choose Tools That Make You Happy"
+source_author: "Fernando Borretti"
 source_type: "blog post"
 ---
 
