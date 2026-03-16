@@ -8,6 +8,7 @@ tags:
   - databases
 source_url: "https://tselai.com/all-databases-are-just-files"
 source_title: "(All) Databases Are Just Files. Postgres Too."
+source_author: "Florents Tselai"
 source_type: "blog post"
 ---
 

@@ -3,7 +3,7 @@ title: "HAVING: Filtering Grouped Results"
 description: WHERE filters rows before grouping; HAVING filters after. Need "only cities with more than 10 customers"? That's HAVING.
 author:
   - Jamal Hansen
-date: 2026-03-17
+date: 2026-03-16
 tags:
   - sql
 categories:
