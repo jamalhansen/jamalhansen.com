@@ -3,7 +3,7 @@ title: "Subqueries: When SQL Needs Helper Functions"
 description: Nest queries inside queries, like Python helper functions. Use them in WHERE, SELECT, or FROM to compute intermediate results.
 author:
   - Jamal Hansen
-date: 2026-03-31
+date: 2026-03-30
 tags:
   - sql
 categories:

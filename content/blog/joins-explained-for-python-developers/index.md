@@ -3,7 +3,7 @@ title: JOINs Explained for Python Developers
 description: Connect related tables like looking up values in a Python dictionary. Covers INNER JOIN, LEFT JOIN, and when to use each.
 author:
   - Jamal Hansen
-date: 2026-03-24
+date: 2026-03-23
 tags:
   - sql
 categories:

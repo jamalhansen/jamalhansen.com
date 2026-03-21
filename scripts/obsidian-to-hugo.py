@@ -99,14 +99,19 @@ def normalize_frontmatter_fields(frontmatter):
     frontmatter = re.sub(r'^weight:\s*\n?', '', frontmatter, flags=re.MULTILINE)
 
     # Convert series scalar string to Hugo array format; strip if empty
-    series_scalar = re.search(r'^series:\s*["\']?([^"\'\n]*?)["\']?\s*$', frontmatter, re.MULTILINE)
+    series_scalar = re.search(r'^series:\s*(\S[^\n]*?)\s*$', frontmatter, re.MULTILINE)
     already_array = re.search(r'^series:\s*\n\s+-', frontmatter, re.MULTILINE)
     if series_scalar and not already_array:
-        value = series_scalar.group(1).strip().strip('"\'')
-        if value:
-            frontmatter = re.sub(r'^series:[^\n]*\n?', f'series:\n  - {value}\n', frontmatter, flags=re.MULTILINE)
-        else:
+        raw = series_scalar.group(1).strip()
+        if raw in ('[]', ''):
             frontmatter = re.sub(r'^series:[^\n]*\n?', '', frontmatter, flags=re.MULTILINE)
+        else:
+            # Strip surrounding quotes of any style (handles 'value', "value", '"value"')
+            value = raw.strip("'\"").strip("'\"")
+            if value:
+                frontmatter = re.sub(r'^series:[^\n]*\n?', f'series:\n  - "{value}"\n', frontmatter, flags=re.MULTILINE)
+            else:
+                frontmatter = re.sub(r'^series:[^\n]*\n?', '', frontmatter, flags=re.MULTILINE)
 
     return frontmatter.strip()
 
