@@ -8,7 +8,7 @@ tags: ["claude", "artificial-intelligence", "goals", "productivity", "workflow"]
 categories: ["productivity"]
 cover:
     image: isaac-smith-Ij7h-m4nJ18-unsplash.jpg
-    alt: "Adding Claude to my evolving goal flow"
+    alt: "A paper showing a structured goal review"
     relative: true
     caption: ""
     credit:
