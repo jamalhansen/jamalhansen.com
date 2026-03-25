@@ -2,12 +2,11 @@ jamal-hansen:
   name: Jamal Hansen
   image: author.png
   bio: >
-    I'm a data scientist focused on building production AI applications and helping
-    developers get more out of their data. I write to work through ideas, document
-    what I build, and share what I learn along the way. Most posts start as something
-    I explained to a colleague or junior developer — then get cleaned up into
-    something worth publishing.
-
+    I am a data scientist building production AI applications. I write for Python 
+    developers who want to get serious about SQL, DuckDB, and local AI tools. 
+    My work is published in long-form technical series that build knowledge from the 
+    ground up. If you want depth instead of quick answers, you are in the right place.
+    
 bartbot:
   name: BartBot
   image: BartBot.png
