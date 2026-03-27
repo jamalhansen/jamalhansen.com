@@ -1,22 +1,19 @@
 ---
-Created: 2026-03-10
 series:
   - "I vibe coded and lived to tell"
-published:
-target_date: 2026-03-27
+published: 2026-03-27
 title: Copy and Paste Long Enough and the Architecture Appears
 description: You can't design your way to a good abstraction. You have to earn it through repetition. Vibe coding made that repetition happen faster, not slower.
 author:
   - Jamal Hansen
-date: 2026-03-27
 lastmod: 2026-03-26
 tags:
   - vibe-coding
   - architecture
   - python
-newsletter_url: ""
+draft: false
 cover:
-  image: "bernard-hermant-ItAyhwNUCHY-unsplash.jpg"
+  image: bernard-hermant-ItAyhwNUCHY-unsplash.jpg
   alt: "A geometric black and white pattern"
   caption: ""
   relative: true

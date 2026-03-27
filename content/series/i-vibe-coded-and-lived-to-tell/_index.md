@@ -1,5 +1,5 @@
 ---
-title: "I Vibe Coded and Lived to Tell"
+title: "I vibe coded and lived to tell"
 description: "What happens when you build real AI tools with AI writing the code? Chaos mostly, but also hard-won lessons about what small models can and can't do."
 weight: 3
 ---
