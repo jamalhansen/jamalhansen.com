@@ -23,7 +23,7 @@ cover:
     username: "stavanmacwan9815"
     photo_id: "a-red-box-with-a-couple-of-guns-in-it-YG8vzN9IkmA"
 series:
-  - "I Vibe Coded and Lived to Tell"
+  - "I vibe coded and lived to tell"
 draft: false
 ShowToc: false
 Related:

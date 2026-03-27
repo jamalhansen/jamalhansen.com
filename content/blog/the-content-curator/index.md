@@ -21,7 +21,7 @@ cover:
     photo_id: 
 draft: false
 series:
-  - "I Vibe Coded and Lived to Tell"
+  - "I vibe coded and lived to tell"
 newsletter_url: ""
 ---
 

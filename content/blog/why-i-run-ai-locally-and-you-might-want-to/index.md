@@ -6,7 +6,7 @@ tags:
   - ollama
   - 
 series: 
-  - "I Vibe Coded and Lived to Tell"
+  - "I vibe coded and lived to tell"
 title: Why I Run AI Locally (and You Might Want to)
 description: A practical framework for when local wins. Privacy, cost, independence, and learning, grounded in real tool-building.
 author:

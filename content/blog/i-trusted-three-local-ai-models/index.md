@@ -6,7 +6,7 @@ tags:
   - python
   - 
 series:
-  - "I Vibe Coded and Lived to Tell"
+  - "I vibe coded and lived to tell"
 Related:
   - "I Vibe Coded a Local AI-Powered Promo Generator"
 title: I trusted three local AI models, and Python had to clean up their mess
