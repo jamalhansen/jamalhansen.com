@@ -39,6 +39,7 @@ Let's take a look at what each of these tools does well.
 If you have worked with an application that stores data in a database, you are probably familiar with the term CRUD. It stands for Create, Retrieve, Update, and Delete. Most database-backed applications live and die by these four operations (and REST APIs for that matter).
 
 Using an ORM, creating a user record might look like this:
+<!-- test:skip -->
 ```python
 user = User(name="Alice", email="alice@example.com")
 session.add(user)
@@ -46,6 +47,7 @@ session.commit()
 ```
 
 Whereas using raw SQL, it would look like this.
+<!-- test:skip -->
 ```python
 con.execute("INSERT INTO users (name, email) VALUES (?, ?)", ["Alice", "alice@example.com"])
 ```
@@ -66,6 +68,7 @@ Managing your DDL SQL separately is tedious. Even if the migration scripts live 
 ORM means Object Relational Mapper. Relational in this phrase is short for relational database, meaning that the ORM maps your data between the database table and an object in your code.
 
 It only makes sense that this is a benefit of ORMs.
+<!-- test:skip -->
 ```python
 user = session.query(User).get(42)
 user.send_welcome_email()
@@ -73,6 +76,7 @@ user.send_welcome_email()
 Super clean, and a nice level of abstraction, so it makes your code readable without having to dive into the nuanced details of copying data over and setting values on fields.
 
 SQL doesn't really do this at all. You can pull back the record, but you are on your own to create an object from the data, it will be in a dict or a tuple.
+<!-- test:skip -->
 ```python
 row = con.execute("SELECT * FROM users WHERE id = 42").fetchone()
 ```
@@ -138,6 +142,7 @@ If you are still not sure, there is a reliable fallback: if you can describe wha
 
 Most real projects use both, and that is the right call. Use the ORM for your application layer: models, CRUD endpoints, and migrations.
 
+<!-- test:skip -->
 ```python
 class User(Base):
     __tablename__ = 'users'
@@ -193,6 +198,7 @@ e) Raw SQL. Aggregation with a subquery or window function for the most recent d
 
 The following code uses raw SQL to insert a product and its initial inventory. Explain why this would be better handled with an ORM and describe what you would gain.
 
+<!-- test:skip -->
 ```python
 con.execute("INSERT INTO products (name, price, category) VALUES (?, ?, ?)", [name, price, category])
 product_id = con.execute("SELECT last_insert_rowid()").fetchone()[0]
@@ -204,6 +210,7 @@ con.execute("INSERT INTO inventory (product_id, quantity) VALUES (?, ?)", [produ
 
 This is classic CRUD with a relationship between two tables. With an ORM, it might look something like this:
 
+<!-- test:skip -->
 ```python
 product = Product(name=name, price=price, category=category)
 product.inventory = Inventory(quantity=initial_stock)

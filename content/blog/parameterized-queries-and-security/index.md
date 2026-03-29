@@ -29,6 +29,7 @@ Today, we are going to discuss what they are and how easy it is to prevent them.
 
 So let's say your application has a customer search screen. That screen allows users to search for customers by city. The user enters the city they are interested in, and you take the city they entered and make some SQL to search for customers in that city.
 
+<!-- test:skip -->
 ```python
 # NEVER DO THIS!!
 user_input = input("Enter city: ")
@@ -51,6 +52,7 @@ The semicolon ends the first command, and a second one runs: one that drops your
 
 When we take user input and append it to a SQL statement, we are effectively taking their input and executing it. In Python that would look something like this.
 
+<!-- test:skip -->
 ```python
 code = f"print({user_input})"
 exec(code)  # Arbitrary code execution!
@@ -65,6 +67,7 @@ Thankfully, SQL (and database clients) have made a simple way to avoid SQL Injec
 With parameterized queries, you keep the user input separate from the SQL and the client will safely pass the values to the database so that they will be used as intended to filter the results.
 
 Here is an example of a parameterized query.
+<!-- test:skip -->
 ```python
 city = input("Enter city: ")
 con.execute("SELECT * FROM customers WHERE city = ?", [city])
@@ -73,6 +76,7 @@ con.execute("SELECT * FROM customers WHERE city = ?", [city])
 Notice that the `execute()` Python command takes two parameters. The first is the SQL, except that the SQL has a `?` where the user's value should be. The second is a list containing the user-supplied value. This will safely execute the desired SQL.
 
 Alternatively, you could name the parameters if you prefer. This is easier to read if you start having many parameters in your SQL.
+<!-- test:skip -->
 ```python
 con.execute("SELECT * FROM customers WHERE city = $city", {"city": city})
 ```
@@ -100,6 +104,7 @@ Notice that there are multiple `?`s in the SQL and that there are also multiple 
 
 There is also an `executemany()` available in the DuckDB client if you need to insert multiple customer records at once.
 
+<!-- test:skip -->
 ```python
 customers = [
     ("Alice", "alice@example.com", "Denver"),
@@ -135,6 +140,7 @@ The `WHERE 1=1` is a handy trick. It gives you a base condition that is always t
 
 Parameters are for *values*, not structure. You cannot parameterize table names or column names.
 
+<!-- test:skip -->
 ```python
 # This WON'T work
 con.execute("SELECT * FROM ?", [table_name])
@@ -145,6 +151,7 @@ con.execute("SELECT ? FROM customers", [column_name])
 
 If you need dynamic table or column names, validate against a whitelist instead.
 
+<!-- test:skip -->
 ```python
 ALLOWED_TABLES = {"customers", "orders", "products"}
 if table_name in ALLOWED_TABLES:
@@ -159,6 +166,7 @@ This is safe because you are controlling which values are allowed, not the user.
 
 The following code has a SQL injection vulnerability. Rewrite it using parameterized queries.
 
+<!-- test:skip -->
 ```python
 import duckdb
 
@@ -179,6 +187,7 @@ for row in results:
 <details>
 <summary>Solution</summary>
 
+<!-- test:skip -->
 ```python
 import duckdb
 
@@ -208,6 +217,7 @@ The key insight: the `%` wildcards are part of the *value*, not the SQL structur
 Write a function called `search_orders()` that accepts three optional keyword arguments: `customer_name`, `status`, and `min_total`. The function should build a parameterized query that only filters on the arguments that are provided (not `None`). Use named parameters (`$param` syntax).
 
 Example usage:
+<!-- test:skip -->
 ```python
 # All orders over $100
 search_orders(min_total=100)
@@ -267,6 +277,7 @@ incoming_products = [
 <details>
 <summary>Solution</summary>
 
+<!-- test:skip -->
 ```python
 valid_records = []
 rejected_count = 0

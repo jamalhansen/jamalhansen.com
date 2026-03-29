@@ -163,6 +163,7 @@ Make this a habit. SELECT first, UPDATE second. Every time.
 
 Another useful tool for ensuring that your updates (or deletes) are accurate is the transaction. If you've used Python context managers or try/except blocks, the concept will feel familiar. They give you a way to try something and back out if it goes wrong. The difference is that instead of catching errors automatically, you inspect the results yourself and decide whether to keep the changes or throw them away.
 
+<!-- test:skip -->
 ```python
 # Python: the concept (not the mechanics)
 try:
@@ -193,6 +194,7 @@ COMMIT;
 
 If something went wrong, undo everything:
 
+<!-- test:expected-failure -->
 ```sql
 ROLLBACK;
 ```

@@ -30,6 +30,7 @@ Let's take a look at how we might do this in Python. Suppose that we had a list 
 
 To do this in Python, you might make a helper function to get the average order cost so that you can filter records against that value. 
 
+<!-- test:skip -->
 ```python
 # Python: Helper function
 def get_average_order_cost():

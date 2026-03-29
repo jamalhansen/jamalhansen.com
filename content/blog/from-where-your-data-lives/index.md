@@ -38,16 +38,18 @@ Let's go back to Python and work our way through the `for` loop, list comprehens
 
 When writing a `for` loop, we tell Python where the data is, then what we want to do with it.
 
+<!-- test:skip -->
 ```python
 for customer in customers:    # ← This is like FROM
     print(customer['name'])   # ← This is like SELECT
 ```
 
 The list comprehension switches this up, putting what to do with the data first and then where it comes from second. This is more like SQL syntax. It is important to remember that just because the syntax order is reversed, the order that the logic executes remains the same. First find the source, then return what is wanted.
+<!-- test:skip -->
 ```python
 # List comprehension - same order as SQL thinks
 [c['name'] for c in customers]
-# ↑ SELECT (second) ↑ FROM (first)   
+# ↑ SELECT (second) ↑ FROM (first)
 ```
 
 SQL syntax is the same; the `FROM` identifies the source and then the desired data is returned.
@@ -61,6 +63,7 @@ FROM customers      -- ← This happens first
 
 Using our practice database from [our previous post](https://jamalhansen.com/blog/dont-forget-to-save-persisting-your-duckdb-database), here are some examples of `FROM`. 
 
+<!-- test:skip -->
 ```sql
 -- All columns from customers
 SELECT * FROM customers
@@ -80,11 +83,12 @@ Later, we'll see queries that pull from other tables and even multiple tables at
 
 DuckDB is a little different from a typical database engine and can read directly from files. Here is an example: 
 
+<!-- test:skip -->
 ```sql
 -- FROM a CSV file
 SELECT * FROM 'data/sales.csv'
 
--- FROM a Parquet file  
+-- FROM a Parquet file
 SELECT * FROM 'data/logs.parquet'
 ```
 

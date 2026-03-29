@@ -176,6 +176,7 @@ Each platform's format variables (`{instructions}`, `{char_limit_line}`, etc.) a
 
 When structured output comes back messy, catch it instead of crashing. Small models often wrap their JSON in Markdown backticks or add conversational text around it, causing standard JSON parsers to fail. The `_parse_json_response` method in the shared `local-first-common` library handles this with a two-stage fallback:
 
+<!-- test:skip -->
 ```python
 def _parse_json_response(self, content: str, response_model: Any) -> Dict[str, Any]:
     try:

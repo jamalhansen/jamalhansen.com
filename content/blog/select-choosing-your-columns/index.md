@@ -30,6 +30,7 @@ Previously, we looked closely at [the `FROM` clause](https://jamalhansen.com/blo
 
 Let's return to the list comprehension to illustrate how `SELECT` can transform your output. 
 
+<!-- test:skip -->
 ```python
 # Python: Pick specific keys from dicts
 [{'name': c['name'], 'email': c['email']} for c in customers]
@@ -70,6 +71,7 @@ Output columns are now called `customer_name` and `contact`.
 
 If you are interested in the Python equivalent, it looks like this:
 
+<!-- test:skip -->
 ```python
 [{'customer_name': c['name'], 'contact': c['email']} for c in customers]
 ```
@@ -78,6 +80,7 @@ If you are interested in the Python equivalent, it looks like this:
 
 You can also write simple expressions to transform data. Two common ways to transform data are to concatenate strings and perform calculations on numbers. Here are some examples using our customers table:
 
+<!-- test:skip -->
 ```sql
 -- Concatenate strings and alias the result
 SELECT name, city || ', USA' AS location
@@ -98,6 +101,7 @@ One thing to watch out for: if any value in your expression is NULL, the whole r
 
 Another keyword that you will find in the `SELECT` clause is `DISTINCT`. This removes duplicate values from the results. 
 
+<!-- test:skip -->
 ```sql
 -- All cities (with duplicates)
 SELECT city FROM customers

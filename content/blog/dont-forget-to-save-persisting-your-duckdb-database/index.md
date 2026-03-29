@@ -26,6 +26,7 @@ I still remember losing schoolwork and video game progress because I forgot to s
 
 [In our last post](/blog/your-first-sql-table-its-just-a-dataframe-with-rules), we created a customer database and generated 500 rows of fake data. Our in-memory database has the same problem: when Python exits, all that data vanishes:
 
+<!-- test:skip -->
 ```python
 import duckdb
 
@@ -59,6 +60,7 @@ That's it. One small change.
 
 Now, let's upgrade our customer generation script to use persistent storage. This version uses a handy `CREATE TABLE IF NOT EXISTS`, which will only create the table when it isn't there. This avoids errors that happen when you run the script multiple times. 
 
+<!-- test:skip -->
 ```python
 from faker import Faker
 import duckdb
@@ -114,6 +116,7 @@ print(con.execute("SELECT * FROM customers").fetchdf().head())
 
 In a fresh Python session:
 
+<!-- test:skip -->
 ```python
 import duckdb
 

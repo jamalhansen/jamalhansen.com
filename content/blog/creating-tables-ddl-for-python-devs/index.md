@@ -71,6 +71,7 @@ CREATE TABLE products (
 ```
 
 In Python, this would equate to something like this:
+<!-- test:skip -->
 ```python
 @dataclass
 class Product:
@@ -83,6 +84,7 @@ class Product:
 
 ## Primary Keys
 Previously, [we talked about how joins are the superpower of relational databases](https://jamalhansen.com/blog/joins-explained-for-python-developers). Properly defining primary keys on your tables is the secret to unlocking that power. 
+<!-- test:skip -->
 ```sql
 CREATE TABLE products (
     id INTEGER PRIMARY KEY,  -- Unique identifier
@@ -127,6 +129,7 @@ The `product_id` column points to a product in the products table.
 
 So if you think about the following table, each record will contain an order. That order is associated with one customer and one product, and it also has a quantity. 
 
+<!-- test:skip -->
 ```sql
 CREATE TABLE orders (
     id INTEGER PRIMARY KEY,
@@ -143,6 +146,7 @@ You might be asking, well, if the foreign key is just an integer that contains t
 The answer is, you could, but declaring the column as a foreign key tells the database that you want to use it as one. The database will help you ensure that the value in the column remains valid. This is also known as enforcing referential integrity. 
 
 Let's take a quick look at how this might work in Python.
+<!-- test:skip -->
 ```python
 # customer_id must be a valid key in the customers dict
 order = {'customer_id': 42, ...}
@@ -167,6 +171,7 @@ CREATE TABLE users (
 Sometimes, you might want to ensure that a column is never null, but you don't always have a value for it. Think of an order. If you just create an order, you probably want to set it to a new status, but you don't always want to have to set it to new. You also want to keep people from setting it to pending, created, or `NULL`. 
 
 This is where default values come in. If an insert statement would make the column `NULL`, the database will set it to the default value instead.
+<!-- test:skip -->
 ```sql
 CREATE TABLE orders (
     id INTEGER PRIMARY KEY,
@@ -177,6 +182,7 @@ CREATE TABLE orders (
 
 ### UNIQUE
 If you want to ensure that a value appears in a column only once, you can use a `UNIQUE` constraint. 
+<!-- test:skip -->
 ```sql
 CREATE TABLE users (
     id INTEGER PRIMARY KEY,
@@ -190,6 +196,7 @@ Now let's look at an example set of `CREATE TABLE` statements to create a schema
 
 Note the `IF NOT EXISTS` clause. This is a handy safeguard that prevents an error if the table has already been created. Without it, running the same `CREATE TABLE` twice would fail.
 
+<!-- test:skip -->
 ```sql
 -- Customers
 CREATE TABLE IF NOT EXISTS customers (

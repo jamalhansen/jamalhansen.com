@@ -51,6 +51,7 @@ GROUP BY can't do this, but window functions can.
 
 Looking at a Python-based alternative, Pandas handles this reasonably well, though you have to bring back all the data unsummarized for it to do it. 
 
+<!-- test:skip -->
 ```python
 df['running_total'] = df.groupby('customer_id')['amount'].cumsum()
 df['rank'] = df.groupby('customer_id')['amount'].rank(ascending=False)
@@ -73,6 +74,7 @@ Here we will return all orders with the associated cumulative order amount, by d
 
 Let's take a closer look at the window function syntax. There are two parameters. First is the `PARTITION BY` column, which is similar to `GROUP BY` since it says which column to focus the activity on, except that it doesn't collapse down the data. The second parameter is `ORDER BY` column, which is the order of the data in the partition. Very important for ranks, and running totals. 
 
+<!-- test:skip -->
 ```sql
 function() OVER (
     PARTITION BY column    -- Like GROUP BY, but doesn't collapse

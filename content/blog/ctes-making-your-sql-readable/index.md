@@ -83,6 +83,7 @@ Now you can read the query from top to bottom, and the final query is greatly si
 
 As a Python programmer, this kind of refactoring should feel familiar. You wouldn't write all of your logic in a single nested expression.
 
+<!-- test:skip -->
 ```python
 # Hard to follow: everything jammed into one expression
 result = sorted(
@@ -98,6 +99,7 @@ result = sorted(
 
 Nobody writes Python like that. You break it into named steps.
 
+<!-- test:skip -->
 ```python
 # Clear: named intermediate steps
 avg_amount = sum(o['amount'] for o in orders) / len(orders)
@@ -119,6 +121,7 @@ CTEs are the SQL version of extracting named intermediate variables for clarity.
 
 The SQL syntax for CTEs is:
 
+<!-- test:skip -->
 ```sql
 WITH cte_name AS (
     -- query here

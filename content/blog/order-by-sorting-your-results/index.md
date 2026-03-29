@@ -39,6 +39,7 @@ If order matters, you must specify it.
 
 As Python developers, we are familiar with sorting data using the `sorted()` function. In this example, we will sort a list of customer records using the signup_date field.
 
+<!-- test:skip -->
 ```python
 # Python: sorted() with key function
 sorted(customers, key=lambda c: c['signup_date'])
@@ -46,6 +47,7 @@ sorted(customers, key=lambda c: c['signup_date'])
 
 If we want to reverse the order, we can specify that we want to do that. 
 
+<!-- test:skip -->
 ```python
 # Reverse order
 sorted(customers, key=lambda c: c['signup_date'], reverse=True)
@@ -81,6 +83,7 @@ ORDER BY city, name
 
 In Python, you can achieve multi-column sorting using a tuple in your key function:
 
+<!-- test:skip -->
 ```python
 # Python: multiple keys using tuple
 sorted(customers, key=lambda c: (c['city'], c['name']))
@@ -96,6 +99,7 @@ ORDER BY signup_date DESC, name ASC
 
 This is one place where SQL shines. In Python, mixing sort directions requires workarounds like negating numeric values or doing multiple successive sorts:
 
+<!-- test:skip -->
 ```python
 # Python: mixed directions is awkward
 # For strings, you need multiple passes or custom key tricks

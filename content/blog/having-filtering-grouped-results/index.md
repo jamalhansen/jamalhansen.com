@@ -36,6 +36,7 @@ GROUP BY city
 
 Your first instinct might be to add this to WHERE:
 
+<!-- test:expected-failure -->
 ```sql
 -- This fails
 SELECT city, COUNT(*) as customer_count
@@ -55,6 +56,7 @@ HAVING COUNT(*) > 10
 
 If we were to do this in Python, it would be something like this.
 
+<!-- test:skip -->
 ```python
 # Python: Filter after grouping
 from collections import Counter

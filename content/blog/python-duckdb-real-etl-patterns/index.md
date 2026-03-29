@@ -55,6 +55,7 @@ Additionally, you will need `pandas` installed, which you should already have if
 ## Step 1 (Extract): Fetch Data
 First, we will hit API endpoints at JSONPlaceholder to extract users and posts datasets. We will convert these to JSON and then to pandas DataFrames.
 
+<!-- test:skip -->
 ```python
 import httpx
 import duckdb
@@ -79,6 +80,7 @@ This might look circular at first glance: `CREATE OR REPLACE TABLE posts AS SELE
 
 To finish this step, let's validate that the tables now have the correct number of records in them.
 
+<!-- test:skip -->
 ```python
 con = duckdb.connect('etl_demo.duckdb')
 
@@ -93,6 +95,7 @@ print(con.execute("SELECT COUNT(*) FROM users").fetchone())
 ## Step 3 (Transform): SQL Queries
 Now, let's transform the data using the SQL that we have learned. We will build two reports: how many posts each user has made, and the average post title length by user. 
 
+<!-- test:skip -->
 ```python
 # Posts per user
 posts_per_user = con.execute("""
@@ -123,6 +126,7 @@ Finally, let's write out the transformed results to files. We have a few options
 
 **CSV** is the simplest option and great for sharing with non-technical stakeholders or opening in a spreadsheet.
 
+<!-- test:skip -->
 ```python
 from pathlib import Path
 
@@ -134,18 +138,21 @@ avg_title_length.to_csv('reports/avg_title_length.csv', index=False)
 
 **JSON** works well when downstream consumers are other applications or web services that expect structured data.
 
+<!-- test:skip -->
 ```python
 posts_per_user.to_json('reports/posts_per_user.json', orient='records')
 ```
 
 **Parquet** is a column-based binary format that's ideal for larger datasets and feeding results into another data pipeline. This is where the `fastparquet` package we installed earlier comes in.
 
+<!-- test:skip -->
 ```python
 posts_per_user.to_parquet('reports/posts_per_user.parquet')
 ```
 
 **DuckDB table** - saving back to the database is the right call when this transform feeds into future queries or when you want to keep the results alongside the source data.
 
+<!-- test:skip -->
 ```python
 con.execute("CREATE SCHEMA IF NOT EXISTS reports")
 con.execute("""
@@ -160,6 +167,7 @@ con.execute("""
 ## Full Pipeline Script
 Here is a script with the full ELT pipeline.
 
+<!-- test:skip -->
 ```python
 import httpx
 import duckdb

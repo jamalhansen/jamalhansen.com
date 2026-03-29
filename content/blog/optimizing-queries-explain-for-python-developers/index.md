@@ -36,6 +36,7 @@ We will look at how to address both of these scenarios today as we dig into quer
 
 In Python, when code is slow, you reach for a profiler. `cProfile` shows you which functions took the most time. You can also wrap code in timing calls to measure specific sections.
 
+<!-- test:skip -->
 ```python
 # Python: profile to find bottlenecks
 import cProfile

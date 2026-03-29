@@ -34,6 +34,7 @@ print(None == None)  # True
 
 In Python, `None` is a thing you can compare. Let's see how `NULL` compares.
 
+<!-- test:skip -->
 ```sql
 SELECT * FROM customers WHERE middle_name = NULL;  -- Returns NOTHING
 SELECT * FROM customers WHERE middle_name IS NULL;  -- Correct!
@@ -57,6 +58,7 @@ ALTER TABLE customers ADD COLUMN status VARCHAR;
 
 Now let's populate them with realistic data. Some values will be NULL on purpose, because that's how real data works.
 
+<!-- test:skip -->
 ```python
 from faker import Faker
 import random
@@ -174,6 +176,7 @@ This one is nasty. Remember [subqueries](https://jamalhansen.com/blog/subqueries
 
 To show this, let's add a small `vendors` table to our sample database. Some vendors have a headquarters city, but not all of them.
 
+<!-- test:skip -->
 ```sql
 CREATE TABLE vendors (
     id INTEGER PRIMARY KEY,

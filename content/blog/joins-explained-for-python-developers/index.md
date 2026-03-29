@@ -32,6 +32,7 @@ Most databases have more than one table because they model more than one concept
 
 We could add information about the orders to the customer table, but this has some drawbacks that we will talk about in a minute, so to begin, let's create a separate orders table. 
 
+<!-- test:skip -->
 ```python
 # Generate orders (add to practice.duckdb)
 from faker import Faker
@@ -104,6 +105,7 @@ LIMIT 5
 ```
 
 If we were to join data in Python it would look something like this. 
+<!-- test:skip -->
 ```python
 # You have two lists, need to combine by matching ID
 customers = [{'id': 1, 'name': 'Alice'}, ...]

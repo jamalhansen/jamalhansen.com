@@ -23,6 +23,7 @@ uv add --script example.py 'requests<3' 'rich'
 
 This adds inline metadata to your script:
 
+<!-- test:skip -->
 ```python
 # /// script
 # dependencies = [
