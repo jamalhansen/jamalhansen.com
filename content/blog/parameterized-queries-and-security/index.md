@@ -20,6 +20,7 @@ ShowToc: false
 series: "SQL for Python Developers"
 unsplash_user: jphotography2012
 ---
+<!-- test:needs: customers -->
 
 As a Python developer, you are aware of software vulnerabilities. You have probably heard of SQL injection attacks, and you may have even done some work to protect against them.
 

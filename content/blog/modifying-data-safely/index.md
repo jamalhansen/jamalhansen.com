@@ -21,6 +21,7 @@ ShowToc: false
 series: "SQL for Python Developers"
 unsplash_user: edwinhooper
 ---
+<!-- test:needs: customers, orders, vip_customers -->
 
 This week, we are going to look at modifying data in a database, and I'll be honest, it can be scary. There is no safety net, no undo button. 
 

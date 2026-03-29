@@ -7,3 +7,7 @@ _vendor
 # Apple stuff
 .DS_Store
 .claude/
+
+# Database files created by blog post code examples
+*.duckdb
+*.db

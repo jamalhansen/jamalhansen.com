@@ -1,0 +1,6 @@
+[blog]
+content_path = "content/blog"
+post_file = "index.md"
+
+[sql]
+backend = "duckdb"

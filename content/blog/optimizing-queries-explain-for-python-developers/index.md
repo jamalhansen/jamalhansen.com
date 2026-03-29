@@ -21,6 +21,7 @@ ShowToc: false
 series: "SQL for Python Developers"
 unsplash_user: flo_stk
 ---
+<!-- test:needs: customers, orders -->
 
 As databases grow, queries take longer to run. It's to be expected.
 

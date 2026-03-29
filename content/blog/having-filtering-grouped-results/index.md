@@ -20,6 +20,7 @@ draft: false
 ShowToc: false
 series: "SQL for Python Developers"
 ---
+<!-- test:needs: customers, orders -->
 
 When I first encountered HAVING, I thought, "Why do we need this? It's just like WHERE."
 

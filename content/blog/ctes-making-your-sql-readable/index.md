@@ -20,6 +20,7 @@ draft: false
 ShowToc: false
 series: "SQL for Python Developers"
 ---
+<!-- test:needs: customers, orders, stats -->
 We learned last week about [subqueries](https://jamalhansen.com/blog/subqueries-when-sql-needs-helper-functions), which are like helper functions for your SQL code. They can bring back temporary values used in larger calculations or find additional data points from an id. 
 
 While subqueries are very powerful, they do add complexity to your code. This complexity adds to the cognitive load when trying to read and understand your code. 

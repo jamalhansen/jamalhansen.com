@@ -20,6 +20,7 @@ ShowToc: false
 series: "SQL for Python Developers"
 unsplash_user: madebyjens
 ---
+<!-- test:needs: customers, orders, salespeople, deals -->
 
 At the [beginning of this series](https://jamalhansen.com/blog/i-know-python-why-learn-sql), I promised that even if you know how to use an Object Relational Mapper (ORM) to interact with a database, knowing SQL would make you a better developer. Now that we have covered everything from SELECT to parameterized queries, it is time to answer the question that every Python developer eventually asks: when should I use an ORM, and when should I just write SQL?
 

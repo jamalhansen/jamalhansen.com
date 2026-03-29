@@ -21,6 +21,7 @@ ShowToc: false
 series: "SQL for Python Developers"
 unsplash_user: lvnatikk
 ---
+<!-- test:needs: customers, orders, salespeople, deals, newsletter_subscribers, events -->
 
 You've spent 23 weeks building a SQL foundation. You can query, join, aggregate, test, and build pipelines. That covers most of what you'll do day to day.
 

@@ -20,6 +20,7 @@ draft: false
 ShowToc: false
 series: "SQL for Python Developers"
 ---
+<!-- test:needs: customers, orders, vendors, stats -->
 This post is about nothing, or rather, it's about the unknown. By now, you've bumped into `NULL` several times. Let's finally make sense of it.
 
 The SQL `NULL` is sort of like `None` in Python. After all, they both represent the lack of a value, right?

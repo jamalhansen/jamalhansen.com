@@ -20,6 +20,7 @@ draft: false
 ShowToc: false
 series: "SQL for Python Developers"
 ---
+<!-- test:needs: customers, orders -->
 Last week, we learned to use [`WHERE`](https://jamalhansen.com/blog/where-filtering-your-data) to efficiently return only the rows that we want from a database. But what if you want to summarize the data more efficiently?
 
 It turns out that you can have the database do the summarization for you with the `GROUP BY` keyword.

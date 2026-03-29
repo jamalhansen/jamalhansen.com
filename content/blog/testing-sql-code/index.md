@@ -21,7 +21,7 @@ ShowToc: false
 series: "SQL for Python Developers"
 unsplash_user: jakubzerdzicki
 ---
-
+<!-- test:needs: customers, orders -->
 You test your Python code. You probably don't test your SQL. Here's why you should, and how to start.
 
 I once had a query that ran fine for months. Then someone added a column to the source table and a `SELECT *` downstream started returning unexpected data. The query didn't error. It just silently gave wrong results. A test would have caught it immediately.

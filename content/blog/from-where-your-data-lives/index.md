@@ -21,6 +21,7 @@ ShowToc: false
 series: "SQL for Python Developers"
 layout: post
 ---
+<!-- test:needs: customers -->
 
 We have come a long way over the last five posts, but we are just getting started. So far, we have explored concepts that will help us along our journey, but haven't talked a whole lot about SQL itself. 
 

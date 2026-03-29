@@ -20,6 +20,7 @@ draft: false
 ShowToc: false
 series: "SQL for Python Developers"
 ---
+<!-- test:needs: customers, orders -->
 So far in this series we have covered all the core SQL clauses: SELECT, FROM, WHERE, GROUP BY, HAVING, and ORDER BY. We can do quite a bit with those tools, but we have been working with a single table. SQL is the language of *relational* databases, and it is time to talk about the relational part.
 
 `JOIN`s connect related tables. It's like looking up values in a Python dictionary or merging pandas DataFrames, except that the database handles the matching. Today we are going to see how this works, but first we need a little setup.

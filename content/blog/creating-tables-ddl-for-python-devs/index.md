@@ -21,6 +21,7 @@ ShowToc: false
 series: "SQL for Python Developers"
 unsplash_user: ryno_marais
 ---
+<!-- test:needs: customers -->
 
 So far, we have spent our time learning how to query data. For most of us, this might be as much SQL as we will ever use. 
 
