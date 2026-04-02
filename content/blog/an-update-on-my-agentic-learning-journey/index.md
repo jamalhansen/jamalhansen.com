@@ -1,4 +1,5 @@
 ---
+slug: an-update-on-my-agentic-learning-journey
 title: An update on my agentic learning journey
 description: An update after a few weeks about learning agentic AI, it's been a fun journey and I've found some great resources
 date: 2025-06-24

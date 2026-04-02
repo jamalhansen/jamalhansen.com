@@ -1,4 +1,5 @@
 ---
+slug: i-have-started-to-learn-agentic-ai
 title: I've started my agentic AI learning journey
 description: This week, I've started a udemy course on agentic AI and I'm really enjoying it.
 date: 2025-05-31

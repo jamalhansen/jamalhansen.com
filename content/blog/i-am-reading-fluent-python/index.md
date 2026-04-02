@@ -1,4 +1,5 @@
 ---
+slug: i-am-reading-fluent-python
 title: "I Am Reading Fluent Python"
 description: "I'm reading the book Fluent Python because I want to level up my Python skills and really understand the language"
 date: 2025-04-21

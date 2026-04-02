@@ -1,4 +1,5 @@
 ---
+slug: add-dependencies-to-python-scripts-with-uv
 title: Add External Dependencies to Python Scripts with uv
 description: No virtual environment needed. Declare dependencies directly in your script.
 date: 2025-04-19

@@ -37,3 +37,6 @@ outputs:
     - HTML
     - RSS
     - JSON
+
+permalinks:
+  blog: "/blog/:slug/"

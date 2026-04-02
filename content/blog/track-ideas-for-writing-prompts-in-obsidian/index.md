@@ -1,4 +1,5 @@
 ---
+slug: track-ideas-for-writing-prompts-in-obsidian
 title: Tracking ideas for writing prompts in Obsidian
 description: I've set a goal to write a post three times a week and set up a system to capture ideas to write about.
 date: 2025-02-21

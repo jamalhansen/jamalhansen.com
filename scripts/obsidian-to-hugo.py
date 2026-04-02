@@ -148,9 +148,19 @@ def main():
         print("✅ Found existing frontmatter")
         fm = clean_obsidian_links_from_frontmatter(fm)
         fm = normalize_frontmatter_fields(fm)
+
+        # Prioritize slug from Obsidian frontmatter
+        obsidian_slug_match = re.search(r'^slug:\s*["\']?(.+?)["\']?\s*$', fm, re.MULTILINE)
+        if obsidian_slug_match:
+            slug = slugify(obsidian_slug_match.group(1))
+            print(f"🔗 Using slug from Obsidian: {slug}")
+
         # Extract title from FM if possible
         title_match = re.search(r'^title:\s*["\']?(.+?)["\']?\s*$', fm, re.MULTILINE)
         title = title_match.group(1).strip('"\'') if title_match else input_path.stem.replace('-', ' ').title()
+        # Inject slug if missing
+        if not re.search(r'^slug:', fm, re.MULTILINE):
+            fm = f"slug: {slug}\n" + fm
         # Inject author if missing
         if not re.search(r'^author:', fm, re.MULTILINE):
             fm = re.sub(r'^(date:[^\n]*)', r'\1\nauthor:\n  - Jamal Hansen', fm, count=1, flags=re.MULTILINE)
@@ -159,14 +169,28 @@ def main():
         # Extract title from first H1 or filename
         h1_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
         title = h1_match.group(1).strip() if h1_match else input_path.stem.replace('-', ' ').title()
-        fm = f'title: "{title}"\ndate: {datetime.now().strftime("%Y-%m-%d")}\nauthor:\n  - Jamal Hansen\ndraft: true\ndescription: ""\ntags: []\ncategories: []\nseries: []\ncover:\n  image: ""\n  alt: ""\n  caption: ""\n  relative: true\nShowToc: true\nTocOpen: false'
+        fm = f'title: "{title}"\nslug: {slug}\ndate: {datetime.now().strftime("%Y-%m-%d")}\nauthor:\n  - Jamal Hansen\ndraft: true\ndescription: ""\ntags: []\ncategories: []\nseries: []\ncover:\n  image: ""\n  alt: ""\n  caption: ""\n  relative: true\nShowToc: true\nTocOpen: false'
 
     converted_body = convert_body_syntax(body if has_fm else content)
     final_content = f"---\n{fm}\n---\n\n{converted_body}"
 
+    # Determine series sub-folder
+    series_folder = ""
+    series_match = re.search(r'^series:\s*-\s*["\']?(.+?)["\']?\s*$', fm, re.MULTILINE)
+    if series_match:
+        series_name = series_match.group(1).strip()
+        series_folder = slugify(series_name)
+    elif not has_fm:
+        # Check if series was provided via command line or environment (optional future proofing)
+        pass
+
     # Setup Directory
     base_dir = Path(__file__).parent.parent
-    blog_dir = base_dir / "content" / "blog" / slug
+    if series_folder:
+        blog_dir = base_dir / "content" / "blog" / series_folder / slug
+    else:
+        blog_dir = base_dir / "content" / "blog" / slug
+    
     blog_dir.mkdir(parents=True, exist_ok=True)
     
     # Write Post

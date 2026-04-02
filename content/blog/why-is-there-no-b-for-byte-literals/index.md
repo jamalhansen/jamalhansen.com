@@ -1,4 +1,5 @@
 ---
+slug: why-is-there-no-b-for-byte-literals
 title: You don't need a 'B' suffix for byte literals in Java
 description: Unlike long, the Java byte literal doesn't require a suffix. Diving into a rabbit hole to find out why
 date: 2025-02-07

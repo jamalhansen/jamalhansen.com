@@ -1,4 +1,5 @@
 ---
+slug: i-installed-dbeaver-today
 title: I installed dBeaver today
 description: I downloaded the community edition of dBeaver today and enjoyed the installation experience and sample database option.
 date: 2025-02-17

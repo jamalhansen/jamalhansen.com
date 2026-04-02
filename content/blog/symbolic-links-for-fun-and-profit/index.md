@@ -1,4 +1,5 @@
 ---
+slug: symbolic-links-for-fun-and-profit
 title: Symbolic links for fun and profit
 description: You can use symbolic links to ease nagivation of your Mac command line
 date: 2025-02-10
