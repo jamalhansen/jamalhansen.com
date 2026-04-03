@@ -120,7 +120,7 @@ SQL's `DESC` and `ASC` modifiers per column make this much cleaner.
 
 ## Try It Yourself
 
-Using the customers table you created in earlier posts, write a query that displays each customer's name, city, and signup_date, sorted alphabetically by city (A to Z), then by signup_date within each city (oldest first).
+Using the [customers table you created in earlier posts](/blog/generate-practice-data-with-faker/), write a query that displays each customer's name, city, and signup_date, sorted alphabetically by city (A to Z), then by signup_date within each city (oldest first).
 
 ## Next Week
 

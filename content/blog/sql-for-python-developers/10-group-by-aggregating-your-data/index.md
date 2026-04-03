@@ -162,7 +162,7 @@ GROUP BY city, is_premium
 ```
 
 Notice that in both these examples any column in the `SELECT` clause that is not an aggregate function is in the `GROUP BY` clause.
-## Combining with WHERE and ORDER BY
+## Combining with [WHERE](/blog/where-filtering-your-data/) and ORDER BY
 
 So how does the database handle using a `WHERE` or `ORDER BY` with a `GROUP BY`? 
 

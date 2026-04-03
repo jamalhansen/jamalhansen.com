@@ -48,7 +48,7 @@ In SQL, `NULL` means "I don't know," and you can't know if two unknowns are equa
 
 ## Setup: Expanding Our Customers Table
 
-Our customers table has served us well, but to really explore NULL behavior we need columns where missing data is natural. Not every customer provides a phone number. Not everyone has a middle name. Let's add a few columns to our table using `ALTER TABLE` and then populate them with Faker.
+Our customers table has served us well, but to really explore NULL behavior we need columns where missing data is natural. Not every customer provides a phone number. Not everyone has a middle name. Let's add a few columns to our table using `ALTER TABLE` and then [populate them with Faker](/blog/generate-practice-data-with-faker/).
 
 ```sql
 ALTER TABLE customers ADD COLUMN middle_name VARCHAR;

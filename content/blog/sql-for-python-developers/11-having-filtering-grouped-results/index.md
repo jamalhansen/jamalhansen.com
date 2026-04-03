@@ -25,7 +25,7 @@ series: "SQL for Python Developers"
 
 When I first encountered HAVING, I thought, "Why do we need this? It's just like WHERE."
 
-Then I tried filtering on COUNT() and hit a strange error. That's when it clicked: `HAVING` filters *after* grouping, not before. It's what you need when WHERE won't work because the thing you want to filter on doesn't exist until after GROUP BY runs.
+Then I tried filtering on COUNT() and hit a strange error. That's when it clicked: `HAVING` filters *after* grouping, not before. It's what you need when WHERE won't work because the thing you want to filter on doesn't exist until after [GROUP BY](/blog/group-by-aggregating-your-data/) runs.
 
 Let's start with a simple query of customer count by city. But there are a lot of cities and we only care about those with more than ten customers. 
 
@@ -118,4 +118,4 @@ HAVING COUNT(*) > 10  -- Always works
 
 Building on the [`GROUP BY`](https://jamalhansen.com/blog/group-by-aggregating-your-data) foundations from last week, HAVING unlocks a whole class of questions you couldn't answer before. "Which products sold more than 100 units?" "Which customers made 5+ purchases?" Now you can answer them.
 
-You now have a solid foundation in the core SQL clauses: SELECT, FROM, WHERE, ORDER BY, GROUP BY, and HAVING. But so far we've only worked with one table. Next week: JOINs, combining data from multiple tables.
+You now have a solid foundation in the core SQL clauses: SELECT, FROM, WHERE, ORDER BY, GROUP BY, and HAVING. But so far we've only worked with one table. Next week: [JOINs](/blog/joins-explained-for-python-developers/), combining data from multiple tables.

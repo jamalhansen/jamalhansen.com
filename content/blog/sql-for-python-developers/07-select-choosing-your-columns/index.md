@@ -97,7 +97,7 @@ SELECT name, UPPER(city) AS city_uppercase
 FROM customers
 ```
 
-One thing to watch out for: if any value in your expression is NULL, the whole result becomes NULL. We will dig into why this happens later in the series.
+One thing to watch out for: if any value in your expression is [NULL](/blog/null-the-value-that-isnt/), the whole result becomes [NULL](/blog/null-the-value-that-isnt/). We will dig into why this happens later in the series.
 
 ### DISTINCT: Unique Values Only
 
@@ -116,4 +116,4 @@ It is good to understand what this keyword does, but I recommend caution when us
 
 ## What's Next
 
-Now you can choose and transform columns using `SELECT`. But you might have noticed something: the rows come back in no particular order. Run the same query twice, and you might get a different row order. Next week, we will look at `ORDER BY`, which gives you control over how your results are sorted.
+Now you can choose and transform columns using `SELECT`. But you might have noticed something: the [rows come back](/blog/order-by-sorting-your-results/) in no particular order. Run the same query twice, and you might get a different row order. Next week, we will look at `ORDER BY`, which gives you control over how your results are sorted.
