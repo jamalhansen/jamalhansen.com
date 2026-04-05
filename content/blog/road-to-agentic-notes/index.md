@@ -46,7 +46,7 @@ Most people keep notes the way that they keep leftover Whataburger ketchup and t
 
 The difference between that and what Karpathy built is not intelligence. It is structure. Notes that reference each other, grow over time, and feed back into your questions are a different category of thing entirely.
 
-## What Karpathy actually built
+## What Karpathy built
 
 Most AI tools for documents work the same way. NotebookLM, ChatGPT file uploads, most RAG systems: they retrieve from raw documents at query time. The LLM reads your files, answers your question, and forgets. Ask the same question six months later and it starts from scratch. Nothing accumulates.
 
@@ -58,7 +58,7 @@ His description of the division of labor is worth keeping: "The human's job is t
 
 That is the destination. The starting line is simpler than it looks.
 
-## Where you actually start
+## Where you can start
 
 You do not start with a system. You start with a habit.
 
@@ -66,7 +66,7 @@ Before an LLM can maintain your wiki, you need two things: a collection of notes
 
 The files in Karpathy's system are standard markdown text. The notes you create today are the same files an LLM will maintain later. When you start out writing your first note, you are building the foundation.
 
-## Get started today
+## Start today
 
 ### Step 1
 
