@@ -124,5 +124,6 @@ After that, the notes you have been building are the raw material Karpathy's sys
 
 - [Karpathy's knowledge system gist](https://gist.github.com/karpathy/442a6c3be336f01adb80): the full idea, worth reading carefully
 - [Foam for VS Code](https://foambubble.github.io/foam/): the starting tool
+- [Markdown Syntax](https://www.markdownguide.org/basic-syntax/): markdown offers more than just wikilinks, it can format your notes too
 - [Obsidian](https://obsidian.md): when you are ready to graduate from VS Code
 - [Andy Matuschak's working notes](https://notes.andymatuschak.org): the philosophy behind note-as-claim, shown in practice
