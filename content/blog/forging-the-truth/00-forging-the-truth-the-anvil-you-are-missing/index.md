@@ -1,5 +1,7 @@
 ---
-slug: 00-forging-the-truth-the-anvil-you-are-missing
+slug: forging-the-truth-the-anvil-you-are-missing
+title: The Anvil You are Missing
+description: The terminal window is a powerful tool that lets you quickly verify what LLMs tell you that they have done
 series:
   - "Forging the Truth"
 draft: false

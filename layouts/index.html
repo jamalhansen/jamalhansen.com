@@ -24,10 +24,12 @@
       {{- if .Params.series }}
         {{- $is_match := false }}
         {{- if reflect.IsSlice .Params.series }}
-          {{- if in .Params.series $title }}
-            {{- $is_match = true }}
+          {{- range .Params.series }}
+            {{- if eq (print . | lower) (lower $title) }}
+              {{- $is_match = true }}
+            {{- end }}
           {{- end }}
-        {{- else if eq .Params.series $title }}
+        {{- else if eq (print .Params.series | lower) (lower $title) }}
           {{- $is_match = true }}
         {{- end }}
         {{- if $is_match }}
