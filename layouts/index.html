@@ -14,7 +14,7 @@
 {{- partial "home_info.html" . }}
 {{- end }}
 
-{{/* Featured Series Section */}}
+{{/* Learning Paths Section */}}
 {{- $featured_series := slice }}
 {{- range (where site.Pages "Section" "series") }}
   {{- if and (ne .RelPermalink "/series/") (not .Params.draft) }}
@@ -42,27 +42,14 @@
 {{- end }}
 
 {{- if gt (len $featured_series) 0 }}
-<div class="featured-series">
+<div class="latest-posts">
   <h2 class="section-title">Learning Paths</h2>
-  <div class="series-grid">
-    {{- range $featured_series }}
-    <div class="series-card">
-      <div class="series-card-content">
-        <h3>
-          <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-          {{- if in .Page.Title "SQL" }}
-          <span style="font-size: 0.7rem; vertical-align: middle; background: #10b981; color: white; padding: 2px 8px; border-radius: 10px; margin-left: 8px; font-weight: 800; text-transform: uppercase;">Start Here</span>
-          {{- end }}
-        </h3>
-        <p>{{ .Page.Description | default .Page.Summary | truncate 160 }}</p>
-        <div class="series-meta">
-          <span>{{ len .Pages }} deep dives</span>
-          <a href="{{ .Page.RelPermalink }}" class="read-more">View Path →</a>
-        </div>
-      </div>
-    </div>
-    {{- end }}
+  {{- range $featured_series }}
+  <div class="home-post-item">
+    <span class="home-post-date">{{ len .Pages }} posts</span>
+    <a href="{{ .Page.RelPermalink }}" class="home-post-title">{{ .Page.Title }}</a>
   </div>
+  {{- end }}
 </div>
 {{- end }}
 
@@ -73,24 +60,10 @@
   {{- $pages = $pages | first 5 }}
   
   {{- range $pages }}
-  <article class="post-entry">
-    {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
-    {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
-    <header class="entry-header">
-      <h2>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-      </h2>
-    </header>
-    {{- if (ne (.Param "hideSummary") true) }}
-    <div class="entry-content">
-      <p>{{ .Summary | plainify | htmlUnescape | truncate 200 }}{{ if gt (len .Summary) 200 }}...{{ end }}</p>
-    </div>
-    {{- end }}
-    <footer class="entry-footer">
-      {{- partial "post_meta.html" . -}}
-    </footer>
-    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-  </article>
+  <div class="home-post-item">
+    <span class="home-post-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+    <a href="{{ .Permalink }}" class="home-post-title">{{ .Title }}</a>
+  </div>
   {{- end }}
   
   <div class="view-all">
