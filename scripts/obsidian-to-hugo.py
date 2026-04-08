@@ -40,6 +40,10 @@ def clean_obsidian_links_from_frontmatter(frontmatter):
 
 def normalize_frontmatter_fields(frontmatter):
     """Normalize frontmatter field names to PaperMod theme conventions"""
+    # Normalize capitalized field names to lowercase
+    for field in ['Series', 'Status', 'Author', 'Tags', 'Category']:
+        frontmatter = re.sub(rf'^{field}:', field.lower() + ':', frontmatter, flags=re.MULTILINE)
+
     # Change summary: to description: (PaperMod uses description)
     frontmatter = re.sub(r'^summary:', 'description:', frontmatter, flags=re.MULTILINE)
     
@@ -203,7 +207,7 @@ def main():
 
     # Determine series sub-folder
     series_folder = ""
-    series_match = re.search(r'^series:\s*-\s*["\']?(.+?)["\']?\s*$', fm, re.MULTILINE)
+    series_match = re.search(r'^series:\s*\n\s*-\s*["\']?(.+?)["\']?\s*$', fm, re.MULTILINE)
     if series_match:
         series_name = series_match.group(1).strip()
         series_folder = slugify(series_name)
