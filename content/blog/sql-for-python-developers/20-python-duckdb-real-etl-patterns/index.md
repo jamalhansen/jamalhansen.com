@@ -253,7 +253,7 @@ The JSONPlaceholder API also has a `/comments` endpoint. Fetch it, load it into 
 Modify the `export()` function to accept a format parameter (`'csv'`, `'json'`, or `'parquet'`) and write to the appropriate format. Then call it three times to generate all three outputs from a single pipeline run.
 
 **Exercise 3: Add a Transform**
-Write a new transformation query that finds the top 3 most active users (the ones with the most posts) and lists each of their post titles. You will need a CTE or subquery (remember [Post 13]({{< relref "subqueries-when-sql-needs-helper-functions" >}}) and [Post 14]({{< relref "ctes-making-your-sql-readable" >}})?).
+Write a new transformation query that finds the top 3 most active users (the ones with the most posts) and lists each of their post titles. You will need a CTE or subquery (remember Post 13 on subqueries and Post 14 on CTEs?).
 
 **Exercise 4: Error Handling**
 What happens if the API is down? Wrap the extract step in a try/except block that catches `httpx.HTTPStatusError` and prints a friendly message instead of crashing. Bonus: have it fall back to loading from a local CSV file if the API fails.

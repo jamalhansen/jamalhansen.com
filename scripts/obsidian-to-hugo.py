@@ -55,6 +55,22 @@ def normalize_frontmatter_fields(frontmatter):
 
     frontmatter = re.sub(r'^tags:\s*\n(?:  - [^\n]+\n)*', remove_tag_hashes, frontmatter, flags=re.MULTILINE)
 
+    # Convert published_date to date (Hugo field)
+    published_date_match = re.search(r'^published_date:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE)
+    if published_date_match:
+        pub_date = published_date_match.group(1).strip()
+        frontmatter = re.sub(r'^published_date:[^\n]*\n?', f'date: {pub_date}\n', frontmatter, flags=re.MULTILINE)
+
+    # Convert status: draft -> draft: true; strip status field
+    status_match = re.search(r'^status:\s*["\']?(\w+)["\']?\s*$', frontmatter, re.MULTILINE)
+    if status_match and status_match.group(1).lower() == 'draft':
+        if not re.search(r'^draft:', frontmatter, re.MULTILINE):
+            frontmatter = re.sub(r'^status:[^\n]*\n?', 'draft: true\n', frontmatter, flags=re.MULTILINE)
+        else:
+            frontmatter = re.sub(r'^status:[^\n]*\n?', '', frontmatter, flags=re.MULTILINE)
+    else:
+        frontmatter = re.sub(r'^status:[^\n]*\n?', '', frontmatter, flags=re.MULTILINE)
+
     # Process Unsplash credit and Cover images
     unsplash_data = {
         'name': re.search(r'^unsplash_name:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE),
@@ -76,12 +92,20 @@ def normalize_frontmatter_fields(frontmatter):
         if 'user' in credit_info: credit_block += f'\n    username: "{yaml_str(credit_info["user"])}"'
         if 'id' in credit_info: credit_block += f'\n    photo_id: "{yaml_str(credit_info["id"])}"'
 
+    # Capture standalone alt field to use in cover.alt, then remove it
+    standalone_alt = ""
+    alt_match = re.search(r'^alt:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE)
+    if alt_match:
+        standalone_alt = alt_match.group(1).strip()
+        frontmatter = re.sub(r'^alt:[^\n]*\n?', '', frontmatter, flags=re.MULTILINE)
+
     # Convert simple image: to PaperMod cover:
     image_match = re.search(r'^image:\s*["\']?([^"\'\n]+)["\']?\s*$', frontmatter, re.MULTILINE)
     if image_match:
         img = image_match.group(1).strip()
         if img:
-            cover_block = f'cover:\n  image: "{yaml_str(img)}"\n  alt: ""\n  caption: ""\n  relative: true{credit_block}'
+            alt_value = yaml_str(standalone_alt) if standalone_alt else ""
+            cover_block = f'cover:\n  image: "{yaml_str(img)}"\n  alt: "{alt_value}"\n  caption: ""\n  relative: true{credit_block}'
             frontmatter = re.sub(r'^image:[^\n]*\n?', cover_block + '\n', frontmatter, flags=re.MULTILINE)
         else:
             frontmatter = re.sub(r'^image:[^\n]*\n?', '', frontmatter, flags=re.MULTILINE)
@@ -90,9 +114,12 @@ def normalize_frontmatter_fields(frontmatter):
         if 'cover:' in frontmatter:
             frontmatter = re.sub(r'(relative:\s*true)', r'\1' + credit_block, frontmatter)
 
+    # Strip Obsidian's capital-A Author: scalar (keep lowercase author: list)
+    frontmatter = re.sub(r'^Author:\s*\S[^\n]*\n?', '', frontmatter, flags=re.MULTILINE)
+
     # Clean up redundant or theme-clashing fields
-    for field in ['canonical_url', 'layout', 'slug', 'status', 'created',
-                  'published_date', 'Category', 'promo_file', 'series_position']:
+    for field in ['canonical_url', 'layout', 'slug', 'created', 'Created',
+                  'Category', 'promo_file', 'series_position', 'target_date', 'post']:
         frontmatter = re.sub(rf'^{field}:[^\n]*\n?', '', frontmatter, flags=re.MULTILINE)
 
     # Strip empty weight field
