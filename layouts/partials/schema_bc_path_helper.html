@@ -1,0 +1,20 @@
+{{- $context := .context -}}
+{{- $elements := .elements -}}
+
+{{- $url := replace $context.Parent.Permalink ( printf "%s" site.Home.Permalink) "" -}}
+{{- $lang_url := strings.Trim (strings.TrimPrefix ( printf "%s/" $context.Lang) $url) "/" -}}
+{{- $bc_list := (split $lang_url "/") -}}
+{{- $scratch := newScratch -}}
+
+{{- range $index, $element := $bc_list -}}
+    {{- if gt (len $element) 0 -}}
+        {{- $scratch.Add "path" (printf "%s/" $element) -}}
+        {{- $bc_pg := site.GetPage ($scratch.Get "path") -}}
+        {{- if $bc_pg -}}
+            {{- $elements = $elements | append (dict "@type" "ListItem" "position" (add (len $elements) 1) "name" $bc_pg.Name "item" $bc_pg.Permalink) -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $elements = $elements | append (dict "@type" "ListItem" "position" (add (len $elements) 1) "name" ($context.Title | default $context.Name) "item" $context.Permalink) -}}
+{{- return $elements -}}

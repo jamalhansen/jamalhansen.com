@@ -1,0 +1,32 @@
+{{- if (.Param "ShowBreadCrumbs") -}}
+<div class="breadcrumbs">
+    <a href="{{ "" | absLangURL }}">{{ i18n "home" | default "Home" }}</a>
+    {{- $series := .Params.series -}}
+    {{- if and $series (gt (len $series) 0) -}}
+        {{- $series_name := "" -}}
+        {{- if eq (printf "%T" $series) "string" -}}
+            {{- $series_name = $series -}}
+        {{- else -}}
+            {{- $series_name = index $series 0 -}}
+        {{- end -}}
+        {{- if eq (printf "%T" $series_name) "string" -}}
+            {{- $series_page := site.GetPage (printf "series/%s" ($series_name | urlize)) -}}
+            {{- if $series_page -}}
+                {{- print "&nbsp;»&nbsp;" | safeHTML -}}<a href="{{ "/series/" | absLangURL }}">Series</a>
+                {{- print "&nbsp;»&nbsp;" | safeHTML -}}<a href="{{ $series_page.Permalink }}">{{ $series_name }}</a>
+            {{- end -}}
+        {{- end -}}
+    {{- else -}}
+        {{- $url := replace .Parent.Permalink (printf "%s" site.Home.Permalink) "" }}
+        {{- $lang_url := strings.TrimPrefix (printf "%s/" .Lang) $url -}}
+        {{- $scratch := newScratch }}
+        {{- range $index, $element := split $lang_url "/" }}
+            {{- $scratch.Add "path" (printf "%s/" $element )}}
+            {{- $bc_pg := site.GetPage ($scratch.Get "path") -}}
+            {{- if (and ($bc_pg) (gt (len . ) 0))}}
+                {{- print "&nbsp;»&nbsp;" | safeHTML -}}<a href="{{ $bc_pg.Permalink }}">{{ $bc_pg.Name }}</a>
+            {{- end }}
+        {{- end -}}
+    {{- end -}}
+</div>
+{{- end -}}
