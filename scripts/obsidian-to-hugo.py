@@ -122,7 +122,7 @@ def normalize_frontmatter_fields(frontmatter):
     frontmatter = re.sub(r'^Author:\s*\S[^\n]*\n?', '', frontmatter, flags=re.MULTILINE)
 
     # Clean up redundant or theme-clashing fields
-    for field in ['canonical_url', 'layout', 'slug', 'created', 'Created',
+    for field in ['canonical_url', 'layout', 'created', 'Created',
                   'Category', 'promo_file', 'series_position', 'target_date', 'post']:
         frontmatter = re.sub(rf'^{field}:[^\n]*\n?', '', frontmatter, flags=re.MULTILINE)
 
@@ -130,7 +130,7 @@ def normalize_frontmatter_fields(frontmatter):
     frontmatter = re.sub(r'^weight:\s*\n?', '', frontmatter, flags=re.MULTILINE)
 
     # Convert series scalar string to Hugo array format; strip if empty
-    series_scalar = re.search(r'^series:\s*(\S[^\n]*?)\s*$', frontmatter, re.MULTILINE)
+    series_scalar = re.search(r'^series:[ \t]*(\S[^\n]*?)[ \t]*$', frontmatter, re.MULTILINE)
     already_array = re.search(r'^series:\s*\n\s+-', frontmatter, re.MULTILINE)
     if series_scalar and not already_array:
         raw = series_scalar.group(1).strip()
@@ -205,15 +205,28 @@ def main():
     converted_body = convert_body_syntax(body if has_fm else content)
     final_content = f"---\n{fm}\n---\n\n{converted_body}"
 
+    # Tag → subfolder routing (used when series field is empty)
+    TAG_FOLDERS = {
+        'tsql2sday': 'tsql-tuesday',
+    }
+
     # Determine series sub-folder
     series_folder = ""
     series_match = re.search(r'^series:\s*\n\s*-\s*["\']?(.+?)["\']?\s*$', fm, re.MULTILINE)
     if series_match:
         series_name = series_match.group(1).strip()
         series_folder = slugify(series_name)
-    elif not has_fm:
-        # Check if series was provided via command line or environment (optional future proofing)
-        pass
+
+    # Fall back to tag-based folder routing
+    if not series_folder:
+        tags_block = re.search(r'^tags:\s*\n((?:[ \t]*-[^\n]*\n)*)', fm, re.MULTILINE)
+        if tags_block:
+            tags = re.findall(r'^[ \t]*-[ \t]*["\']?(\S+?)["\']?[ \t]*$', tags_block.group(1), re.MULTILINE)
+            for tag in tags:
+                if tag.lower() in TAG_FOLDERS:
+                    series_folder = TAG_FOLDERS[tag.lower()]
+                    print(f"📂 Routing to subfolder via tag '{tag}': {series_folder}")
+                    break
 
     # Setup Directory
     base_dir = Path(__file__).parent.parent
