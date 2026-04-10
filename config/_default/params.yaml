@@ -62,6 +62,12 @@ socialIcons:
 
 beehiivId: "67b6b378-798a-479b-b9fa-dfb258feebaa"
 
+############################
+## Analytics
+############################
+
+plausible_domain: "jamalhansen.com"
+
 fuseOpts:
       isCaseSensitive: false
       shouldSort: true
