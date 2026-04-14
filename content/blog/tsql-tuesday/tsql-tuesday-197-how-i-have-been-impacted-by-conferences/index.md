@@ -21,7 +21,7 @@ cover:
 
 [Ruby](https://www.ruby-lang.org/en/) was the first programming language I really embraced. Basic was first. SQL is what I've used most. But Ruby was the first one I became a fan of, one that shaped the way I think about programming. So when [RubyConf](https://www.rubyevents.org/events/rubyconf-2015/) came to San Antonio in 2015, I finally ran out of excuses.
 
-This month [Steve Hughes](https://dataonwheels.wordpress.com/) asked us to write about conference experiences that have impacted us or changed how we work. I could write about specific talks, but what has stayed with me is something broader.
+This month [Steve Hughes](https://dataonwheels.wordpress.com/) asked us to [write about conference experiences that have impacted us or changed how we work](https://dataonwheels.wordpress.com/2026/04/07/t-sql-tuesday-197-an-impactful-session-or-two-from-a-conference/). I could write about specific talks, but what has stayed with me is something broader.
 
 I had plenty of excuses not to go to that first conference.
 
