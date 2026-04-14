@@ -24,6 +24,7 @@ cover:
 This month [Steve Hughes](https://dataonwheels.wordpress.com/) asked us to write about conference experiences that have impacted us or changed how we work. I could write about specific talks, but what has stayed with me is something broader.
 
 I had plenty of excuses not to go to that first conference.
+
 - I wasn't a real developer
 - I didn't use Ruby in my day job
 - The conference was expensive
