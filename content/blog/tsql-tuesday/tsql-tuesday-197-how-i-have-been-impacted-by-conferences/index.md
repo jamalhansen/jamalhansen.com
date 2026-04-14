@@ -42,4 +42,3 @@ The big tech conferences have lots of money to throw around, but they end up fee
 The community conferences are different. People are the focus. Ideas and friendship are the reasons they come together. Those are the ones with talks that stick. Those are the ones I keep going back to.
 
 In a few weeks, I'll be at the [20th annual PyTexas](https://www.pytexas.org/2026/) in Austin, exactly the kind of event I've been describing. I don't know which talk will change the way I think about something. But I know I'll leave with new ideas. I'll spend time with friends I already know and make some I haven't met yet. That's what community conferences do. They're worth showing up for.
-
