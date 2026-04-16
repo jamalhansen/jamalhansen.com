@@ -18,6 +18,7 @@ Ever wanted to share a Python script that uses external packages without making 
 
 ## The Command
 
+<!-- test:skip -->
 ```bash
 uv add --script example.py 'requests<3' 'rich'
 ```
@@ -45,6 +46,7 @@ pprint([(k, v["title"]) for k, v in data.items()][:10])
 
 Anyone with `uv` installed can now run the script directly:
 
+<!-- test:skip -->
 ```bash
 uv run example.py
 ```

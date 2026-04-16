@@ -86,6 +86,7 @@ Learn the one piece of syntax that makes this work: `[[double brackets]]`. Write
 
 ## What a note looks like
 
+<!-- test:skip -->
 ```markdown
 # git pull runs a fetch and a merge under the hood
 

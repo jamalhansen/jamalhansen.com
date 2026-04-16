@@ -25,6 +25,7 @@ To facilitate this, I've added a section to my daily note under a header called 
 
 When I have an idea, I go to the daily note and add it as a task with the #writing tag. This looks something like this:
 
+<!-- test:skip -->
 ```markdown
 ## Writing
 - [ ] [[This is my great idea for a post]] #writing 

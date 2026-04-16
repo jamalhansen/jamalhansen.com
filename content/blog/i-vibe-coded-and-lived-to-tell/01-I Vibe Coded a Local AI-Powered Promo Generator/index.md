@@ -49,6 +49,7 @@ The script used Ollama locally and targeted the llama3.2:3b and phi4-mini models
 
 With a couple of prompts, I asked Claude to add parameters so I could target one platform at a time and send output to stdout. Here's what running it looks like:
 
+<!-- test:skip -->
 ```bash
 uv run promo.py \
   --post "path/to/blog-post.md" \

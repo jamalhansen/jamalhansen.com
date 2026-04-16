@@ -58,6 +58,7 @@ Looking at these two examples, the ORM wins. It's cleaner, more readable, type-s
 
 ### Schema Migrations
 Some ORMs track schema changes and generate migrations to build up or tear down your database. This is a wonderful feature, and I recommend you use it.
+<!-- test:skip -->
 ```bash
 alembic revision --autogenerate -m "add phone column"
 alembic upgrade head

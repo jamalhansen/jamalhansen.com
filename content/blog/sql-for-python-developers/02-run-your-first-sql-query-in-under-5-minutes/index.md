@@ -37,6 +37,7 @@ That's it. You're done. No, really.
 ## Your First Query
 Now that we are ready to query the database, let's write our first query and run it. 
 
+<!-- test:skip -->
 ```python
 import duckdb
 
@@ -63,6 +64,7 @@ print(result)
 ```
 
 When you run this, you should see the result:
+<!-- test:skip -->
 ```bash
 [('Alice', 95), ('Bob', 87), ('Carol', 92)]
 ```

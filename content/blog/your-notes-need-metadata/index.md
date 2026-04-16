@@ -39,6 +39,7 @@ If you write Python, think of it as a dict attached to the file header. The keys
 
 Without frontmatter, your note looks like this:
 
+<!-- test:skip -->
 ```markdown
 # closures capture the enclosing scope, not the current value
 
@@ -49,6 +50,7 @@ That is why this is related to [[late binding in python]] and [[variable scoping
 
 With frontmatter, it looks like this:
 
+<!-- test:skip -->
 ```markdown
 ---
 created: 2026-04-01

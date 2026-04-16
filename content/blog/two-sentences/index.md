@@ -53,6 +53,7 @@ Karpathy's gist calls it a schema. In Claude Code, it lives in CLAUDE.md. In Cod
 
 Mine looks approximately like this:
 
+<!-- test:skip -->
 ```markdown
 ## Wiki Structure
 

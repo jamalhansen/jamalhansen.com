@@ -39,6 +39,7 @@ ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/ iCloud
 ## Obsidian Bonus
 I am also a fan of Obsidian the markdown note taking app. Something I've noticed is that when using iCloud your vaults live in their own location separate from your normal iCloud drive. You can use symbolic links to get to them directly from your home directory as well (Disclaimer, use with care and do't go breaking things :))
 
+<!-- test:skip -->
 ```bash
 ln -s ~/Library/Mobile\ Documents/iCloud~md~obsidian/ ~/Obsidian
 ```

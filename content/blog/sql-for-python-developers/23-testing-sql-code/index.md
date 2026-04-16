@@ -111,6 +111,7 @@ We created the data, so we know the results to expect and can assert the expecte
 
 Save these in a file called `test_queries.py` and run them with pytest:
 
+<!-- test:skip -->
 ```bash
 pytest test_queries.py -v
 ```

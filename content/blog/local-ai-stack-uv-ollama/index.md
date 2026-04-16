@@ -87,6 +87,7 @@ print(response['message']['content'])
 
 Run it:
 
+<!-- test:skip -->
 ```bash
 uv run ask.py
 ```
@@ -109,6 +110,7 @@ The patterns I write about in this series use this exact setup. Getting it runni
 
 The single-file method works well for exploration and one-off scripts. When a script grows into something you will maintain, test, or share, use `uv init` instead.
 
+<!-- test:skip -->
 ```bash
 uv init my-ai-project
 cd my-ai-project

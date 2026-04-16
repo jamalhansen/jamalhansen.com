@@ -47,6 +47,7 @@ This project will be broken down into four steps:
 
 Before we get started, you will need a couple of packages installed. We will use `httpx` to hit an API datasource. If you want to extract the data to parquet format, you will also need `fastparquet`. While not required, parquet is a good file format for storing larger datasets in a file. 
 
+<!-- test:skip -->
 ```bash
 pip install httpx fastparquet
 ```
