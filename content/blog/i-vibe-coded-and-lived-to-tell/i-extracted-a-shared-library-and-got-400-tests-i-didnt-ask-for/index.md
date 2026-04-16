@@ -105,6 +105,11 @@ That false negative made the abstraction boundary real. The things that didn't m
 
 The promo-generator is the clearest example of what the migration looked like in practice. Before the migration, it hardcoded the `ollama` Python package with a fixed model. It looked something like this:
 
+<!-- test:setup -->
+```python
+provider_name = "ollama"
+model = "llama3.2"
+```
 ```python
 import ollama
 

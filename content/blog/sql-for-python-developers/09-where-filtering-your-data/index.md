@@ -39,7 +39,6 @@ ORDER BY name         -- 4th: Sort results
 
 We are adding more keywords, but just remember, `WHERE` filters rows before you see them. It's like Python's `filter()` or list comprehension conditions. 
 
-<!-- test:skip -->
 ```python
 # Python: filter with list comprehension
 [c for c in customers if c['is_premium']]
@@ -130,7 +129,6 @@ WHERE city IN ('New York', 'Los Angeles', 'Chicago')
 
 The Python equivalent for this would also be the keyword `in`
 
-<!-- test:skip -->
 ```python
 [c for c in customers if c['city'] in ['New York', 'Los Angeles', 'Chicago']]
 ```

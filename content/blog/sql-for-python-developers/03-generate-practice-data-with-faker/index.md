@@ -57,7 +57,6 @@ pip install faker
 
 Now let's generate 500 customers:
 
-<!-- test:skip -->
 ```python
 from faker import Faker
 import random
@@ -101,7 +100,6 @@ We are setting the random number seed at the beginning of the script. This makes
 
 Now we have our generated data in the `customers` variable. Let's create a table for it to live in and then insert the data into the table. You'll notice `VARCHAR` in the CREATE TABLE statement. That's SQL's name for text data (like Python's `str`).
 
-<!-- test:skip -->
 ```python
 import duckdb
 
@@ -136,7 +134,6 @@ con.executemany(
 
 Once the data has been inserted into the table, we can query it. Like last time, we just want to bring back all the records to see that they are there.
 
-<!-- test:skip -->
 ```python
 # See the first few rows
 result = con.execute("SELECT * FROM customers").fetchdf()
@@ -155,7 +152,6 @@ You should see ten unique customers: real-looking names, varied cities, a mix of
 
 Here's everything in one runnable file:
 
-<!-- test:skip -->
 ```python
 from faker import Faker
 import random

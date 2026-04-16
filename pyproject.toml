@@ -1,0 +1,15 @@
+[project]
+name = "jamalhansen-com"
+version = "0.1.0"
+dependencies = [
+    "pytest",
+    "ollama",
+    "local-first-common",
+    "faker>=40.13.0",
+    "pandas>=3.0.2",
+    "httpx>=0.28.1",
+    "pyarrow>=23.0.1",
+]
+
+[tool.uv.sources]
+local-first-common = { git = "https://github.com/jamalhansen/local-first-common.git" }

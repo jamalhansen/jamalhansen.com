@@ -40,14 +40,12 @@ Let's go back to Python and work our way through the `for` loop, list comprehens
 
 When writing a `for` loop, we tell Python where the data is, then what we want to do with it.
 
-<!-- test:skip -->
 ```python
 for customer in customers:    # ← This is like FROM
     print(customer['name'])   # ← This is like SELECT
 ```
 
 The list comprehension switches this up, putting what to do with the data first and then where it comes from second. This is more like SQL syntax. It is important to remember that just because the syntax order is reversed, the order that the logic executes remains the same. First find the source, then return what is wanted.
-<!-- test:skip -->
 ```python
 # List comprehension - same order as SQL thinks
 [c['name'] for c in customers]

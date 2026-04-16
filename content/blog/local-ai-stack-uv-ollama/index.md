@@ -66,6 +66,7 @@ This is PEP 723, inline script metadata. Add a `# /// script` block at the top o
 
 Create a file called `ask.py`:
 
+<!-- test:skip -->
 ```python
 # /// script
 # requires-python = ">=3.11"

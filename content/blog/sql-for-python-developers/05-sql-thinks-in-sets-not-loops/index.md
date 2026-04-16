@@ -29,7 +29,6 @@ Remember [back when we started](https://jamalhansen.com/blog/i-know-python-why-l
 
 When you work with lists in Python, one of the first tools you reach for is the `for` loop. The for loop is great because it lets you take every item in the list and apply some logic to it, one at a time. It might look something like this.
 
-<!-- test:skip -->
 ```python
 # Step-by-step instructions
 results = []
@@ -44,7 +43,6 @@ But when we look at the work that it's doing, it is really just filtering data i
 
 The code is compact and breaks down into three parts: `c['name'] for c` selects and transforms, `in customers` specifies the source, and `if c['is_premium']` filters.
 
-<!-- test:skip -->
 ```python
 # Python: More declarative (list comprehension)
 premium_names = [c['name'] for c in customers if c['is_premium']]

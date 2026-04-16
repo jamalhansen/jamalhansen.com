@@ -11,3 +11,6 @@ _vendor
 # Database files created by blog post code examples
 *.duckdb
 *.db
+.venv/
+
+reports/

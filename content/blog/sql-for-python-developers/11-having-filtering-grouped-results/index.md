@@ -58,7 +58,6 @@ HAVING COUNT(*) > 10
 
 If we were to do this in Python, it would be something like this.
 
-<!-- test:skip -->
 ```python
 # Python: Filter after grouping
 from collections import Counter

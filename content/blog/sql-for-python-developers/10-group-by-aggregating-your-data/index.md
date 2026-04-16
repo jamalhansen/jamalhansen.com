@@ -51,14 +51,12 @@ These approaches would be even less effective if you wanted to know the number o
 Let's take a moment to look at how we might get the number of customers in each city using Python. You could use `Counter`, manual grouping, or `Pandas` to achieve this. 
 
 Here we can see this achieved with a counter
-<!-- test:skip -->
 ```python
 from collections import Counter
 city_counts = Counter(c['city'] for c in customers)
 ```
 
 Here is a manual grouping
-<!-- test:skip -->
 ```python
 city_counts = {}
 for c in customers:
@@ -67,7 +65,6 @@ for c in customers:
 ```
 
 and Pandas
-<!-- test:skip -->
 ```python
 import pandas as pd
 df = pd.DataFrame(customers)

@@ -32,7 +32,6 @@ Previously, we looked closely at [the `FROM` clause](https://jamalhansen.com/blo
 
 Let's return to the list comprehension to illustrate how `SELECT` can transform your output. 
 
-<!-- test:skip -->
 ```python
 # Python: Pick specific keys from dicts
 [{'name': c['name'], 'email': c['email']} for c in customers]
@@ -73,7 +72,6 @@ Output columns are now called `customer_name` and `contact`.
 
 If you are interested in the Python equivalent, it looks like this:
 
-<!-- test:skip -->
 ```python
 [{'customer_name': c['name'], 'contact': c['email']} for c in customers]
 ```

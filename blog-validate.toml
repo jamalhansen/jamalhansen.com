@@ -4,3 +4,6 @@ post_file = "index.md"
 
 [sql]
 backend = "duckdb"
+
+[python]
+dependencies = ["pytest", "ollama", "local-first-common"]
