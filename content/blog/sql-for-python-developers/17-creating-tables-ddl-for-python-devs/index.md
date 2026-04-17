@@ -73,7 +73,7 @@ CREATE TABLE products (
 ```
 
 In Python, this would equate to something like this:
-<!-- test:skip -->
+<!-- test:syntax-only -->
 ```python
 @dataclass
 class Product:
@@ -148,10 +148,10 @@ You might be asking, well, if the foreign key is just an integer that contains t
 The answer is, you could, but declaring the column as a foreign key tells the database that you want to use it as one. The database will help you ensure that the value in the column remains valid. This is also known as enforcing referential integrity. 
 
 Let's take a quick look at how this might work in Python.
-<!-- test:skip -->
+<!-- test:syntax-only -->
 ```python
 # customer_id must be a valid key in the customers dict
-order = {'customer_id': 42, ...}
+order = {'customer_id': 42, 'product_id': 1, 'quantity': 2}
 assert order['customer_id'] in customers
 ```
 

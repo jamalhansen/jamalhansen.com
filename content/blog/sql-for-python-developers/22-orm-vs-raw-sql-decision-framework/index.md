@@ -41,7 +41,7 @@ Let's take a look at what each of these tools does well.
 If you have worked with an application that stores data in a database, you are probably familiar with the term CRUD. It stands for Create, Retrieve, Update, and Delete. Most database-backed applications live and die by these four operations (and REST APIs for that matter).
 
 Using an ORM, creating a user record might look like this:
-<!-- test:skip -->
+<!-- test:syntax-only -->
 ```python
 user = User(name="Alice", email="alice@example.com")
 session.add(user)
@@ -71,7 +71,7 @@ Managing your DDL SQL separately is tedious. Even if the migration scripts live 
 ORM means Object Relational Mapper. Relational in this phrase is short for relational database, meaning that the ORM maps your data between the database table and an object in your code.
 
 It only makes sense that this is a benefit of ORMs.
-<!-- test:skip -->
+<!-- test:syntax-only -->
 ```python
 user = session.query(User).get(42)
 user.send_welcome_email()
@@ -145,7 +145,7 @@ If you are still not sure, there is a reliable fallback: if you can describe wha
 
 Most real projects use both, and that is the right call. Use the ORM for your application layer: models, CRUD endpoints, and migrations.
 
-<!-- test:skip -->
+<!-- test:syntax-only -->
 ```python
 class User(Base):
     __tablename__ = 'users'
@@ -213,7 +213,7 @@ con.execute("INSERT INTO inventory (product_id, quantity) VALUES (?, ?)", [produ
 
 This is classic CRUD with a relationship between two tables. With an ORM, it might look something like this:
 
-<!-- test:skip -->
+<!-- test:syntax-only -->
 ```python
 product = Product(name=name, price=price, category=category)
 product.inventory = Inventory(quantity=initial_stock)

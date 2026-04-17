@@ -22,6 +22,7 @@ ShowToc: false
 series: "SQL for Python Developers"
 unsplash_user: mike_van_den_bos
 ---
+<!-- test:needs: posts, users -->
 
 You've spent 19 posts learning SQL concepts: selecting, filtering, joining, grouping, window functions, and more. Today, you put them all together and build something real: a complete data pipeline that fetches data from an API, loads it into DuckDB, transforms it with SQL, and exports the results.
 
@@ -97,7 +98,6 @@ print(con.execute("SELECT COUNT(*) FROM users").fetchone())
 ## Step 3 (Transform): SQL Queries
 Now, let's transform the data using the SQL that we have learned. We will build two reports: how many posts each user has made, and the average post title length by user. 
 
-<!-- test:skip -->
 ```python
 # Posts per user
 posts_per_user = con.execute("""

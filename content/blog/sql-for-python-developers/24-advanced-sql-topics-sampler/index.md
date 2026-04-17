@@ -44,7 +44,7 @@ FROM customers
 
 In Python, the equivalent is a chained ternary expression:
 
-<!-- test:skip -->
+<!-- test:syntax-only -->
 ```python
 'VIP' if is_premium else ('New' if signup_date > '2025-01-01' else 'Regular')
 ```
@@ -67,7 +67,7 @@ WHERE order_date >= CURRENT_DATE - INTERVAL '30 days'
 
 The Python equivalent uses `datetime` and `timedelta`:
 
-<!-- test:skip -->
+<!-- test:syntax-only -->
 ```python
 from datetime import datetime, timedelta
 
@@ -95,7 +95,7 @@ FROM customers
 
 The Python equivalents are immediately recognizable:
 
-<!-- test:skip -->
+<!-- test:syntax-only -->
 ```python
 name.upper()
 email.lower()
@@ -149,7 +149,7 @@ WHERE data->>'type' = 'signup'
 
 The Python equivalent is dictionary access:
 
-<!-- test:skip -->
+<!-- test:syntax-only -->
 ```python
 name = data['name']
 city = data['address']['city']
