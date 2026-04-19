@@ -22,6 +22,8 @@ TocOpen: false
 series: ["SQL for Python Developers"]
 ---
 
+SQL and Python solve different problems with data. Python tells the computer what to do, step by step. SQL describes the data you want and lets the database figure out how to get it. As a Python developer, learning SQL means you'll write better pandas queries, know when to push work to the database instead of pulling everything into memory, and understand what your ORM is actually doing under the hood.
+
 I learned SQL very early in my career. At the time, I didn't understand why, and for the first month or so, it didn't make sense to me. The syntax didn't resemble any language I had seen before, and it employed concepts with which I was unfamiliar. This all made SQL seem scary, and oddly enough, SQL hasn't changed much in the past 40 years, which makes it even more of an oddity. 
 
 The problem wasn't the SQL; it was how I was thinking. I had some experience with coding, but only in a procedural style, telling the computer to perform a series of steps in order. My aha moment was when I realized that [SQL doesn't do this](/blog/sql-thinks-in-sets-not-loops/). Instead, a SQL query describes the data that you would like, and it returns that dataset. Making this mind shift turned SQL into a beautiful and functional language that is relatively simple to learn. 
