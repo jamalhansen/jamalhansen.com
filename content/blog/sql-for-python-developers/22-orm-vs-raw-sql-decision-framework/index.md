@@ -23,7 +23,7 @@ unsplash_user: madebyjens
 ---
 <!-- test:needs: customers, orders, salespeople, deals -->
 
-At the [beginning of this series](https://jamalhansen.com/blog/i-know-python-why-learn-sql), I promised that even if you know how to use an Object Relational Mapper (ORM) to interact with a database, knowing SQL would make you a better developer. Now that we have covered everything from SELECT to parameterized queries, it is time to answer the question that every Python developer eventually asks: when should I use an ORM, and when should I just write SQL?
+At the [beginning of this series](https://jamalhansen.com/blog/i-know-python-why-learn-sql/), I promised that even if you know how to use an Object Relational Mapper (ORM) to interact with a database, knowing SQL would make you a better developer. Now that we have covered everything from SELECT to parameterized queries, it is time to answer the question that every Python developer eventually asks: when should I use an ORM, and when should I just write SQL?
 
 This is one of those topics where everyone has an opinion. I would love to hear yours. Find me on [LinkedIn](https://www.linkedin.com/in/jamalhansen/), [Twitter/X](https://x.com/jamahans), [Bluesky](https://bsky.app/profile/jamalhansen.bsky.social), or [Mastodon](https://techhub.social/@jamalhansen) and let me know where you land after reading this.
 
@@ -92,7 +92,7 @@ Okay, ORMs are great, but they don't do everything well. Let's look at some area
 
 ### Complex Queries
 
-We learned some pretty fancy syntax that SQL uses to manipulate data in all sorts of ways. You can write any complex query in SQL using [joins](https://jamalhansen.com/blog/joins-explained-for-python-developers), [CTEs](https://jamalhansen.com/blog/ctes-making-your-sql-readable), [window functions](https://jamalhansen.com/blog/window-functions-the-feature-python-developers-miss-most), and [subqueries](https://jamalhansen.com/blog/subqueries-when-sql-needs-helper-functions).
+We learned some pretty fancy syntax that SQL uses to manipulate data in all sorts of ways. You can write any complex query in SQL using [joins](https://jamalhansen.com/blog/joins-explained-for-python-developers/), [CTEs](https://jamalhansen.com/blog/ctes-making-your-sql-readable/), [window functions](https://jamalhansen.com/blog/window-functions-the-feature-python-developers-miss-most/), and [subqueries](https://jamalhansen.com/blog/subqueries-when-sql-needs-helper-functions/).
 ```sql
 WITH monthly_stats AS (
     SELECT customer_id,

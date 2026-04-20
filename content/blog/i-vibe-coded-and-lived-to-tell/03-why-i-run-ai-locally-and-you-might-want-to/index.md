@@ -27,7 +27,7 @@ cover:
     photo_id: "green-plants-on-black-metal-train-rail-during-daytime-bk11wZwb9F4"
 ---
 
-As I admitted before in posts [1](https://jamalhansen.com/blog/i-vibe-coded-a-local-ai-powered-promo-generator/) and [2](https://jamalhansen.com/blog/i-trusted-three-local-ai-models) I vibe-coded and lived to tell. This post answers the question I kept avoiding. _Why run any of this locally when cloud models are flatly better at the task?_
+As I admitted before in posts [1](https://jamalhansen.com/blog/i-vibe-coded-a-local-ai-powered-promo-generator/) and [2](https://jamalhansen.com/blog/i-trusted-three-local-ai-models/) I vibe-coded and lived to tell. This post answers the question I kept avoiding. _Why run any of this locally when cloud models are flatly better at the task?_
 
 The answer isn't that _cloud AI is bad_. It is more complicated than that. It turns out that it is the wrong question, and there is a place for both tools. 
 ## Frontier cloud models are impressive

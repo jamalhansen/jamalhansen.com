@@ -22,7 +22,7 @@ ShowToc: false
 series: "SQL for Python Developers"
 ---
 <!-- test:needs: customers -->
-We have come a long way in the past couple of months, working through the core SQL keywords. So far, we can [`SELECT` columns](https://jamalhansen.com/blog/select-choosing-your-columns), specify [`FROM` where our data lives](https://jamalhansen.com/blog/from-where-your-data-lives), and [`ORDER BY` to sort results](https://jamalhansen.com/blog/order-by-sorting-your-results).
+We have come a long way in the past couple of months, working through the core SQL keywords. So far, we can [`SELECT` columns](https://jamalhansen.com/blog/select-choosing-your-columns/), specify [`FROM` where our data lives](https://jamalhansen.com/blog/from-where-your-data-lives/), and [`ORDER BY` to sort results](https://jamalhansen.com/blog/order-by-sorting-your-results/).
 
 That is quite a lot, and today we are going to unlock the real power of SQL by giving you the ability to filter your results **before** they are returned from the server. 
 

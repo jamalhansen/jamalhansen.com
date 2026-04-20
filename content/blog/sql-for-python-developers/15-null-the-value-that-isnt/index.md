@@ -128,7 +128,7 @@ You've already encountered NULL in previous posts. Let's connect the dots.
 
 ### WHERE
 
-In a [WHERE clause](https://jamalhansen.com/blog/where-filtering-your-data), adding an equals condition to a column quietly excludes `NULL` values from your results. Both of the following will exclude `NULL` values in the status column.
+In a [WHERE clause](https://jamalhansen.com/blog/where-filtering-your-data/), adding an equals condition to a column quietly excludes `NULL` values from your results. Both of the following will exclude `NULL` values in the status column.
 
 ```sql
 SELECT * FROM customers WHERE status = 'active';     -- Excludes NULL
@@ -143,7 +143,7 @@ SELECT * FROM customers WHERE status != 'active' OR status IS NULL;
 
 ### GROUP BY and Aggregation
 
-When grouping with the [GROUP BY clause](https://jamalhansen.com/blog/group-by-aggregating-your-data), all NULL values group together into one bucket. This is actually useful for reporting on "unknown" categories.
+When grouping with the [GROUP BY clause](https://jamalhansen.com/blog/group-by-aggregating-your-data/), all NULL values group together into one bucket. This is actually useful for reporting on "unknown" categories.
 
 ```sql
 SELECT state, COUNT(*) FROM customers GROUP BY state;
@@ -161,7 +161,7 @@ FROM customers;
 
 ### JOINs
 
-We already know that NULL won't work with equals, so it shouldn't be a surprise that NULL values won't match in a [JOIN](https://jamalhansen.com/blog/joins-explained-for-python-developers) condition either. NULL = NULL is NULL, not TRUE, so no match.
+We already know that NULL won't work with equals, so it shouldn't be a surprise that NULL values won't match in a [JOIN](https://jamalhansen.com/blog/joins-explained-for-python-developers/) condition either. NULL = NULL is NULL, not TRUE, so no match.
 
 However, when you use a `LEFT JOIN`, the columns from the right table come back as NULL for rows that don't have a match. This is often where unexpected NULLs sneak into your results.
 
@@ -174,7 +174,7 @@ FROM
 
 ### Subqueries with NOT IN
 
-This one is nasty. Remember [subqueries](https://jamalhansen.com/blog/subqueries-when-sql-needs-helper-functions) from two weeks ago? If you use `NOT IN` with a subquery that returns any NULL values, you might get zero rows back.
+This one is nasty. Remember [subqueries](https://jamalhansen.com/blog/subqueries-when-sql-needs-helper-functions/) from two weeks ago? If you use `NOT IN` with a subquery that returns any NULL values, you might get zero rows back.
 
 To show this, let's add a small `vendors` table to our sample database. Some vendors have a headquarters city, but not all of them.
 

@@ -61,7 +61,7 @@ FROM customers      -- ← This happens first
 
 ## Examples
 
-Using our practice database from [our previous post](https://jamalhansen.com/blog/dont-forget-to-save-persisting-your-duckdb-database), here are some examples of `FROM`. 
+Using our practice database from [our previous post](https://jamalhansen.com/blog/dont-forget-to-save-persisting-your-duckdb-database/), here are some examples of `FROM`. 
 
 <!-- test:skip -->
 ```sql

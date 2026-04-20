@@ -26,7 +26,7 @@ unsplash_user: lvnatikk
 
 You've spent 23 weeks building a SQL foundation. You can query, join, aggregate, test, and build pipelines. That covers most of what you'll do day to day.
 
-But SQL has more to offer. This post is a sampler plate: six topics you'll encounter as your SQL work gets more complex. Some of these you'll use daily. Others you'll reach for once a quarter. All of them are worth knowing exist so you recognize them when the moment comes. We won't revisit COALESCE and NULLIF here since we covered those in [Post 15](https://jamalhansen.com/blog/null-the-value-that-isnt), but the six topics below are all new.
+But SQL has more to offer. This post is a sampler plate: six topics you'll encounter as your SQL work gets more complex. Some of these you'll use daily. Others you'll reach for once a quarter. All of them are worth knowing exist so you recognize them when the moment comes. We won't revisit COALESCE and NULLIF here since we covered those in [Post 15](https://jamalhansen.com/blog/null-the-value-that-isnt/), but the six topics below are all new.
 
 ## CASE Statements for Conditional Logic
 
@@ -159,7 +159,7 @@ The arrow operators are DuckDB's syntax for navigating JSON. Use `->` when you n
 
 ## Recursive CTEs
 
-We covered CTEs back in [Post 14](https://jamalhansen.com/blog/ctes-making-your-sql-readable). Recursive CTEs take that concept further: they reference themselves, building results iteratively until a stopping condition is met.
+We covered CTEs back in [Post 14](https://jamalhansen.com/blog/ctes-making-your-sql-readable/). Recursive CTEs take that concept further: they reference themselves, building results iteratively until a stopping condition is met.
 
 Two situations where I reach for these: generating a series of dates for time-based reporting (when you need every day in a range, even days with no data), and traversing hierarchical data like organizational charts or category trees.
 
@@ -194,7 +194,7 @@ A word of caution: always include a clear stopping condition in the WHERE clause
 
 Using the customers and orders tables, write a query that categorizes customers into spending tiers based on their total order amount: 'High' (over $500), 'Medium' ($100-$500), and 'Low' (under $100). Include customers with no orders as 'No Orders'.
 
-Hint: you'll need a LEFT JOIN and COALESCE from [Post 15](https://jamalhansen.com/blog/null-the-value-that-isnt).
+Hint: you'll need a LEFT JOIN and COALESCE from [Post 15](https://jamalhansen.com/blog/null-the-value-that-isnt/).
 
 ### Exercise 2: Monthly Revenue Report
 
@@ -216,7 +216,7 @@ Assume you have a `customers` table and a `newsletter_subscribers` table, both w
 
 Write a recursive CTE that generates every Monday in 2025. Then LEFT JOIN it against an orders table grouped by week to find weeks with zero orders.
 
-Hint: the LEFT JOIN + NULL pattern from [Post 12](https://jamalhansen.com/blog/joins-explained-for-python-developers) is exactly what you need here.
+Hint: the LEFT JOIN + NULL pattern from [Post 12](https://jamalhansen.com/blog/joins-explained-for-python-developers/) is exactly what you need here.
 
 ## What's Next
 

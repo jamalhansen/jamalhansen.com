@@ -25,7 +25,7 @@ cover:
 date: 2026-04-10
 ---
 
-[Last time](https://jamalhansen.com/blog/copy-and-paste-long-enough-and-the-architecture-appears) I argued that you can't design your way to a good abstraction. You have to earn it through repetition. Here's what that actually looked like.
+[Last time](https://jamalhansen.com/blog/copy-and-paste-long-enough-and-the-architecture-appears/) I argued that you can't design your way to a good abstraction. You have to earn it through repetition. Here's what that actually looked like.
 
 I had six Python projects, each containing its own version of the same four files:
 - A provider abstraction for talking to LLMs

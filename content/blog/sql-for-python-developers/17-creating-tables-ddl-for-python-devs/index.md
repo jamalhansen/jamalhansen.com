@@ -85,7 +85,7 @@ class Product:
 ```
 
 ## Primary Keys
-Previously, [we talked about how joins are the superpower of relational databases](https://jamalhansen.com/blog/joins-explained-for-python-developers). Properly defining primary keys on your tables is the secret to unlocking that power. 
+Previously, [we talked about how joins are the superpower of relational databases](https://jamalhansen.com/blog/joins-explained-for-python-developers/). Properly defining primary keys on your tables is the secret to unlocking that power. 
 <!-- test:skip -->
 ```sql
 CREATE TABLE products (

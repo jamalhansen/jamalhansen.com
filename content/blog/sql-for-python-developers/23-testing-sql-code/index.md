@@ -223,7 +223,7 @@ def test_customer_totals(test_db_with_orders):
 
 I've used separate `execute()` calls for each statement here. DuckDB can handle multiple statements in a single call, but SQLite and PostgreSQL can't, so splitting them is a good habit for portable code.
 
-With a little help from Python and pytest, testing SQL is not that hard. It just takes standing up some fixtures. You can now write SQL, optimize it, secure it with [parameterized queries](https://jamalhansen.com/blog/parameterized-queries-and-security), and test it. That's a complete professional toolkit.
+With a little help from Python and pytest, testing SQL is not that hard. It just takes standing up some fixtures. You can now write SQL, optimize it, secure it with [parameterized queries](https://jamalhansen.com/blog/parameterized-queries-and-security/), and test it. That's a complete professional toolkit.
 
 ## Exercises
 
@@ -241,7 +241,7 @@ Each test should assert both the number of rows returned and the actual values.
 
 Using the `test_db_with_orders` fixture, write a test that verifies a LEFT JOIN correctly identifies customers with no orders. You'll need to either modify the fixture to include a third customer with no orders, or insert one within the test itself. Then assert that your query finds them.
 
-Hint: Remember the LEFT JOIN + IS NULL pattern from [Post 12](https://jamalhansen.com/blog/joins-explained-for-python-developers).
+Hint: Remember the LEFT JOIN + IS NULL pattern from [Post 12](https://jamalhansen.com/blog/joins-explained-for-python-developers/).
 
 ### Exercise 3: Test Edge Cases
 
