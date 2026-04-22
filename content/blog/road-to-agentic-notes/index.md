@@ -24,7 +24,7 @@ draft: false
 ---
 
 
-Karpathy published his LLM-powered personal knowledge system. The post went viral, and for good reason.
+Karpathy's LLM knowledge base method works by having an LLM maintain a wiki of markdown files rather than retrieving from raw documents at query time. When you add a source, the LLM integrates it into the existing network, updating pages, revising summaries, and noting contradictions. By the time you need an answer, the synthesis is already done. Your job is to curate sources and ask good questions. The LLM does everything else. 
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">LLM Knowledge Bases<br><br>Something I&#39;m finding very useful recently: using LLMs to build personal knowledge bases for various topics of research interest. In this way, a large fraction of my recent token throughput is going less into manipulating code, and more into manipulating…</p>&mdash; Andrej Karpathy (@karpathy) <a href="https://twitter.com/karpathy/status/2039805659525644595?ref_src=twsrc%5Etfw">April 2, 2026</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
