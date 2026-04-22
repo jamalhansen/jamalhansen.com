@@ -1,10 +1,10 @@
 ---
 slug: road-to-agentic-notes
-title: The Road to Agentic Notes
-description: Why Karpathy's LLM-based knowledge bases are so powerful and how you can start building one.
+title: Karpathy's LLM Knowledge Base Method - A Practical Starting Point
+description: Karpathy called LLM-based knowledge bases "something I'm finding very useful recently." Here's why the architecture works and how to start building one in practice.
 author:
   - Jamal Hansen
-lastmod: 2026-04-05
+lastmod: 2026-04-22
 tags:
   - knowledge-management
   - llm

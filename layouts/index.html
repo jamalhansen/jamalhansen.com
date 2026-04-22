@@ -38,39 +38,59 @@
       {{- end }}
     {{- end }}
     {{- if gt (len $series_pages) 0 }}
-      {{- $featured_series = $featured_series | append (dict "Page" . "Pages" $series_pages) }}
+      {{- $latest := index $series_pages 0 }}
+      {{- $featured_series = $featured_series | append (dict "Page" . "Pages" $series_pages "LatestDate" $latest.Date) }}
     {{- end }}
   {{- end }}
 {{- end }}
 
 {{- if gt (len $featured_series) 0 }}
-<div class="latest-posts">
+{{- $featured_series = sort $featured_series "LatestDate" "desc" }}
+<section class="home-section">
   <h2 class="section-title">Learning Paths</h2>
-  {{- range $featured_series }}
-  <div class="home-post-item">
-    <span class="home-post-date">{{ len .Pages }} posts</span>
-    <a href="{{ .Page.RelPermalink }}" class="home-post-title">{{ .Page.Title }}</a>
+  <div class="series-grid">
+    {{- range $featured_series | first 6 }}
+    <div class="series-card">
+      <h3><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></h3>
+      {{- if .Page.Description }}
+      <p>{{ .Page.Description }}</p>
+      {{- end }}
+      <div class="series-meta">
+        <span class="series-post-count">{{ len .Pages }} posts</span>
+        <a href="{{ .Page.RelPermalink }}" class="read-more">Start reading →</a>
+      </div>
+    </div>
+    {{- end }}
+  </div>
+  {{- if gt (len $featured_series) 6 }}
+  <div class="view-all">
+    <a href="/series/" class="btn">Explore All Learning Paths →</a>
   </div>
   {{- end }}
-</div>
+</section>
 {{- end }}
 
 {{/* Latest Posts Section */}}
-<div class="latest-posts">
+<section class="home-section">
   <h2 class="section-title">Latest Articles</h2>
-  {{- $pages := where site.RegularPages "Section" "blog" }}
-  {{- $pages = $pages | first 5 }}
-  
-  {{- range $pages }}
-  <div class="home-post-item">
-    <span class="home-post-date">{{ .Date.Format "Jan 2, 2006" }}</span>
-    <a href="{{ .Permalink }}" class="home-post-title">{{ .Title }}</a>
+  <div class="article-list">
+    {{- $pages := where site.RegularPages "Section" "blog" }}
+    {{- $pages = $pages | first 7 }}
+    {{- range $pages }}
+    <article class="article-card">
+      <div class="article-card-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
+      <div class="article-card-body">
+        <h3 class="article-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        {{- if .Description }}
+        <p class="article-card-desc">{{ .Description }}</p>
+        {{- end }}
+      </div>
+    </article>
+    {{- end }}
   </div>
-  {{- end }}
-  
   <div class="view-all">
     <a href="/blog/" class="btn">Explore All Content →</a>
   </div>
-</div>
+</section>
 
 {{- end }}{{/* end main */ -}}
