@@ -1,7 +1,7 @@
 ---
 slug: explore-the-sample-dbeaver-database
 title: Explore the dBeaver sample database
-description: After installing dBeaver, let's take a look at the sample database that it provides.
+description: dBeaver's sample database includes employees, departments, customers, and orders; enough to practice joins, filters, and aggregations. Here's what's inside and how to start querying it.  
 date: 2025-04-20
 author:
   - Jamal Hansen
