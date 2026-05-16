@@ -4,7 +4,7 @@ title: Karpathy's LLM Knowledge Base Method - A Practical Starting Point
 description: Karpathy called LLM-based knowledge bases "something I'm finding very useful recently." Here's why the architecture works and how to start building one in practice.
 author:
   - Jamal Hansen
-lastmod: 2026-04-22
+lastmod: 2026-05-15
 tags:
   - knowledge-management
   - llm
@@ -57,6 +57,18 @@ When you ask a question, the answer does not disappear into chat history. It get
 His description of the division of labor is worth keeping: "The human's job is to curate sources, direct the analysis, ask good questions, and think about what it all means. The LLM's job is everything else."
 
 That is the destination. The starting line is simpler than it looks.
+
+## Retrieve vs. compile: how this differs from other tools
+
+The distinction matters because a lot of tools sound similar.
+
+| Tool | How it works | What accumulates |
+|------|-------------|-----------------|
+| NotebookLM, ChatGPT uploads | Retrieves from raw documents at query time | Nothing -- each session starts fresh |
+| Standard RAG | Chunks and embeds docs, retrieves relevant chunks | Embeddings, not synthesized knowledge |
+| Karpathy's wiki (Foam or Obsidian + LLM) | LLM compiles sources into a linked wiki | Synthesis, cross-references, updated entity pages |
+
+The compile step is what makes knowledge compound. The other tools are retrieval with extra steps.
 
 ## Where you can start
 
@@ -128,3 +140,4 @@ After that, the notes you have been building are the raw material Karpathy's sys
 - [Markdown Syntax](https://www.markdownguide.org/basic-syntax/): markdown offers more than just wikilinks, it can format your notes too
 - [Obsidian](https://obsidian.md): when you are ready to graduate from VS Code
 - [Andy Matuschak's working notes](https://notes.andymatuschak.org): the philosophy behind note-as-claim, shown in practice
+- [DAIR.AI breakdown of LLM Knowledge Bases](https://academy.dair.ai/blog/llm-knowledge-bases-karpathy): thorough explanation of the architecture and why it works at personal scale
