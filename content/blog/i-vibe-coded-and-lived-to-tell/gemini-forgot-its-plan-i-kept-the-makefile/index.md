@@ -19,6 +19,9 @@ tags:
 - gemini
 target_date: 2026-04-23
 title: Gemini Forgot Its Plan. I Kept the Makefile.
+cover:
+  image: gemini-forgot-plan.jpg
+  relative: true
 ---
 
 I was in the middle of the [shared library extraction](https://jamalhansen.com/blog/how-i-extracted-a-shared-library/) when I ran out of Claude tokens. Six repos deep, changes half-committed, migration plan half-finished. This was not ideal timing.

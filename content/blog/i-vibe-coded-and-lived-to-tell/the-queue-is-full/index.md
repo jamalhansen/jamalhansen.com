@@ -20,6 +20,9 @@ tags:
 - python
 target_date: 2026-05-14
 title: 'The Queue Is Full: What I''m Building Next with Local-First AI'
+cover:
+  image: queue-is-full.jpg
+  relative: true
 ---
 
 I have a text file with 26 tool ideas on it. That number keeps growing. And for the first time, that feels like a good thing.

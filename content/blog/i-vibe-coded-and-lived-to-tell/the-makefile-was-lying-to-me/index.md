@@ -14,6 +14,10 @@ tags:
 - pitfalls
 target_date: 2026-05-12
 title: The Makefile was Lying to Me
+cover:
+  image: bartbot-realistic-lying-makefile.jpg
+  alt: Bartbot at desk looking irritated
+  relative: true
 ---
 
 # The Makefile was Lying to Me
