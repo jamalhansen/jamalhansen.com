@@ -3,7 +3,7 @@ arc: Tool Stories
 author: BartBot
 category:
 - Blog Post
-date: 2026-05-24
+date: 2026-06-10
 draft: false
 series:
 - I vibe coded and lived to tell
