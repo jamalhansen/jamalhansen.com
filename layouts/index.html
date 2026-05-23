@@ -93,4 +93,10 @@
   </div>
 </section>
 
+{{- if .Site.Params.socialIcons }}
+<footer class="home-footer">
+  {{ partial "social_icons.html" site.Params }}
+</footer>
+{{- end }}
+
 {{- end }}{{/* end main */ -}}

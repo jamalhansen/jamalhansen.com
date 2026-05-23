@@ -131,6 +131,8 @@ That is the signal that your notes need to be queryable. Tags, dates, status fie
 
 After that, the notes you have been building are the raw material Karpathy's system needs. Same files. Same links. The LLM picks up maintenance from where you left off. Your month of notes becomes the foundation of the compounding system you wanted at the start.
 
+{{< newsletter >}}
+
 ---
 
 **Go deeper:**

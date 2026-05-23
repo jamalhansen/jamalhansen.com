@@ -35,12 +35,18 @@ cover:
 
 homeInfoParams:
   Title: "Hi, I'm Jamal Hansen"
-  Content: >
-    Technical deep dives into SQL, Python, and AI development.
-    I document what I learn building with data and language models.
+  Content: |
+    I write for developers who know one thing well and are learning the next one. SQL to Python. Python to AI. Local tools to production systems.
 
+    <br>
 
-    [Join Python developers learning SQL <span class="btn-subtext">— new tutorial every Monday</span>](https://jamalhansen.beehiiv.com)
+    **Start here:**
+
+    - [SQL for Python Developers](/series/sql-for-python-developers/)
+    - [Run AI Locally with Python](/blog/local-ai-stack-uv-ollama/)
+    - [Karpathy's LLM Knowledge Base Method](/blog/road-to-agentic-notes/)
+
+    [Get weekly writing on SQL, Python, and AI <span class="btn-subtext">— join the newsletter</span>](https://jamalhansen.beehiiv.com)
 
 socialIcons:
   - name: rss

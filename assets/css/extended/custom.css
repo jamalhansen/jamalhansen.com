@@ -564,7 +564,7 @@ code, kbd, pre, samp {
 
 /* Homepage Customization */
 .section-title {
-  margin: 2rem 0 1.5rem;
+  margin: 0.5rem 0 1.5rem;
   font-size: 2rem;
   font-weight: 800;
   border-bottom: 3px solid #10b981;
@@ -575,6 +575,7 @@ code, kbd, pre, samp {
 /* Tighten home hero bottom spacing */
 .home-info.first-entry {
   padding-bottom: 0;
+  margin-top: 12px;
 }
 
 .series-grid {
