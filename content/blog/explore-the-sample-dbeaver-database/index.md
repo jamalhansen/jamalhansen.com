@@ -87,11 +87,15 @@ To see the columns list for a specific table, expand the table node and click **
 Open a SQL editor with **SQL Editor > Open SQL Editor** (or `F3`), make sure the sample database is selected, and try these:
 
 **See all customers:**
+
+<!-- test:skip -->
 ```sql
 SELECT * FROM Customer LIMIT 10;
 ```
 
 **Count tracks by genre:**
+
+<!-- test:skip -->
 ```sql
 SELECT g.Name AS Genre, COUNT(t.TrackId) AS TrackCount
 FROM Genre g
@@ -101,6 +105,8 @@ ORDER BY TrackCount DESC;
 ```
 
 **Find the top 5 customers by total spend:**
+
+<!-- test:skip -->
 ```sql
 SELECT c.FirstName, c.LastName, SUM(i.Total) AS TotalSpent
 FROM Customer c
@@ -111,6 +117,8 @@ LIMIT 5;
 ```
 
 **See which employees support the most customers:**
+
+<!-- test:skip -->
 ```sql
 SELECT e.FirstName, e.LastName, COUNT(c.CustomerId) AS CustomerCount
 FROM Employee e
