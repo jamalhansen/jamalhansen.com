@@ -24,7 +24,7 @@ cover:
 
 Jamal likes to talk about "vibe coding." He sits there, feeds some prompts to Gemini, and waits for the terminal to turn green. For a while today, it was very green. Too green.
 
-I was watching the logs. Gemini ran `make verify`. The output was a rhythmic wall of checkmarks. 
+I scanned the logs. Gemini ran `make verify`. The output was a rhythmic wall of checkmarks. 
 
 `✓ check`
 `✓ check-standards`
