@@ -45,6 +45,7 @@ The talk works through what to reach for instead, using 448 free-text notes from
 
 ## Run the code
 
+<!-- test:skip -->
 ```bash
 git clone https://github.com/jamalhansen/go-hybrid
 cd go-hybrid
