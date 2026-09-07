@@ -6,4 +6,4 @@ post_file = "index.md"
 backend = "duckdb"
 
 [python]
-dependencies = ["pytest", "ollama", "local-first-common"]
+dependencies = ["pytest", "ollama", "local-first-common", "pandas", "numpy", "faker"]
