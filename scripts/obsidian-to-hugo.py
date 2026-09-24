@@ -3,12 +3,13 @@
 Convert Obsidian markdown to Hugo-compatible markdown with page bundle setup.
 Usage: python obsidian-to-hugo.py input.md post-slug [obsidian-vault-path]
 """
-import sys
 import re
 import shutil
+import sys
 import unicodedata
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
+
 
 def slugify(text):
     """
@@ -200,7 +201,8 @@ def main():
         # Extract title from first H1 or filename
         h1_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
         title = h1_match.group(1).strip() if h1_match else input_path.stem.replace('-', ' ').title()
-        fm = f'title: "{title}"\nslug: {slug}\ndate: {datetime.now().strftime("%Y-%m-%d")}\nauthor:\n  - Jamal Hansen\ndraft: true\ndescription: ""\ntags: []\ncategories: []\nseries: []\ncover:\n  image: ""\n  alt: ""\n  caption: ""\n  relative: true\nShowToc: true\nTocOpen: false'
+        today = datetime.now().strftime("%Y-%m-%d")  # noqa: DTZ005 - post date is the author's local calendar date, not UTC
+        fm = f'title: "{title}"\nslug: {slug}\ndate: {today}\nauthor:\n  - Jamal Hansen\ndraft: true\ndescription: ""\ntags: []\ncategories: []\nseries: []\ncover:\n  image: ""\n  alt: ""\n  caption: ""\n  relative: true\nShowToc: true\nTocOpen: false'
 
     converted_body = convert_body_syntax(body if has_fm else content)
     final_content = f"---\n{fm}\n---\n\n{converted_body}"

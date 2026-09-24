@@ -3,14 +3,14 @@
 Convert Obsidian finds to Hugo-compatible markdown page bundles.
 Usage: python finds-to-hugo.py input.md
 """
-import sys
-import re
 import json
+import re
+import sys
 import unicodedata
-import urllib.request
 import urllib.parse
-from pathlib import Path
+import urllib.request
 from datetime import datetime
+from pathlib import Path
 
 
 def slugify(text):
@@ -62,7 +62,7 @@ def fetch_oembed_html(platform, url):
         with urllib.request.urlopen(req, timeout=10) as resp:
             data = json.loads(resp.read())
             return data.get('html', '').strip()
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 - a best-effort network fetch (timeout, DNS, malformed JSON, ...); a failed embed shouldn't block publishing the find
         print(f"⚠️  oEmbed fetch failed for {platform}: {e}")
         return None
 
@@ -134,7 +134,7 @@ def main():
     else:
         if captured:
             print(f"⚠️  Invalid captured date '{captured}', defaulting to today")
-        date = datetime.now().strftime('%Y-%m-%d')
+        date = datetime.now().strftime('%Y-%m-%d')  # noqa: DTZ005 - post date is the author's local calendar date, not UTC
     description = extract_description_from_body(body)
 
     # Build Hugo frontmatter
@@ -160,7 +160,7 @@ def main():
         if embed_html:
             print(f"   ✓ Got embed HTML ({len(embed_html)} chars)")
         else:
-            print(f"   ⚠️  Falling back to client-side embed")
+            print("   ⚠️  Falling back to client-side embed")
 
     if source_url:
         fm_lines.append(f'source_url: "{yaml_str(source_url)}"')
@@ -191,7 +191,7 @@ def main():
     print(f"    Title:  {source_title}")
     print(f"    Date:   {date}")
     print(f"    Tags:   {', '.join(tags) if tags else '(none)'}")
-    print(f"\n🎉 Done!")
+    print("\n🎉 Done!")
 
 
 if __name__ == "__main__":

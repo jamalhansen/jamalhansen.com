@@ -1,5 +1,8 @@
-import duckdb
+import logging
+
 import pandas as pd
+
+logger = logging.getLogger(__name__)
 
 # Standard customers dataset used in Python/SQL comparison blocks
 customers = [
@@ -26,10 +29,15 @@ orders_df = pd.DataFrame(orders)
 customers_df['signup_date'] = pd.to_datetime(customers_df['signup_date'])
 orders_df['order_date'] = pd.to_datetime(orders_df['order_date'])
 
-# Inject them into DuckDB if we have a connection
-try:
-    if 'conn' in globals():
+# Inject them into DuckDB if we have a connection. This runs via exec() with
+# a single globals dict (blog-validate's PythonValidator), so `conn` isn't a
+# name ruff can see statically -- bind it through globals().get() instead of
+# referencing it directly, which also makes "no connection" an explicit case
+# rather than a bare except swallowing any failure.
+conn = globals().get("conn")
+if conn is not None:
+    try:
         conn.execute("CREATE TABLE IF NOT EXISTS customers AS SELECT * FROM customers_df")
         conn.execute("CREATE TABLE IF NOT EXISTS orders AS SELECT * FROM orders_df")
-except Exception:
-    pass
+    except Exception:
+        logger.exception("_global_data.py: failed to load customers/orders into DuckDB")
