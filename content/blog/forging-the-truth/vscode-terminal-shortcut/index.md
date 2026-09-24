@@ -28,6 +28,7 @@ tags:
 - integrated-terminal
 target_date: 2026-04-23
 title: The VS Code Terminal Shortcut
+description: One keystroke opens the VS Code terminal on every platform. That shortcut is the gap between what the AI said and knowing the code actually runs.
 ---
 
 ## The Veil

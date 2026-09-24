@@ -9,19 +9,12 @@ lastmod: ""
 tags:
   - tsql2sday
   - tsqltuesday
-categories:
-  - 
 series:
-  - cover:
 cover:
   image: "t-sql-tuesday-logo.jpg.webp"
   alt: ""
   caption: ""
   relative: true
-  credit:
-    name: "unsplash_user:"
-    username: "layout: post"
-    photo_id: "unsplash_name:"
 draft: false
 ShowToc: false
 ---

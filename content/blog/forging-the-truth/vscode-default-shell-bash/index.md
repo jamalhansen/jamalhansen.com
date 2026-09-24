@@ -28,6 +28,7 @@ tags:
 - shell-config
 target_date: 2026-05-07
 title: The Shell Switch
+description: Your AI writes Bash. If VS Code opens PowerShell, you translate every command by hand. Four clicks make Bash the default, and one command proves it worked.
 ---
 
 # The Shell Switch: Setting Your Native Tongue
