@@ -10,7 +10,7 @@ tags:
 categories:
 cover:
   image: "rona-lao-vrkDu_tpJJI-unsplash.jpg"
-  alt: ""
+  alt: "A solitary figure stands on a cliff edge overlooking a vast, hazy canyon at sunrise or sunset."
   caption: ""
   relative: true
   credit:
@@ -19,7 +19,7 @@ cover:
     photo_id: "person-sitting-on-rock-formation-during-golden-hour-vrkDu_tpJJI"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 unsplash_user: ronalao
 ---
 

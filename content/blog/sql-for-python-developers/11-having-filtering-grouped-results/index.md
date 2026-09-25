@@ -10,7 +10,7 @@ tags:
 categories:
 cover:
   image: "shun-idota-cekJ1XXx1Rk-unsplash.jpg"
-  alt: ""
+  alt: "A heavily congested urban street scene showing dense traffic among buildings in a major city center."
   caption: ""
   relative: true
   credit:
@@ -19,7 +19,7 @@ cover:
     photo_id: "cars-parked-on-the-side-of-the-road-during-daytime-cekJ1XXx1Rk"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 ---
 <!-- test:needs: customers, orders -->
 

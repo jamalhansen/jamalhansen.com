@@ -8,7 +8,7 @@ categories:
 category:
 - Blog Post
 cover:
-  alt: ''
+  alt: "Texas 2026 merchandise arranged on black surface, featuring a cloth with a logo, name plaque, and multiple commemorative patches."
   caption: ''
   image: pytexas-2026-day-one.jpg
   relative: true

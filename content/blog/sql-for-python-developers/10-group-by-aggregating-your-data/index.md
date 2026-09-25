@@ -9,8 +9,8 @@ tags:
   - sql
 categories:
 cover:
-  image: "alexander-schimmeck-2zJhA9RSkys-unsplash"
-  alt: ""
+  image: "alexander-schimmeck-2zJhA9RSkys-unsplash.jpg"
+  alt: "Vibrant market stall overflowing with brightly colored piles of fresh fruits and vegetables, including apples, tomatoes, and mangoes."
   caption: ""
   relative: true
   credit:
@@ -19,7 +19,7 @@ cover:
     photo_id: "red-and-green-apples-on-red-plastic-crate-2zJhA9RSkys"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 ---
 <!-- test:needs: customers, orders -->
 Last week, we learned to use [`WHERE`](https://jamalhansen.com/blog/where-filtering-your-data/) to efficiently return only the rows that we want from a database. But what if you want to summarize the data more efficiently?

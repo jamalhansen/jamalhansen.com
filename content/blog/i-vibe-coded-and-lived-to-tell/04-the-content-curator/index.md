@@ -11,10 +11,10 @@ tags:
   - local-first-ai
   - content-discovery
   - ai-tools
-categories: Local-First AI
+categories: ["Local-First AI"]
 cover:
   image: "BartBot-the-content-curator.jpg"
-  alt: ""
+  alt: "An android man in a suit sits at a desk surrounded by chaotic headlines about global crises and economic collapse."
   caption: ""
   relative: true
   credit:

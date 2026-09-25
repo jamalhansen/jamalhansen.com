@@ -9,7 +9,7 @@ tags:
   - sql
 categories:
 cover:
-  image: "sigmund-yXiLaaYwg_E-unsplash"
+  image: "sigmund-yXiLaaYwg_E-unsplash.jpg"
   alt: "A spoonful of letters with alphabet soup"
   caption: ""
   relative: true
@@ -19,7 +19,7 @@ cover:
     photo_id: "red-and-white-ceramic-bowl-with-silver-spoon-yXiLaaYwg_E"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 ---
 <!-- test:needs: customers, orders -->
 

@@ -10,7 +10,7 @@ tags:
 categories:
 cover:
   image: "erik-mclean-F5G4YTN5uEQ-unsplash.jpg"
-  alt: ""
+  alt: "A stocked refrigerator interior with drinks, snacks, and various groceries visible on multiple shelves."
   caption: ""
   relative: true
   credit:
@@ -19,7 +19,7 @@ cover:
     photo_id: "white-refrigerator-with-assorted-items-F5G4YTN5uEQ"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 layout: post
 ---
 <!-- test:needs: customers -->

@@ -10,7 +10,7 @@ tags:
 categories:
 cover:
   image: "mike-van-den-bos-jf1EomjlQi0-unsplash.jpg"
-  alt: ""
+  alt: "A dark screen displaying the text \"LOADING...\" above a white, rectangular progress bar."
   caption: ""
   relative: true
   credit:
@@ -19,7 +19,7 @@ cover:
     photo_id: "text-jf1EomjlQi0"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 unsplash_user: mike_van_den_bos
 ---
 <!-- test:needs: posts, users -->

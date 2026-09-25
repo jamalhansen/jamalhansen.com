@@ -18,7 +18,7 @@ categories:
 date: 2026-04-05
 cover:
   image: road-to-bright-sky.jpg
-  alt: ""
+  alt: "View of a wet highway under stormy clouds, showing a bright sunset glow and an exit sign on the right."
   caption: ""
 draft: false
 ---

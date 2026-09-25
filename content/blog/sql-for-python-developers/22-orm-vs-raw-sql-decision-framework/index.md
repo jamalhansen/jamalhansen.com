@@ -9,7 +9,7 @@ tags:
   - sql
 cover:
   image: "jens-lelie-u0vgcIOQG08-unsplash.jpg"
-  alt: ""
+  alt: "A split dirt path cuts through dense, green woods."
   caption: ""
   relative: true
   credit:
@@ -18,7 +18,7 @@ cover:
     photo_id: "two-roads-between-trees-u0vgcIOQG08"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 unsplash_user: madebyjens
 ---
 <!-- test:needs: customers, orders, salespeople, deals -->

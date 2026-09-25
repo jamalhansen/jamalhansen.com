@@ -1,12 +1,10 @@
 ---
-alt: 'The Shell Switch Set Bash as your default terminal in VS Code — terminal showing:
-  echo $SHELL'
 author:
 - Jamal Hansen
 category:
 - Blog Post
 cover:
-  alt: ''
+  alt: 'The Shell Switch Set Bash as your default terminal in VS Code — terminal showing: echo $SHELL'
   caption: ''
   image: 00b-vscode-default-shell-bash-image.jpg
   relative: true

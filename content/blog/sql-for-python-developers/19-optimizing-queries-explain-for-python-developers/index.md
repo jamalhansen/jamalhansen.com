@@ -10,7 +10,7 @@ tags:
 categories:
 cover:
   image: "florian-steciuk-F7Rl02ir0Gg-unsplash.jpg"
-  alt: ""
+  alt: "Long exposure photograph of light trails from vehicles moving on a dark highway under a starry night sky."
   caption: ""
   relative: true
   credit:
@@ -19,7 +19,7 @@ cover:
     photo_id: "time-lapse-photography-of-highway-F7Rl02ir0Gg"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 unsplash_user: flo_stk
 ---
 <!-- test:needs: customers, orders -->

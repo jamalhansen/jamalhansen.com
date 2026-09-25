@@ -10,7 +10,7 @@ tags:
 categories:
 cover:
   image: "ryno-marais-p5JcD-_13ek-unsplash.jpg"
-  alt: ""
+  alt: "A person uses a ruler to measure a plank of light-colored wood."
   caption: ""
   relative: true
   credit:
@@ -19,7 +19,7 @@ cover:
     photo_id: "person-in-white-shirt-holding-brown-wooden-table-p5JcD-_13ek"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 unsplash_user: ryno_marais
 ---
 <!-- test:needs: customers -->

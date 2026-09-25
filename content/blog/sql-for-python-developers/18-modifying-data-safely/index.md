@@ -10,7 +10,7 @@ tags:
 categories:
 cover:
   image: "edwin-hooper-TJ9rBJAAguQ-unsplash.jpg"
-  alt: ""
+  alt: "A weathered, rusty warning sign reading \"DANGER KEEP OUT\" hangs on a chain-link fence."
   caption: ""
   relative: true
   credit:
@@ -19,7 +19,7 @@ cover:
     photo_id: "red-and-white-stop-road-sign-TJ9rBJAAguQ?"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 unsplash_user: edwinhooper
 ---
 <!-- test:needs: customers, orders, vip_customers -->

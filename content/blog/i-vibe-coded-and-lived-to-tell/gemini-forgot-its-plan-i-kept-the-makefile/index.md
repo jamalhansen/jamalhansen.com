@@ -20,6 +20,7 @@ tags:
 target_date: 2026-04-23
 title: Gemini Forgot Its Plan. I Kept the Makefile.
 cover:
+  alt: "Abstract tech art featuring glowing orange branches and blue circuit networks against a dark background."
   image: gemini-forgot-plan.jpg
   relative: true
 ---

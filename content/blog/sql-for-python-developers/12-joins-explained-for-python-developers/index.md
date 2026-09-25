@@ -10,7 +10,7 @@ tags:
 categories:
 cover:
   image: "duy-pham-Cecb0_8Hx-o-unsplash.jpg"
-  alt: ""
+  alt: "Group of people standing on a pier overlooking the sea, with a large Ferris wheel structure visible in the background."
   caption: ""
   relative: true
   credit:
@@ -19,7 +19,7 @@ cover:
     photo_id: "people-holding-shoulders-sitting-on-wall-Cecb0_8Hx-o"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 ---
 <!-- test:needs: customers, orders -->
 So far in this series we have covered all the core SQL clauses: SELECT, FROM, WHERE, GROUP BY, HAVING, and ORDER BY. We can do quite a bit with those tools, but we have been working with a single table. SQL is the language of *relational* databases, and it is time to talk about the relational part.

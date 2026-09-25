@@ -1,12 +1,10 @@
 ---
-alt: 'The Secret Door A VS Code Terminal you can instantly toggle Open — terminal
-  showing: Ctrl + `'
 author:
 - Jamal Hansen
 category:
 - Blog Post
 cover:
-  alt: ''
+  alt: 'The Secret Door A VS Code Terminal you can instantly toggle Open — terminal showing: Ctrl + `'
   caption: ''
   image: 00a-vscode-terminal-shortcut-image.jpg
   relative: true

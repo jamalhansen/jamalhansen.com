@@ -10,7 +10,7 @@ tags:
 categories:
 cover:
   image: "jakub-zerdzicki-dEe2r9CmoAo-unsplash.jpg"
-  alt: ""
+  alt: "A hand uses a pencil to mark a detailed checklist on a clipboard, resting on a desk."
   caption: ""
   relative: true
   credit:
@@ -19,7 +19,7 @@ cover:
     photo_id: "someone-is-writing-on-a-tablet-with-a-stylus-dEe2r9CmoAo"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 unsplash_user: jakubzerdzicki
 ---
 <!-- test:needs: customers, orders -->

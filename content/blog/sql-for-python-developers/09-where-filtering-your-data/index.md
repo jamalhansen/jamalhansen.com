@@ -9,8 +9,8 @@ tags:
   - sql
 categories:
 cover:
-  image: "di-bella-coffee-Ko7PFAommGE-unsplash"
-  alt: ""
+  image: "di-bella-coffee-Ko7PFAommGE-unsplash.jpg"
+  alt: "Pour-over coffee dripper filled with grounds rests on a slatted wooden surface."
   caption: ""
   relative: true
   credit:
@@ -19,7 +19,7 @@ cover:
     photo_id: "shallow-focus-photo-coffee-decanter-Ko7PFAommGE"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 ---
 <!-- test:needs: customers -->
 We have come a long way in the past couple of months, working through the core SQL keywords. So far, we can [`SELECT` columns](https://jamalhansen.com/blog/select-choosing-your-columns/), specify [`FROM` where our data lives](https://jamalhansen.com/blog/from-where-your-data-lives/), and [`ORDER BY` to sort results](https://jamalhansen.com/blog/order-by-sorting-your-results/).

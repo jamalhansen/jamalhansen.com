@@ -15,7 +15,7 @@ cover:
 draft: false
 ShowToc: false
 TocOpen: false
-series: AWS Data Engineer Associate Certification
+series: [AWS Data Engineer Associate Certification]
 layout: post
 ---
 

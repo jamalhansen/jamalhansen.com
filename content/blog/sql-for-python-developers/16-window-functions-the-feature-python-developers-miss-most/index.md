@@ -10,7 +10,7 @@ tags:
 categories:
 cover:
   image: "r-mo-w-_iZqdviAo-unsplash.jpg"
-  alt: ""
+  alt: "View of snowy mountains and a calm bay seen through a large window frame under dramatic, cloudy skies."
   caption: ""
   relative: true
   credit:
@@ -19,7 +19,7 @@ cover:
     photo_id: "calm-body-of-water-near-brown-mountain-under-white-and-gray-sky-w-_iZqdviAo"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 ---
 <!-- test:needs: customers, orders -->
 This week, we are going to focus on window functions, which are very powerful data manipulation tools. It's something that you can do in Python, but in SQL, it is super simple and very powerful. We'll continue using the same `orders` and `customers` tables from [previous posts](https://jamalhansen.com/blog/where-filtering-your-data/) in our DuckDB sample database.

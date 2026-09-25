@@ -12,7 +12,7 @@ tags:
 series:
 cover:
   image: "t-sql-tuesday-logo.jpg.webp"
-  alt: ""
+  alt: "Graphic text reading \"T-SQL TUESDAY\" set against a geometric, segmented blue patterned background."
   caption: ""
   relative: true
 draft: false

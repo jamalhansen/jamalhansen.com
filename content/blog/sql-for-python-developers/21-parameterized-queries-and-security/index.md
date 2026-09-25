@@ -9,7 +9,7 @@ tags:
   - sql
 cover:
   image: "eyasu-etsub-_enXmoXudAk-unsplash.jpg"
-  alt: ""
+  alt: "Shattered glass frames a blurry, overcast outdoor landscape."
   caption: ""
   relative: true
   credit:
@@ -18,7 +18,7 @@ cover:
     photo_id: "a-broken-glass-window-with-a-field-in-the-background-_enXmoXudAk"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 unsplash_user: jphotography2012
 ---
 <!-- test:needs: customers -->

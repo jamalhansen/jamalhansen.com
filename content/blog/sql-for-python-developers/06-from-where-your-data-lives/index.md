@@ -10,7 +10,7 @@ tags:
 categories:
 cover:
   image: "lance-chang-h3pVxOIpnzk-unsplash.jpg"
-  alt: ""
+  alt: "A deep perspective view down a brightly lit warehouse aisle flanked by towering shelves of stored goods."
   caption: ""
   relative: true
   credit:
@@ -19,7 +19,7 @@ cover:
     photo_id: "a-large-warehouse-filled-with-lots-of-shelves-h3pVxOIpnzk"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 layout: post
 ---
 <!-- test:needs: customers -->

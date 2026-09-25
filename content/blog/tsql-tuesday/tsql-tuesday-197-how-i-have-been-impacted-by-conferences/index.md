@@ -14,7 +14,7 @@ series:
 slug: tsql-tuesday-197-how-i-have-been-impacted-by-conferences
 cover:
   image: "t-sql-tuesday-logo.jpg.webp"
-  alt: ""
+  alt: "T-SQL Tuesday text over a blue graphic featuring an abstract, patterned cylinder."
   caption: ""
   relative: true
 ---

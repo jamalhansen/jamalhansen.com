@@ -10,7 +10,7 @@ tags:
 categories:
 cover:
   image: "james-lee-lnIwKspeuTs-unsplash.jpg"
-  alt: ""
+  alt: "Deep-sky image showing a dense concentration of bright stars against a black background."
   caption: ""
   relative: true
   credit:
@@ -19,7 +19,7 @@ cover:
     photo_id: "stars-in-the-sky-during-night-time-lnIwKspeuTs"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 ---
 <!-- test:needs: customers, orders, vendors, stats -->
 This post is about nothing, or rather, it's about the unknown. By now, you've bumped into `NULL` several times. Let's finally make sense of it.

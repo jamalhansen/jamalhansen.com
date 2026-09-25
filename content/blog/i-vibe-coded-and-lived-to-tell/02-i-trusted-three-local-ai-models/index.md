@@ -5,7 +5,6 @@ tags:
   - local-ai
   - ollama
   - python
-  - 
 series:
   - "I vibe coded and lived to tell"
 Related:
@@ -19,7 +18,7 @@ lastmod: 2026-03-10
 newsletter_url: ""
 cover:
   image: "ricardo-viana--tYsPFKMm7g-unsplash.jpg"
-  alt: ""
+  alt: "A splatter of paint and paint supplies covers a white surface."
   caption: ""
   relative: true
   credit:

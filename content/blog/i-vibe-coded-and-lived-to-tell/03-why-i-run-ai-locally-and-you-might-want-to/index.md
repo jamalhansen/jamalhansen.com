@@ -5,7 +5,6 @@ tags:
   - local-ai
   - philosophy
   - ollama
-  - 
 series: 
   - "I vibe coded and lived to tell"
 title: Why I Run AI Locally (and You Might Want to)

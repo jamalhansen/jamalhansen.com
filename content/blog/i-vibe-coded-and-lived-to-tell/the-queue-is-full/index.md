@@ -21,6 +21,7 @@ tags:
 target_date: 2026-05-14
 title: 'The Queue Is Full: What I''m Building Next with Local-First AI'
 cover:
+  alt: "A glowing orange leaf beside a ring of circular nodes linked by network lines on a dark background."
   image: queue-is-full.jpg
   relative: true
 ---

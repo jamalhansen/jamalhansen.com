@@ -5,7 +5,7 @@ author:
 category:
 - Blog Post
 cover:
-  alt: ''
+  alt: "A retro-futuristic robot in a suit sits at a desk, looking at computer monitors displaying complex data and code."
   caption: ''
   image: bartbot-audit.jpg
   relative: true

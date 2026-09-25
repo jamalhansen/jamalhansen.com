@@ -10,7 +10,7 @@ tags:
 categories:
 cover:
   image: "lily-banse--YHSwy6uqvk-unsplash.jpg"
-  alt: ""
+  alt: "A rustic wooden table displays a meal with roasted meats, rice, and various dishes."
   caption: ""
   relative: true
   credit:
@@ -19,7 +19,7 @@ cover:
     photo_id: "cooked-dish-on-gray-bowl--YHSwy6uqvk"
 draft: false
 ShowToc: false
-series: "SQL for Python Developers"
+series: ["SQL for Python Developers"]
 unsplash_user: lvnatikk
 ---
 <!-- test:needs: customers, orders, salespeople, deals, newsletter_subscribers, events -->

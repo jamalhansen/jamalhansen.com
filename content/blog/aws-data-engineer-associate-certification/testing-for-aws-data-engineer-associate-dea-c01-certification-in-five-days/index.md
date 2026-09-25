@@ -6,7 +6,7 @@ date: 2025-05-04
 author:
   - Jamal Hansen
 draft: false
-series: AWS Data Engineer Associate Certification
+series: [AWS Data Engineer Associate Certification]
 tags: ["aws", "certification", "dea-c01", "anxiety", "preparation"]
 categories: ["certification"]
 description: As I approach the exam date for the AWS Data Engineer Associate Certification (DEA-C01) exam, I'm having second thoughts about my chances of passing after a poor practice test score.
