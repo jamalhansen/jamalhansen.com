@@ -1,0 +1,1025 @@
+{
+  "version": 1,
+  "posts": {
+    "03-generate-practice-data-with-faker": {
+      "08ebbcee78fb#1": {
+        "stdout": "   id               name  ... signup_date is_premium\n0   1       Allison Hill  ...  2024-12-01       True\n1   2      Lance Hoffman  ...  2025-05-30       True\n2   3       Tyler Rogers  ...  2025-10-20",
+        "digest": "ac372d86107c698b"
+      },
+      "2dd4e7884dfb#1": {
+        "stdout": "{'id': 1, 'name': 'Allison Hill', 'email': 'donaldgarcia@example.net', 'city': 'New Roberttown', 'signup_date': datetime.date(2024, 12, 1), 'is_premium': True}\n{'id': 2, 'name': 'Lance Hoffman', 'emai",
+        "digest": "75a26d08d8814ded"
+      },
+      "a1e0d908d3a4#1": {
+        "stdout": "   id               name  ... signup_date is_premium\n0   1       Allison Hill  ...  2024-12-01       True\n1   2      Lance Hoffman  ...  2025-05-30       True\n2   3       Tyler Rogers  ...  2025-10-20",
+        "digest": "157ec5d6afd5044f"
+      }
+    },
+    "04-dont-forget-to-save-persisting-your-duckdb-database": {
+      "603ec9eeb253#1": {
+        "stdout": "   id           name  ... signup_date is_premium\n0   1   Allison Hill  ...  2024-12-01       True\n1   2  Lance Hoffman  ...  2025-05-30       True\n2   3   Tyler Rogers  ...  2025-10-20      False\n3   ",
+        "digest": "24fd1e47792467c9"
+      },
+      "a98b6611cd8b#1": {
+        "stdout": "Created 500 customers!\n   id           name  ... signup_date is_premium\n0   1   Allison Hill  ...  2024-12-01       True\n1   2  Lance Hoffman  ...  2025-05-30       True\n2   3   Tyler Rogers  ...  202",
+        "digest": "c3cb34a140d521a5"
+      },
+      "eba0f600f610#1": {
+        "stdout": "   id   name\n0   1  Alice\n",
+        "digest": "c6bbf8090c332402"
+      }
+    },
+    "05-sql-thinks-in-sets-not-loops": {
+      "ae13901d3521#1": {
+        "columns": [
+          "name"
+        ],
+        "rows": 3,
+        "digest": "9fa67cccd50b0ed0"
+      }
+    },
+    "06-from-where-your-data-lives": {
+      "02124d06f6e3#1": {
+        "columns": [
+          "name"
+        ],
+        "rows": 5,
+        "digest": "05dd69aa3e0d47ab"
+      },
+      "2ff2fe8e92ea#1": {
+        "stdout": "Alice\nBob\nCharlie\nDavid\nEve\n",
+        "digest": "991dac23a4ff44b9"
+      }
+    },
+    "07-select-choosing-your-columns": {
+      "2fabe5438d2e#1": {
+        "columns": [
+          "customer_name",
+          "contact"
+        ],
+        "rows": 5,
+        "digest": "6f7319c1980d4103"
+      },
+      "783cbb02ac88#1": {
+        "columns": [
+          "name",
+          "email"
+        ],
+        "rows": 5,
+        "digest": "6f7319c1980d4103"
+      }
+    },
+    "08-order-by-sorting-your-results": {
+      "399480ec5ef4#1": {
+        "columns": [
+          "name",
+          "signup_date"
+        ],
+        "rows": 5,
+        "digest": "ab8458b330ab2ed5"
+      },
+      "891ebea84355#1": {
+        "columns": [
+          "name",
+          "signup_date"
+        ],
+        "rows": 5,
+        "digest": "ab8458b330ab2ed5"
+      },
+      "94008ae72435#1": {
+        "columns": [
+          "name",
+          "city"
+        ],
+        "rows": 5,
+        "digest": "99bb92baf6961cdf"
+      },
+      "a7c21338b49a#1": {
+        "columns": [
+          "name",
+          "signup_date"
+        ],
+        "rows": 5,
+        "digest": "ab8458b330ab2ed5"
+      },
+      "e790824a8ef7#1": {
+        "columns": [
+          "name",
+          "city",
+          "signup_date"
+        ],
+        "rows": 5,
+        "digest": "e816ccf34beb9419"
+      }
+    },
+    "09-where-filtering-your-data": {
+      "0c3a265c4e93#1": {
+        "columns": [
+          "name",
+          "city"
+        ],
+        "rows": 1,
+        "digest": "04e43ed736574f7c"
+      },
+      "49c248ca3a54#1": {
+        "columns": [
+          "name",
+          "signup_date"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "4ae8874de013#1": {
+        "columns": [
+          "name",
+          "city"
+        ],
+        "rows": 1,
+        "digest": "04e43ed736574f7c"
+      },
+      "5f59ef5f6522#1": {
+        "columns": [
+          "name",
+          "signup_date"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "7fcf80407c48#1": {
+        "columns": [
+          "id",
+          "name",
+          "email",
+          "city",
+          "signup_date",
+          "is_premium"
+        ],
+        "rows": 3,
+        "digest": "d2b49b56cfbe366c"
+      },
+      "8d8387850273#1": {
+        "columns": [
+          "name",
+          "city",
+          "is_premium"
+        ],
+        "rows": 1,
+        "digest": "4460c6f220f68175"
+      },
+      "a6d3c939d92c#1": {
+        "columns": [
+          "name",
+          "city"
+        ],
+        "rows": 1,
+        "digest": "04e43ed736574f7c"
+      },
+      "c8077d705df1#1": {
+        "columns": [
+          "name",
+          "city"
+        ],
+        "rows": 1,
+        "digest": "04e43ed736574f7c"
+      },
+      "fbd6a0abb81f#1": {
+        "columns": [
+          "name",
+          "city"
+        ],
+        "rows": 4,
+        "digest": "a59a6ec3cea565fa"
+      },
+      "ff7351ebabcf#1": {
+        "columns": [
+          "name",
+          "city",
+          "is_premium"
+        ],
+        "rows": 1,
+        "digest": "4460c6f220f68175"
+      }
+    },
+    "10-group-by-aggregating-your-data": {
+      "00daeba9fa41#1": {
+        "columns": [
+          "city",
+          "total",
+          "first_signup",
+          "last_signup"
+        ],
+        "rows": 5,
+        "digest": "cd15ed4ee479b0dc"
+      },
+      "2ba44e1dfa53#1": {
+        "columns": [
+          "city"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "486becedc553#1": {
+        "columns": [
+          "city",
+          "customer_count"
+        ],
+        "rows": 5,
+        "digest": "98b622e46414b3ba"
+      },
+      "6296fa6b6d05#1": {
+        "columns": [
+          "city",
+          "premium_count"
+        ],
+        "rows": 3,
+        "digest": "9cfe69768af1df04"
+      },
+      "909d19d81380#1": {
+        "columns": [
+          "city",
+          "is_premium",
+          "count"
+        ],
+        "rows": 5,
+        "digest": "d366368fc93f377b"
+      },
+      "9d8586f9b2c1#1": {
+        "columns": [
+          "city",
+          "customer_count"
+        ],
+        "rows": 5,
+        "digest": "98b622e46414b3ba"
+      },
+      "be5b1a2d0ff0#1": {
+        "columns": [
+          "city"
+        ],
+        "rows": 5,
+        "digest": "66fd49e1d17fb51f"
+      },
+      "e9aadd2acbf6#1": {
+        "columns": [
+          "customer_count"
+        ],
+        "rows": 1,
+        "digest": "d2e5afa36797b1af"
+      },
+      "ed01d4d0b0a9#1": {
+        "columns": [
+          "city",
+          "customer_count"
+        ],
+        "rows": 5,
+        "digest": "98b622e46414b3ba"
+      }
+    },
+    "11-having-filtering-grouped-results": {
+      "14477debfa90#1": {
+        "columns": [
+          "city",
+          "premium_count"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "949b27f91c9e#1": {
+        "columns": [
+          "city",
+          "customer_count"
+        ],
+        "rows": 5,
+        "digest": "98b622e46414b3ba"
+      },
+      "bd5d91819212#1": {
+        "columns": [
+          "city",
+          "customer_count"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "c8eaa86c2136#1": {
+        "columns": [
+          "city",
+          "customer_count"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "f7bc3898342f#1": {
+        "columns": [
+          "city",
+          "customer_count"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      }
+    },
+    "12-joins-explained-for-python-developers": {
+      "3dc1ea0fccbc#1": {
+        "columns": [
+          "name",
+          "order_count",
+          "total_spent"
+        ],
+        "rows": 5,
+        "digest": "c211dd67acced31c"
+      },
+      "9658c27fc777#1": {
+        "columns": [
+          "name",
+          "product",
+          "amount"
+        ],
+        "rows": 14,
+        "digest": "7cdc4c1436be895b"
+      },
+      "98db98fe1722#1": {
+        "columns": [
+          "id",
+          "customer_id",
+          "product",
+          "amount",
+          "order_date"
+        ],
+        "rows": 5,
+        "digest": "c272b43cfb930add"
+      },
+      "9d3386a66302#1": {
+        "columns": [
+          "name",
+          "product"
+        ],
+        "rows": 14,
+        "digest": "8bfc8b78f0a846e2"
+      },
+      "bc4e2b91163b#1": {
+        "columns": [
+          "name",
+          "product"
+        ],
+        "rows": 15,
+        "digest": "1997e568da21175f"
+      },
+      "d04e42a2b55d#1": {
+        "columns": [
+          "name",
+          "product"
+        ],
+        "rows": 14,
+        "digest": "8bfc8b78f0a846e2"
+      },
+      "f631a2ff18f6#1": {
+        "columns": [
+          "name",
+          "email"
+        ],
+        "rows": 1,
+        "digest": "d99e94e940f17b2c"
+      }
+    },
+    "13-subqueries-when-sql-needs-helper-functions": {
+      "9682310f6365#1": {
+        "columns": [
+          "city",
+          "avg_orders"
+        ],
+        "rows": 2,
+        "digest": "b918175db83ecee4"
+      },
+      "9a34776155c8#1": {
+        "columns": [
+          "name",
+          "order_count"
+        ],
+        "rows": 5,
+        "digest": "da6a600ff020858a"
+      },
+      "b2a60c39ad2b#1": {
+        "columns": [
+          "id",
+          "customer_id",
+          "product",
+          "amount",
+          "order_date"
+        ],
+        "rows": 5,
+        "digest": "3bf83117219899aa"
+      },
+      "bbec924eb823#1": {
+        "columns": [
+          "id",
+          "name",
+          "email",
+          "city",
+          "signup_date",
+          "is_premium"
+        ],
+        "rows": 2,
+        "digest": "951a8e46d765bbd5"
+      },
+      "ca2a15a69527#1": {
+        "columns": [
+          "id",
+          "customer_id",
+          "product",
+          "amount",
+          "order_date"
+        ],
+        "rows": 6,
+        "digest": "c139f2422fab49d8"
+      },
+      "cd2d7ca17940#1": {
+        "columns": [
+          "city",
+          "customer_count"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "da62c53d95c6#1": {
+        "columns": [
+          "id",
+          "customer_id",
+          "product",
+          "amount",
+          "order_date"
+        ],
+        "rows": 5,
+        "digest": "3bf83117219899aa"
+      },
+      "e4e6c3fabaf1#1": {
+        "columns": [
+          "name"
+        ],
+        "rows": 4,
+        "digest": "3bdd7dbc36896c1d"
+      }
+    },
+    "14-ctes-making-your-sql-readable": {
+      "248c2ffcc6ba#1": {
+        "columns": [
+          "city",
+          "order_count"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "52a046b79c1b#1": {
+        "columns": [
+          "name",
+          "total_spent"
+        ],
+        "rows": 1,
+        "digest": "b9f34dae99900842"
+      },
+      "9c600d2b357e#1": {
+        "columns": [
+          "city",
+          "order_count"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "e7a442ba07de#1": {
+        "columns": [
+          "name",
+          "city",
+          "order_count",
+          "total_spent"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      }
+    },
+    "15-null-the-value-that-isnt": {
+      "06bd16f2712b#1": {
+        "columns": [
+          "id",
+          "name",
+          "email",
+          "city",
+          "signup_date",
+          "is_premium",
+          "middle_name",
+          "nickname",
+          "phone",
+          "state",
+          "status"
+        ],
+        "rows": 4,
+        "digest": "13dcfdd36643cfc7"
+      },
+      "0a4e263eabd2#1": {
+        "columns": [
+          "id",
+          "name",
+          "email",
+          "city",
+          "signup_date",
+          "is_premium",
+          "middle_name",
+          "nickname",
+          "phone",
+          "state",
+          "status"
+        ],
+        "rows": 5,
+        "digest": "7f259703351ec66d"
+      },
+      "4c049f0f2bd5#1": {
+        "columns": [
+          "average"
+        ],
+        "rows": 3,
+        "digest": "ffbcfbac09fd0fb1"
+      },
+      "50b776d1ad8d#1": {
+        "columns": [
+          "Success"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "5468faeaf9e8#1": {
+        "columns": [
+          "state",
+          "count_star()"
+        ],
+        "rows": 1,
+        "digest": "f66ac8441c6362c4"
+      },
+      "6c9d03849844#1": {
+        "columns": [
+          "id",
+          "name",
+          "email",
+          "city",
+          "signup_date",
+          "is_premium",
+          "middle_name",
+          "nickname",
+          "phone",
+          "state",
+          "status"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "77c729582132#1": {
+        "columns": [
+          "status"
+        ],
+        "rows": 5,
+        "digest": "971914ced5988c3e"
+      },
+      "8aab3944161e#1": {
+        "columns": [
+          "id",
+          "name",
+          "email",
+          "city",
+          "signup_date",
+          "is_premium",
+          "middle_name",
+          "nickname",
+          "phone",
+          "state",
+          "status"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "8d7ddc3664ca#1": {
+        "stdout": "It's None\nTrue\n",
+        "digest": "d329bbe1aa34d6d8"
+      },
+      "b91738d9d265#1": {
+        "columns": [
+          "id",
+          "name",
+          "email",
+          "city",
+          "signup_date",
+          "is_premium",
+          "middle_name",
+          "nickname",
+          "phone",
+          "state",
+          "status"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "ba837f20063b#1": {
+        "columns": [
+          "name",
+          "middle_name",
+          "nickname",
+          "phone",
+          "state",
+          "status"
+        ],
+        "rows": 5,
+        "digest": "f845bc90c6e5d138"
+      },
+      "d92262b53dda#1": {
+        "columns": [
+          "average"
+        ],
+        "rows": 3,
+        "digest": "78b4c241acd5e66e"
+      },
+      "e2338a967159#1": {
+        "columns": [
+          "middle_name"
+        ],
+        "rows": 5,
+        "digest": "a79de25030d7dcb6"
+      },
+      "ed45f2f397c7#1": {
+        "columns": [
+          "total_rows",
+          "has_middle"
+        ],
+        "rows": 1,
+        "digest": "595bb51181494e77"
+      },
+      "f85abe4ab1ee#1": {
+        "columns": [
+          "display_name"
+        ],
+        "rows": 5,
+        "digest": "05dd69aa3e0d47ab"
+      },
+      "fa5f444cbc91#1": {
+        "columns": [
+          "name"
+        ],
+        "rows": 1,
+        "digest": "b36f397932172696"
+      },
+      "fabf17c6d22c#1": {
+        "columns": [
+          "name",
+          "order_date"
+        ],
+        "rows": 15,
+        "digest": "cc5399ca14c3e602"
+      },
+      "fd65ed2d69f0#1": {
+        "columns": [
+          "name"
+        ],
+        "rows": 15,
+        "digest": "f0ee03e3f94e1a71"
+      }
+    },
+    "16-window-functions-the-feature-python-developers-miss-most": {
+      "1f69aa2bb9a2#1": {
+        "columns": [
+          "id",
+          "customer_id",
+          "product",
+          "amount",
+          "order_date",
+          "running_total",
+          "rank"
+        ],
+        "rows": 14,
+        "digest": "2aef7b7752c32e4f"
+      },
+      "2d2ff19e318a#1": {
+        "columns": [
+          "customer_id",
+          "order_date",
+          "amount",
+          "running_total",
+          "customer_avg"
+        ],
+        "rows": 14,
+        "digest": "9693684b0362332f"
+      },
+      "3cf4b6c8f53e#1": {
+        "columns": [
+          "name",
+          "city",
+          "signup_order"
+        ],
+        "rows": 5,
+        "digest": "17abc2dec699d900"
+      },
+      "414fa86181a6#1": {
+        "columns": [
+          "order_date",
+          "amount",
+          "prev_amount",
+          "change"
+        ],
+        "rows": 14,
+        "digest": "06941fed223bd8fa"
+      },
+      "64beb8d2b283#1": {
+        "columns": [
+          "customer_id",
+          "order_date",
+          "amount",
+          "prev_amount",
+          "next_amount"
+        ],
+        "rows": 14,
+        "digest": "3da75553a4860173"
+      },
+      "b10d52c89a40#1": {
+        "columns": [
+          "id",
+          "customer_id",
+          "product",
+          "amount",
+          "order_date",
+          "rn"
+        ],
+        "rows": 8,
+        "digest": "3fdd2a3606c4a47b"
+      },
+      "e96ee613fa9c#1": {
+        "columns": [
+          "customer_id",
+          "amount",
+          "rank",
+          "dense_rank"
+        ],
+        "rows": 14,
+        "digest": "f08671d6da30cb91"
+      },
+      "f3ddee19f67b#1": {
+        "columns": [
+          "customer_id",
+          "total"
+        ],
+        "rows": 4,
+        "digest": "c128dacdbf8ece59"
+      }
+    },
+    "17-creating-tables-ddl-for-python-devs": {
+      "8591f780e1f6#1": {
+        "columns": [
+          "Count"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "d1f6049cbe19#1": {
+        "columns": [
+          "Success"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "f66a3d7ff634#1": {
+        "columns": [
+          "Success"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "fa9b0be02f06#1": {
+        "columns": [
+          "Count"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      }
+    },
+    "18-modifying-data-safely": {
+      "2a750d1c2080#1": {
+        "columns": [
+          "Count"
+        ],
+        "rows": 1,
+        "digest": "daf90b19d7b3dbc3"
+      },
+      "2db35aa37c40#1": {
+        "columns": [
+          "Success"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "320796cdae21#1": {
+        "columns": [
+          "id",
+          "name",
+          "city",
+          "is_premium"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "334974b665ae#1": {
+        "columns": [
+          "Count"
+        ],
+        "rows": 1,
+        "digest": "daf90b19d7b3dbc3"
+      },
+      "353c6e5e340f#1": {
+        "columns": [
+          "Count"
+        ],
+        "rows": 1,
+        "digest": "daf90b19d7b3dbc3"
+      },
+      "a196b4cc2ae7#1": {
+        "columns": [
+          "Count"
+        ],
+        "rows": 1,
+        "digest": "daf90b19d7b3dbc3"
+      },
+      "a7ba20fdbad3#1": {
+        "columns": [
+          "Count"
+        ],
+        "rows": 1,
+        "digest": "b526e39202fd2555"
+      },
+      "b79e418f66dc#1": {
+        "columns": [
+          "Count"
+        ],
+        "rows": 1,
+        "digest": "daf90b19d7b3dbc3"
+      },
+      "b9cf209bd62d#1": {
+        "columns": [
+          "id",
+          "name",
+          "email",
+          "city",
+          "signup_date",
+          "is_premium"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "c6c11019d024#1": {
+        "columns": [
+          "Count"
+        ],
+        "rows": 1,
+        "digest": "d2e5afa36797b1af"
+      },
+      "c7717d2195d8#1": {
+        "columns": [
+          "Count"
+        ],
+        "rows": 1,
+        "digest": "aae5d0be4cd1cd0a"
+      },
+      "d3cb117cae45#1": {
+        "columns": [
+          "Count"
+        ],
+        "rows": 1,
+        "digest": "daf90b19d7b3dbc3"
+      },
+      "de9e77b26183#1": {
+        "columns": [
+          "count_star()"
+        ],
+        "rows": 1,
+        "digest": "1daaab3c4392b190"
+      },
+      "e4b84bbace13#1": {
+        "columns": [
+          "id",
+          "name",
+          "email",
+          "city",
+          "signup_date",
+          "is_premium",
+          "deleted_at"
+        ],
+        "rows": 3,
+        "digest": "6fce537c29ccbc1e"
+      }
+    },
+    "19-optimizing-queries-explain-for-python-developers": {
+      "52ab90c82214#1": {
+        "columns": [
+          "explain_key",
+          "explain_value"
+        ],
+        "rows": 1,
+        "digest": "2775422c3d59523a"
+      }
+    },
+    "20-python-duckdb-real-etl-patterns": {
+      "69595dc2875a#1": {
+        "stdout": "            name              email  post_count\n0  Alice Johnson  alice@example.com           2\n1      Bob Smith    bob@example.com           2\n2    Carol White  carol@example.com           1\n        ",
+        "digest": "e24848cabcfc9986"
+      }
+    },
+    "21-parameterized-queries-and-security": {
+      "882eb6e3efc0#1": {
+        "columns": [
+          "Success"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      }
+    },
+    "22-orm-vs-raw-sql-decision-framework": {
+      "97669a09a9aa#1": {
+        "columns": [
+          "name",
+          "region",
+          "deals",
+          "total_revenue",
+          "avg_deal_size",
+          "region_rank"
+        ],
+        "rows": 3,
+        "digest": "bf2207430f3bf367"
+      },
+      "b08dfa550096#1": {
+        "columns": [
+          "customer_id",
+          "month",
+          "monthly_total",
+          "prev_month"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "f72e3fa48d9e#1": {
+        "columns": [
+          "city",
+          "customers",
+          "premium_customers",
+          "premium_pct"
+        ],
+        "rows": 5,
+        "digest": "81dedb1b0e2e86d5"
+      }
+    },
+    "23-testing-sql-code": {
+      "beda11a12495#1": {
+        "columns": [
+          "name",
+          "total_spent"
+        ],
+        "rows": 1,
+        "digest": "b9f34dae99900842"
+      }
+    },
+    "24-advanced-sql-topics-sampler": {
+      "8a6eb92eaa7e#1": {
+        "columns": [
+          "name",
+          "city"
+        ],
+        "rows": 2,
+        "digest": "a82ea820ff2f03fd"
+      },
+      "9a9d34238a85#1": {
+        "columns": [
+          "upper_name",
+          "lower_email",
+          "email_domain",
+          "name_length",
+          "clean_city"
+        ],
+        "rows": 5,
+        "digest": "4605341bc561e5c1"
+      },
+      "b6995c720250#1": {
+        "columns": [
+          "date"
+        ],
+        "rows": 31,
+        "digest": "ebc73850ef65cf1c"
+      },
+      "b83e4d8b0b84#1": {
+        "columns": [
+          "order_date",
+          "month",
+          "week_ago",
+          "day_of_week"
+        ],
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c"
+      },
+      "fffab3705337#1": {
+        "columns": [
+          "name",
+          "customer_tier"
+        ],
+        "rows": 5,
+        "digest": "1c35f4a4606c77e7"
+      }
+    }
+  }
+}
