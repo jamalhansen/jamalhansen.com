@@ -17,13 +17,20 @@ The site will be available at `http://localhost:1313`.
 
 ## Writing posts
 
-Posts are written in Obsidian and converted to Hugo page bundles using the conversion script. See [scripts/README.md](scripts/README.md) for the full workflow.
+Posts are written in the BrainSync vault (`blog/series/<series>/posts/...`) and published with
+[obsidian-hugo-bridge](https://github.com/jamalhansen/obsidian-hugo-bridge):
 
 ```bash
-./scripts/new-post jamalhansen.com/_drafts/my-post.md my-post-slug
+make preview POST=blog/series/<series>/posts/<post>/<note>.md   # draft render in the real theme
+make publish POST=blog/series/<series>/posts/<post>/<note>.md   # write the page bundle
+make find FIND=_finds/<find>.md
+make drift                                                      # posts whose vault note and live copy disagree
 ```
 
-Set `draft: false` in the frontmatter when ready to publish, then commit and push to trigger a deploy.
+The note's `status` decides visibility: `published` goes live, anything else is a draft. A post
+already on the site is updated in place; if the live copy was edited after publishing, `make publish`
+stops and shows the diff (backport the edit to the note, or `ARGS=--overwrite`). After a live
+publish the note gets `published_date` and `canonical_url` filled in. Then commit and push to deploy.
 
 ## Deployment
 
