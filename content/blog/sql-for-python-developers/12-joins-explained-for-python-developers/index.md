@@ -195,6 +195,9 @@ FROM
 	customers c LEFT JOIN 
 	orders o ON c.id = o.customer_id
 ```
+<!-- test:check:sql SELECT COUNT(DISTINCT name) = (SELECT COUNT(DISTINCT name) FROM customers) FROM (SELECT c.name, o.product FROM customers c LEFT JOIN orders o ON c.id = o.customer_id) -->
+<!-- test:check:sql SELECT COUNT(*) > 0 AND bool_and(product IS NULL) FROM (SELECT c.name, o.product FROM customers c LEFT JOIN orders o ON c.id = o.customer_id) WHERE name IN (SELECT name FROM customers WHERE id NOT IN (SELECT customer_id FROM orders WHERE customer_id IS NOT NULL)) -->
+
 
 <!-- test:check:sql SELECT COUNT(*) = 15 FROM customers c LEFT JOIN orders o ON c.id = o.customer_id -->
 

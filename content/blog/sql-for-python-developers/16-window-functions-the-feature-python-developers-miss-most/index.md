@@ -143,6 +143,9 @@ WITH ranked AS (
 )
 SELECT * FROM ranked WHERE rn <= 3
 ```
+<!-- test:check:sql SELECT bool_and(n = LEAST(3, total)) FROM (SELECT customer_id, COUNT(*) n FROM (WITH ranked AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY amount DESC) as rn FROM orders) SELECT * FROM ranked WHERE rn <= 3) GROUP BY customer_id) JOIN (SELECT customer_id, COUNT(*) total FROM orders GROUP BY customer_id) USING (customer_id) -->
+<!-- test:check:sql SELECT COUNT(*) = 0 FROM (WITH ranked AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY amount DESC) as rn FROM orders) SELECT * FROM ranked WHERE rn <= 3) t WHERE (SELECT COUNT(*) FROM orders o WHERE o.customer_id = t.customer_id AND o.amount > t.amount) >= 3 -->
+
 
 ### Change Over Time
 

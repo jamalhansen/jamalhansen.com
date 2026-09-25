@@ -204,6 +204,8 @@ WHERE city NOT IN (
 	FROM vendors
 	);
 ```
+<!-- test:check:sql SELECT (SELECT COUNT(*) FROM vendors WHERE headquarters_city IS NULL) > 0 AND (SELECT COUNT(*) FROM customers WHERE city NOT IN (SELECT headquarters_city FROM vendors)) = 0 -->
+
 
 If `headquarters_city` is NULL for even one vendor, this entire query returns nothing. Why? Because `city NOT IN ('Portland', 'Seattle', NULL)` asks "is city not equal to 'Portland' AND not equal to 'Seattle' AND not equal to NULL?" That last comparison evaluates to NULL, which makes the whole AND chain NULL, which means no rows pass the filter.
 
@@ -222,6 +224,8 @@ WHERE NOT EXISTS (
     SELECT 1 FROM vendors v WHERE v.headquarters_city = c.city
 );
 ```
+<!-- test:check:sql SELECT (SELECT COUNT(*) FROM customers WHERE city NOT IN (SELECT headquarters_city FROM vendors WHERE headquarters_city IS NOT NULL)) = (SELECT COUNT(*) FROM customers c WHERE NOT EXISTS (SELECT 1 FROM vendors v WHERE v.headquarters_city = c.city)) AND (SELECT COUNT(*) FROM customers c WHERE NOT EXISTS (SELECT 1 FROM vendors v WHERE v.headquarters_city = c.city)) > 0 -->
+
 
 ## Your NULL Toolkit
 
@@ -251,6 +255,8 @@ This SQL will return the nickname if present, otherwise the customer's name. If 
 ```sql
 SELECT COALESCE(nickname, name, 'Unknown') as display_name FROM customers;
 ```
+<!-- test:check:sql SELECT COUNT(*) = 0 FROM (SELECT COALESCE(nickname, name, 'Unknown') AS d FROM customers) WHERE d IS NULL -->
+
 
 In Python terms, `COALESCE` is like `value if value is not None else default`, but it can chain through multiple fallbacks.
 
@@ -267,6 +273,8 @@ Where this really shines is in preventing division by zero errors.
 ```sql
 SELECT total / NULLIF(count, 0) as average FROM stats;
 ```
+<!-- test:check:sql SELECT COUNT(*) > 0 AND bool_and(average IS NULL) FROM (SELECT total / NULLIF(count, 0) AS average, count FROM stats) WHERE count = 0 -->
+
 
 Without `NULLIF`, dividing by zero throws an error. With it, you get a NULL that you can handle with `COALESCE` if you need a default value. They work well together.
 
@@ -274,6 +282,8 @@ Without `NULLIF`, dividing by zero throws an error. With it, you get a NULL that
 SELECT COALESCE(total / NULLIF(count, 0), 0) as average FROM stats;
 -- Returns 0 instead of NULL when count is 0
 ```
+<!-- test:check:sql SELECT COUNT(*) > 0 AND bool_and(average = 0) FROM (SELECT COALESCE(total / NULLIF(count, 0), 0) AS average, count FROM stats) WHERE count = 0 -->
+
 
 ## Try It Yourself
 
