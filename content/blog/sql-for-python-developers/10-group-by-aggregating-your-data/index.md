@@ -1,26 +1,28 @@
 ---
+title: 'GROUP BY: Aggregating Your Data'
 slug: group-by-aggregating-your-data
-title: "GROUP BY: Aggregating Your Data"
+date: '2026-03-09'
 description: GROUP BY creates buckets and counts them. It's like Python's `collections.Counter` or pandas `groupby()`. Learn COUNT, SUM, AVG, MIN, and MAX.
 author:
-  - Jamal Hansen
-date: 2026-03-09
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "alexander-schimmeck-2zJhA9RSkys-unsplash.jpg"
-  alt: "Vibrant market stall overflowing with brightly colored piles of fresh fruits and vegetables, including apples, tomatoes, and mangoes."
-  caption: ""
+  image: alexander-schimmeck-2zJhA9RSkys-unsplash.jpg
+  alt: Vibrant market stall overflowing with brightly colored piles of fresh fruits and vegetables, including apples, tomatoes, and mangoes.
+  caption: ''
   relative: true
   credit:
-    name: "Alexander Schimmeck"
-    username: "alschim"
-    photo_id: "red-and-green-apples-on-red-plastic-crate-2zJhA9RSkys"
+    name: Alexander Schimmeck
+    username: alschim
+    photo_id: red-and-green-apples-on-red-plastic-crate-2zJhA9RSkys
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
+TocOpen: false
 ---
+
 <!-- test:needs: customers, orders -->
 Last week, we learned to use [`WHERE`](https://jamalhansen.com/blog/where-filtering-your-data/) to efficiently return only the rows that we want from a database. But what if you want to summarize the data more efficiently?
 
@@ -56,6 +58,12 @@ from collections import Counter
 city_counts = Counter(c['city'] for c in customers)
 ```
 
+<!-- test:check:python
+assert city_counts['Denver'] == 2
+assert city_counts['Austin'] == 2
+assert city_counts['Seattle'] == 1
+-->
+
 Here is a manual grouping
 ```python
 city_counts = {}
@@ -63,6 +71,10 @@ for c in customers:
     city = c['city']
     city_counts[city] = city_counts.get(city, 0) + 1
 ```
+
+<!-- test:check:python
+assert city_counts == {'Denver': 2, 'Austin': 2, 'Seattle': 1}
+-->
 
 and Pandas
 ```python
@@ -131,6 +143,8 @@ SELECT COUNT(*) as customer_count
 FROM customers
 ```
 
+<!-- test:check:sql SELECT COUNT(*) = 5 FROM customers -->
+
 You can also return the count of customers per city like we saw before. 
 
 ```sql
@@ -138,6 +152,8 @@ SELECT city, COUNT(*) as customer_count
 FROM customers
 GROUP BY city
 ```
+
+<!-- test:check:sql SELECT COUNT(DISTINCT city) = 5 FROM customers -->
 
 You can also use multiple aggregate functions for the same `GROUP BY`
 
@@ -172,6 +188,8 @@ FROM customers
 WHERE is_premium = true
 GROUP BY city
 ```
+
+<!-- test:check:sql SELECT SUM(premium_count) = 3 FROM (SELECT city, COUNT(*) as premium_count FROM customers WHERE is_premium = true GROUP BY city) -->
 
 The `ORDER BY` clause sorts the grouped results:
 

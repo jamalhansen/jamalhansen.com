@@ -1,26 +1,32 @@
 ---
-slug: thank-you-for-your-overwhelming-support
 title: Thank you for the overwhelming support
-description: I recently posted on Linked In that I did not pass my AWS Data Engineer exam and I am overwhelmed by the positive response
+slug: thank-you-for-your-overwhelming-support
 date: 2025-06-01
+description: I recently posted on Linked In that I did not pass my AWS Data Engineer exam and I am overwhelmed by the positive response
 author:
-  - Jamal Hansen
-tags: ["gratitude", "aws", "certification", "community", "linkedin"]
-categories: ["personal"]
+- Jamal Hansen
+tags:
+- gratitude
+- aws
+- certification
+- community
+- linkedin
+categories:
+- personal
+series:
+- AWS Data Engineer Associate Certification
 cover:
-    image: kevin-butz-6hsfmat-t7k-unsplash.jpg
-    alt: "Thank you for the overwhelming support"
-    relative: true
-    caption: ""
-    credit:
-        name: "Kevin Butz"
-        username: "kevin_butz"
-        photo_id: "graphical-user-interface-6hsfmat-t7k"
+  image: kevin-butz-6hsfmat-t7k-unsplash.jpg
+  alt: Thank you for the overwhelming support
+  caption: ''
+  relative: true
+  credit:
+    name: Kevin Butz
+    username: kevin_butz
+    photo_id: graphical-user-interface-6hsfmat-t7k
 draft: false
 ShowToc: false
 TocOpen: false
-series: [AWS Data Engineer Associate Certification]
-layout: post
 ---
 
 I recently posted that [I took and failed the AWS Data Engineer Associate Certification test ](https://jamalhansen.com/blog/i-failed-the-aws-certified-data-engineer-associate-exam/) on May 9th. I also [posted about my experience on Linked In](https://www.linkedin.com/feed/update/urn:li:activity:7327072375777173505/).

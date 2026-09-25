@@ -1,26 +1,28 @@
 ---
-slug: sql-thinks-in-sets-not-loops
 title: SQL Thinks in Sets, Not Loops
-description: "The mental model shift that makes SQL click: SQL is declarative (describe what you want) rather than procedural (step-by-step loops). Once you think in sets instead of rows, the keywords become intuitive."
+slug: sql-thinks-in-sets-not-loops
 date: 2026-02-02
+description: 'The mental model shift that makes SQL click: SQL is declarative (describe what you want) rather than procedural (step-by-step loops). Once you think in sets instead of rows, the keywords become intuitive.'
 author:
-  - Jamal Hansen
-tags: ["sql"]
-categories: []
+- Jamal Hansen
+tags:
+- sql
+series:
+- SQL for Python Developers
 cover:
-    image: dimitry-b-S9T2A1dPRiY-unsplash.jpg
-    alt: "SQL Thinks in Sets, Not Loops"
-    relative: true
-    caption: ""
-    credit:
-        name: "Dimitry B"
-        username: "dimitry_b"
-        photo_id: "a-person-is-sprinkling-seeds-on-a-wooden-table-S9T2A1dPRiY"
+  image: dimitry-b-S9T2A1dPRiY-unsplash.jpg
+  alt: SQL Thinks in Sets, Not Loops
+  caption: ''
+  relative: true
+  credit:
+    name: Dimitry B
+    username: dimitry_b
+    photo_id: a-person-is-sprinkling-seeds-on-a-wooden-table-S9T2A1dPRiY
 draft: false
 ShowToc: false
 TocOpen: false
-series: ["SQL for Python Developers"]
 ---
+
 <!-- test:needs: customers -->
 
 Remember [back when we started](https://jamalhansen.com/blog/i-know-python-why-learn-sql/), I mentioned SQL was difficult because of how I was thinking? I was asking it to perform steps to return data. This didn't work because SQL uses a declarative syntax that describes the final result. Until I realized this, SQL felt hard. Let's explore this concept further.

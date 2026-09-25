@@ -1,22 +1,24 @@
 ---
+title: 'DBeaver Sample Database: What''s Inside and How to Query It'
 slug: explore-the-sample-dbeaver-database
-title: "DBeaver Sample Database: What's Inside and How to Query It"
-description: "DBeaver's built-in sample database includes employees, customers, orders, and more -- enough to practice real SQL without setting up your own data. Here's what's inside and the first queries to run."
 date: 2025-04-20
-author:
-  - Jamal Hansen
 lastmod: 2026-05-23
-tags: ["dbeaver", "sqlite"]
-categories: ["database"]
+description: DBeaver's built-in sample database includes employees, customers, orders, and more -- enough to practice real SQL without setting up your own data. Here's what's inside and the first queries to run.
+author:
+- Jamal Hansen
+tags:
+- dbeaver
+- sqlite
+categories:
+- database
 cover:
-    image: dbeaver-sample-database-01.png
-    alt: "DBeaver sample database tables"
-    relative: true
-    caption: ""
+  image: dbeaver-sample-database-01.png
+  alt: DBeaver sample database tables
+  caption: ''
+  relative: true
 draft: false
 ShowToc: true
 TocOpen: false
-series:
 ---
 
 When you install DBeaver, it offers to create a sample database for you. This is worth doing -- it gives you real tables with real relationships to query against, without needing to find or import your own data.

@@ -1,32 +1,23 @@
 ---
+title: The Shell Switch
+slug: vscode-default-shell-bash
+date: 2026-05-12
+description: Your AI writes Bash. If VS Code opens PowerShell, you translate every command by hand. Four clicks make Bash the default, and one command proves it worked.
 author:
 - Jamal Hansen
-category:
-- Blog Post
-cover:
-  alt: 'The Shell Switch Set Bash as your default terminal in VS Code — terminal showing: echo $SHELL'
-  caption: ''
-  image: 00b-vscode-default-shell-bash-image.jpg
-  relative: true
-date: 2026-05-12
-draft: false
-image_output:
-- highlight: true
-  text: /bin/bash
-image_title: 'The Shell Switch
-
-  Set Bash as your <em>default terminal</em> in VS Code'
-series:
-- Forging the Truth
-slug: vscode-default-shell-bash
 tags:
 - vscode
 - bash
 - wsl
 - shell-config
-target_date: 2026-05-07
-title: The Shell Switch
-description: Your AI writes Bash. If VS Code opens PowerShell, you translate every command by hand. Four clicks make Bash the default, and one command proves it worked.
+series:
+- Forging the Truth
+cover:
+  image: 00b-vscode-default-shell-bash-image.jpg
+  alt: 'The Shell Switch Set Bash as your default terminal in VS Code — terminal showing: echo $SHELL'
+  caption: ''
+  relative: true
+draft: false
 ---
 
 # The Shell Switch: Setting Your Native Tongue

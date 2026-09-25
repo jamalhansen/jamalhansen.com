@@ -1,29 +1,27 @@
 ---
-slug: why-i-run-ai-locally-and-you-might-want-to
-Created: 2026-02-27
-tags:
-  - local-ai
-  - philosophy
-  - ollama
-series: 
-  - "I vibe coded and lived to tell"
 title: Why I Run AI Locally (and You Might Want to)
-description: A practical framework for when local wins. Privacy, cost, independence, and learning, grounded in real tool-building.
-author:
-  - Jamal Hansen
+slug: why-i-run-ai-locally-and-you-might-want-to
 date: 2026-03-22
 lastmod: 2026-03-21
-draft: false
-newsletter_url: ""
+description: A practical framework for when local wins. Privacy, cost, independence, and learning, grounded in real tool-building.
+author:
+- Jamal Hansen
+tags:
+- local-ai
+- philosophy
+- ollama
+series:
+- I vibe coded and lived to tell
 cover:
-  image: "markus-spiske-bk11wZwb9F4-unsplash.jpg"
-  alt: "A home garden growing happily"
-  caption: ""
+  image: markus-spiske-bk11wZwb9F4-unsplash.jpg
+  alt: A home garden growing happily
+  caption: ''
   relative: true
   credit:
-    name: "Markus Spiske"
-    username: "markusspiske"
-    photo_id: "green-plants-on-black-metal-train-rail-during-daytime-bk11wZwb9F4"
+    name: Markus Spiske
+    username: markusspiske
+    photo_id: green-plants-on-black-metal-train-rail-during-daytime-bk11wZwb9F4
+draft: false
 ---
 
 As I admitted before in posts [1](https://jamalhansen.com/blog/i-vibe-coded-a-local-ai-powered-promo-generator/) and [2](https://jamalhansen.com/blog/i-trusted-three-local-ai-models/) I vibe-coded and lived to tell. This post answers the question I kept avoiding. _Why run any of this locally when cloud models are flatly better at the task?_

@@ -1,17 +1,18 @@
 ---
-slug: group-junit-tests-with-nested
 title: Group JUnit Tests with @Nested
-description: Use the @Nested annotation to group JUnit tests similar to a describe block in jest
+slug: group-junit-tests-with-nested
 date: 2025-02-14
-author:
-  - Jamal Hansen
 lastmod: 2026-01-11
-tags: ["java", "junit"]
-categories: ["Automated testing"]
+description: Use the @Nested annotation to group JUnit tests similar to a describe block in jest
+author:
+- Jamal Hansen
+tags:
+- java
+- junit
+categories:
+- Automated testing
 draft: false
 ShowToc: false
-TocOpen: false
-series:
 ---
 
 I really like the way that I can nest my JavaScript tests using describe blocks. This keeps my tests nicely organized and grouped together in functional blocks which can be super useful when you get a whole lot of tests created.

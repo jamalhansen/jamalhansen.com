@@ -1,27 +1,28 @@
 ---
+title: 'Python + DuckDB: Real ETL Patterns'
 slug: python-duckdb-real-etl-patterns
-title: "Python + DuckDB: Real ETL Patterns"
+date: 2026-05-18
 description: Build a complete pipeline - fetch from an API, load into DuckDB, transform with SQL, export results. A capstone putting it all together.
 author:
-  - Jamal Hansen
-date: 2026-05-18
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "mike-van-den-bos-jf1EomjlQi0-unsplash.jpg"
-  alt: "A dark screen displaying the text \"LOADING...\" above a white, rectangular progress bar."
-  caption: ""
+  image: mike-van-den-bos-jf1EomjlQi0-unsplash.jpg
+  alt: A dark screen displaying the text "LOADING..." above a white, rectangular progress bar.
+  caption: ''
   relative: true
   credit:
-    name: "Mike van den Bos"
-    username: "mike_van_den_bos"
-    photo_id: "text-jf1EomjlQi0"
+    name: Mike van den Bos
+    username: mike_van_den_bos
+    photo_id: text-jf1EomjlQi0
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
-unsplash_user: mike_van_den_bos
+TocOpen: false
 ---
+
 <!-- test:needs: posts, users -->
 
 You've spent 19 posts learning SQL concepts: selecting, filtering, joining, grouping, window functions, and more. Today, you put them all together and build something real: a complete data pipeline that fetches data from an API, loads it into DuckDB, transforms it with SQL, and exports the results.

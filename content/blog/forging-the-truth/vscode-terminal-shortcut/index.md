@@ -1,32 +1,23 @@
 ---
+title: The VS Code Terminal Shortcut
+slug: vscode-terminal-shortcut
+date: 2026-04-28
+description: One keystroke opens the VS Code terminal on every platform. That shortcut is the gap between what the AI said and knowing the code actually runs.
 author:
 - Jamal Hansen
-category:
-- Blog Post
-cover:
-  alt: 'The Secret Door A VS Code Terminal you can instantly toggle Open — terminal showing: Ctrl + `'
-  caption: ''
-  image: 00a-vscode-terminal-shortcut-image.jpg
-  relative: true
-date: 2026-04-28
-draft: false
-image_output:
-- highlight: true
-  text: ~/project $
-image_title: 'The Secret Door
-
-  A VS Code Terminal you can instantly toggle <em>Open</em>'
-series:
-- Forging the Truth
-slug: vscode-terminal-shortcut
 tags:
 - vscode
 - terminal
 - keyboard-shortcut
 - integrated-terminal
-target_date: 2026-04-23
-title: The VS Code Terminal Shortcut
-description: One keystroke opens the VS Code terminal on every platform. That shortcut is the gap between what the AI said and knowing the code actually runs.
+series:
+- Forging the Truth
+cover:
+  image: 00a-vscode-terminal-shortcut-image.jpg
+  alt: 'The Secret Door A VS Code Terminal you can instantly toggle Open — terminal showing: Ctrl + `'
+  caption: ''
+  relative: true
+draft: false
 ---
 
 ## The Veil

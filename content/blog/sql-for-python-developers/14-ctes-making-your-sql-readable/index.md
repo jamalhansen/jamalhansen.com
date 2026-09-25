@@ -1,26 +1,28 @@
 ---
+title: 'CTEs: Making Your SQL Readable'
 slug: ctes-making-your-sql-readable
-title: "CTEs: Making Your SQL Readable"
+date: 2026-04-06
 description: WITH clauses let you name your subqueries and read top-to-bottom instead of inside-out. Transform nested spaghetti into clean steps.
 author:
-  - Jamal Hansen
-date: 2026-04-06
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "melissa-walker-horn-U7bOjNIqisM-unsplash.jpg"
-  alt: "A row of bright yellow, stylized rubber ducks arranged horizontally against a solid turquoise background."
-  caption: ""
+  image: melissa-walker-horn-U7bOjNIqisM-unsplash.jpg
+  alt: A row of bright yellow, stylized rubber ducks arranged horizontally against a solid turquoise background.
+  caption: ''
   relative: true
   credit:
-    name: "Melissa Walker Horn"
-    username: "sugercoatit"
-    photo_id: "a-row-of-yellow-rubber-ducks-on-a-blue-background-U7bOjNIqisM"
+    name: Melissa Walker Horn
+    username: sugercoatit
+    photo_id: a-row-of-yellow-rubber-ducks-on-a-blue-background-U7bOjNIqisM
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
+TocOpen: false
 ---
+
 <!-- test:needs: customers, orders, stats -->
 We learned last week about [subqueries](https://jamalhansen.com/blog/subqueries-when-sql-needs-helper-functions/), which are like helper functions for your SQL code. They can bring back temporary values used in larger calculations or find additional data points from an id. 
 
@@ -79,6 +81,14 @@ WHERE order_count > 5
 ORDER BY order_count DESC
 ```
 
+<!-- test:check:sql
+SELECT COUNT(*) = 0 FROM (
+    WITH big_orders AS (SELECT customer_id FROM orders WHERE amount > (SELECT AVG(amount) FROM orders)),
+    city_stats AS (SELECT c.city, COUNT(*) as order_count FROM customers c JOIN big_orders ON c.id = big_orders.customer_id GROUP BY c.city)
+    SELECT * FROM city_stats WHERE order_count > 5
+)
+-->
+
 Now you can read the query from top to bottom, and the final query is greatly simplified. Success!
 
 ## The Python Equivalent
@@ -114,6 +124,12 @@ for order in big_orders:
 result = [(city, count) for city, count in city_counts.items() if count > 5]
 result.sort(key=lambda x: x[1], reverse=True)
 ```
+
+<!-- test:check:python
+assert avg_amount == 50.0
+assert len(big_orders) == 1  # only $75 order
+assert result == []  # no city has 5+ big orders in test data
+-->
 
 CTEs are the SQL version of extracting named intermediate variables for clarity. Same instinct, different syntax.
 

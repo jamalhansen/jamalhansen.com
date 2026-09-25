@@ -1,28 +1,27 @@
 ---
-slug: i-extracted-a-shared-library-and-got-400-tests-i-didnt-ask-for
-post: 6
-arc: Architecture Arc
 title: I Extracted a Shared Library and Got 400 Tests I Didn't Ask For
-description: Six Python projects, four duplicated files, one shared library. Here's the code behind the extraction, what moved, what didn't, and the surprise that made it worth it.
-series:
-  - "I vibe coded and lived to tell"
-author:
-  - Jamal Hansen
+slug: i-extracted-a-shared-library-and-got-400-tests-i-didnt-ask-for
+date: 2026-04-10
 lastmod: 2026-03-31
+description: Six Python projects, four duplicated files, one shared library. Here's the code behind the extraction, what moved, what didn't, and the surprise that made it worth it.
+author:
+- Jamal Hansen
 tags:
-  - vibe-coding
-  - architecture
-  - python
+- vibe-coding
+- architecture
+- python
+series:
+- I vibe coded and lived to tell
 cover:
-  image: "trnava-university-BEEyeib-am8-unsplash.jpg"
-  alt: "A bookshelf in a library"
-  caption: ""
+  image: trnava-university-BEEyeib-am8-unsplash.jpg
+  alt: A bookshelf in a library
+  caption: ''
   relative: true
   credit:
-    name: "Trnava University"
-    username: "trnavskauni"
-    photo_id: "brown-wooden-book-shelf-with-books-BEEyeib-am8"
-date: 2026-04-10
+    name: Trnava University
+    username: trnavskauni
+    photo_id: brown-wooden-book-shelf-with-books-BEEyeib-am8
+draft: false
 ---
 
 [Last time](https://jamalhansen.com/blog/copy-and-paste-long-enough-and-the-architecture-appears/) I argued that you can't design your way to a good abstraction. You have to earn it through repetition. Here's what that actually looked like.

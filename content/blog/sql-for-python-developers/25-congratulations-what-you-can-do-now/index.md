@@ -1,26 +1,26 @@
 ---
-slug: congratulations-what-you-can-do-now
 title: Congratulations! What You Can Do Now
+slug: congratulations-what-you-can-do-now
+date: 2026-06-22
 description: Celebrate your new skills with take-home challenges and resources for continued learning. You think in sets now.
 author:
-  - Jamal Hansen
-date: 2026-06-22
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "rona-lao-vrkDu_tpJJI-unsplash.jpg"
-  alt: "A solitary figure stands on a cliff edge overlooking a vast, hazy canyon at sunrise or sunset."
-  caption: ""
+  image: rona-lao-vrkDu_tpJJI-unsplash.jpg
+  alt: A solitary figure stands on a cliff edge overlooking a vast, hazy canyon at sunrise or sunset.
+  caption: ''
   relative: true
   credit:
-    name: "Rona Lao"
-    username: "ronalao"
-    photo_id: "person-sitting-on-rock-formation-during-golden-hour-vrkDu_tpJJI"
+    name: Rona Lao
+    username: ronalao
+    photo_id: person-sitting-on-rock-formation-during-golden-hour-vrkDu_tpJJI
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
-unsplash_user: ronalao
+TocOpen: false
 ---
 
 Twenty-four weeks ago, I started this series with a confession: SQL seemed scary to me when I first learned it. The syntax didn't look like any language I had seen before. The concepts felt unfamiliar. I was trying to tell SQL what steps to perform, and it kept not working.

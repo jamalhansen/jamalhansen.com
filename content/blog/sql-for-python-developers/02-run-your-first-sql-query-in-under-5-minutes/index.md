@@ -1,22 +1,25 @@
 ---
+title: 'Zero-Setup SQL: Run your first SQL query in under 5 minutes with DuckDB'
 slug: run-your-first-sql-query-in-under-5-minutes
-title: "Zero-Setup SQL: Run your first SQL query in under 5 minutes with DuckDB"
-description: Install DuckDB with pip, create your first table, insert data, and run a SQL query - all in Python, all in under 5 minutes, zero configuration required
 date: 2026-01-10
+description: Install DuckDB with pip, create your first table, insert data, and run a SQL query - all in Python, all in under 5 minutes, zero configuration required
 author:
-  - Jamal Hansen
-tags: ["python", "duckdb"]
-categories: []
+- Jamal Hansen
+tags:
+- python
+- duckdb
+series:
+- SQL for Python Developers
 cover:
-    image: five-minutes-wide.jpg
-    alt: "Zero-Setup SQL: Run your first SQL query in under 5 minutes with DuckDB"
-    relative: true
-    caption: ""
+  image: five-minutes-wide.jpg
+  alt: 'Zero-Setup SQL: Run your first SQL query in under 5 minutes with DuckDB'
+  caption: ''
+  relative: true
 draft: false
 ShowToc: false
 TocOpen: false
-series: ["SQL for Python Developers"]
 ---
+
 Have you ever tried setting up a database server just to learn SQL? Docker containers, admin credentials... Forget all that. Let me show you how to go from zero to running SQL in under 5 minutes.
 
 ## Why are we using DuckDB to learn SQL? 

@@ -1,27 +1,28 @@
 ---
-slug: testing-sql-code
 title: Testing SQL Code
+slug: testing-sql-code
+date: 2026-06-08
 description: Test queries like Python code using in-memory databases, fixtures, and pytest. Fresh data per test, no state leakage.
 author:
-  - Jamal Hansen
-date: 2026-06-08
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "jakub-zerdzicki-dEe2r9CmoAo-unsplash.jpg"
-  alt: "A hand uses a pencil to mark a detailed checklist on a clipboard, resting on a desk."
-  caption: ""
+  image: jakub-zerdzicki-dEe2r9CmoAo-unsplash.jpg
+  alt: A hand uses a pencil to mark a detailed checklist on a clipboard, resting on a desk.
+  caption: ''
   relative: true
   credit:
-    name: "Jakub Żerdzicki"
-    username: "jakubzerdzicki"
-    photo_id: "someone-is-writing-on-a-tablet-with-a-stylus-dEe2r9CmoAo"
+    name: Jakub Żerdzicki
+    username: jakubzerdzicki
+    photo_id: someone-is-writing-on-a-tablet-with-a-stylus-dEe2r9CmoAo
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
-unsplash_user: jakubzerdzicki
+TocOpen: false
 ---
+
 <!-- test:needs: customers, orders -->
 You test your Python code. You probably don't test your SQL. Here's why you should, and how to start.
 

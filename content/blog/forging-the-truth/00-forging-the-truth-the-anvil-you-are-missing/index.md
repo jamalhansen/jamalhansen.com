@@ -1,30 +1,23 @@
 ---
-slug: forging-the-truth-the-anvil-you-are-missing
 title: The Anvil You are Missing
-description: The terminal window is a powerful tool that lets you quickly verify what LLMs tell you that they have done
-series:
-  - "Forging the Truth"
-draft: false
+slug: forging-the-truth-the-anvil-you-are-missing
 date: 2026-04-14
+description: The terminal window is a powerful tool that lets you quickly verify what LLMs tell you that they have done
 author:
-  - Jamal Hansen
-category: "Blog Post"
+- Jamal Hansen
 tags:
-  - cli
-  - ai
-  - beginner
-  - series-intro
-image_title: |-
-  The Anvil You
-  Are <em>Missing</em>
-image_output:
-  - text: "ls: No such file or directory"
-    highlight: false
+- cli
+- ai
+- beginner
+- series-intro
+series:
+- Forging the Truth
 cover:
-  image: "00-forging-the-truth-the-anvil-you-are-missing-image.png"
-  alt: "The Anvil You Are Missing — terminal showing: ls"
-  caption: ""
+  image: 00-forging-the-truth-the-anvil-you-are-missing-image.png
+  alt: 'The Anvil You Are Missing — terminal showing: ls'
+  caption: ''
   relative: true
+draft: false
 ---
 
 ## The Veil

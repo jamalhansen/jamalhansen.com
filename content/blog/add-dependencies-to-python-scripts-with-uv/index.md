@@ -1,17 +1,19 @@
 ---
-slug: add-dependencies-to-python-scripts-with-uv
 title: Add External Dependencies to Python Scripts with uv
-description: No virtual environment needed. Declare dependencies directly in your script.
+slug: add-dependencies-to-python-scripts-with-uv
 date: 2025-04-19
-author:
-  - Jamal Hansen
 lastmod: 2026-01-10
-tags: ["python", "uv"]
-categories: ["Python"]
+description: No virtual environment needed. Declare dependencies directly in your script.
+author:
+- Jamal Hansen
+tags:
+- python
+- uv
+categories:
+- Python
 draft: false
 ShowToc: false
 TocOpen: false
-series:
 ---
 
 Ever wanted to share a Python script that uses external packages without making the recipient set up a virtual environment? With `uv`, you can embed dependencies directly in the script.

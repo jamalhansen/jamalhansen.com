@@ -1,27 +1,26 @@
 ---
+title: 'Your Notes Need Metadata: Make Your Wiki Queryable'
 slug: your-notes-need-metadata
-title: "Your Notes Need Metadata: Make Your Wiki Queryable"
+date: 2026-04-08
+lastmod: 2026-04-06
 description: You have been taking notes for a month. You cannot find anything. Here is how frontmatter fixes that and prepares your wiki for an LLM.
 author:
-  - Jamal Hansen
-lastmod: 2026-04-06
-cover:
-  image: "screenshot-of-frontmatter-from-post.jpg"
-  alt: "Screenshot of the frontmatter from the markdown version of this post in Obsidian"
-  caption: ""
-  relative: true
-date: 2026-04-08
+- Jamal Hansen
 tags:
-  - knowledge-management
-  - obsidian
-  - frontmatter
-  - yaml
-  - foam
-  - notes
-  - agentic-notes
+- knowledge-management
+- obsidian
+- frontmatter
+- yaml
+- foam
+- notes
+- agentic-notes
+cover:
+  image: screenshot-of-frontmatter-from-post.jpg
+  alt: Screenshot of the frontmatter from the markdown version of this post in Obsidian
+  caption: ''
+  relative: true
 draft: false
 ---
-
 
 You have been [taking notes for a month](https://jamalhansen.com/blog/road-to-agentic-notes/). Thirty, maybe fifty notes. You remember writing something about how Python handles default arguments. You cannot find it.
 
@@ -139,4 +138,4 @@ Add the four fields to five notes today. I want to hear if it changes how you us
 **Further reading**
 
 - [An Introduction to Obsidian Properties](https://obsidian.rocks/an-introduction-to-obsidian-properties/) — Tim Miller's beginner walkthrough of properties and YAML frontmatter in Obsidian. 
-- [Your Notes Are the Moat](https://x.com/molt_cornelius/status/2035313848891117861) — Cornelius's March 2026 field report on what happens when an agent takes over the maintenance. 
+- [Your Notes Are the Moat](https://x.com/molt_cornelius/status/2035313848891117861) — Cornelius's March 2026 field report on what happens when an agent takes over the maintenance.

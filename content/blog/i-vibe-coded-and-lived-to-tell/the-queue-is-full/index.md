@@ -1,29 +1,23 @@
 ---
-arc: Architecture Arc
+title: 'The Queue Is Full: What I''m Building Next with Local-First AI'
+slug: the-queue-is-full
+date: 2026-05-26
+lastmod: 2026-03-25
+description: After extracting a shared library, starting a new tool went from a day of boilerplate to two imports. The queue got longer, not shorter. Here's what's next.
 author:
 - Jamal Hansen
-category:
-- Blog Post
-date: 2026-05-26
-description: After extracting a shared library, starting a new tool went from a day
-  of boilerplate to two imports. The queue got longer, not shorter. Here's what's
-  next.
-draft: false
-lastmod: 2026-03-25
-post: 9
-series:
-- I vibe coded and lived to tell
-slug: the-queue-is-full
 tags:
 - vibe-coding
 - architecture
 - python
-target_date: 2026-05-14
-title: 'The Queue Is Full: What I''m Building Next with Local-First AI'
+series:
+- I vibe coded and lived to tell
 cover:
-  alt: "A glowing orange leaf beside a ring of circular nodes linked by network lines on a dark background."
   image: queue-is-full.jpg
+  alt: A glowing orange leaf beside a ring of circular nodes linked by network lines on a dark background.
+  caption: ''
   relative: true
+draft: false
 ---
 
 I have a text file with 26 tool ideas on it. That number keeps growing. And for the first time, that feels like a good thing.

@@ -1,26 +1,28 @@
 ---
+title: 'Subqueries: When SQL Needs Helper Functions'
 slug: subqueries-when-sql-needs-helper-functions
-title: "Subqueries: When SQL Needs Helper Functions"
+date: '2026-03-30'
 description: Nest queries inside queries, like Python helper functions. Use them in WHERE, SELECT, or FROM to compute intermediate results.
 author:
-  - Jamal Hansen
-date: 2026-03-30
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "didssph-PB80D_B4g7c-unsplash.jpg"
-  alt: "A row of colorful ceramic trinket figurines depicting stylized, cheerful female faces."
-  caption: ""
+  image: didssph-PB80D_B4g7c-unsplash.jpg
+  alt: A row of colorful ceramic trinket figurines depicting stylized, cheerful female faces.
+  caption: ''
   relative: true
   credit:
-    name: "Didssph"
-    username: "didsss"
-    photo_id: "red-blue-and-yellow-ceramic-figurine-PB80D_B4g7c"
+    name: Didssph
+    username: didsss
+    photo_id: red-blue-and-yellow-ceramic-figurine-PB80D_B4g7c
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
+TocOpen: false
 ---
+
 <!-- test:needs: customers, orders, stats -->
 Last week, we talked about the superpower of relational databases, the ability to [join tables](/blog/joins-explained-for-python-developers/) to make data storage more efficient. In fact, we have covered much of the syntax that you would use on a daily basis already. But SQL's simplicity hides surprising flexibility. You can model data in many ways, and you can often get the same results with different syntax.
 
@@ -41,6 +43,13 @@ def get_average_order_cost():
 big_orders = [o for o in orders if o['amount'] > get_average_order_cost()]
 ```
 
+<!-- test:check:python
+avg = get_average_order_cost()
+assert avg == 50.0  # (50+25+75+50) / 4
+assert len(big_orders) == 1  # only $75 is strictly greater than $50
+assert all(o['amount'] > avg for o in big_orders)
+-->
+
 In SQL, we do something similar, called a subquery. A subquery is just a query that is nested inside another query.
 
 ```sql
@@ -52,6 +61,8 @@ WHERE
 		FROM orders
 		)
 ```
+
+<!-- test:check:sql SELECT COUNT(*) = 5 FROM orders WHERE amount > (SELECT AVG(amount) FROM orders) -->
 
 The subquery runs first, returns the average value of an order, and the outer query uses it to filter the rows in the result.
 
@@ -123,6 +134,8 @@ FROM (
 WHERE customer_count > 5
 ```
 
+<!-- test:check:sql SELECT COUNT(*) = 0 FROM (SELECT city, COUNT(*) as customer_count FROM customers GROUP BY city) city_summary WHERE customer_count > 5 -->
+
 ### In SELECT
 
 Subqueries can also appear in the SELECT clause itself, computing a value for each row. Here, a subquery finds the count of orders for each customer.
@@ -135,6 +148,8 @@ SELECT name,
 	   ) as order_count
 FROM customers
 ```
+
+<!-- test:check:sql SELECT COUNT(*) = 5 FROM (SELECT name, (SELECT COUNT(*) FROM orders WHERE customer_id = customers.id) as order_count FROM customers) -->
 
 ## Correlated vs Non-Correlated
 

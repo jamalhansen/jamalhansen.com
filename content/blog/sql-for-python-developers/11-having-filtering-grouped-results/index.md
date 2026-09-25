@@ -1,26 +1,28 @@
 ---
+title: 'HAVING: Filtering Grouped Results'
 slug: having-filtering-grouped-results
-title: "HAVING: Filtering Grouped Results"
+date: '2026-03-16'
 description: WHERE filters rows before grouping; HAVING filters after. Need "only cities with more than 10 customers"? That's HAVING.
 author:
-  - Jamal Hansen
-date: 2026-03-16
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "shun-idota-cekJ1XXx1Rk-unsplash.jpg"
-  alt: "A heavily congested urban street scene showing dense traffic among buildings in a major city center."
-  caption: ""
+  image: shun-idota-cekJ1XXx1Rk-unsplash.jpg
+  alt: A heavily congested urban street scene showing dense traffic among buildings in a major city center.
+  caption: ''
   relative: true
   credit:
-    name: "shun idota"
-    username: "itzshunnn"
-    photo_id: "cars-parked-on-the-side-of-the-road-during-daytime-cekJ1XXx1Rk"
+    name: shun idota
+    username: itzshunnn
+    photo_id: cars-parked-on-the-side-of-the-road-during-daytime-cekJ1XXx1Rk
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
+TocOpen: false
 ---
+
 <!-- test:needs: customers, orders -->
 
 When I first encountered HAVING, I thought, "Why do we need this? It's just like WHERE."
@@ -35,6 +37,8 @@ SELECT city, COUNT(*) as customer_count
 FROM customers
 GROUP BY city
 ```
+
+<!-- test:check:sql SELECT COUNT(*) = 5 FROM (SELECT city, COUNT(*) as customer_count FROM customers GROUP BY city) -->
 
 Your first instinct might be to add this to WHERE:
 
@@ -67,6 +71,10 @@ city_counts = Counter(c['city'] for c in customers)
 # Filter to cities with more than 10
 big_cities = {city: count for city, count in city_counts.items() if count > 10}
 ```
+
+<!-- test:check:python
+assert big_cities == {}  # no city has more than 10 customers in test data
+-->
 
 The `if count > 10` part is like HAVING -- it runs after you've counted. In Python, you can filter after counting in the same expression. SQL can't do that because of its clause-based execution model, so it needs a separate keyword.
 
@@ -114,6 +122,8 @@ FROM customers
 GROUP BY city
 HAVING COUNT(*) > 10  -- Always works
 ```
+
+<!-- test:check:sql SELECT COUNT(*) = 0 FROM (SELECT city FROM customers GROUP BY city HAVING COUNT(*) > 10) -->
 
 Building on the [`GROUP BY`](https://jamalhansen.com/blog/group-by-aggregating-your-data/) foundations from last week, HAVING unlocks a whole class of questions you couldn't answer before. "Which products sold more than 100 units?" "Which customers made 5+ purchases?" Now you can answer them.
 

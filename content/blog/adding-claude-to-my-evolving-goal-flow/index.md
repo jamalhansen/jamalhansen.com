@@ -1,26 +1,30 @@
 ---
-slug: adding-claude-to-my-evolving-goal-flow
 title: Adding Claude to my evolving goal flow
-description: For the past five years I've been intentional in my yearly goals, writing them down in markdown form and tracking them through the year. In the past few months I've added AI to my goal workflow.
+slug: adding-claude-to-my-evolving-goal-flow
 date: 2025-07-13
+description: For the past five years I've been intentional in my yearly goals, writing them down in markdown form and tracking them through the year. In the past few months I've added AI to my goal workflow.
 author:
-  - Jamal Hansen
-tags: ["claude", "artificial-intelligence", "goals", "productivity", "workflow"]
-categories: ["productivity"]
+- Jamal Hansen
+tags:
+- claude
+- artificial-intelligence
+- goals
+- productivity
+- workflow
+categories:
+- productivity
 cover:
-    image: isaac-smith-Ij7h-m4nJ18-unsplash.jpg
-    alt: "A paper showing a structured goal review"
-    relative: true
-    caption: ""
-    credit:
-        name: "Isaac Smith"
-        username: "isaacmsmith"
-        photo_id: "white-printer-paper-Ij7h-m4nJ18"
+  image: isaac-smith-Ij7h-m4nJ18-unsplash.jpg
+  alt: A paper showing a structured goal review
+  caption: ''
+  relative: true
+  credit:
+    name: Isaac Smith
+    username: isaacmsmith
+    photo_id: white-printer-paper-Ij7h-m4nJ18
 draft: false
 ShowToc: false
 TocOpen: false
-series:
-layout: post
 ---
 
 Tracking my yearly goals is a habit that has evolved in time. Around ten years ago I began formally writing down my yearly goals. I had recently become a manager at work for the first time and realized that I was unprepared for the task.

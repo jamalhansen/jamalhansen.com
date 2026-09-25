@@ -1,22 +1,24 @@
 ---
-slug: custom-style-your-markdown-preview-in-vscode
 title: How to custom style your VS Code markdown preview
-description: Want to make all your markdown previews look nice? Here is how
+slug: custom-style-your-markdown-preview-in-vscode
 date: 2025-02-06
-author:
-  - Jamal Hansen
 lastmod: 2026-01-10
-tags: ["markdown", "vscode"]
-categories: ["VS Code"]
+description: Want to make all your markdown previews look nice? Here is how
+author:
+- Jamal Hansen
+tags:
+- markdown
+- vscode
+categories:
+- VS Code
 cover:
-    image: vs-code-styled-markdown-preview.png
-    alt: "How to custom style your VS Code markdown preview"
-    relative: true
-    caption: ""
+  image: vs-code-styled-markdown-preview.png
+  alt: How to custom style your VS Code markdown preview
+  caption: ''
+  relative: true
 draft: false
 ShowToc: false
 TocOpen: false
-series:
 ---
 
 I like writing notes. I like writing them in markdown. There is something wonderful about the power and simplicity of markdown formatting to transform my readable text files into elegant pages. 
@@ -86,4 +88,3 @@ _Path gotcha: In Open Folder mode, VS Code expects the path relative to your wor
 The preview should update automatically. If it doesn't, close and reopen it with _Markdown: Open Preview to the Side_ again.
 
 Now you can see that the CSS has been applied to the preview. Happy note-taking!
-

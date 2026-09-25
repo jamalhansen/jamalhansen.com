@@ -1,22 +1,26 @@
 ---
-slug: an-update-on-my-agentic-learning-journey
 title: An update on my agentic learning journey
-description: An update after a few weeks about learning agentic AI, it's been a fun journey and I've found some great resources
+slug: an-update-on-my-agentic-learning-journey
 date: 2025-06-24
+description: An update after a few weeks about learning agentic AI, it's been a fun journey and I've found some great resources
 author:
-  - Jamal Hansen
-tags: ["agentic-ai", "artificial-intelligence", "learning", "python", "langchain"]
-categories: ["technology"]
+- Jamal Hansen
+tags:
+- agentic-ai
+- artificial-intelligence
+- learning
+- python
+- langchain
+categories:
+- technology
 cover:
-    image: agentic-update-landscape.jpg
-    alt: "An update on my agentic learning journey"
-    relative: true
-    caption: ""
+  image: agentic-update-landscape.jpg
+  alt: An update on my agentic learning journey
+  caption: ''
+  relative: true
 draft: false
 ShowToc: false
 TocOpen: false
-series: 
-layout: post
 ---
 
 A few weeks back I started on an agentic journey with the Udemy offering The Complete Agentic AI Engineering Course. This has been a great hands-on offering. I've completed 4 of the 6 weeks covering OpenAI Agents SDK, CrewAI, and LangGraph as well as some foundational theory. Throughout the course, the instructor [Ed Donner](https://www.linkedin.com/in/eddonner) has done a great job teaching enthusiastically and providing real world code that demonstrates the concepts of each framework. 

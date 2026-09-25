@@ -1,27 +1,28 @@
 ---
+title: 'Optimizing Queries: EXPLAIN for Python Developers'
 slug: optimizing-queries-explain-for-python-developers
-title: "Optimizing Queries: EXPLAIN for Python Developers"
+date: 2026-05-11
 description: Read EXPLAIN output to understand why queries are slow. Learn when to add indexes and when to stop worrying about performance.
 author:
-  - Jamal Hansen
-date: 2026-05-11
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "florian-steciuk-F7Rl02ir0Gg-unsplash.jpg"
-  alt: "Long exposure photograph of light trails from vehicles moving on a dark highway under a starry night sky."
-  caption: ""
+  image: florian-steciuk-F7Rl02ir0Gg-unsplash.jpg
+  alt: Long exposure photograph of light trails from vehicles moving on a dark highway under a starry night sky.
+  caption: ''
   relative: true
   credit:
-    name: "Florian Steciuk"
-    username: "flo_stk"
-    photo_id: "time-lapse-photography-of-highway-F7Rl02ir0Gg"
+    name: Florian Steciuk
+    username: flo_stk
+    photo_id: time-lapse-photography-of-highway-F7Rl02ir0Gg
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
-unsplash_user: flo_stk
+TocOpen: false
 ---
+
 <!-- test:needs: customers, orders -->
 
 As databases grow, queries take longer to run. It's to be expected.

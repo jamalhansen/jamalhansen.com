@@ -1,27 +1,28 @@
 ---
-slug: modifying-data-safely
 title: Modifying Data Safely
+slug: modifying-data-safely
+date: 2026-05-04
 description: INSERT, UPDATE, and DELETE with guardrails. Always use WHERE, test with SELECT first, and use transactions to undo mistakes.
 author:
-  - Jamal Hansen
-date: 2026-05-04
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "edwin-hooper-TJ9rBJAAguQ-unsplash.jpg"
-  alt: "A weathered, rusty warning sign reading \"DANGER KEEP OUT\" hangs on a chain-link fence."
-  caption: ""
+  image: edwin-hooper-TJ9rBJAAguQ-unsplash.jpg
+  alt: A weathered, rusty warning sign reading "DANGER KEEP OUT" hangs on a chain-link fence.
+  caption: ''
   relative: true
   credit:
-    name: "Edwin Hooper"
-    username: "edwinhooper"
-    photo_id: "red-and-white-stop-road-sign-TJ9rBJAAguQ?"
+    name: Edwin Hooper
+    username: edwinhooper
+    photo_id: red-and-white-stop-road-sign-TJ9rBJAAguQ?
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
-unsplash_user: edwinhooper
+TocOpen: false
 ---
+
 <!-- test:needs: customers, orders, vip_customers -->
 
 This week, we are going to look at modifying data in a database, and I'll be honest, it can be scary. There is no safety net, no undo button. 
@@ -54,6 +55,7 @@ The key difference? Python lists live in memory. If you mess up, you restart the
 
 This deletes all of your customers.
 
+<!-- test:skip -->
 ```sql
 DELETE FROM customers
 ```
@@ -72,6 +74,8 @@ The first step is to add a `WHERE` clause to your SQL.
 DELETE FROM customers
 WHERE id = 3
 ```
+
+<!-- test:check:sql SELECT COUNT(*) = 4 FROM customers -->
 
 This is a great start. We know that `id` is your primary key, so at worst, this will delete one row. 
 
@@ -99,6 +103,8 @@ INSERT INTO customers (name, email, city)
 VALUES ('Alice Smith', 'alice@example.com', 'Denver')
 ```
 
+<!-- test:check:sql SELECT COUNT(*) = 5 FROM customers -->
+
 If you have multiple rows of data to insert into the same table you can use this form.
 
 ```sql
@@ -107,6 +113,8 @@ VALUES
     ('Bob Jones', 'bob@example.com', 'Austin'),
     ('Carol White', 'carol@example.com', 'Seattle')
 ```
+
+<!-- test:check:sql SELECT COUNT(*) = 7 FROM customers -->
 
 Sometimes you want to insert data into a table based on the results of another query. This is especially useful if you are transforming a dataset. Imagine you've created a separate table to track your premium customers.
 

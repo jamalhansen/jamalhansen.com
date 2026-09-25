@@ -1,27 +1,27 @@
 ---
-slug: copy-and-paste-long-enough-and-the-architecture-appears
-series:
-  - "I vibe coded and lived to tell"
-published: 2026-03-27
 title: Copy and Paste Long Enough and the Architecture Appears
+slug: copy-and-paste-long-enough-and-the-architecture-appears
+date: 2026-03-27
+lastmod: 2026-03-26
 description: You can't design your way to a good abstraction. You have to earn it through repetition. Vibe coding made that repetition happen faster, not slower.
 author:
-  - Jamal Hansen
-lastmod: 2026-03-26
+- Jamal Hansen
 tags:
-  - vibe-coding
-  - architecture
-  - python
-draft: false
+- vibe-coding
+- architecture
+- python
+series:
+- I vibe coded and lived to tell
 cover:
   image: bernard-hermant-ItAyhwNUCHY-unsplash.jpg
-  alt: "A geometric black and white pattern"
-  caption: ""
+  alt: A geometric black and white pattern
+  caption: ''
   relative: true
   credit:
-    name: "Bernard Hermant"
-    username: "bernardhermant"
-    photo_id: "a-black-and-white-photo-of-a-pattern-ItAyhwNUCHY"
+    name: Bernard Hermant
+    username: bernardhermant
+    photo_id: a-black-and-white-photo-of-a-pattern-ItAyhwNUCHY
+draft: false
 ---
 
 Ever find yourself writing the same code in a different repo? I have. What did you do about it?

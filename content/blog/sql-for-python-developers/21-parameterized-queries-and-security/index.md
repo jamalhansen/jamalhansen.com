@@ -1,26 +1,28 @@
 ---
-slug: parameterized-queries-and-security
 title: Parameterized Queries & Security
+slug: parameterized-queries-and-security
+date: 2026-05-25
 description: String formatting in SQL is dangerous. Learn parameterized queries to keep user input safe and prevent SQL injection attacks.
 author:
-  - Jamal Hansen
-date: 2026-05-25
+- Jamal Hansen
 tags:
-  - sql
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "eyasu-etsub-_enXmoXudAk-unsplash.jpg"
-  alt: "Shattered glass frames a blurry, overcast outdoor landscape."
-  caption: ""
+  image: eyasu-etsub-_enXmoXudAk-unsplash.jpg
+  alt: Shattered glass frames a blurry, overcast outdoor landscape.
+  caption: ''
   relative: true
   credit:
-    name: "Eyasu Etsub"
-    username: "jphotography2012"
-    photo_id: "a-broken-glass-window-with-a-field-in-the-background-_enXmoXudAk"
+    name: Eyasu Etsub
+    username: jphotography2012
+    photo_id: a-broken-glass-window-with-a-field-in-the-background-_enXmoXudAk
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
-unsplash_user: jphotography2012
+TocOpen: false
 ---
+
 <!-- test:needs: customers -->
 
 As a Python developer, you are aware of software vulnerabilities. You have probably heard of SQL injection attacks, and you may have even done some work to protect against them.

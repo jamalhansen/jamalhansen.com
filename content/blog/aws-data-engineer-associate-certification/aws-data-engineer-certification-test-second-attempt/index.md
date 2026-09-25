@@ -1,22 +1,27 @@
 ---
-slug: aws-data-engineer-certification-test-second-attempt
 title: AWS Data Engineer Associate Certification Test - Take 2
-description: This morning I took the DEA-C01 AWS Data Engineer Associate Certification Test for the second time. I haven't gotten my results yet, but am jotting down my thoughts on the second attempt
+slug: aws-data-engineer-certification-test-second-attempt
 date: 2025-06-20
+description: This morning I took the DEA-C01 AWS Data Engineer Associate Certification Test for the second time. I haven't gotten my results yet, but am jotting down my thoughts on the second attempt
 author:
-  - Jamal Hansen
-tags: ["aws", "certification", "success", "data-engineering"]
-categories: ["certification"]
+- Jamal Hansen
+tags:
+- aws
+- certification
+- success
+- data-engineering
+categories:
+- certification
+series:
+- AWS Data Engineer Associate Certification
 cover:
-    image: aws-data-engineer-ready.jpeg
-    alt: "AWS Data Engineer Associate Certification Test - Take 2"
-    relative: true
-    caption: ""
+  image: aws-data-engineer-ready.jpeg
+  alt: AWS Data Engineer Associate Certification Test - Take 2
+  caption: ''
+  relative: true
 draft: false
 ShowToc: false
 TocOpen: false
-series: [AWS Data Engineer Associate Certification]
-layout: post
 ---
 
 This morning I woke up early and drove over to the Pearson Vue testing center early. It is a Friday, but I took the day off from work to take take the AWS Data Engineer Associate Certification Test. I took it for the second time today. Clearly I did not pass the test the first time.

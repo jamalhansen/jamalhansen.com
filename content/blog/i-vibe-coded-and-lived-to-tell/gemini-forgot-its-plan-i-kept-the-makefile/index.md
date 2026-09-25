@@ -1,28 +1,24 @@
 ---
-arc: Architecture Arc
+title: Gemini Forgot Its Plan. I Kept the Makefile.
+slug: gemini-forgot-its-plan-i-kept-the-makefile
+date: 2026-05-23
+lastmod: 2026-04-13
+description: I ran out of Claude tokens and handed my six-repo codebase to Gemini CLI. It made some mistakes and had one genuinely good idea.
 author:
 - Jamal Hansen
-category:
-- Blog Post
-date: 2026-05-23
-description: I ran out of Claude tokens and handed my six-repo codebase to Gemini
-  CLI. It made some mistakes and had one genuinely good idea.
-draft: false
-lastmod: 2026-04-13
-series:
-- I vibe coded and lived to tell
-slug: gemini-forgot-its-plan-i-kept-the-makefile
 tags:
 - vibe-coding
 - architecture
 - python
 - gemini
-target_date: 2026-04-23
-title: Gemini Forgot Its Plan. I Kept the Makefile.
+series:
+- I vibe coded and lived to tell
 cover:
-  alt: "Abstract tech art featuring glowing orange branches and blue circuit networks against a dark background."
   image: gemini-forgot-plan.jpg
+  alt: Abstract tech art featuring glowing orange branches and blue circuit networks against a dark background.
+  caption: ''
   relative: true
+draft: false
 ---
 
 I was in the middle of the [shared library extraction](https://jamalhansen.com/blog/how-i-extracted-a-shared-library/) when I ran out of Claude tokens. Six repos deep, changes half-committed, migration plan half-finished. This was not ideal timing.

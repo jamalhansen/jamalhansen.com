@@ -814,22 +814,22 @@
           "city",
           "is_premium"
         ],
-        "rows": 0,
-        "digest": "4f53cda18c2baa0c"
+        "rows": 1,
+        "digest": "4bdec464e9ecd33b"
       },
       "334974b665ae#1": {
         "columns": [
           "Count"
         ],
         "rows": 1,
-        "digest": "daf90b19d7b3dbc3"
+        "digest": "aae5d0be4cd1cd0a"
       },
       "353c6e5e340f#1": {
         "columns": [
           "Count"
         ],
         "rows": 1,
-        "digest": "daf90b19d7b3dbc3"
+        "digest": "b526e39202fd2555"
       },
       "a196b4cc2ae7#1": {
         "columns": [
@@ -850,7 +850,7 @@
           "Count"
         ],
         "rows": 1,
-        "digest": "daf90b19d7b3dbc3"
+        "digest": "aae5d0be4cd1cd0a"
       },
       "b9cf209bd62d#1": {
         "columns": [
@@ -864,13 +864,6 @@
         "rows": 0,
         "digest": "4f53cda18c2baa0c"
       },
-      "c6c11019d024#1": {
-        "columns": [
-          "Count"
-        ],
-        "rows": 1,
-        "digest": "d2e5afa36797b1af"
-      },
       "c7717d2195d8#1": {
         "columns": [
           "Count"
@@ -883,7 +876,7 @@
           "Count"
         ],
         "rows": 1,
-        "digest": "daf90b19d7b3dbc3"
+        "digest": "aae5d0be4cd1cd0a"
       },
       "de9e77b26183#1": {
         "columns": [
@@ -902,8 +895,8 @@
           "is_premium",
           "deleted_at"
         ],
-        "rows": 3,
-        "digest": "6fce537c29ccbc1e"
+        "rows": 7,
+        "digest": "ba80d2fd033ea569"
       }
     },
     "19-optimizing-queries-explain-for-python-developers": {

@@ -1,26 +1,28 @@
 ---
+title: 'ORM vs Raw SQL: Decision Framework'
 slug: orm-vs-raw-sql-decision-framework
-title: "ORM vs Raw SQL: Decision Framework"
+date: 2026-06-01
 description: It's not either/or. Use ORMs for CRUD and migrations; use raw SQL for analytics and complex queries. A practical decision guide.
 author:
-  - Jamal Hansen
-date: 2026-06-01
+- Jamal Hansen
 tags:
-  - sql
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "jens-lelie-u0vgcIOQG08-unsplash.jpg"
-  alt: "A split dirt path cuts through dense, green woods."
-  caption: ""
+  image: jens-lelie-u0vgcIOQG08-unsplash.jpg
+  alt: A split dirt path cuts through dense, green woods.
+  caption: ''
   relative: true
   credit:
-    name: "Jens Lelie"
-    username: "madebyjens"
-    photo_id: "two-roads-between-trees-u0vgcIOQG08"
+    name: Jens Lelie
+    username: madebyjens
+    photo_id: two-roads-between-trees-u0vgcIOQG08
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
-unsplash_user: madebyjens
+TocOpen: false
 ---
+
 <!-- test:needs: customers, orders, salespeople, deals -->
 
 At the [beginning of this series](https://jamalhansen.com/blog/i-know-python-why-learn-sql/), I promised that even if you know how to use an Object Relational Mapper (ORM) to interact with a database, knowing SQL would make you a better developer. Now that we have covered everything from SELECT to parameterized queries, it is time to answer the question that every Python developer eventually asks: when should I use an ORM, and when should I just write SQL?
@@ -105,6 +107,20 @@ WITH monthly_stats AS (
 SELECT * FROM monthly_stats WHERE monthly_total > prev_month
 ```
 
+<!-- test:check:sql
+SELECT COUNT(*) >= 0 FROM (
+    WITH monthly_stats AS (
+        SELECT customer_id,
+               DATE_TRUNC('month', order_date) as month,
+               SUM(amount) as monthly_total,
+               LAG(SUM(amount)) OVER (PARTITION BY customer_id ORDER BY DATE_TRUNC('month', order_date)) as prev_month
+        FROM orders
+        GROUP BY customer_id, DATE_TRUNC('month', order_date)
+    )
+    SELECT * FROM monthly_stats WHERE monthly_total > prev_month
+)
+-->
+
 Try expressing that in ORM query syntax and you will quickly see why SQL exists.
 
 ### Analytics and Reporting
@@ -120,6 +136,15 @@ FROM customers
 GROUP BY city
 ORDER BY customers DESC
 ```
+
+<!-- test:check:sql
+SELECT COUNT(*) = 5 FROM (
+    SELECT city, COUNT(*) as customers,
+           COUNT(*) FILTER (WHERE is_premium) as premium_customers,
+           ROUND(100.0 * COUNT(*) FILTER (WHERE is_premium) / COUNT(*), 1) as premium_pct
+    FROM customers GROUP BY city
+)
+-->
 
 ### Performance-Critical Queries
 

@@ -1,27 +1,28 @@
 ---
-slug: advanced-sql-topics-sampler
 title: Advanced SQL Topics Sampler
+slug: advanced-sql-topics-sampler
+date: 2026-06-15
 description: Quick tastes of CASE statements, JSON functions, date manipulation, set operations, and recursive CTEs. Enough to know what to learn next.
 author:
-  - Jamal Hansen
-date: 2026-06-15
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "lily-banse--YHSwy6uqvk-unsplash.jpg"
-  alt: "A rustic wooden table displays a meal with roasted meats, rice, and various dishes."
-  caption: ""
+  image: lily-banse--YHSwy6uqvk-unsplash.jpg
+  alt: A rustic wooden table displays a meal with roasted meats, rice, and various dishes.
+  caption: ''
   relative: true
   credit:
-    name: "Lily Banse"
-    username: "lvnatikk"
-    photo_id: "cooked-dish-on-gray-bowl--YHSwy6uqvk"
+    name: Lily Banse
+    username: lvnatikk
+    photo_id: cooked-dish-on-gray-bowl--YHSwy6uqvk
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
-unsplash_user: lvnatikk
+TocOpen: false
 ---
+
 <!-- test:needs: customers, orders, salespeople, deals, newsletter_subscribers, events -->
 
 You've spent 23 weeks building a SQL foundation. You can query, join, aggregate, test, and build pipelines. That covers most of what you'll do day to day.
@@ -41,6 +42,14 @@ SELECT name,
        END as customer_tier
 FROM customers
 ```
+
+<!-- test:check:sql
+SELECT COUNT(*) FILTER (WHERE customer_tier = 'VIP') = 3
+FROM (
+    SELECT CASE WHEN is_premium THEN 'VIP' WHEN signup_date > '2025-01-01' THEN 'New' ELSE 'Regular' END as customer_tier
+    FROM customers
+)
+-->
 
 In Python, the equivalent is a chained ternary expression:
 
@@ -92,6 +101,13 @@ SELECT
     TRIM(city) as clean_city
 FROM customers
 ```
+
+<!-- test:check:sql
+SELECT COUNT(*) = 5 FROM (
+    SELECT UPPER(name), LOWER(email), SPLIT_PART(email, '@', 2), LENGTH(name), TRIM(city)
+    FROM customers
+)
+-->
 
 The Python equivalents are immediately recognizable:
 
@@ -174,6 +190,17 @@ WITH RECURSIVE dates AS (
 SELECT * FROM dates
 ```
 
+<!-- test:check:sql
+SELECT COUNT(*) = 31 FROM (
+    WITH RECURSIVE dates AS (
+        SELECT DATE '2025-01-01' as date
+        UNION ALL
+        SELECT date + INTERVAL '1 day' FROM dates WHERE date < '2025-01-31'
+    )
+    SELECT * FROM dates
+)
+-->
+
 In Python, the closest equivalent is a while loop that appends to a list until a condition is met:
 
 ```python
@@ -185,6 +212,10 @@ while current <= date(2025, 1, 31):
     dates.append(current)
     current += timedelta(days=1)
 ```
+
+<!-- test:check:python
+assert len(dates) == 31
+-->
 
 A word of caution: always include a clear stopping condition in the WHERE clause. A recursive CTE without one will run until your database kills it or runs out of memory.
 

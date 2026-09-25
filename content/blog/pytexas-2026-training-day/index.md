@@ -1,31 +1,26 @@
 ---
-alt: a table with PyTexas 2026 t-shirt, stickers, patch, and badge.
+title: PyTexas 2026 Training Day
+slug: pytexas-2026-training-day
+date: 2026-04-17
+lastmod: 2026-04-17
+description: Two sessions, two takeaways, and why you should not skip the training day at PyTexas.
 author:
 - Jamal Hansen
-categories:
-- Python
-- Developer Productivity
-category:
-- Blog Post
-cover:
-  alt: "Texas 2026 merchandise arranged on black surface, featuring a cloth with a logo, name plaque, and multiple commemorative patches."
-  caption: ''
-  image: pytexas-2026-day-one.jpg
-  relative: true
-date: 2026-04-17
-description: Two sessions, two takeaways, and why you should not skip the training
-  day at PyTexas.
-draft: false
-lastmod: 2026-04-17
-slug: pytexas-2026-training-day
 tags:
 - python
 - pytexas
 - ai-tools
 - developer-productivity
 - conferences
-target_date: 2026-04-24
-title: PyTexas 2026 Training Day
+categories:
+- Python
+- Developer Productivity
+cover:
+  image: pytexas-2026-day-one.jpg
+  alt: Texas 2026 merchandise arranged on black surface, featuring a cloth with a logo, name plaque, and multiple commemorative patches.
+  caption: ''
+  relative: true
+draft: false
 ---
 
 I always learn something at the PyTexas training day. [This year](https://www.pytexas.org/2026/), I learned how little I actually know about Python imports.

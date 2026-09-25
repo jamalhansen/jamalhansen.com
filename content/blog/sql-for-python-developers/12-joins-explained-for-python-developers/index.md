@@ -1,26 +1,28 @@
 ---
-slug: joins-explained-for-python-developers
 title: JOINs Explained for Python Developers
+slug: joins-explained-for-python-developers
+date: '2026-03-23'
 description: Connect related tables like looking up values in a Python dictionary. Covers INNER JOIN, LEFT JOIN, and when to use each.
 author:
-  - Jamal Hansen
-date: 2026-03-23
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "duy-pham-Cecb0_8Hx-o-unsplash.jpg"
-  alt: "Group of people standing on a pier overlooking the sea, with a large Ferris wheel structure visible in the background."
-  caption: ""
+  image: duy-pham-Cecb0_8Hx-o-unsplash.jpg
+  alt: Group of people standing on a pier overlooking the sea, with a large Ferris wheel structure visible in the background.
+  caption: ''
   relative: true
   credit:
-    name: "Duy Pham"
-    username: "miinyuii"
-    photo_id: "people-holding-shoulders-sitting-on-wall-Cecb0_8Hx-o"
+    name: Duy Pham
+    username: miinyuii
+    photo_id: people-holding-shoulders-sitting-on-wall-Cecb0_8Hx-o
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
+TocOpen: false
 ---
+
 <!-- test:needs: customers, orders -->
 So far in this series we have covered all the core SQL clauses: SELECT, FROM, WHERE, GROUP BY, HAVING, and ORDER BY. We can do quite a bit with those tools, but we have been working with a single table. SQL is the language of *relational* databases, and it is time to talk about the relational part.
 
@@ -106,6 +108,8 @@ LIMIT 5
 -- 1  | 247         | Widget  | 89.99  | 2025-06-15
 ```
 
+<!-- test:check:sql SELECT COUNT(*) = 14 FROM orders -->
+
 If we were to join data in Python it would look something like this. 
 <!-- test:skip -->
 ```python
@@ -138,6 +142,8 @@ FROM
 	orders JOIN 
 	customers ON orders.customer_id = customers.id
 ```
+
+<!-- test:check:sql SELECT COUNT(*) = 14 FROM orders JOIN customers ON orders.customer_id = customers.id -->
 
 This is a basic join, also known as an inner join. 
 
@@ -190,6 +196,8 @@ FROM
 	orders o ON c.id = o.customer_id
 ```
 
+<!-- test:check:sql SELECT COUNT(*) = 15 FROM customers c LEFT JOIN orders o ON c.id = o.customer_id -->
+
 This query returns every record in the customer table, even those that have not ordered. For customers without orders, the `o.product` column will show `NULL`.
 
 Between `INNER JOIN` and `LEFT JOIN`, you will cover the vast majority of your use cases. There are other types like `RIGHT JOIN` and `FULL OUTER JOIN`, but you will rarely need them in practice.
@@ -234,6 +242,8 @@ FROM
 WHERE 
 	o.id IS NULL
 ```
+
+<!-- test:check:sql SELECT COUNT(*) = 1 FROM customers c LEFT JOIN orders o ON c.id = o.customer_id WHERE o.id IS NULL -->
 
 You have now unlocked the power of relational databases with `JOIN`s. They can take a little bit of time and practice to master so take a minute and try out a few queries. Here are some queries you can try:
 

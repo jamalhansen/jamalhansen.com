@@ -1,26 +1,28 @@
 ---
+title: 'NULL: The Value That Isn''t'
 slug: null-the-value-that-isnt
-title: "NULL: The Value That Isn't"
+date: 2026-04-13
 description: NULL means "unknown," not "empty." Why NULL = NULL isn't true, three-valued logic, and how NULL behaves in WHERE, GROUP BY, JOINs, and subqueries. Master COALESCE and NULLIF.
 author:
-  - Jamal Hansen
-date: 2026-04-13
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "james-lee-lnIwKspeuTs-unsplash.jpg"
-  alt: "Deep-sky image showing a dense concentration of bright stars against a black background."
-  caption: ""
+  image: james-lee-lnIwKspeuTs-unsplash.jpg
+  alt: Deep-sky image showing a dense concentration of bright stars against a black background.
+  caption: ''
   relative: true
   credit:
-    name: "James Lee"
-    username: "picsbyjameslee"
-    photo_id: "stars-in-the-sky-during-night-time-lnIwKspeuTs"
+    name: James Lee
+    username: picsbyjameslee
+    photo_id: stars-in-the-sky-during-night-time-lnIwKspeuTs
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
+TocOpen: false
 ---
+
 <!-- test:needs: customers, orders, vendors, stats -->
 This post is about nothing, or rather, it's about the unknown. By now, you've bumped into `NULL` several times. Let's finally make sense of it.
 

@@ -1,26 +1,30 @@
 ---
-slug: generate-practice-data-with-faker
 title: Generate Practice Data with faker
-description: Real SQL practice needs real-looking data. Generate hundreds of customers with Python's Faker library without downloading a single CSV
+slug: generate-practice-data-with-faker
 date: 2026-01-19
-author:
-  - Jamal Hansen
 lastmod: 2026-01-13
-tags: ["python", "duckdb", "sql", "faker"]
-categories: []
+description: Real SQL practice needs real-looking data. Generate hundreds of customers with Python's Faker library without downloading a single CSV
+author:
+- Jamal Hansen
+tags:
+- python
+- duckdb
+- sql
+- faker
+series:
+- SQL for Python Developers
 cover:
-    image: jon-tyson-566CgCRSNCk-unsplash.jpg
-    alt: "Generate Practice Data with faker"
-    relative: true
-    caption: ""
-    credit:
-        name: "Jon Tyson"
-        username: "jontyson"
-        photo_id: "four-markers-on-table-566CgCRSNCk"
+  image: jon-tyson-566CgCRSNCk-unsplash.jpg
+  alt: Generate Practice Data with faker
+  caption: ''
+  relative: true
+  credit:
+    name: Jon Tyson
+    username: jontyson
+    photo_id: four-markers-on-table-566CgCRSNCk
 draft: false
 ShowToc: false
 TocOpen: false
-series: ["SQL for Python Developers"]
 ---
 
 Last week, we got [DuckDB running](/blog/run-your-first-sql-query-in-under-5-minutes/) with three hardcoded rows. That got us started, but three rows? You can eyeball that. Let's generate hundreds of realistic customers and build a dataset worth exploring.

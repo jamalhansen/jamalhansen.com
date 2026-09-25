@@ -1,27 +1,28 @@
 ---
+title: 'Creating Tables: DDL for Python Devs'
 slug: creating-tables-ddl-for-python-devs
-title: "Creating Tables: DDL for Python Devs"
+date: 2026-04-27
 description: Map Python types to SQL types. Learn CREATE TABLE with primary keys, foreign keys, and constraints like NOT NULL and DEFAULT.
 author:
-  - Jamal Hansen
-date: 2026-04-27
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "ryno-marais-p5JcD-_13ek-unsplash.jpg"
-  alt: "A person uses a ruler to measure a plank of light-colored wood."
-  caption: ""
+  image: ryno-marais-p5JcD-_13ek-unsplash.jpg
+  alt: A person uses a ruler to measure a plank of light-colored wood.
+  caption: ''
   relative: true
   credit:
-    name: "Ryno Marais"
-    username: "ryno_marais"
-    photo_id: "person-in-white-shirt-holding-brown-wooden-table-p5JcD-_13ek"
+    name: Ryno Marais
+    username: ryno_marais
+    photo_id: person-in-white-shirt-holding-brown-wooden-table-p5JcD-_13ek
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
-unsplash_user: ryno_marais
+TocOpen: false
 ---
+
 <!-- test:needs: customers -->
 
 So far, we have spent our time learning how to query data. For most of us, this might be as much SQL as we will ever use. 

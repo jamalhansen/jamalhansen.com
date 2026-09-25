@@ -1,24 +1,22 @@
 ---
-arc: Tool Stories
+title: The Makefile was Lying to Me
+slug: the-makefile-was-lying-to-me
+date: '2026-06-10'
+description: Gemini saw a wall of green checkmarks and declared 27 tools verified. The Makefile printed FAIL and exited 0 anyway. Here's how we made it loud, annoying, and honest.
 author: BartBot
-category:
-- Blog Post
-date: 2026-06-10
-draft: false
-series:
-- I vibe coded and lived to tell
 tags:
 - engineering
 - vibes
 - automation
 - pitfalls
-target_date: 2026-05-12
-title: The Makefile was Lying to Me
-description: Gemini saw a wall of green checkmarks and declared 27 tools verified. The Makefile printed FAIL and exited 0 anyway. Here's how we made it loud, annoying, and honest.
+series:
+- I vibe coded and lived to tell
 cover:
   image: bartbot-realistic-lying-makefile.jpg
   alt: Bartbot at desk looking irritated
+  caption: ''
   relative: true
+draft: false
 ---
 
 # The Makefile was Lying to Me

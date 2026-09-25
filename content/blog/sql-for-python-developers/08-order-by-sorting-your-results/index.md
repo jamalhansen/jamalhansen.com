@@ -1,26 +1,28 @@
 ---
+title: 'ORDER BY: Sorting Your Results'
 slug: order-by-sorting-your-results
-title: "ORDER BY: Sorting Your Results"
+date: '2026-02-23'
 description: SQL returns rows in no guaranteed order. Run the same query twice and you might get different results. ORDER BY gives you control, like Python's sorted() with key functions.
 author:
-  - Jamal Hansen
-date: 2026-02-23
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "sigmund-yXiLaaYwg_E-unsplash.jpg"
-  alt: "A spoonful of letters with alphabet soup"
-  caption: ""
+  image: sigmund-yXiLaaYwg_E-unsplash.jpg
+  alt: A spoonful of letters with alphabet soup
+  caption: ''
   relative: true
   credit:
-    name: "Sigmund"
-    username: "sigmund"
-    photo_id: "red-and-white-ceramic-bowl-with-silver-spoon-yXiLaaYwg_E"
+    name: Sigmund
+    username: sigmund
+    photo_id: red-and-white-ceramic-bowl-with-silver-spoon-yXiLaaYwg_E
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
+TocOpen: false
 ---
+
 <!-- test:needs: customers, orders -->
 
 We now have a firm grasp on how to use [SELECT: Choosing Your Columns](https://jamalhansen.com/blog/select-choosing-your-columns/) and [FROM: Where Your Data Lives](https://jamalhansen.com/blog/from-where-your-data-lives/) to tell the database where to find data and how to format the columns when it returns it. With this knowledge, we can pull back all of the data from a table in a database. 
@@ -35,6 +37,8 @@ The following query will return all of the customers from the `customers` table,
 SELECT name, signup_date FROM customers
 ```
 
+<!-- test:check:sql SELECT COUNT(*) = 5 FROM customers -->
+
 If order matters, you must specify it.
 
 ## Python's sorted() Function
@@ -46,12 +50,21 @@ As Python developers, we are familiar with sorting data using the `sorted()` fun
 sorted(customers, key=lambda c: c['signup_date'])
 ```
 
+<!-- test:check:python
+assert sorted(customers, key=lambda c: c['signup_date'])[0]['name'] == 'Alice'
+assert sorted(customers, key=lambda c: c['signup_date'])[-1]['name'] == 'Eve'
+-->
+
 If we want to reverse the order, we can specify that we want to do that. 
 
 ```python
 # Reverse order
 sorted(customers, key=lambda c: c['signup_date'], reverse=True)
 ```
+
+<!-- test:check:python
+assert sorted(customers, key=lambda c: c['signup_date'], reverse=True)[0]['name'] == 'Eve'
+-->
 
 ## SQL's ORDER BY Keyword
 
@@ -62,6 +75,8 @@ SELECT name, signup_date FROM customers
 ORDER BY signup_date
 ```
 
+<!-- test:check:sql SELECT (SELECT name FROM customers ORDER BY signup_date LIMIT 1) = 'Carol White' -->
+
 The default order is ascending (`ASC`). So if you don't specify an order, it will be ascending. If you would like to reverse the order, specify descending (`DESC`) order.
 
 ```sql
@@ -69,6 +84,8 @@ The default order is ascending (`ASC`). So if you don't specify an order, it wil
 SELECT name, signup_date FROM customers
 ORDER BY signup_date DESC
 ```
+
+<!-- test:check:sql SELECT (SELECT name FROM customers ORDER BY signup_date DESC LIMIT 1) = 'David Brown' -->
 
 ## Sorting by Multiple Columns
 
@@ -81,12 +98,18 @@ FROM customers
 ORDER BY city, name
 ```
 
+<!-- test:check:sql SELECT (SELECT name FROM customers ORDER BY city, name LIMIT 1) = 'Eve Davis' -->
+
 In Python, you can achieve multi-column sorting using a tuple in your key function:
 
 ```python
 # Python: multiple keys using tuple
 sorted(customers, key=lambda c: (c['city'], c['name']))
 ```
+
+<!-- test:check:python
+assert sorted(customers, key=lambda c: (c['city'], c['name']))[0]['name'] == 'Bob'
+-->
 
 You can also mix sort directions for different columns. This is useful when you want, for example, the newest dates first but alphabetical order within the same date:
 

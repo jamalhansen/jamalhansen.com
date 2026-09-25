@@ -1,25 +1,28 @@
 ---
-slug: i-know-python-why-learn-sql
 title: I know Python; Why learn SQL
-description: Learning SQL will make you a better Python developer, even if you already use pandas and ORMs. The first in a series of posts that will walk you through the fundamentals using DuckDB and Python.
+slug: i-know-python-why-learn-sql
 date: 2026-01-05
+description: Learning SQL will make you a better Python developer, even if you already use pandas and ORMs. The first in a series of posts that will walk you through the fundamentals using DuckDB and Python.
 author:
-  - Jamal Hansen
-tags: ["sql", "duckdb", "python"]
-categories: []
+- Jamal Hansen
+tags:
+- sql
+- duckdb
+- python
+series:
+- SQL for Python Developers
 cover:
-    image: anna-yablonskaya-cpy88m2PnBM-unsplash.jpg
-    alt: "I know Python; Why learn SQL"
-    relative: true
-    caption: ""
-    credit:
-        name: "Anna Yablonskaya"
-        username: "invborder"
-        photo_id: "a-foggy-train-station-with-a-train-on-the-tracks-cpy88m2PnBM"
+  image: anna-yablonskaya-cpy88m2PnBM-unsplash.jpg
+  alt: I know Python; Why learn SQL
+  caption: ''
+  relative: true
+  credit:
+    name: Anna Yablonskaya
+    username: invborder
+    photo_id: a-foggy-train-station-with-a-train-on-the-tracks-cpy88m2PnBM
 draft: false
 ShowToc: false
 TocOpen: false
-series: ["SQL for Python Developers"]
 ---
 
 SQL and Python solve different problems with data. Python tells the computer what to do, step by step. SQL describes the data you want and lets the database figure out how to get it. As a Python developer, learning SQL means you'll write better pandas queries, know when to push work to the database instead of pulling everything into memory, and understand what your ORM is actually doing under the hood.

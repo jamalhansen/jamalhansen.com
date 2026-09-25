@@ -1,26 +1,28 @@
 ---
+title: 'WHERE: Filtering Your Data'
 slug: where-filtering-your-data
-title: "WHERE: Filtering Your Data"
+date: '2026-03-02'
 description: Filter rows with conditions, the SQL equivalent of list comprehension `if` clauses. Covers AND/OR, IN, BETWEEN, LIKE patterns, and NULL handling.
 author:
-  - Jamal Hansen
-date: 2026-03-02
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "di-bella-coffee-Ko7PFAommGE-unsplash.jpg"
-  alt: "Pour-over coffee dripper filled with grounds rests on a slatted wooden surface."
-  caption: ""
+  image: di-bella-coffee-Ko7PFAommGE-unsplash.jpg
+  alt: Pour-over coffee dripper filled with grounds rests on a slatted wooden surface.
+  caption: ''
   relative: true
   credit:
-    name: "Di Bella Coffee"
-    username: "dibella"
-    photo_id: "shallow-focus-photo-coffee-decanter-Ko7PFAommGE"
+    name: Di Bella Coffee
+    username: dibella
+    photo_id: shallow-focus-photo-coffee-decanter-Ko7PFAommGE
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
+TocOpen: false
 ---
+
 <!-- test:needs: customers -->
 We have come a long way in the past couple of months, working through the core SQL keywords. So far, we can [`SELECT` columns](https://jamalhansen.com/blog/select-choosing-your-columns/), specify [`FROM` where our data lives](https://jamalhansen.com/blog/from-where-your-data-lives/), and [`ORDER BY` to sort results](https://jamalhansen.com/blog/order-by-sorting-your-results/).
 
@@ -47,6 +49,11 @@ We are adding more keywords, but just remember, `WHERE` filters rows before you 
 list(filter(lambda c: c['is_premium'], customers))
 ```
 
+<!-- test:check:python
+assert len([c for c in customers if c['is_premium']]) == 3
+assert [c['name'] for c in customers if c['is_premium']] == ['Alice', 'Charlie', 'Eve']
+-->
+
 It will make your queries more efficient and the results exactly what you want to see. 
 
 ```sql
@@ -54,6 +61,8 @@ SELECT *
 FROM customers
 WHERE is_premium = true
 ```
+
+<!-- test:check:sql SELECT COUNT(*) = 3 FROM customers WHERE is_premium = true -->
 
 In both the Python and SQL above, we are limiting the results to only those customers where premium = true.
 ## The Basics
@@ -132,6 +141,10 @@ The Python equivalent for this would also be the keyword `in`
 ```python
 [c for c in customers if c['city'] in ['New York', 'Los Angeles', 'Chicago']]
 ```
+
+<!-- test:check:python
+assert len([c for c in customers if c['city'] in ['New York', 'Los Angeles', 'Chicago']]) == 0
+-->
 
 ### BETWEEN: Range of Values
 Alternatively, you might want to return a range of values. The `BETWEEN` keyword is very helpful when working with a range of dates or numbers. 

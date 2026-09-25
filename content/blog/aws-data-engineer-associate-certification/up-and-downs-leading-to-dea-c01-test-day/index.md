@@ -1,22 +1,28 @@
 ---
-slug: up-and-downs-leading-to-dea-c01-test-day
 title: Ups and downs leading up to DEA-C01 test day
-description: Since my last post where I expressed my concerns that my study efforts for the AWS Data Engineer - Associate Certification were not enough, I have taken more tests with mixed results.
+slug: up-and-downs-leading-to-dea-c01-test-day
 date: 2025-05-05
+description: Since my last post where I expressed my concerns that my study efforts for the AWS Data Engineer - Associate Certification were not enough, I have taken more tests with mixed results.
 author:
-  - Jamal Hansen
-tags: ["aws", "certification", "dea-c01", "studying", "preparation"]
-categories: ["certification"]
+- Jamal Hansen
+tags:
+- aws
+- certification
+- dea-c01
+- studying
+- preparation
+categories:
+- certification
+series:
+- AWS Data Engineer Associate Certification
 cover:
-    image: 2025-05-06-dea-c01-practice-exam-results.png
-    alt: "Ups and downs leading up to DEA-C01 test day"
-    relative: true
-    caption: ""
+  image: 2025-05-06-dea-c01-practice-exam-results.png
+  alt: Ups and downs leading up to DEA-C01 test day
+  caption: ''
+  relative: true
 draft: false
 ShowToc: false
 TocOpen: false
-series: [AWS Data Engineer Associate Certification]
-layout: post
 ---
 
 Recently I posted about how [[I take the AWS Data Engineer - Associate exam in 5 days]]. My concern is that even though I've been studying for a couple months now, when I take some practice exams I am failing.

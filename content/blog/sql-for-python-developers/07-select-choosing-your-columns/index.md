@@ -1,27 +1,28 @@
 ---
+title: 'SELECT: Choosing Your Columns'
 slug: select-choosing-your-columns
-title: "SELECT: Choosing Your Columns"
+date: '2026-02-16'
 description: SQL's SELECT is more than picking columns. Rename with AS, compute expressions, and use DISTINCT for unique values.
 author:
-  - Jamal Hansen
-date: 2026-02-16
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "erik-mclean-F5G4YTN5uEQ-unsplash.jpg"
-  alt: "A stocked refrigerator interior with drinks, snacks, and various groceries visible on multiple shelves."
-  caption: ""
+  image: erik-mclean-F5G4YTN5uEQ-unsplash.jpg
+  alt: A stocked refrigerator interior with drinks, snacks, and various groceries visible on multiple shelves.
+  caption: ''
   relative: true
   credit:
-    name: "Erik Mclean"
-    username: "introspectivedsgn"
-    photo_id: "white-refrigerator-with-assorted-items-F5G4YTN5uEQ"
+    name: Erik Mclean
+    username: introspectivedsgn
+    photo_id: white-refrigerator-with-assorted-items-F5G4YTN5uEQ
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
-layout: post
+TocOpen: false
 ---
+
 <!-- test:needs: customers -->
 
 You have written `SELECT *` many times by now. It works, but it's a bit like asking for everything in the fridge when you just want milk. This week, we will look at the `SELECT` clause and see that it does more than just pick columns. It transforms your output.
@@ -36,6 +37,10 @@ Let's return to the list comprehension to illustrate how `SELECT` can transform 
 # Python: Pick specific keys from dicts
 [{'name': c['name'], 'email': c['email']} for c in customers]
 ```
+
+<!-- test:check:python
+assert len([{'name': c['name'], 'email': c['email']} for c in customers]) == 5
+-->
 
 In this example, we are picking out the name and email elements from the list of customers. This will `SELECT` name and email `FROM` customers.
 
@@ -68,6 +73,8 @@ SELECT name AS customer_name, email AS contact
 FROM customers
 ```
 
+<!-- test:check:sql SELECT COUNT(*) = 5 FROM (SELECT name AS customer_name, email AS contact FROM customers) -->
+
 Output columns are now called `customer_name` and `contact`.
 
 If you are interested in the Python equivalent, it looks like this:
@@ -75,6 +82,10 @@ If you are interested in the Python equivalent, it looks like this:
 ```python
 [{'customer_name': c['name'], 'contact': c['email']} for c in customers]
 ```
+
+<!-- test:check:python
+assert len([{'customer_name': c['name'], 'contact': c['email']} for c in customers]) == 5
+-->
 
 ### Simple Expressions
 

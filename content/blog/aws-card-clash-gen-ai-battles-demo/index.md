@@ -1,22 +1,25 @@
 ---
-slug: aws-card-clash-gen-ai-battles-demo
 title: AWS Card Clash - Gen AI Battles
+slug: aws-card-clash-gen-ai-battles-demo
+date: '2025-05-07'
 description: Today I joined a demo of the AWS Card Clash architecture design game available on AWS SkillBuilder
-date: 2025-05-07
 author:
-  - Jamal Hansen
-tags: ["aws", "skillbuilder", "gaming", "learning", "architecture"]
-categories: ["learning"]
+- Jamal Hansen
+tags:
+- aws
+- skillbuilder
+- gaming
+- learning
+- architecture
+categories:
+- learning
 cover:
-    image: 2025-05-07-aws-card-clash-demo.png
-    alt: "AWS Card Clash - Gen AI Battles"
-    relative: true
-    caption: ""
+  image: 2025-05-07-aws-card-clash-demo.png
+  alt: AWS Card Clash - Gen AI Battles
+  caption: ''
+  relative: true
 draft: false
 ShowToc: false
-TocOpen: false
-series:
-layout: post
 ---
 
 Today I joined the [AWS Card Clash: Gen AI Battles | S1 E1 | Model Access Showdown](https://www.linkedin.com/events/awscardclash-genaibattles-s1e1-7319012363007897600/theater/) on LinkedIn. This session demoed the AWS Card Clash learning game available on AWS SkillBuilder. The session was hosted by [Curtis Morton](https://www.linkedin.com/in/curtisdmorton/), [Jason Cuddy](https://www.linkedin.com/in/jasoncuddy/), and [Brittany Wolfrom](https://www.linkedin.com/in/brittany-wolfrom/).

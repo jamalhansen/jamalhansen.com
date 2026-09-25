@@ -1,26 +1,28 @@
 ---
+title: 'Window Functions: The Feature Python Developers Miss Most'
 slug: window-functions-the-feature-python-developers-miss-most
-title: "Window Functions: The Feature Python Developers Miss Most"
+date: 2026-04-20
 description: Calculate across rows without collapsing them. Running totals, rankings, and row comparisons that GROUP BY can't do.
 author:
-  - Jamal Hansen
-date: 2026-04-20
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "r-mo-w-_iZqdviAo-unsplash.jpg"
-  alt: "View of snowy mountains and a calm bay seen through a large window frame under dramatic, cloudy skies."
-  caption: ""
+  image: r-mo-w-_iZqdviAo-unsplash.jpg
+  alt: View of snowy mountains and a calm bay seen through a large window frame under dramatic, cloudy skies.
+  caption: ''
   relative: true
   credit:
-    name: "R Mo"
-    username: "mooo3721"
-    photo_id: "calm-body-of-water-near-brown-mountain-under-white-and-gray-sky-w-_iZqdviAo"
+    name: R Mo
+    username: mooo3721
+    photo_id: calm-body-of-water-near-brown-mountain-under-white-and-gray-sky-w-_iZqdviAo
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
+TocOpen: false
 ---
+
 <!-- test:needs: customers, orders -->
 This week, we are going to focus on window functions, which are very powerful data manipulation tools. It's something that you can do in Python, but in SQL, it is super simple and very powerful. We'll continue using the same `orders` and `customers` tables from [previous posts](https://jamalhansen.com/blog/where-filtering-your-data/) in our DuckDB sample database.
 
@@ -41,6 +43,8 @@ SELECT customer_id, SUM(amount) as total
 FROM orders
 GROUP BY customer_id
 ```
+
+<!-- test:check:sql SELECT COUNT(*) = 4 FROM (SELECT customer_id, SUM(amount) as total FROM orders GROUP BY customer_id) -->
 
 But what if you want:
 - Each order row, *plus* the customer's running total at that point?
@@ -95,6 +99,8 @@ SELECT name, city,
 FROM customers
 ```
 
+<!-- test:check:sql SELECT (SELECT name FROM (SELECT name, ROW_NUMBER() OVER (ORDER BY signup_date) as rn FROM customers) WHERE rn = 1) = 'Carol White' -->
+
 Both `RANK()` and `DENSE_RANK()` are available for ranking data. The difference is the way that they handle ties in the data. If two numbers have the same ranking (1, 2, 2, 4), `RANK()` will skip the next value and resume counting. `DENSE_RANK()` does not do this and would rank these as (1, 2, 2, 3).
 
 ```sql
@@ -111,6 +117,8 @@ SELECT customer_id, order_date, amount,
        AVG(amount) OVER (PARTITION BY customer_id) as customer_avg
 FROM orders
 ```
+
+<!-- test:check:sql SELECT COUNT(*) = 14 FROM (SELECT customer_id, SUM(amount) OVER (PARTITION BY customer_id ORDER BY order_date) as running_total FROM orders) -->
 
 `LAG()` and `LEAD()` allow you to reference data from the previous or next row in the result set. 
 ```sql

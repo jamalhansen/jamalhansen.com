@@ -1,38 +1,29 @@
 ---
-slug: I Vibe Coded a Local AI-Powered Promo Generator
-Created: 2026-02-27
-Category: "Blog Post Idea"
-tags:
-  - local-ai
-  - vibe-coding
-  - ollama
-split_from: "I Vibe Coded a Promo Generator with Local AI"
-part: 1 of 3
 title: I Vibe Coded a Local AI-Powered Promo Generator
+slug: i-vibe-coded-a-local-ai-powered-promo-generator
+date: 2026-02-28
 description: I got tired of rewriting the same post for five social platforms every week, so I built a local AI tool with Ollama to do it. Here's what broke, why a two-pass architecture fixed it, and whether small models can carry a real recurring task.
 author:
-  - Jamal Hansen
-date: 2026-02-28
-categories:
+- Jamal Hansen
+tags:
+- local-ai
+- vibe-coding
+- ollama
+series:
+- I vibe coded and lived to tell
 cover:
   image: stavan-macwan-YG8vzN9IkmA-unsplash.jpg
-  alt: "A tool box with some socket wrenches in it"
-  caption: ""
+  alt: A tool box with some socket wrenches in it
+  caption: ''
   relative: true
   credit:
-    name: "Stavan Macwan"
-    username: "stavanmacwan9815"
-    photo_id: "a-red-box-with-a-couple-of-guns-in-it-YG8vzN9IkmA"
-series:
-  - "I vibe coded and lived to tell"
+    name: Stavan Macwan
+    username: stavanmacwan9815
+    photo_id: a-red-box-with-a-couple-of-guns-in-it-YG8vzN9IkmA
 draft: false
 ShowToc: false
-Related:
-  - "I Vibe Coded a Promo Generator with Local AI"
-  - "I Vibe Coded a Promo Generator with Local AI - Part 2 Architecture and Models"
-  - "I Vibe Coded a Promo Generator with Local AI - Part 3 Why Local-First AI"
-  - "local-first-ai-series-index"
 ---
+
 Every Monday, I publish a blog post. Then I write five slightly different versions of "hey, I wrote a thing" for LinkedIn, Twitter, Bluesky, and Mastodon. Each platform has different character limits, different audiences, and different best practices. It's tedious.
 
 I wanted to automate it. Not with a frontier model, but with a small local one running on my laptop. Something like phi or llama, through Ollama.

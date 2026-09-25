@@ -1,33 +1,28 @@
 ---
-slug: i-trusted-three-local-ai-models
-Created: 2026-03-04
-tags:
-  - local-ai
-  - ollama
-  - python
-series:
-  - "I vibe coded and lived to tell"
-Related:
-  - "I Vibe Coded a Local AI-Powered Promo Generator"
 title: I trusted three local AI models, and Python had to clean up their mess
-description: Small local models bring creativity. They don't bring discipline. Here's what I learned testing llama3.2, phi4-mini, and llama3.1:8b so you don't have to.
-author:
-  - Jamal Hansen
+slug: i-trusted-three-local-ai-models
 date: 2026-03-13
 lastmod: 2026-03-10
-newsletter_url: ""
+description: Small local models bring creativity. They don't bring discipline. Here's what I learned testing llama3.2, phi4-mini, and llama3.1:8b so you don't have to.
+author:
+- Jamal Hansen
+tags:
+- local-ai
+- ollama
+- python
+series:
+- I vibe coded and lived to tell
 cover:
-  image: "ricardo-viana--tYsPFKMm7g-unsplash.jpg"
-  alt: "A splatter of paint and paint supplies covers a white surface."
-  caption: ""
+  image: ricardo-viana--tYsPFKMm7g-unsplash.jpg
+  alt: A splatter of paint and paint supplies covers a white surface.
+  caption: ''
   relative: true
   credit:
-    name: "Ricardo Viana"
-    username: "ricardoviana"
-    photo_id: "assorted-color-bottles-on-white-surface-with-paint-scribbles--tYsPFKMm7g"
+    name: Ricardo Viana
+    username: ricardoviana
+    photo_id: assorted-color-bottles-on-white-surface-with-paint-scribbles--tYsPFKMm7g
 draft: false
 ---
-
 
 Previously, I reported that I vibe-coded [a tool that reads a blog post I've written and generates platform-specific promo copy using a local Ollama model](https://jamalhansen.com/blog/i-vibe-coded-a-local-ai-powered-promo-generator/). I chose local models because I'm curious about them. They seem to be the future of AI, at least for use cases like this... and it works... sort of.
 
@@ -204,4 +199,4 @@ Ultimately, the tool needs more work, but it does do most of what I ask it to. I
 
 So, the architecture works, the guardrails work, but why should I run any of this locally when cloud models handle it better? Part 3 makes the case for local-first.
 
-Do you have experience with smaller models or local-first AI? I'd like to know more about it. Please reach out and let me know if your experience was similar to mine. 
+Do you have experience with smaller models or local-first AI? I'd like to know more about it. Please reach out and let me know if your experience was similar to mine.

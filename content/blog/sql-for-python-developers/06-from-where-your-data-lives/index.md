@@ -1,27 +1,28 @@
 ---
+title: 'FROM: Where Your Data Lives'
 slug: from-where-your-data-lives
-title: "FROM: Where Your Data Lives"
+date: '2026-02-09'
 description: We write SELECT first, but FROM executes first. It's like the `for item in collection` part of a Python loop. You pick your data source before doing anything else.
 author:
-  - Jamal Hansen
-date: 2026-02-09
+- Jamal Hansen
 tags:
-  - sql
-categories:
+- sql
+series:
+- SQL for Python Developers
 cover:
-  image: "lance-chang-h3pVxOIpnzk-unsplash.jpg"
-  alt: "A deep perspective view down a brightly lit warehouse aisle flanked by towering shelves of stored goods."
-  caption: ""
+  image: lance-chang-h3pVxOIpnzk-unsplash.jpg
+  alt: A deep perspective view down a brightly lit warehouse aisle flanked by towering shelves of stored goods.
+  caption: ''
   relative: true
   credit:
-    name: "Lance Chang"
-    username: "carmendis"
-    photo_id: "a-large-warehouse-filled-with-lots-of-shelves-h3pVxOIpnzk"
+    name: Lance Chang
+    username: carmendis
+    photo_id: a-large-warehouse-filled-with-lots-of-shelves-h3pVxOIpnzk
 draft: false
 ShowToc: false
-series: ["SQL for Python Developers"]
-layout: post
+TocOpen: false
 ---
+
 <!-- test:needs: customers -->
 
 We have come a long way over the last five posts, but we are just getting started. So far, we have explored concepts that will help us along our journey, but haven't talked a whole lot about SQL itself. 
