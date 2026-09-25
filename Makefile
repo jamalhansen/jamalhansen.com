@@ -8,7 +8,7 @@ help:
 	@echo "make serve          - hugo server with drafts"
 	@echo "make install-hooks  - install the code-block pre-commit hook (run after every clone)"
 	@echo "make check-hooks    - fail if the pre-commit hook is missing or out of date"
-	@echo "make validate       - run every code block in every post"
+	@echo "make validate       - run every code block in every post, then check all frontmatter"
 	@echo "make publish POST=<vault note>    - convert a vault post into its page bundle"
 	@echo "make find FIND=<vault find>       - convert a vault find into content/finds/"
 	@echo "make preview POST=<vault note>    - render a note as a draft in the real theme"
@@ -28,6 +28,7 @@ check-hooks:
 
 validate:
 	blog-validate check --all
+	obsidian-hugo check --hugo-dir .
 
 # Publishing goes through obsidian-hugo-bridge (uv tool install ~/projects/local-first/obsidian-hugo-bridge).
 # POST/FIND may be absolute or relative to the vault. Extra flags: ARGS="--overwrite", ARGS="--dry-run".

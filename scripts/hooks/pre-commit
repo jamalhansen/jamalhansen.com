@@ -22,3 +22,20 @@ if [ $? -ne 0 ]; then
     echo "To skip this check: git commit --no-verify"
     exit 1
 fi
+
+# Frontmatter shape of staged posts (nested blocks, missing description, cover without alt, ...).
+staged=$(git diff --cached --name-only --diff-filter=ACM -- 'content/blog/**/index.md' 'content/blog/*/index.md')
+if [ -n "$staged" ]; then
+    if command -v obsidian-hugo &> /dev/null; then
+        # shellcheck disable=SC2086
+        obsidian-hugo check --hugo-dir . $staged || {
+            echo ""
+            echo "Fix the frontmatter errors above before committing."
+            echo "To skip this check: git commit --no-verify"
+            exit 1
+        }
+    else
+        echo "Warning: obsidian-hugo not found; frontmatter not checked."
+        echo "Install it with: uv tool install ~/projects/local-first/obsidian-hugo-bridge"
+    fi
+fi
