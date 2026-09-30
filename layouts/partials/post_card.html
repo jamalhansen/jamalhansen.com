@@ -1,0 +1,56 @@
+{{- /* A home-page post card: cover image (or a soft panel when a post has none), meta, title, description.
+       Pass (dict "Page" $page "Featured" bool). */ -}}
+{{- $p := .Page }}
+{{- $featured := .Featured }}
+{{- $series := "" }}
+{{- with $p.Params.series }}
+  {{- if reflect.IsSlice . }}{{ $series = index . 0 | string }}{{ else }}{{ $series = . | string }}{{ end }}
+{{- end }}
+{{- with $series }}
+  {{- with site.GetPage (printf "/series/%s" (urlize .)) }}{{ $series = .Title }}{{ end }}
+{{- end }}
+{{- $imgURL := "" }}
+{{- $contain := false }}
+{{- $alt := $p.Title }}
+{{- with $p.Params.cover }}
+  {{- with .alt }}{{ $alt = . }}{{ end }}
+  {{- with .image }}
+    {{- $res := $p.Resources.GetMatch . }}
+    {{- if $res }}
+      {{- if in (slice "image/jpeg" "image/png" "image/webp") $res.MediaType.Type }}
+        {{- $ratio := div (float $res.Width) $res.Height }}
+        {{- if gt $ratio 2.1 }}
+          {{- /* Wide banners and title slides: show the whole image; cropping would cut their text. */}}
+          {{- $contain = true }}
+          {{- $imgURL = ($res.Resize (cond $featured "1200x webp q85" "720x webp q85")).RelPermalink }}
+        {{- else }}
+          {{- $imgURL = ($res.Fill (cond $featured "1200x630 Smart webp q80" "720x405 Smart webp q80")).RelPermalink }}
+        {{- end }}
+      {{- else }}
+        {{- $imgURL = $res.RelPermalink }}
+      {{- end }}
+    {{- else if or (hasPrefix . "http") (hasPrefix . "/") }}
+      {{- $imgURL = . }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+<article class="post-card{{ if $featured }} post-card--featured{{ end }}">
+  <div class="post-card-media{{ if $contain }} post-card-media--contain{{ end }}">
+    {{- if $imgURL }}
+    <img src="{{ $imgURL }}" alt="{{ $alt }}" loading="{{ if $featured }}eager{{ else }}lazy{{ end }}" decoding="async">
+    {{- else }}
+    <div class="post-card-placeholder" aria-hidden="true"><span>{{ $series | default "Jamal Hansen" }}</span></div>
+    {{- end }}
+  </div>
+  <div class="post-card-body">
+    <div class="post-card-meta">
+      <time datetime="{{ $p.Date.Format "2006-01-02" }}">{{ $p.Date.Format "Jan 2, 2006" }}</time>
+      <span>{{ $p.ReadingTime }} min read</span>
+      {{- with $series }}<span class="post-card-series">{{ . }}</span>{{ end }}
+    </div>
+    <h3 class="post-card-title"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h3>
+    {{- with $p.Description }}
+    <p class="post-card-desc">{{ . }}</p>
+    {{- end }}
+  </div>
+</article>

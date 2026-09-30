@@ -1,8 +1,14 @@
 {{- with .Site.Params.homeInfoParams }}
 <article class="first-entry home-info">
-    <header class="entry-header">
-        <h1>{{ .Title | safeHTML }}</h1>
-    </header>
+    <div class="home-hero">
+        {{- with resources.Get "author.png" }}
+        {{- $avatar := .Fill "240x240 Center webp q85" }}
+        <img class="home-hero-avatar" src="{{ $avatar.RelPermalink }}" width="120" height="120" alt="Jamal Hansen">
+        {{- end }}
+        <header class="entry-header">
+            <h1>{{ .Title | safeHTML }}</h1>
+        </header>
+    </div>
     <div class="entry-content">
         {{ .Content | markdownify }}
     </div>
