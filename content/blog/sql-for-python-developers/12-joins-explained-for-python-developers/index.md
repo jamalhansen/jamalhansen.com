@@ -39,6 +39,8 @@ We could add information about the orders to the customer table, but this has so
 <!-- test:skip -->
 ```python
 # Generate orders (add to practice.duckdb)
+from datetime import date
+
 from faker import Faker
 import duckdb
 import random
@@ -69,7 +71,7 @@ for i in range(1000):
         random.randint(1, 500),  # Links to customer id
         random.choice(products),
         round(random.uniform(10, 500), 2),
-        fake.date_between(start_date='-1y', end_date='today')
+        fake.date_between(start_date=date(2025, 1, 1), end_date=date(2025, 12, 31))
     ))
 
 con.executemany("INSERT INTO orders VALUES (?, ?, ?, ?, ?)", orders)

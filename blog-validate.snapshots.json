@@ -2,27 +2,27 @@
   "version": 1,
   "posts": {
     "03-generate-practice-data-with-faker": {
-      "08ebbcee78fb#1": {
-        "stdout": "   id               name  ... signup_date is_premium\n0   1       Allison Hill  ...  2024-12-01       True\n1   2      Lance Hoffman  ...  2025-05-30       True\n2   3       Tyler Rogers  ...  2025-10-20",
-        "digest": "ac372d86107c698b"
-      },
-      "2dd4e7884dfb#1": {
-        "stdout": "{'id': 1, 'name': 'Allison Hill', 'email': 'donaldgarcia@example.net', 'city': 'New Roberttown', 'signup_date': datetime.date(2024, 12, 1), 'is_premium': True}\n{'id': 2, 'name': 'Lance Hoffman', 'emai",
-        "digest": "75a26d08d8814ded"
+      "337a1f017d3e#1": {
+        "stdout": "{'id': 1, 'name': 'Allison Hill', 'email': 'donaldgarcia@example.net', 'city': 'New Roberttown', 'signup_date': datetime.date(2024, 3, 9), 'is_premium': True}\n{'id': 2, 'name': 'Lance Hoffman', 'email",
+        "digest": "7e7f56a7f4ed0909"
       },
       "a1e0d908d3a4#1": {
-        "stdout": "   id               name  ... signup_date is_premium\n0   1       Allison Hill  ...  2024-12-01       True\n1   2      Lance Hoffman  ...  2025-05-30       True\n2   3       Tyler Rogers  ...  2025-10-20",
-        "digest": "157ec5d6afd5044f"
+        "stdout": "   id               name  ... signup_date is_premium\n0   1       Allison Hill  ...  2024-03-09       True\n1   2      Lance Hoffman  ...  2024-09-05       True\n2   3       Tyler Rogers  ...  2025-01-26",
+        "digest": "bdf087208d958129"
+      },
+      "b19e7db46e5c#1": {
+        "stdout": "   id               name  ... signup_date is_premium\n0   1       Allison Hill  ...  2024-03-09       True\n1   2      Lance Hoffman  ...  2024-09-05       True\n2   3       Tyler Rogers  ...  2025-01-26",
+        "digest": "4f36077305cf9822"
       }
     },
     "04-dont-forget-to-save-persisting-your-duckdb-database": {
-      "603ec9eeb253#1": {
-        "stdout": "   id           name  ... signup_date is_premium\n0   1   Allison Hill  ...  2024-12-01       True\n1   2  Lance Hoffman  ...  2025-05-30       True\n2   3   Tyler Rogers  ...  2025-10-20      False\n3   ",
-        "digest": "24fd1e47792467c9"
+      "2d31ebc84aa8#1": {
+        "stdout": "Created 500 customers!\n   id           name  ... signup_date is_premium\n0   1   Allison Hill  ...  2024-03-09       True\n1   2  Lance Hoffman  ...  2024-09-05       True\n2   3   Tyler Rogers  ...  202",
+        "digest": "fcb1f33f86e40280"
       },
-      "a98b6611cd8b#1": {
-        "stdout": "Created 500 customers!\n   id           name  ... signup_date is_premium\n0   1   Allison Hill  ...  2024-12-01       True\n1   2  Lance Hoffman  ...  2025-05-30       True\n2   3   Tyler Rogers  ...  202",
-        "digest": "c3cb34a140d521a5"
+      "603ec9eeb253#1": {
+        "stdout": "   id           name  ... signup_date is_premium\n0   1   Allison Hill  ...  2024-03-09       True\n1   2  Lance Hoffman  ...  2024-09-05       True\n2   3   Tyler Rogers  ...  2025-01-26      False\n3   ",
+        "digest": "cecca88fbc1457d1"
       },
       "eba0f600f610#1": {
         "stdout": "   id   name\n0   1  Alice\n",

@@ -63,6 +63,8 @@ That's it. One small change.
 Now, let's upgrade our customer generation script to use persistent storage. This version uses a handy `CREATE TABLE IF NOT EXISTS`, which will only create the table when it isn't there. This avoids errors that happen when you run the script multiple times. 
 
 ```python
+from datetime import date
+
 from faker import Faker
 import duckdb
 import random
@@ -97,7 +99,7 @@ if row_count == 0:
             fake.name(),
             fake.email(),
             fake.city(),
-            fake.date_between(start_date='-2y', end_date='today'),
+            fake.date_between(start_date=date(2024, 1, 1), end_date=date(2025, 12, 31)),
             random.choice([True, False, False, False])
         ))
     

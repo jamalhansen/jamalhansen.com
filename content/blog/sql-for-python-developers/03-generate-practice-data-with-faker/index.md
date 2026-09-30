@@ -62,6 +62,8 @@ pip install faker
 Now let's generate 500 customers:
 
 ```python
+from datetime import date
+
 from faker import Faker
 import random
 
@@ -78,7 +80,7 @@ for i in range(500):
             "name": fake.name(),
             "email": fake.email(),
             "city": fake.city(),
-            "signup_date": fake.date_between(start_date="-2y", end_date="today"),
+            "signup_date": fake.date_between(start_date=date(2024, 1, 1), end_date=date(2025, 12, 31)),
             "is_premium": random.choice([True, False, False, False]),
         }
     )
@@ -89,9 +91,9 @@ for c in customers[:3]:
 ```
 
 ```
-{'id': 1, 'name': 'Allison Hill', 'email': 'davidjones@example.com', 'city': 'Joshuamouth', 'signup_date': datetime.date(2024, 8, 3), 'is_premium': False}
-{'id': 2, 'name': 'Noah Rhodes', 'email': 'coleaustin@example.net', 'city': 'East Crystalbury', 'signup_date': datetime.date(2025, 6, 19), 'is_premium': False}
-{'id': 3, 'name': 'David Ferguson', 'email': 'jenniferharris@example.org', 'city': 'Johnsonville', 'signup_date': datetime.date(2024, 5, 12), 'is_premium': False}
+{'id': 1, 'name': 'Allison Hill', 'email': 'donaldgarcia@example.net', 'city': 'New Roberttown', 'signup_date': datetime.date(2024, 3, 9), 'is_premium': True}
+{'id': 2, 'name': 'Lance Hoffman', 'email': 'lrobinson@example.com', 'city': 'Port Lindachester', 'signup_date': datetime.date(2024, 9, 5), 'is_premium': True}
+{'id': 3, 'name': 'Tyler Rogers', 'email': 'jamesmichael@example.com', 'city': 'Lindsaymouth', 'signup_date': datetime.date(2025, 1, 26), 'is_premium': False}
 ```
 
 A few things to notice. First, `faker` can generate data for a variety of purposes and data types. We tell `faker` that we want a name or an email address, and it will generate not only a string, but an actual name or email address. 
@@ -157,6 +159,8 @@ You should see ten unique customers: real-looking names, varied cities, a mix of
 Here's everything in one runnable file:
 
 ```python
+from datetime import date
+
 from faker import Faker
 import random
 import duckdb
@@ -174,7 +178,7 @@ for i in range(500):
             "name": fake.name(),
             "email": fake.email(),
             "city": fake.city(),
-            "signup_date": fake.date_between(start_date="-2y", end_date="today"),
+            "signup_date": fake.date_between(start_date=date(2024, 1, 1), end_date=date(2025, 12, 31)),
             "is_premium": random.choice([True, False, False, False]),
         }
     )
