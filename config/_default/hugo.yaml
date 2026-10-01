@@ -8,9 +8,9 @@ module:
   imports:
     - path: github.com/adityatelange/hugo-PaperMod
 
+# categories was 18 inconsistent one-post pages (dBeaver, vs-code, AI Tools...); tags and series cover it.
 taxonomies:
   tag: tags
-  category: categories
   series: series
 
 markup:

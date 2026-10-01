@@ -18,7 +18,7 @@ cover:
 draft: false
 ---
 
-# The Shell Switch: Setting Your Native Tongue
+## The Shell Switch: Setting Your Native Tongue
 
 ## The Veil
 When you open a terminal in VS Code, is it PowerShell blue? That default shell was chosen for you, not by you. The AI that's helping you code assumes Bash. If your terminal doesn't match, you're not building. You're translating.
