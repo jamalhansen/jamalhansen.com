@@ -17,6 +17,9 @@ cover:
 draft: false
 ShowToc: false
 TocOpen: false
+
+series:
+- Notes and Knowledge
 ---
 
 I've committed to writing three blog posts a week and, to support this, I've been logging my ideas for posts in Obsidian. I've got the [Tasks plugin](https://publish.obsidian.md/tasks/Introduction) installed, so I've set up a little system that is loosely based on the [Jeff Goins three bucket writing system](https://goinswriter.com/three-buckets/).

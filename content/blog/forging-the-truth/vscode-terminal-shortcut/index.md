@@ -7,9 +7,7 @@ author:
 - Jamal Hansen
 tags:
 - vscode
-- terminal
-- keyboard-shortcut
-- integrated-terminal
+- command-line
 series:
 - Forging the Truth
 cover:

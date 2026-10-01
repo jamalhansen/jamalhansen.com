@@ -7,8 +7,8 @@ author:
 - Jamal Hansen
 tags:
 - aws
-- skillbuilder
-- gaming
+- certification
+- ai
 - learning
 - architecture
 categories:

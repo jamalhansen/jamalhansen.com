@@ -2,7 +2,7 @@
 title: 'NULL: The Value That Isn''t'
 slug: null-the-value-that-isnt
 date: 2026-04-13
-description: NULL means "unknown," not "empty." Why NULL = NULL isn't true, three-valued logic, and how NULL behaves in WHERE, GROUP BY, JOINs, and subqueries. Master COALESCE and NULLIF.
+description: "NULL means unknown, not empty. Why NULL = NULL isn't true, three-valued logic, and how NULL behaves in WHERE, GROUP BY, JOINs and subqueries."
 author:
 - Jamal Hansen
 tags:

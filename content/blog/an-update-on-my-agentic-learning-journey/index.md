@@ -6,11 +6,9 @@ description: An update after a few weeks about learning agentic AI, it's been a 
 author:
 - Jamal Hansen
 tags:
-- agentic-ai
-- artificial-intelligence
+- ai
 - learning
 - python
-- langchain
 categories:
 - technology
 cover:

@@ -2,15 +2,12 @@
 title: Ups and downs leading up to DEA-C01 test day
 slug: up-and-downs-leading-to-dea-c01-test-day
 date: 2025-05-05
-description: Since my last post where I expressed my concerns that my study efforts for the AWS Data Engineer - Associate Certification were not enough, I have taken more tests with mixed results.
+description: "More practice tests, mixed results, and the last stretch before the AWS Data Engineer Associate exam. The ups and downs of test week."
 author:
 - Jamal Hansen
 tags:
 - aws
 - certification
-- dea-c01
-- studying
-- preparation
 categories:
 - certification
 series:

@@ -3,12 +3,12 @@ title: 'DBeaver Sample Database: What''s Inside and How to Query It'
 slug: explore-the-sample-dbeaver-database
 date: 2025-04-20
 lastmod: 2026-05-23
-description: DBeaver's built-in sample database includes employees, customers, orders, and more -- enough to practice real SQL without setting up your own data. Here's what's inside and the first queries to run.
+description: "DBeaver ships a sample database with employees, customers and orders. Here's what's inside and the first queries to run on it."
 author:
 - Jamal Hansen
 tags:
-- dbeaver
-- sqlite
+- tools
+- sql
 categories:
 - database
 cover:

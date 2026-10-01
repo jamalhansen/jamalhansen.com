@@ -8,7 +8,7 @@ author:
 - Jamal Hansen
 tags:
 - java
-- junit
+- testing
 categories:
 - Automated testing
 draft: false

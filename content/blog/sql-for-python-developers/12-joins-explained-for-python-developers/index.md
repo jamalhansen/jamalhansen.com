@@ -1,5 +1,6 @@
 ---
 title: JOINs Explained for Python Developers
+lastmod: 2026-09-30
 slug: joins-explained-for-python-developers
 date: '2026-03-23'
 description: Connect related tables like looking up values in a Python dictionary. Covers INNER JOIN, LEFT JOIN, and when to use each.

@@ -8,7 +8,6 @@ author:
 - Jamal Hansen
 tags:
 - local-ai
-- ollama
 - python
 series:
 - I vibe coded and lived to tell

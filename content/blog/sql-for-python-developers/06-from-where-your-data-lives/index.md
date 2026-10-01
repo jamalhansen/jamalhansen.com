@@ -2,7 +2,7 @@
 title: 'FROM: Where Your Data Lives'
 slug: from-where-your-data-lives
 date: '2026-02-09'
-description: We write SELECT first, but FROM executes first. It's like the `for item in collection` part of a Python loop. You pick your data source before doing anything else.
+description: "We write SELECT first, but FROM runs first. It's the `for item in collection` part of a Python loop: pick your data source before anything else."
 author:
 - Jamal Hansen
 tags:

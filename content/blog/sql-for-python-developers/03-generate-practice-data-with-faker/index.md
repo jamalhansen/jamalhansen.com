@@ -2,7 +2,7 @@
 title: Generate Practice Data with faker
 slug: generate-practice-data-with-faker
 date: 2026-01-19
-lastmod: 2026-01-13
+lastmod: 2026-09-30
 description: Real SQL practice needs real-looking data. Generate hundreds of customers with Python's Faker library without downloading a single CSV
 author:
 - Jamal Hansen
@@ -10,7 +10,6 @@ tags:
 - python
 - duckdb
 - sql
-- faker
 series:
 - SQL for Python Developers
 cover:

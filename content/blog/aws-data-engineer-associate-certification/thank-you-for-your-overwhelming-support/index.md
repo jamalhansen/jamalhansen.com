@@ -6,11 +6,10 @@ description: I recently posted on Linked In that I did not pass my AWS Data Engi
 author:
 - Jamal Hansen
 tags:
-- gratitude
+- writing
 - aws
 - certification
-- community
-- linkedin
+- conferences
 categories:
 - personal
 series:

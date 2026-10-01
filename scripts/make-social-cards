@@ -1,0 +1,99 @@
+#!/usr/bin/env python3
+"""Generate the 1200x630 social sharing images: one for the site, one per series.
+
+Output: static/social-card.png and static/social/<series-slug>.png.
+Run with `make social-cards` (needs Pillow; the make target supplies it).
+"""
+
+import re
+from pathlib import Path
+
+from PIL import Image, ImageDraw, ImageFont
+
+ROOT = Path(__file__).resolve().parent.parent
+W, H = 1200, 630
+BG, INK, DIM, GREEN = (250, 250, 247), (30, 30, 30), (108, 108, 108), (16, 185, 129)
+FONTS = [
+    "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+    "/System/Library/Fonts/Helvetica.ttc",
+    "/Library/Fonts/Arial Bold.ttf",
+]
+
+
+def font(size: int, bold: bool = True) -> ImageFont.FreeTypeFont:
+    for path in FONTS:
+        try:
+            return ImageFont.truetype(path, size, index=1 if (path.endswith(".ttc") and bold) else 0)
+        except OSError:
+            continue
+    return ImageFont.load_default()
+
+
+def wrap(draw: ImageDraw.ImageDraw, text: str, f: ImageFont.FreeTypeFont, width: int) -> list[str]:
+    words, lines, cur = text.split(), [], ""
+    for w in words:
+        trial = f"{cur} {w}".strip()
+        if draw.textlength(trial, font=f) <= width:
+            cur = trial
+        else:
+            lines.append(cur)
+            cur = w
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def card(title: str, subtitle: str, kicker: str, out: Path) -> None:
+    img = Image.new("RGB", (W, H), BG)
+    d = ImageDraw.Draw(img)
+    d.rectangle([0, 0, 18, H], fill=GREEN)
+    d.text((80, 70), kicker.upper(), font=font(26), fill=GREEN)
+    size = 78
+    while True:
+        f = font(size)
+        lines = wrap(d, title, f, W - 160)
+        if len(lines) <= 3 or size <= 44:
+            break
+        size -= 6
+    y = 130
+    for line in lines:
+        d.text((80, y), line, font=f, fill=INK)
+        y += int(size * 1.18)
+    y += 18
+    for line in wrap(d, subtitle, font(34, bold=False), W - 160)[:3]:
+        d.text((80, y), line, font=font(34, bold=False), fill=DIM)
+        y += 46
+    avatar_path = ROOT / "static" / "author.png"
+    if avatar_path.exists():
+        av = Image.open(avatar_path).convert("RGBA").resize((110, 110))
+        mask = Image.new("L", av.size, 0)
+        ImageDraw.Draw(mask).ellipse([0, 0, 110, 110], fill=255)
+        img.paste(av, (80, H - 150), mask)
+        d.text((210, H - 128), "Jamal Hansen", font=font(32), fill=INK)
+        d.text((210, H - 86), "jamalhansen.com", font=font(28, bold=False), fill=DIM)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    img.save(out, optimize=True)
+    print("wrote", out.relative_to(ROOT))
+
+
+def series_pages() -> list[tuple[str, str, str]]:
+    out = []
+    for index in (ROOT / "content" / "series").glob("*/_index.md"):
+        text = index.read_text()
+        if re.search(r"^draft:\s*true", text, re.M):
+            continue
+        title = re.search(r'^title:\s*"?(.+?)"?\s*$', text, re.M)
+        desc = re.search(r'^description:\s*"?(.+?)"?\s*$', text, re.M)
+        out.append((index.parent.name, title.group(1) if title else index.parent.name, desc.group(1) if desc else ""))
+    return out
+
+
+if __name__ == "__main__":
+    card(
+        "SQL for Python developers, local AI you can run yourself, and honest notes from building with LLMs.",
+        "Long-form series that build on each other. DuckDB, Ollama, Obsidian, and what actually happened.",
+        "jamalhansen.com",
+        ROOT / "static" / "social-card.png",
+    )
+    for slug, title, desc in series_pages():
+        card(title, desc, "A series on jamalhansen.com", ROOT / "static" / "social" / f"{slug}.png")

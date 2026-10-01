@@ -7,10 +7,8 @@ description: Use Testing Library's within() to query nested elements in one read
 author:
 - Jamal Hansen
 tags:
-- JavaScript
-- jest
-- vite
-- testing-library
+- javascript
+- testing
 categories:
 - Automated testing
 - Today I learned

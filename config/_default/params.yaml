@@ -3,10 +3,10 @@
 ############################
 
 env: production
-description: "Technical blog exploring SQL, Python, and AI development"
+description: "SQL for Python developers, local AI you can run yourself, and honest notes from building with LLMs."
 keywords: [Python, SQL, DuckDB, LLM, Ollama, Data Science, AI Agents, PostgreSQL, Analytics]
 author: Jamal Hansen
-images: ["/author.png"]
+images: ["/social-card.png"]
 
 # Which content sections to show on homepage
 mainSections:
@@ -16,6 +16,8 @@ defaultTheme: auto
 disableThemeToggle: false
 ShowReadingTime: true
 ShowShareButtons: true
+ShareButtons: ["x", "linkedin", "reddit"]
+ShowFullTextinRSS: true
 ShowPostNavLinks: true
 ShowBreadCrumbs: true
 ShowCodeCopyButtons: true
@@ -40,14 +42,14 @@ homeInfoParams:
 
     <br>
 
-    **Start here:**
+    **New here?** [Start here](/start/), or jump into:
 
     - [SQL for Python Developers](/series/sql-for-python-developers/)
     - [I Vibe Coded and Lived to Tell](/series/i-vibe-coded-and-lived-to-tell/)
     - [Run AI Locally with Python](/blog/local-ai-stack-uv-ollama/)
     - [Karpathy's LLM Knowledge Base Method](/blog/road-to-agentic-notes/)
 
-    [Get weekly writing on SQL, Python, and AI <span class="btn-subtext">— join the newsletter</span>](https://jamalhansen.beehiiv.com)
+    [Get new posts by email <span class="btn-subtext">— plus what I'm reading and building</span>](https://jamalhansen.beehiiv.com)
 
 socialIcons:
   - name: rss

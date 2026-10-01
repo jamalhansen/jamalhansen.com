@@ -2,7 +2,7 @@
 # `make install-hooks` runs. The hook lost this way once already (re-clone,
 # 2026-09-07); the weekly com.localfirst.blog-validation job is the backstop.
 
-.PHONY: help serve install-hooks validate check-hooks publish find preview drift snapshot
+.PHONY: help serve install-hooks validate check-hooks publish find preview drift snapshot now social-cards
 
 help:
 	@echo "make serve          - hugo server with drafts"
@@ -14,6 +14,8 @@ help:
 	@echo "make find FIND=<vault find>       - convert a vault find into content/finds/"
 	@echo "make preview POST=<vault note>    - render a note as a draft in the real theme"
 	@echo "make drift                        - list published posts where vault and site disagree"
+	@echo "make now                          - refresh data/now.json for the /now/ page from the local fleet"
+	@echo "make social-cards                 - regenerate the social sharing images in static/"
 
 serve:
 	hugo server -D
@@ -53,3 +55,9 @@ preview:
 
 drift:
 	obsidian-hugo drift --hugo-dir . --vault-blog "$(VAULT)/blog" $(ARGS)
+
+now:
+	python3 scripts/refresh-now
+
+social-cards:
+	uv run --with pillow python3 scripts/make-social-cards

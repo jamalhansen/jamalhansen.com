@@ -2,13 +2,13 @@
 title: The Makefile was Lying to Me
 slug: the-makefile-was-lying-to-me
 date: '2026-06-10'
-description: Gemini saw a wall of green checkmarks and declared 27 tools verified. The Makefile printed FAIL and exited 0 anyway. Here's how we made it loud, annoying, and honest.
+description: "Gemini saw a wall of green checkmarks and declared 27 tools verified. The Makefile printed FAIL and exited 0. How we made it loud, annoying and honest."
 author: BartBot
 tags:
-- engineering
-- vibes
-- automation
-- pitfalls
+- architecture
+- vibe-coding
+- tools
+- sql
 series:
 - I vibe coded and lived to tell
 cover:

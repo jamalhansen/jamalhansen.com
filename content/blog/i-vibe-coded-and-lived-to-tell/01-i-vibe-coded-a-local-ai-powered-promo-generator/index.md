@@ -2,13 +2,12 @@
 title: I Vibe Coded a Local AI-Powered Promo Generator
 slug: i-vibe-coded-a-local-ai-powered-promo-generator
 date: 2026-02-28
-description: I got tired of rewriting the same post for five social platforms every week, so I built a local AI tool with Ollama to do it. Here's what broke, why a two-pass architecture fixed it, and whether small models can carry a real recurring task.
+description: "Tired of rewriting one post for five platforms, I built a local AI tool with Ollama. What broke, why two passes fixed it, and whether small models can carry it."
 author:
 - Jamal Hansen
 tags:
 - local-ai
 - vibe-coding
-- ollama
 series:
 - I vibe coded and lived to tell
 cover:

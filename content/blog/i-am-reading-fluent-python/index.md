@@ -7,8 +7,7 @@ description: I'm reading the book Fluent Python because I want to level up my Py
 author:
 - Jamal Hansen
 tags:
-- fluent-python
-- reading
+- learning
 categories:
 - Python
 cover:

@@ -7,8 +7,7 @@ author:
 date: 2026-03-10
 lastmod: ""
 tags:
-  - tsql2sday
-  - tsqltuesday
+- tsql-tuesday
 series:
 cover:
   image: "t-sql-tuesday-logo.jpg.webp"

@@ -7,8 +7,8 @@ description: I downloaded the community edition of dBeaver today and enjoyed the
 author:
 - Jamal Hansen
 tags:
-- dbeaver
-- databases
+- tools
+- sql
 categories:
 - dBeaver
 cover:

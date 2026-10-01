@@ -1,8 +1,6 @@
 ---
 title: Blog
-description: "Insights on data engineering, AWS certifications, AI technologies, and the evolving landscape of modern software development"
+description: "SQL for Python developers, local AI you can run on your own machine, and field notes from building real tools with LLMs."
 ---
 
-Welcome to my blog where I share my journey as a data engineer exploring the intersection of cloud technologies, artificial intelligence, and purposeful system design.
-
-Here you'll find practical insights from my AWS certification journey, experiments with agentic AI systems, and reflections on building technology solutions that matter.
+Most posts here are part of a series, so if one is useful, the one before it probably is too. The [SQL for Python Developers](/series/sql-for-python-developers/) series is the place to start if you came for SQL; [I Vibe Coded and Lived to Tell](/series/i-vibe-coded-and-lived-to-tell/) if you came for the AI stories.

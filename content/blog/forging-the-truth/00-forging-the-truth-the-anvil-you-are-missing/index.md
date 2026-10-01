@@ -6,10 +6,10 @@ description: The terminal window is a powerful tool that lets you quickly verify
 author:
 - Jamal Hansen
 tags:
-- cli
+- command-line
 - ai
-- beginner
-- series-intro
+- learning
+- writing
 series:
 - Forging the Truth
 cover:

@@ -8,7 +8,6 @@ author:
 tags:
 - aws
 - certification
-- failure
 - learning
 categories:
 - certification

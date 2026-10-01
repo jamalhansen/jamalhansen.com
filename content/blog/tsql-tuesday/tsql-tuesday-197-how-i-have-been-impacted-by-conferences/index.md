@@ -6,8 +6,7 @@ author:
 date: 2026-04-14
 lastmod: ""
 tags:
-  - tsql2sday
-  - tsqltuesday
+- tsql-tuesday
 category:
   - "Blog Post"
 series:

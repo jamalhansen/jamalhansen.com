@@ -32,8 +32,8 @@
             </h3>
             <p>{{ .description | default (.content | truncate 160) }}</p>
             <div class="series-meta">
-                <span>{{ .count }} {{ if eq .count 1 }}deep dive{{ else }}deep dives{{ end }}</span>
-                <a href="{{ .permalink }}" class="read-more">Explore Path →</a>
+                <span>{{ .count }} {{ if eq .count 1 }}post{{ else }}posts{{ end }}</span>
+                <a href="{{ .permalink }}" class="read-more">Start reading →</a>
             </div>
         </div>
     </div>

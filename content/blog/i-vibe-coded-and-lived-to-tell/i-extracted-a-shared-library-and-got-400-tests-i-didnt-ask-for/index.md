@@ -3,7 +3,7 @@ title: I Extracted a Shared Library and Got 400 Tests I Didn't Ask For
 slug: i-extracted-a-shared-library-and-got-400-tests-i-didnt-ask-for
 date: 2026-04-10
 lastmod: 2026-03-31
-description: Six Python projects, four duplicated files, one shared library. Here's the code behind the extraction, what moved, what didn't, and the surprise that made it worth it.
+description: "Six Python projects, four duplicated files, one shared library. The code behind the extraction, what moved, and the surprise that made it worth it."
 author:
 - Jamal Hansen
 tags:

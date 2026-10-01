@@ -24,9 +24,6 @@ tags:
 - sql
 - duckdb
 - search
-- bm25
-- vector-search
-- pyohio
 - conferences
 target_date: 2026-07-24
 title: 'Go Hybrid: Find the Results LIKE Can''t'

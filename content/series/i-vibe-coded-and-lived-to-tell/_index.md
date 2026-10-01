@@ -2,6 +2,8 @@
 title: "I Vibe Coded and Lived to Tell"
 description: "What happens when you build real AI tools with AI writing the code? Chaos mostly, but also hard-won lessons about what small models can and can't do."
 weight: 3
+images: ["/social/i-vibe-coded-and-lived-to-tell.png"]
+outcome: "Know what small local models can carry in real, recurring work"
 ---
 
 Vibe coding is what happens when you let an AI write code you don't fully understand, ship it anyway, and then deal with whatever it does in production. 
@@ -19,3 +21,7 @@ No sanitized tutorials. No success-only stories. Just honest accounts of what lo
   <strong>New here? Start with the first post:</strong><br>
   <a href="/blog/i-vibe-coded-a-local-ai-powered-promo-generator/">I Vibe Coded a Local AI-Powered Promo Generator →</a>
 </div>
+
+## What you'll take away
+
+By the end you'll know where a 3B to 7B model on your own machine is good enough, where it quietly isn't, and the handful of patterns (two-pass prompts, loud Makefiles, tests the model can't talk its way around) that made these tools dependable enough to run every day.

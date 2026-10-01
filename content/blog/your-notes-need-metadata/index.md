@@ -7,19 +7,16 @@ description: You have been taking notes for a month. You cannot find anything. H
 author:
 - Jamal Hansen
 tags:
-- knowledge-management
 - obsidian
-- frontmatter
-- yaml
-- foam
-- notes
-- agentic-notes
 cover:
   image: screenshot-of-frontmatter-from-post.jpg
   alt: Screenshot of the frontmatter from the markdown version of this post in Obsidian
   caption: ''
   relative: true
 draft: false
+
+series:
+- Notes and Knowledge
 ---
 
 You have been [taking notes for a month](https://jamalhansen.com/blog/road-to-agentic-notes/). Thirty, maybe fifty notes. You remember writing something about how Python handles default arguments. You cannot find it.

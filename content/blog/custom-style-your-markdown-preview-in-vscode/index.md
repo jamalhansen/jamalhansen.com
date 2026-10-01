@@ -7,7 +7,7 @@ description: Want to make all your markdown previews look nice? Here is how
 author:
 - Jamal Hansen
 tags:
-- markdown
+- obsidian
 - vscode
 categories:
 - VS Code

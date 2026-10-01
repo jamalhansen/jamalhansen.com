@@ -8,7 +8,7 @@ author:
 - Jamal Hansen
 tags:
 - java
-- byte
+- python
 categories:
 - Java
 draft: false

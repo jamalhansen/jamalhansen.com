@@ -10,7 +10,7 @@ tags:
 - vibe-coding
 - architecture
 - python
-- gemini
+- ai
 series:
 - I vibe coded and lived to tell
 cover:

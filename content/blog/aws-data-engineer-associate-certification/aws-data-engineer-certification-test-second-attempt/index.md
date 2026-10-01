@@ -2,14 +2,13 @@
 title: AWS Data Engineer Associate Certification Test - Take 2
 slug: aws-data-engineer-certification-test-second-attempt
 date: 2025-06-20
-description: This morning I took the DEA-C01 AWS Data Engineer Associate Certification Test for the second time. I haven't gotten my results yet, but am jotting down my thoughts on the second attempt
+description: "I took the DEA-C01 AWS Data Engineer Associate exam for the second time this morning. No results yet, but here are my thoughts on the attempt."
 author:
 - Jamal Hansen
 tags:
 - aws
 - certification
-- success
-- data-engineering
+- sql
 categories:
 - certification
 series:

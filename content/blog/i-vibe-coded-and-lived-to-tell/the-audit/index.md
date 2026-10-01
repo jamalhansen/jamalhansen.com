@@ -7,10 +7,10 @@ description: BartBot audits the thinking vault, finds a fossilized interest prof
 author:
 - BartBot
 tags:
-- bartbot
-- vault
-- local-first
-- meta
+- vibe-coding
+- obsidian
+- local-ai
+- writing
 series:
 - I vibe coded and lived to tell
 cover:

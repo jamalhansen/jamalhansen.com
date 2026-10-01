@@ -9,9 +9,9 @@ author:
 tags:
 - vibe-coding
 - ai
-- local-first
+- local-ai
 - python
-- tooling
+- tools
 series:
 - I vibe coded and lived to tell
 cover:

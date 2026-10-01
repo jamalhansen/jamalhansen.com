@@ -1,0 +1,128 @@
+#!/usr/bin/env python3
+"""Write data/now.json for the /now/ page from the local fleet's own files.
+
+Everything is optional: a source that isn't there is left out of the JSON,
+and the page shows what it has. Run `make now`, then commit with the next push.
+"""
+
+import json
+import re
+import sqlite3
+import sys
+from datetime import date, datetime, timedelta
+from pathlib import Path
+
+HOME = Path.home()
+ROOT = Path(__file__).resolve().parent.parent
+OUT = ROOT / "data" / "now.json"
+STATUS = HOME / "sync" / "local-first" / "writing-practice-latest.json"
+ART_ITEMS = HOME / "iCloud" / "ai-artist" / "items"
+VAULT_BLOG = HOME / "vaults" / "BrainSync" / "blog" / "series"
+CALIB_DB = HOME / "sync" / "calibration" / "calibration.db"
+DISCOVERY_DB = HOME / "sync" / "content-discovery" / "store.db"
+
+
+def frontmatter(path: Path) -> dict:
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    m = re.match(r"---\n(.*?)\n---", text, re.DOTALL)
+    out = {}
+    if m:
+        for line in m.group(1).splitlines():
+            if ":" in line and not line.startswith((" ", "-")):
+                k, v = line.split(":", 1)
+                v = v.strip()
+                if len(v) >= 2 and v[0] == v[-1] and v[0] in "'\"":
+                    v = v[1:-1].replace("''", "'") if v[0] == "'" else v[1:-1].replace('\\"', '"')
+                out[k.strip()] = v
+    return out
+
+
+def last_post() -> dict | None:
+    posts = []
+    for p in (ROOT / "content" / "blog").rglob("index.md"):
+        fm = frontmatter(p)
+        if fm.get("draft") == "true" or not fm.get("date"):
+            continue
+        posts.append((fm["date"][:10], fm.get("title", p.parent.name), fm.get("slug", p.parent.name)))
+    if not posts:
+        return None
+    d, title, slug = max(posts)
+    return {"title": title, "url": f"/blog/{slug}/", "date": d}
+
+
+def writing() -> dict | None:
+    if not STATUS.exists():
+        return None
+    s = json.loads(STATUS.read_text())
+    days = s.get("days", [])
+    return {
+        "streak": s.get("today", {}).get("streak", 0),
+        "days_written_last_30": sum(1 for d in days if d.get("done")),
+        "starters_ready": sum(1 for x in s.get("starters", []) if not x.get("held")),
+    }
+
+
+def art() -> dict | None:
+    if not ART_ITEMS.exists():
+        return None
+    items = sorted(ART_ITEMS.glob("*.md"))
+    if not items:
+        return None
+    fm = frontmatter(items[-1])
+    title = fm.get("title", items[-1].stem)
+    return {"title": title[:90] + ("…" if len(title) > 90 else ""), "interest": fm.get("interest", ""), "date": items[-1].name[:10]}
+
+
+def current_series() -> dict | None:
+    if not VAULT_BLOG.exists():
+        return None
+    best = None
+    for s in VAULT_BLOG.iterdir():
+        if not s.is_dir():
+            continue
+        pending = [n for n in s.rglob("*.md") if n.name != "promo.md" and frontmatter(n).get("status") in ("outline", "draft")]
+        if not pending:
+            continue
+        statuses = [frontmatter(n).get("status") for n in pending]
+        touched = max(n.stat().st_mtime for n in pending)
+        if best is None or touched > best[0]:
+            index = next((frontmatter(n).get("title", "") for n in s.glob("*index*.md")), "")
+            name = re.sub(r"\s*[-:]?\s*series index\s*$", "", index, flags=re.I) or s.name.replace("-", " ").title()
+            best = (touched, {"name": name, "outlines": statuses.count("outline"), "drafts": statuses.count("draft")})
+    return best[1] if best else None
+
+
+def reading() -> dict | None:
+    if not (CALIB_DB.exists() and DISCOVERY_DB.exists()):
+        return None
+    since = (datetime.now().astimezone() - timedelta(days=30)).isoformat()
+    try:
+        c = sqlite3.connect(f"file:{CALIB_DB}?mode=ro", uri=True)
+        docs = c.execute(
+            "SELECT reading_progress, highlights, tags FROM reader_docs WHERE saved_at >= ?", (since,)
+        ).fetchall()
+        c.close()
+    except sqlite3.Error:
+        return None
+    engaged = sum(1 for p, h, t in docs if (p or 0) >= 0.5 or (h or 0) > 0 or "contexta" in (t or ""))
+    return {"surfaced_last_30": len(docs), "engaged_last_30": engaged}
+
+
+def main() -> None:
+    data = {"generated": date.today().isoformat()}
+    for key, fn in [("last_post", last_post), ("writing", writing), ("art", art),
+                    ("current_series", current_series), ("reading", reading)]:
+        try:
+            value = fn()
+        except Exception as e:  # noqa: BLE001 - one missing source must not stop the others
+            print(f"{key}: skipped ({e})", file=sys.stderr)
+            value = None
+        if value:
+            data[key] = value
+    OUT.parent.mkdir(exist_ok=True)
+    OUT.write_text(json.dumps(data, indent=2) + "\n")
+    print(f"wrote {OUT.relative_to(ROOT)}: {', '.join(k for k in data if k != 'generated')}")
+
+
+if __name__ == "__main__":
+    main()

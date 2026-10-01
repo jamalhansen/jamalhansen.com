@@ -2,15 +2,13 @@
 title: Adding Claude to my evolving goal flow
 slug: adding-claude-to-my-evolving-goal-flow
 date: 2025-07-13
-description: For the past five years I've been intentional in my yearly goals, writing them down in markdown form and tracking them through the year. In the past few months I've added AI to my goal workflow.
+description: "Five years of yearly goals in markdown, now with Claude in the loop. How I added AI to goal setting and review without losing the habit."
 author:
 - Jamal Hansen
 tags:
-- claude
-- artificial-intelligence
-- goals
-- productivity
-- workflow
+- ai
+- writing
+- tools
 categories:
 - productivity
 cover:
@@ -25,6 +23,9 @@ cover:
 draft: false
 ShowToc: false
 TocOpen: false
+
+series:
+- Notes and Knowledge
 ---
 
 Tracking my yearly goals is a habit that has evolved in time. Around ten years ago I began formally writing down my yearly goals. I had recently become a manager at work for the first time and realized that I was unprepared for the task.

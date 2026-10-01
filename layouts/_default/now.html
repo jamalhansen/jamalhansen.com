@@ -1,0 +1,54 @@
+{{- define "main" }}
+{{- $now := site.Data.now }}
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- with .Description }}<div class="post-description">{{ . }}</div>{{ end }}
+  </header>
+
+  {{- with $now }}
+  <div class="now-grid">
+    {{- with .writing }}
+    <div class="now-card">
+      <div class="l">Writing</div>
+      <div class="v">{{ .days_written_last_30 }} of the last 30 days</div>
+      <div class="s">{{ if gt .streak 0 }}{{ .streak }}-day streak{{ else }}no streak right now{{ end }} · {{ .starters_ready }} post starters waiting</div>
+    </div>
+    {{- end }}
+    {{- with .last_post }}
+    <div class="now-card">
+      <div class="l">Last post</div>
+      <div class="v"><a href="{{ .url }}">{{ .title }}</a></div>
+      <div class="s">{{ .date }}</div>
+    </div>
+    {{- end }}
+    {{- with .current_series }}
+    <div class="now-card">
+      <div class="l">Working on</div>
+      <div class="v">{{ .name }}</div>
+      <div class="s">{{ .outlines }} outlined, {{ .drafts }} drafted</div>
+    </div>
+    {{- end }}
+    {{- with .art }}
+    <div class="now-card">
+      <div class="l">Today's art agent piece</div>
+      <div class="v">{{ .title }}</div>
+      <div class="s">direction: {{ .interest }} · {{ .date }}</div>
+    </div>
+    {{- end }}
+    {{- with .reading }}
+    <div class="now-card">
+      <div class="l">Reading</div>
+      <div class="v">{{ .engaged_last_30 }} articles read closely in the last 30 days</div>
+      <div class="s">of {{ .surfaced_last_30 }} my feed filter surfaced</div>
+    </div>
+    {{- end }}
+  </div>
+  <p style="color:var(--secondary);font-size:0.9rem;">Updated {{ .generated }}.</p>
+  {{- else }}
+  <p>Nothing here yet.</p>
+  {{- end }}
+
+  <div class="post-content">{{ .Content }}</div>
+</article>
+{{- end }}

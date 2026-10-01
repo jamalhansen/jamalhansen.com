@@ -8,17 +8,18 @@ author:
 - Jamal Hansen
 tags:
 - python
-- ollama
-- uv
 - local-ai
-- llm
 - tools
+- ai
 cover:
   image: terminal-running-local-llm.png
   alt: A terminal window showing a Python script calling a local LLM with no API key
   caption: ''
   relative: true
 draft: false
+
+series:
+- Local-First AI
 ---
 
 How do you run a local LLM from a Python script? Install Ollama, pull a model, install uv, write one file with inline dependencies, and run it. No API key. No virtual environment to activate. No Docker. The whole setup takes under ten minutes.

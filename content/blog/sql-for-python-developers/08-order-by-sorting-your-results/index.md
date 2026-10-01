@@ -2,7 +2,7 @@
 title: 'ORDER BY: Sorting Your Results'
 slug: order-by-sorting-your-results
 date: '2026-02-23'
-description: SQL returns rows in no guaranteed order. Run the same query twice and you might get different results. ORDER BY gives you control, like Python's sorted() with key functions.
+description: "SQL returns rows in no guaranteed order; the same query can come back differently twice. ORDER BY gives you control, like Python's sorted() with keys."
 author:
 - Jamal Hansen
 tags:

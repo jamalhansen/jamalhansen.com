@@ -1,0 +1,104 @@
+{{- define "main" }}
+{{- $pages := .Pages.ByDate }}
+{{- $n := len $pages }}
+{{- $minutes := 0 }}
+{{- range $pages }}{{ $minutes = add $minutes .ReadingTime }}{{ end }}
+{{- $key := printf "series-progress:%s" .Data.Term }}
+
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>
+    {{ .Title }}
+    {{- with .OutputFormats.Get "rss" }}
+    <a href="{{ .RelPermalink }}" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" /><path d="M4 4a16 16 0 0 1 16 16" /><circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+    {{- end }}
+  </h1>
+  {{- with .Description }}
+  <div class="post-description">{{ . | markdownify }}</div>
+  {{- end }}
+</header>
+
+<div class="series-intro-grid">
+  <div class="series-fact"><div class="l">Posts</div><div class="v">{{ $n }}</div></div>
+  <div class="series-fact"><div class="l">Reading time</div><div class="v">about {{ if ge $minutes 60 }}{{ div $minutes 60 }} h {{ mod $minutes 60 }} min{{ else }}{{ $minutes }} min{{ end }}</div></div>
+  {{- with .Params.prerequisites }}
+  <div class="series-fact"><div class="l">You need</div><div class="v">{{ . }}</div></div>
+  {{- end }}
+  {{- with .Params.outcome }}
+  <div class="series-fact"><div class="l">By the end</div><div class="v">{{ . }}</div></div>
+  {{- end }}
+</div>
+
+{{- if .Content }}
+<div class="post-content">
+  {{- partial "anchored_headings.html" .Content -}}
+</div>
+{{- end }}
+
+{{- with .Params.download }}
+<div class="series-download">
+  <strong>Practice data:</strong> <a href="{{ .url }}">{{ .label }}</a>
+  {{- with .note }} <span style="color:var(--secondary)">({{ . }})</span>{{ end }}
+</div>
+{{- end }}
+
+<div class="series-progress" data-key="{{ $key }}">
+  <span class="count">0 of {{ $n }} read</span>
+  <div class="bar"><div></div></div>
+  <button type="button" class="reset" style="background:none;border:none;color:var(--secondary);cursor:pointer;font-size:0.85rem;">reset</button>
+</div>
+
+<ol class="series-list" data-key="{{ $key }}">
+  {{- range $i, $p := $pages }}
+  <li data-id="{{ $p.RelPermalink }}">
+    <span class="num">{{ printf "%02d" (add $i 1) }}</span>
+    <input type="checkbox" aria-label="Mark “{{ $p.Title }}” as read">
+    <div>
+      <a class="t" href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+      {{- with $p.Description }}<p class="d">{{ . }}</p>{{ end }}
+      <div class="m">{{ $p.Date.Format "Jan 2, 2006" }} · {{ $p.ReadingTime }} min</div>
+    </div>
+  </li>
+  {{- end }}
+</ol>
+
+<script>
+(function () {
+  var list = document.querySelector('.series-list');
+  var prog = document.querySelector('.series-progress');
+  if (!list || !prog) return;
+  var key = list.dataset.key, items = list.querySelectorAll('li');
+  var read = {};
+  try { read = JSON.parse(localStorage.getItem(key) || '{}'); } catch (e) {}
+  function paint() {
+    var n = 0;
+    items.forEach(function (li) {
+      var on = !!read[li.dataset.id];
+      li.classList.toggle('read', on);
+      li.querySelector('input').checked = on;
+      if (on) n++;
+    });
+    prog.querySelector('.count').textContent = n + ' of ' + items.length + ' read';
+    prog.querySelector('.bar > div').style.width = (items.length ? 100 * n / items.length : 0) + '%';
+  }
+  items.forEach(function (li) {
+    li.querySelector('input').addEventListener('change', function (e) {
+      if (e.target.checked) read[li.dataset.id] = 1; else delete read[li.dataset.id];
+      try { localStorage.setItem(key, JSON.stringify(read)); } catch (err) {}
+      paint();
+    });
+  });
+  prog.querySelector('.reset').addEventListener('click', function () {
+    read = {};
+    try { localStorage.removeItem(key); } catch (err) {}
+    paint();
+  });
+  paint();
+})();
+</script>
+{{- end }}{{/* end main */ -}}

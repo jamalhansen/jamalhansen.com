@@ -3,16 +3,13 @@ title: Karpathy's LLM Knowledge Base Method - A Practical Starting Point
 slug: road-to-agentic-notes
 date: 2026-04-05
 lastmod: 2026-05-15
-description: Karpathy called LLM-based knowledge bases "something I'm finding very useful recently." Here's why the architecture works and how to start building one in practice.
+description: "Karpathy called LLM-based knowledge bases \"very useful.\" Why the architecture works and how to start building one in practice."
 author:
 - Jamal Hansen
 tags:
-- knowledge-management
-- llm
 - obsidian
-- foam
-- notes
-- junior-developer
+- ai
+- learning
 categories:
 - AI Tools
 - Developer Productivity
@@ -22,6 +19,9 @@ cover:
   caption: ''
   relative: true
 draft: false
+
+series:
+- Notes and Knowledge
 ---
 
 Karpathy's LLM knowledge base method works by having an LLM maintain a wiki of markdown files rather than retrieving from raw documents at query time. When you add a source, the LLM integrates it into the existing network, updating pages, revising summaries, and noting contradictions. By the time you need an answer, the synthesis is already done. Your job is to curate sources and ask good questions. The LLM does everything else. 

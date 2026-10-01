@@ -8,7 +8,7 @@ author:
 - Jamal Hansen
 tags:
 - python
-- uv
+- tools
 categories:
 - Python
 draft: false

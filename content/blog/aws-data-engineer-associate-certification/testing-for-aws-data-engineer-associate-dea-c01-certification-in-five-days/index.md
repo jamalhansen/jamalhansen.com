@@ -2,15 +2,12 @@
 title: I test for the AWS Data Engineer Associate Certification in five days
 slug: testing-for-aws-data-engineer-associate-dea-c01-certification-in-five-days
 date: 2025-05-04
-description: As I approach the exam date for the AWS Data Engineer Associate Certification (DEA-C01) exam, I'm having second thoughts about my chances of passing after a poor practice test score.
+description: "Five days before the AWS Data Engineer Associate (DEA-C01) exam, a poor practice score has me doubting my chances. Here's the plan anyway."
 author:
 - Jamal Hansen
 tags:
 - aws
 - certification
-- dea-c01
-- anxiety
-- preparation
 categories:
 - certification
 series:

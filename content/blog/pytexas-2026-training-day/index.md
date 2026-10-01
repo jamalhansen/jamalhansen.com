@@ -8,10 +8,9 @@ author:
 - Jamal Hansen
 tags:
 - python
-- pytexas
-- ai-tools
-- developer-productivity
 - conferences
+- ai
+- tools
 categories:
 - Python
 - Developer Productivity

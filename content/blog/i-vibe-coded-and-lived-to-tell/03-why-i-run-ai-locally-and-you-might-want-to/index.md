@@ -8,8 +8,7 @@ author:
 - Jamal Hansen
 tags:
 - local-ai
-- philosophy
-- ollama
+- writing
 series:
 - I vibe coded and lived to tell
 cover:

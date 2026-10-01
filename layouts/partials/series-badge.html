@@ -1,0 +1,12 @@
+{{- /* "Part 4 of 25 · SQL for Python Developers", linked to the series page. Shown under the post title. */ -}}
+{{- with .Params.series }}
+{{- $name := cond (reflect.IsSlice .) (index . 0) . }}
+{{- $pages := (where site.RegularPages ".Params.series" "intersect" (slice $name)).ByDate }}
+{{- $n := len $pages }}
+{{- if gt $n 1 }}
+{{- $idx := 0 }}
+{{- range $i, $p := $pages }}{{ if eq $p.Permalink $.Permalink }}{{ $idx = $i }}{{ end }}{{ end }}
+{{- $seriesPage := site.GetPage (printf "/series/%s" (urlize $name)) }}
+<a class="series-badge" href="{{ with $seriesPage }}{{ .RelPermalink }}{{ else }}/series/{{ end }}">Part {{ add $idx 1 }} of {{ $n }} · {{ with $seriesPage }}{{ .Title }}{{ else }}{{ $name }}{{ end }}</a>
+{{- end }}
+{{- end }}
