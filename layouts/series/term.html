@@ -40,6 +40,13 @@
 </div>
 {{- end }}
 
+{{- with index $pages 0 }}
+<div class="series-start-here">
+  <strong>New here? Start with the first post:</strong><br>
+  <a href="{{ .RelPermalink }}">{{ .Title }} →</a>
+</div>
+{{- end }}
+
 {{- with .Params.download }}
 <div class="series-download">
   <strong>Practice data:</strong> <a href="{{ .url }}">{{ .label }}</a>
@@ -66,6 +73,11 @@
   </li>
   {{- end }}
 </ol>
+
+<div class="series-signup">
+  <h3>Get the next post in this series by email</h3>
+  {{ partial "newsletter_form.html" . }}
+</div>
 
 <script>
 (function () {

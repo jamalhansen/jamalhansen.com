@@ -24,6 +24,11 @@ if [ $? -ne 0 ]; then
 fi
 
 # Frontmatter shape of staged posts (nested blocks, missing description, cover without alt, ...).
+# Keep /now/ current: data/now.json is regenerated from the local fleet on every commit.
+if [ -x scripts/refresh-now ]; then
+    python3 scripts/refresh-now >/dev/null 2>&1 && git add data/now.json
+fi
+
 staged=$(git diff --cached --name-only --diff-filter=ACM -- 'content/blog/**/index.md' 'content/blog/*/index.md')
 if [ -n "$staged" ]; then
     if command -v obsidian-hugo &> /dev/null; then

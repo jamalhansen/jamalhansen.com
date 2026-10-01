@@ -13,6 +13,10 @@ categories:
 - Automated testing
 draft: false
 ShowToc: false
+cover:
+  image: cover.jpg
+  alt: "Wooden boxes of decreasing size stacked and nested on a workbench"
+  relative: true
 ---
 
 I really like the way that I can nest my JavaScript tests using describe blocks. This keeps my tests nicely organized and grouped together in functional blocks which can be super useful when you get a whole lot of tests created.

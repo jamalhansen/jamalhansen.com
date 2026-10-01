@@ -15,6 +15,10 @@ categories:
 draft: false
 ShowToc: false
 TocOpen: false
+cover:
+  image: cover.jpg
+  alt: "A magnifying glass resting on an open book in a library"
+  relative: true
 ---
 
 I've been working through Stephen Grider's [React Testing Library and Jest](http://udemy.com/course/react-testing-library-and-jest) course and stumbled on something that will clean up my tests: the `within()` function.

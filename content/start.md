@@ -39,4 +39,6 @@ The [AWS Data Engineer Associate](/series/aws-data-engineer-associate-certificat
 
 ---
 
-Prefer email? [Subscribe](https://jamalhansen.beehiiv.com) and new posts come to you.
+Prefer email? New posts come to you, with a few notes on what I'm reading and building.
+
+{{< newsletter >}}

@@ -15,6 +15,10 @@ series:
 draft: false
 ShowToc: true
 TocOpen: false
+cover:
+  image: cover.jpg
+  alt: "An hourglass on a study desk beside a stack of notes and a lamp"
+  relative: true
 ---
 
 A couple of months ago I decided that I wanted to know more about AWS Glue and other related AWS data services. I have the AWS Solutions Architect - Associate certification, and it made sense that in order to learn AWS Data Engineering, I would attempt the related AWS Associate (DEA-C01) Certification.

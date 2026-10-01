@@ -14,6 +14,10 @@ categories:
 draft: false
 ShowToc: false
 TocOpen: false
+cover:
+  image: cover.jpg
+  alt: "A single sheet of paper on a clipboard beside a small potted fern"
+  relative: true
 ---
 
 Ever wanted to share a Python script that uses external packages without making the recipient set up a virtual environment? With `uv`, you can embed dependencies directly in the script.

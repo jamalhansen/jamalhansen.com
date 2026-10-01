@@ -1142,3 +1142,30 @@ code, kbd, pre, samp {
     height: 140px;
   }
 }
+
+/* Footer links */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+  margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+  color: var(--secondary);
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+.series-signup {
+  margin: 2.5rem 0 1rem;
+  text-align: center;
+}
+
+.series-signup h3 {
+  margin-bottom: 0.75rem;
+}

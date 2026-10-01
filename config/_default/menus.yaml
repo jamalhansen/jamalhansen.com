@@ -17,5 +17,5 @@ main:
     weight: 4
   - identifier: subscribe
     name: Subscribe
-    url: https://jamalhansen.beehiiv.com
+    url: /newsletter/
     weight: 5

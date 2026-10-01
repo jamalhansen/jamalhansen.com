@@ -17,7 +17,7 @@ I'm a data scientist building production AI applications. I write for Python dev
 - **[Local AI, honestly](/series/i-vibe-coded-and-lived-to-tell/)**: field notes from building real tools with small models running on my own machine. What they can carry, what they can't, and what I had to fix.
 - **[Notes and knowledge](/blog/road-to-agentic-notes/)**: how I use Obsidian, metadata and LLMs to think, and what Karpathy's knowledge-base method looks like in practice.
 
-Not sure where to begin? The [start here](/start/) page picks the best post for each of those.
+Not sure where to begin? The [start here](/start/) page picks the best post for each of those. For what I'm writing and building this week, there's a [now page](/now/) that my own tools keep current.
 
 ## Talks
 

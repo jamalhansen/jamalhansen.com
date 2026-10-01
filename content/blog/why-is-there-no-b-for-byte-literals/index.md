@@ -14,6 +14,10 @@ categories:
 draft: false
 ShowToc: false
 TocOpen: false
+cover:
+  image: cover.jpg
+  alt: "Close-up of vintage typewriter keys catching the light"
+  relative: true
 ---
 
 Today I was coding in Java and I came across a part of the code where I was using a byte literal. I've been using Java for a while, so I knew that you have to suffix `long` literals with an 'L' otherwise Java complains.

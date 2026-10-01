@@ -6,6 +6,10 @@ author:
 draft: false
 title: "My First Post"
 description: "A new beginning in learning, building, and sharing in public."
+cover:
+  image: cover.jpg
+  alt: "A fountain pen resting on the first page of a blank notebook in morning light"
+  relative: true
 ---
 
 ## A bold reboot

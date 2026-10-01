@@ -17,10 +17,6 @@ These posts are field notes from building real, recurring tools:
 
 No sanitized tutorials. No success-only stories. Just honest accounts of what local AI models do when you ask them to carry actual work, and what you have to fix when they get creative.
 
-<div class="series-start-here">
-  <strong>New here? Start with the first post:</strong><br>
-  <a href="/blog/i-vibe-coded-a-local-ai-powered-promo-generator/">I Vibe Coded a Local AI-Powered Promo Generator →</a>
-</div>
 
 ## What you'll take away
 

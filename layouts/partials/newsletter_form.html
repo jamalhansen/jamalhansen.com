@@ -1,0 +1,12 @@
+{{- /* Beehiiv signup form. Used by the newsletter shortcode and the series pages. */ -}}
+<div class="newsletter-signup">
+  <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+  <iframe
+    src="https://subscribe-forms.beehiiv.com/{{ site.Params.beehiivId }}"
+    class="beehiiv-embed"
+    title="Newsletter signup"
+    frameborder="0"
+    scrolling="no"
+    style="width: 100%; max-width: 560px; height: 315px; margin: 0 auto; display: block; border-radius: 0px; background-color: transparent; box-shadow: none;">
+  </iframe>
+</div>

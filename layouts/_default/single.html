@@ -60,11 +60,13 @@
 
   {{- partial "author_bio.html" . }}
 
+  {{- if not (.Param "hideNewsletterFooter") }}
   <div class="footer-newsletter" style="max-width: 800px; margin: 1.5rem auto; padding: 1.5rem; text-align: center; border-top: 1px solid var(--border);">
     <h4 style="margin-top: 0;">Get new posts by email</h4>
     <p style="margin-bottom: 1rem; color: var(--secondary);">When a post is ready, it lands in your inbox, with a few notes on what I'm reading and building. No schedule, no filler.</p>
-    <a href="https://jamalhansen.beehiiv.com" class="newsletter-btn">Subscribe to Newsletter</a>
+    <a href="/newsletter/" class="newsletter-btn">Subscribe to the newsletter</a>
   </div>
+  {{- end }}
 
   {{- if (.Param "comments") }}
   {{- partial "comments.html" . }}
