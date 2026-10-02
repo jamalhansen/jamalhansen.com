@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+"""Tell Bing (and the other IndexNow engines) which pages changed.
+
+Reads the live sitemap and submits pages whose lastmod falls in the last
+--days days (default 14). Pass URLs to submit just those, or --all for every
+page. Run after a deploy is live: the engines fetch the key file from the site.
+"""
+
+import argparse
+import json
+import re
+import sys
+import urllib.request
+from datetime import date, timedelta
+from pathlib import Path
+
+HOST = "jamalhansen.com"
+ROOT = Path(__file__).resolve().parent.parent
+KEYS = list((ROOT / "static").glob("[0-9a-f]" * 32 + ".txt"))
+
+
+def sitemap_urls(days):
+    xml = urllib.request.urlopen(f"https://{HOST}/sitemap.xml").read().decode()
+    since = (date.today() - timedelta(days=days)).isoformat()
+    for loc, lastmod in re.findall(r"<loc>([^<]+)</loc>\s*(?:<lastmod>([^<]+)</lastmod>)?", xml):
+        if "/tags/" in loc:  # tag pages are noindex
+            continue
+        if days is None or (lastmod and lastmod[:10] >= since):
+            yield loc
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("urls", nargs="*")
+    ap.add_argument("--days", type=int, default=14)
+    ap.add_argument("--all", action="store_true")
+    ap.add_argument("--dry-run", action="store_true")
+    args = ap.parse_args()
+
+    if len(KEYS) != 1:
+        sys.exit(f"expected one IndexNow key file in static/, found {len(KEYS)}")
+    key = KEYS[0].stem
+    urls = args.urls or list(sitemap_urls(None if args.all else args.days))
+    if not urls:
+        print("nothing changed in that window")
+        return
+    print("\n".join(urls))
+    if args.dry_run:
+        return
+
+    body = json.dumps({"host": HOST, "key": key, "keyLocation": f"https://{HOST}/{key}.txt",
+                       "urlList": urls}).encode()
+    req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body,
+                                 headers={"Content-Type": "application/json; charset=utf-8"})
+    with urllib.request.urlopen(req) as resp:
+        print(f"IndexNow: {resp.status} for {len(urls)} URLs")
+
+
+if __name__ == "__main__":
+    main()

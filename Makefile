@@ -2,7 +2,7 @@
 # `make install-hooks` runs. The hook lost this way once already (re-clone,
 # 2026-09-07); the weekly com.localfirst.blog-validation job is the backstop.
 
-.PHONY: help serve install-hooks validate check-hooks publish find preview drift snapshot now social-cards
+.PHONY: help serve install-hooks validate check-hooks publish find preview drift snapshot now indexnow social-cards
 
 help:
 	@echo "make serve          - hugo server with drafts"
@@ -15,6 +15,7 @@ help:
 	@echo "make preview POST=<vault note>    - render a note as a draft in the real theme"
 	@echo "make drift                        - list published posts where vault and site disagree"
 	@echo "make now                          - refresh data/now.json for the /now/ page from the local fleet"
+	@echo "make indexnow [ARGS=--all]        - after a deploy, tell Bing which pages changed (last 14 days)"
 	@echo "make social-cards                 - regenerate the social sharing images in static/"
 
 serve:
@@ -58,6 +59,9 @@ drift:
 
 now:
 	python3 scripts/refresh-now
+
+indexnow:
+	python3 scripts/indexnow $(ARGS)
 
 social-cards:
 	uv run --with pillow python3 scripts/make-social-cards
