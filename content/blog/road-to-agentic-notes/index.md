@@ -3,7 +3,7 @@ title: Karpathy's LLM Knowledge Base Method - A Practical Starting Point
 slug: road-to-agentic-notes
 date: 2026-04-05
 lastmod: 2026-05-15
-description: "Karpathy called LLM-based knowledge bases \"very useful.\" Why the architecture works and how to start building one in practice."
+description: Karpathy called LLM-based knowledge bases "very useful." Why the architecture works and how to start building one in practice.
 author:
 - Jamal Hansen
 tags:
@@ -13,15 +13,14 @@ tags:
 categories:
 - AI Tools
 - Developer Productivity
+series:
+- Notes and Knowledge
 cover:
   image: road-to-bright-sky.jpg
   alt: View of a wet highway under stormy clouds, showing a bright sunset glow and an exit sign on the right.
   caption: ''
   relative: true
 draft: false
-
-series:
-- Notes and Knowledge
 ---
 
 Karpathy's LLM knowledge base method works by having an LLM maintain a wiki of markdown files rather than retrieving from raw documents at query time. When you add a source, the LLM integrates it into the existing network, updating pages, revising summaries, and noting contradictions. By the time you need an answer, the synthesis is already done. Your job is to curate sources and ask good questions. The LLM does everything else. 
@@ -30,7 +29,7 @@ Karpathy's LLM knowledge base method works by having an LLM maintain a wiki of m
 
 The basic idea is that an LLM builds and maintains a wiki for you. You drop in source material. The LLM reads it, extracts what matters, and integrates it into an existing network of markdown files. It updates pages when new information contradicts old claims. It cross-references concepts across everything you have ever added. 
 
-What makes it interesting goes beyond note-taking. That network of markdown files lives on your local device. An LLM you chat with in Claude Code (or any tool with filesystem access) can use it as context.
+What makes it interesting goes beyond note-taking. That network of markdown files lives on your local device. An LLM you chat with in Claude Code (or any tool with filesystem access, including [a model running on your own machine](/blog/local-ai-stack-uv-ollama/)) can use it as context.
 
 Every source you add makes the whole thing richer. Every question compounds.
 
@@ -127,9 +126,11 @@ Do this for a month. You will have somewhere between thirty and a hundred notes,
 
 At that point, you will hit the first real problem: you cannot find the note you know you wrote. You remember writing something about what happens when a git pull fails mid-merge, but you cannot remember what you called it.
 
-That is the signal that your notes need to be queryable. Tags, dates, status fields, and structured metadata that let you filter and search by something other than the title. That is the next post.
+That is the signal that your notes need to be queryable. Tags, dates, status fields, and structured metadata that let you filter and search by something other than the title. That is [the next post](/blog/your-notes-need-metadata/).
 
 After that, the notes you have been building are the raw material Karpathy's system needs. Same files. Same links. The LLM picks up maintenance from where you left off. Your month of notes becomes the foundation of the compounding system you wanted at the start.
+
+I run one of these myself, and I write about what works and what breaks in the [Notes and Knowledge](/series/notes-and-knowledge/) series. If you want those posts when they come out, the newsletter is the easiest way.
 
 {{< newsletter >}}
 
