@@ -21,11 +21,11 @@ KEYS = list((ROOT / "static").glob("[0-9a-f]" * 32 + ".txt"))
 
 def sitemap_urls(days):
     xml = urllib.request.urlopen(f"https://{HOST}/sitemap.xml").read().decode()
-    since = (date.today() - timedelta(days=days)).isoformat()
+    since = None if days is None else (date.today() - timedelta(days=days)).isoformat()  # --all: no window
     for loc, lastmod in re.findall(r"<loc>([^<]+)</loc>\s*(?:<lastmod>([^<]+)</lastmod>)?", xml):
         if "/tags/" in loc:  # tag pages are noindex
             continue
-        if days is None or (lastmod and lastmod[:10] >= since):
+        if since is None or (lastmod and lastmod[:10] >= since):
             yield loc
 
 
