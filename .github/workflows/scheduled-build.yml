@@ -2,8 +2,13 @@ name: Scheduled Hugo Build
 
 on:
   schedule:
-    # Runs at 11 AM UTC Daily (6 AM CDT)
-    - cron: '0 11 * * *'
+    # 08:17 UTC daily (03:17 CDT / 02:17 CST). GitHub runs scheduled jobs late
+    # when many share a slot: at '0 11' the runs of 2026-10-08..10 fired between
+    # 16:00 and 18:00 UTC, so a Monday-dated post appeared around lunchtime, not
+    # at the 8am CT the publishing rule promises. An odd minute, early, is the
+    # usual way to get a prompt run; buildFuture is false, so this build is what
+    # makes a future-dated post appear.
+    - cron: '17 8 * * *'
   
   # Allows manual triggering from Actions tab
   workflow_dispatch:

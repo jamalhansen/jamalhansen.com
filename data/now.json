@@ -1,19 +1,19 @@
 {
-  "generated": "2026-10-08",
+  "generated": "2026-10-10",
   "last_post": {
     "title": "Why my writing-starter tooling didn't get me writing",
     "url": "/blog/why-my-writing-starter-tooling-didn-t-get-me-writing/",
     "date": "2026-10-04"
   },
   "writing": {
-    "streak": 5,
-    "days_written_last_30": 8,
+    "streak": 7,
+    "days_written_last_30": 10,
     "starters_ready": 17
   },
   "art": {
-    "title": "A recent news signal of a sudden reversal is the Ukrainian government's\u2026",
-    "interest": "Headline-reactive abstraction",
-    "date": "2026-10-08"
+    "title": "A worn, electroplated bike frame leans against a makeshift vendor's cart, its\u2026",
+    "interest": "Cyberpunk without cliche",
+    "date": "2026-10-10"
   },
   "current_series": {
     "name": "Python For Excel People",
@@ -21,7 +21,7 @@
     "drafts": 1
   },
   "reading": {
-    "surfaced_last_30": 250,
-    "engaged_last_30": 13
+    "surfaced_last_30": 255,
+    "engaged_last_30": 17
   }
 }
