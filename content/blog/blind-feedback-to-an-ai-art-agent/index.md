@@ -14,7 +14,7 @@ cover:
   alt: A translucent human figure threaded with light, standing in a cathedral of pink and orange filaments
   caption: ''
   relative: true
-draft: true
+draft: false
 date: 2026-10-10
 ---
 
