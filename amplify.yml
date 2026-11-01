@@ -48,10 +48,10 @@ frontend:
         - git config --add core.quotepath false
 
         # 8. Hugo Modules
-        # RECOMMENDATION: removed "-u". Only use "-u" if you want to force upgrade 
-        # dependencies on every single build (can cause instability). 
-        # Just "hugo mod get" is safer.
-        - hugo mod get
+        # No `hugo mod get`: it upgrades PaperMod to its newest commit, which
+        # needs Hugo 0.158+ while HUGO_VERSION is 0.146.7, and every build failed
+        # from 2026-10-19. The theme stays at the version pinned in go.mod/go.sum;
+        # upgrade it deliberately together with HUGO_VERSION.
         - hugo mod tidy
 
     build:
