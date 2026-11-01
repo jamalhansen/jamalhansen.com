@@ -4,7 +4,7 @@ env:
     # Application versions
     DART_SASS_VERSION: 1.85.0
     GO_VERSION: 1.23.2
-    HUGO_VERSION: 0.146.7
+    HUGO_VERSION: 0.169.0
     # Time zone
     TZ: America/Chicago
     # Cache Configuration
@@ -49,8 +49,8 @@ frontend:
 
         # 8. Hugo Modules
         # No `hugo mod get`: it upgrades PaperMod to its newest commit, which
-        # needs Hugo 0.158+ while HUGO_VERSION is 0.146.7, and every build failed
-        # from 2026-10-19. The theme stays at the version pinned in go.mod/go.sum;
+        # once needed a newer Hugo than HUGO_VERSION and failed every build from
+        # 2026-10-19. The theme stays at the version pinned in go.mod/go.sum;
         # upgrade it deliberately together with HUGO_VERSION.
         - hugo mod tidy
 

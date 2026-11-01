@@ -7,14 +7,12 @@
   {{- with $pages.Prev . }}
   <a class="prev" href="{{ .Permalink }}">
     <span class="title">« Older</span>
-    <br>
     <span>{{- .Title -}}</span>
   </a>
   {{- end }}
   {{- with $pages.Next . }}
   <a class="next" href="{{ .Permalink }}">
     <span class="title">Newer »</span>
-    <br>
     <span>{{- .Title -}}</span>
   </a>
   {{- end }}

@@ -672,6 +672,44 @@ code, kbd, pre, samp {
 .home-info .entry-content {
   font-size: 1.1rem;
   line-height: 1.7;
+  margin: 0.8em 0;
+}
+
+/* PaperMod's 2026-10 theme gave home paragraphs a 1em margin; the hero relies on
+   its own spacing (the pills and button set theirs). */
+.home-info .entry-content p {
+  margin-block: 0;
+}
+
+/* The 2026-10 theme added a flex gap to the breadcrumbs; ours already pad the
+   separator with non-breaking spaces. */
+.breadcrumbs {
+  gap: 0;
+}
+
+/* Prose keeps the original look after the theme's 2026-10 change: the 1px
+   underline under links and 24px between paragraphs. */
+.md-content a:not(.anchor) {
+  text-decoration: none;
+  box-shadow: 0 1px 0;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.post-content.md-content > p {
+  margin-bottom: 24px;
+}
+
+.post-content.md-content .highlight {
+  margin: 10px 0;
+}
+
+/* List and series pages keep the pre-2026-10 underline for links in their intro:
+   the theme now only underlines inside .md-content. */
+.post-content:not(.md-content) a {
+  box-shadow: 0 1px 0;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 /* "Start here" links as friendly pills */

@@ -1,5 +1,5 @@
 baseURL: "https://jamalhansen.com/"
-languageCode: "en-us"
+locale: "en-us"
 title: "Jamal Hansen"
 enableRobotsTXT: true
 enableEmoji: true
@@ -43,7 +43,7 @@ permalinks:
 
 # Tag pages are thin (most tags have one or two posts): keep them out of search indexes.
 cascade:
-  - _target:
+  - target:
       kind: term
       path: /tags/**
     params:
