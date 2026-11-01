@@ -2,7 +2,7 @@
 title: Karpathy's LLM Knowledge Base Method - A Practical Starting Point
 slug: road-to-agentic-notes
 date: 2026-04-05
-lastmod: 2026-05-15
+lastmod: 2026-11-01
 description: Karpathy called LLM-based knowledge bases "very useful." Why the architecture works and how to start building one in practice.
 author:
 - Jamal Hansen
@@ -144,3 +144,4 @@ I run one of these myself, and I write about what works and what breaks in the [
 - [Obsidian](https://obsidian.md): when you are ready to graduate from VS Code
 - [Andy Matuschak's working notes](https://notes.andymatuschak.org): the philosophy behind note-as-claim, shown in practice
 - [DAIR.AI breakdown of LLM Knowledge Bases](https://academy.dair.ai/blog/llm-knowledge-bases-karpathy): thorough explanation of the architecture and why it works at personal scale
+- [Six Months of an LLM-Maintained Wiki](/blog/six-months-of-an-llm-maintained-wiki/): what I learned running my own version for six months, including the 614 notes I archived
