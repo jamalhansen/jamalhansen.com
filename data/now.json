@@ -1,19 +1,19 @@
 {
-  "generated": "2026-11-01",
+  "generated": "2026-11-08",
   "last_post": {
     "title": "Six Months of an LLM-Maintained Wiki",
     "url": "/blog/six-months-of-an-llm-maintained-wiki/",
     "date": "2026-11-01"
   },
   "writing": {
-    "streak": 2,
-    "days_written_last_30": 4,
-    "starters_ready": 30
+    "streak": 1,
+    "days_written_last_30": 6,
+    "starters_ready": 31
   },
   "art": {
-    "title": "A vendor at a street market holds a small terracotta clay vessel\u2026",
-    "interest": "Cyberpunk without cliche",
-    "date": "2026-11-01"
+    "title": "A wireframe lattice tunnel of eight concentric square frames on true black.\u2026",
+    "interest": "Synesthetic wireframe",
+    "date": "2026-11-08"
   },
   "current_series": {
     "name": "Sql For Python Devs",
@@ -21,7 +21,7 @@
     "drafts": 3
   },
   "reading": {
-    "surfaced_last_30": 72,
-    "engaged_last_30": 23
+    "surfaced_last_30": 58,
+    "engaged_last_30": 18
   }
 }
