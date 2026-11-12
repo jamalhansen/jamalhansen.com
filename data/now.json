@@ -1,19 +1,19 @@
 {
-  "generated": "2026-11-08",
+  "generated": "2026-11-11",
   "last_post": {
-    "title": "Six Months of an LLM-Maintained Wiki",
-    "url": "/blog/six-months-of-an-llm-maintained-wiki/",
-    "date": "2026-11-01"
+    "title": "I Got Tired of Explaining Myself",
+    "url": "/blog/i-got-tired-of-explaining-myself/",
+    "date": "2026-11-11"
   },
   "writing": {
     "streak": 1,
-    "days_written_last_30": 6,
+    "days_written_last_30": 7,
     "starters_ready": 31
   },
   "art": {
-    "title": "A wireframe lattice tunnel of eight concentric square frames on true black.\u2026",
+    "title": "A wireframe lattice tunnel of eight concentric square frames receding to a\u2026",
     "interest": "Synesthetic wireframe",
-    "date": "2026-11-08"
+    "date": "2026-11-11"
   },
   "current_series": {
     "name": "Sql For Python Devs",
@@ -21,7 +21,7 @@
     "drafts": 3
   },
   "reading": {
-    "surfaced_last_30": 57,
-    "engaged_last_30": 18
+    "surfaced_last_30": 47,
+    "engaged_last_30": 12
   }
 }
